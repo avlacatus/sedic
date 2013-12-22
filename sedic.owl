@@ -1,0 +1,347 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/cosmin/ontologies/sedic#"
+     xml:base="http://www.semanticweb.org/cosmin/ontologies/sedic"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#affectsBodyZone -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#affectsBodyZone">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#AffectedBodyArea"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#Affection"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#hasUsage -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#hasUsage">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#PlantUsage"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#Remedy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#isAffectedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#isAffectedBy">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#Affection"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#MedicalCondition"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#isCureFor -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#isCureFor">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#Affection"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#Remedy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#isPartOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#isPartOf">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#Plant"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#Remedy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#notRecommendedFor -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#notRecommendedFor">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#MedicalCondition"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#Remedy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#AffectionType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#AffectionType">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#Affection"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#MCAge -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#MCAge">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#MedicalCondition"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#MCHeight -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#MCHeight">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#MedicalCondition"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#MCIsInPregnancy -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#MCIsInPregnancy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#MedicalCondition"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#MCWeight -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#MCWeight">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#MedicalCondition"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#affectedAreaName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#affectedAreaName">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#AffectedBodyArea"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#affectionIntensity -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#affectionIntensity">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#Affection"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#plantDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#plantDescription">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#Plant"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#plantName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#plantName">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#Plant"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#plantOrigin -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#plantOrigin">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#Plant"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#plantUsageOil -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#plantUsageOil">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#PlantUsage"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#AffectedBodyArea -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#AffectedBodyArea"/>
+    
+
+
+    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#Affection -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#Affection"/>
+    
+
+
+    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#MedicalCondition -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#MedicalCondition"/>
+    
+
+
+    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#Plant -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#Plant"/>
+    
+
+
+    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#PlantUsage -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#PlantUsage"/>
+    
+
+
+    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#Remedy -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#Remedy"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#Arm -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#Arm">
+        <rdf:type rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#AffectedBodyArea"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#Head -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#Head">
+        <rdf:type rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#AffectedBodyArea"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#Heart -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#Heart">
+        <rdf:type rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#AffectedBodyArea"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#Knee -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#Knee">
+        <rdf:type rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#AffectedBodyArea"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#Leg -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#Leg">
+        <rdf:type rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#AffectedBodyArea"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#Neck -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#Neck">
+        <rdf:type rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#AffectedBodyArea"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#Skin -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#Skin">
+        <rdf:type rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#AffectedBodyArea"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#Throat -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#Throat">
+        <rdf:type rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#AffectedBodyArea"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#ceai_de_tei -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#ceai_de_tei">
+        <rdf:type rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#Remedy"/>
+        <isCureFor rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#raceala"/>
+        <isPartOf rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#tei"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#raceala -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#raceala">
+        <rdf:type rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#Affection"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#tei -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#tei">
+        <rdf:type rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#Plant"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
