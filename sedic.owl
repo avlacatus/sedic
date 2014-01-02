@@ -6,6 +6,7 @@
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY sedic "http://www.infoiasi.ro/wad/ontologies/sedic#" >
 ]>
 
 
@@ -14,8 +15,9 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-    <owl:Ontology rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic"/>
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:sedic="http://www.infoiasi.ro/wad/ontologies/sedic#">
+    <owl:Ontology rdf:about="http://www.infoiasi.ro/wad/ontologies/sedic"/>
     
 
 
@@ -30,56 +32,56 @@
     
 
 
-    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#affectsBodyZone -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#affectsBodyZone -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#affectsBodyZone">
-        <rdfs:range rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#AffectedBodyArea"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#Affection"/>
+    <owl:ObjectProperty rdf:about="&sedic;affectsBodyZone">
+        <rdfs:range rdf:resource="&sedic;AnatomicEntity"/>
+        <rdfs:domain rdf:resource="&sedic;Disease"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#hasUsage -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#hasUsage -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#hasUsage">
-        <rdfs:range rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#PlantUsage"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#Remedy"/>
+    <owl:ObjectProperty rdf:about="&sedic;hasUsage">
+        <rdfs:range rdf:resource="&sedic;PlantUsage"/>
+        <rdfs:domain rdf:resource="&sedic;Remedy"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#isAffectedBy -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#isAffectedBy -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#isAffectedBy">
-        <rdfs:range rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#Affection"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#MedicalCondition"/>
+    <owl:ObjectProperty rdf:about="&sedic;isAffectedBy">
+        <rdfs:range rdf:resource="&sedic;Disease"/>
+        <rdfs:domain rdf:resource="&sedic;MedicalCondition"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#isCureFor -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#isCureFor -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#isCureFor">
-        <rdfs:range rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#Affection"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#Remedy"/>
+    <owl:ObjectProperty rdf:about="&sedic;isCureFor">
+        <rdfs:range rdf:resource="&sedic;Disease"/>
+        <rdfs:domain rdf:resource="&sedic;Remedy"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#isPartOf -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#isPartOf -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#isPartOf">
-        <rdfs:range rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#Plant"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#Remedy"/>
+    <owl:ObjectProperty rdf:about="&sedic;isPartOf">
+        <rdfs:range rdf:resource="&sedic;Plant"/>
+        <rdfs:domain rdf:resource="&sedic;Remedy"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#notRecommendedFor -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#notRecommendedFor -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#notRecommendedFor">
-        <rdfs:range rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#MedicalCondition"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#Remedy"/>
+    <owl:ObjectProperty rdf:about="&sedic;notRecommendedFor">
+        <rdfs:range rdf:resource="&sedic;MedicalCondition"/>
+        <rdfs:domain rdf:resource="&sedic;Remedy"/>
     </owl:ObjectProperty>
     
 
@@ -95,100 +97,99 @@
     
 
 
-    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#AffectionType -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#affectedAreaName -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#AffectionType">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#Affection"/>
+    <owl:DatatypeProperty rdf:about="&sedic;affectedAreaName">
+        <rdfs:domain rdf:resource="&sedic;AnatomicEntity"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#MCAge -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#affectionType -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#MCAge">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#MedicalCondition"/>
+    <owl:DatatypeProperty rdf:about="&sedic;affectionType">
+        <rdfs:domain rdf:resource="&sedic;Disease"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#hasAge -->
+
+    <owl:DatatypeProperty rdf:about="&sedic;hasAge">
+        <rdfs:domain rdf:resource="&sedic;MedicalCondition"/>
         <rdfs:range rdf:resource="&xsd;int"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#MCHeight -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#hasHeight -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#MCHeight">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#MedicalCondition"/>
+    <owl:DatatypeProperty rdf:about="&sedic;hasHeight">
+        <rdfs:domain rdf:resource="&sedic;MedicalCondition"/>
         <rdfs:range rdf:resource="&xsd;int"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#MCIsInPregnancy -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#hasWeight -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#MCIsInPregnancy">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#MedicalCondition"/>
+    <owl:DatatypeProperty rdf:about="&sedic;hasWeight">
+        <rdfs:domain rdf:resource="&sedic;MedicalCondition"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#has_mesh_uid -->
+
+    <owl:DatatypeProperty rdf:about="&sedic;has_mesh_uid">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#isInPregnancy -->
+
+    <owl:DatatypeProperty rdf:about="&sedic;isInPregnancy">
+        <rdfs:domain rdf:resource="&sedic;MedicalCondition"/>
         <rdfs:range rdf:resource="&xsd;boolean"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#MCWeight -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#plantDescription -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#MCWeight">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#MedicalCondition"/>
-        <rdfs:range rdf:resource="&xsd;int"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#affectedAreaName -->
-
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#affectedAreaName">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#AffectedBodyArea"/>
+    <owl:DatatypeProperty rdf:about="&sedic;plantDescription">
+        <rdfs:domain rdf:resource="&sedic;Plant"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#affectionIntensity -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#plantName -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#affectionIntensity">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#Affection"/>
-        <rdfs:range rdf:resource="&xsd;int"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#plantDescription -->
-
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#plantDescription">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#Plant"/>
+    <owl:DatatypeProperty rdf:about="&sedic;plantName">
+        <rdfs:domain rdf:resource="&sedic;Plant"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#plantName -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#plantOrigin -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#plantName">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#Plant"/>
+    <owl:DatatypeProperty rdf:about="&sedic;plantOrigin">
+        <rdfs:domain rdf:resource="&sedic;Plant"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#plantOrigin -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#plantUsageOil -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#plantOrigin">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#Plant"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#plantUsageOil -->
-
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#plantUsageOil">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#PlantUsage"/>
+    <owl:DatatypeProperty rdf:about="&sedic;plantUsageOil">
+        <rdfs:domain rdf:resource="&sedic;PlantUsage"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -205,39 +206,961 @@
     
 
 
-    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#AffectedBodyArea -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#AnatomicEntity -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#AffectedBodyArea"/>
+    <owl:Class rdf:about="&sedic;AnatomicEntity">
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="&sedic;has_mesh_uid"/>
+        </owl:hasKey>
+    </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#Affection -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Animal_Diseases -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#Affection"/>
+    <owl:Class rdf:about="&sedic;Animal_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+    </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#MedicalCondition -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Arbovirus_Infections -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#MedicalCondition"/>
+    <owl:Class rdf:about="&sedic;Arbovirus_Infections">
+        <rdfs:subClassOf rdf:resource="&sedic;Virus_Diseases"/>
+    </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#Plant -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Bacterial_Infections -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#Plant"/>
+    <owl:Class rdf:about="&sedic;Bacterial_Infections">
+        <rdfs:subClassOf rdf:resource="&sedic;Bacterial_Infections_and_Mycoses"/>
+    </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#PlantUsage -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Bacterial_Infections_and_Mycoses -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#PlantUsage"/>
+    <owl:Class rdf:about="&sedic;Bacterial_Infections_and_Mycoses">
+        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+    </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#Remedy -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Biliary_Tract -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#Remedy"/>
+    <owl:Class rdf:about="&sedic;Biliary_Tract">
+        <rdfs:subClassOf rdf:resource="&sedic;Digestive_System"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Blood_Vessels -->
+
+    <owl:Class rdf:about="&sedic;Blood_Vessels">
+        <rdfs:subClassOf rdf:resource="&sedic;Cardiovascular_System"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Body_Regions -->
+
+    <owl:Class rdf:about="&sedic;Body_Regions">
+        <rdfs:subClassOf rdf:resource="&sedic;AnatomicEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Brain_Abscess -->
+
+    <owl:Class rdf:about="&sedic;Brain_Abscess">
+        <rdfs:subClassOf rdf:resource="&sedic;Bacterial_Infections_and_Mycoses"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Breast -->
+
+    <owl:Class rdf:about="&sedic;Breast">
+        <rdfs:subClassOf rdf:resource="&sedic;Body_Regions"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Bronchiolitis,_Viral -->
+
+    <owl:Class rdf:about="&sedic;Bronchiolitis,_Viral">
+        <rdfs:subClassOf rdf:resource="&sedic;Virus_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Cardiovascular_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Cardiovascular_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Cardiovascular_System -->
+
+    <owl:Class rdf:about="&sedic;Cardiovascular_System">
+        <rdfs:subClassOf rdf:resource="&sedic;AnatomicEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Cells -->
+
+    <owl:Class rdf:about="&sedic;Cells">
+        <rdfs:subClassOf rdf:resource="&sedic;AnatomicEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Central_Nervous_System -->
+
+    <owl:Class rdf:about="&sedic;Central_Nervous_System">
+        <rdfs:subClassOf rdf:resource="&sedic;Nervous_System"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Central_Nervous_System_Infections -->
+
+    <owl:Class rdf:about="&sedic;Central_Nervous_System_Infections">
+        <rdfs:subClassOf rdf:resource="&sedic;Bacterial_Infections_and_Mycoses"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Central_Nervous_System_Parasitic_Infections -->
+
+    <owl:Class rdf:about="&sedic;Central_Nervous_System_Parasitic_Infections">
+        <rdfs:subClassOf rdf:resource="&sedic;Parasitic_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Central_Nervous_System_Viral_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Central_Nervous_System_Viral_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Virus_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Chemically-Induced_Disorders -->
+
+    <owl:Class rdf:about="&sedic;Chemically-Induced_Disorders">
+        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Coinfection -->
+
+    <owl:Class rdf:about="&sedic;Coinfection">
+        <rdfs:subClassOf rdf:resource="&sedic;Parasitic_Diseases"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Virus_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Congenital,_Hereditary,_and_Neonatal_Diseases_and_Abnormalities -->
+
+    <owl:Class rdf:about="&sedic;Congenital,_Hereditary,_and_Neonatal_Diseases_and_Abnormalities">
+        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Cysts -->
+
+    <owl:Class rdf:about="&sedic;Cysts">
+        <rdfs:subClassOf rdf:resource="&sedic;Neoplasms"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#DNA_Virus_Infections -->
+
+    <owl:Class rdf:about="&sedic;DNA_Virus_Infections">
+        <rdfs:subClassOf rdf:resource="&sedic;Virus_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Digestive_System -->
+
+    <owl:Class rdf:about="&sedic;Digestive_System">
+        <rdfs:subClassOf rdf:resource="&sedic;AnatomicEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Digestive_System_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Digestive_System_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Disease -->
+
+    <owl:Class rdf:about="&sedic;Disease"/>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Disorders_of_Environmental_Origin -->
+
+    <owl:Class rdf:about="&sedic;Disorders_of_Environmental_Origin">
+        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Encephalitis,_Viral -->
+
+    <owl:Class rdf:about="&sedic;Encephalitis,_Viral">
+        <rdfs:subClassOf rdf:resource="&sedic;Virus_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Endocrine_System -->
+
+    <owl:Class rdf:about="&sedic;Endocrine_System">
+        <rdfs:subClassOf rdf:resource="&sedic;AnatomicEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Endocrine_System_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Endocrine_System_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Extremities -->
+
+    <owl:Class rdf:about="&sedic;Extremities">
+        <rdfs:subClassOf rdf:resource="&sedic;Body_Regions"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Eye_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Eye_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Eye_Infections,_Parasitic -->
+
+    <owl:Class rdf:about="&sedic;Eye_Infections,_Parasitic">
+        <rdfs:subClassOf rdf:resource="&sedic;Parasitic_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Eye_Infections,_Viral -->
+
+    <owl:Class rdf:about="&sedic;Eye_Infections,_Viral">
+        <rdfs:subClassOf rdf:resource="&sedic;Virus_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Face -->
+
+    <owl:Class rdf:about="&sedic;Face">
+        <rdfs:subClassOf rdf:resource="&sedic;Head"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Fatigue_Syndrome,_Chronic -->
+
+    <owl:Class rdf:about="&sedic;Fatigue_Syndrome,_Chronic">
+        <rdfs:subClassOf rdf:resource="&sedic;Virus_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Female_Urogenital_Diseases_and_Pregnancy_Complications -->
+
+    <owl:Class rdf:about="&sedic;Female_Urogenital_Diseases_and_Pregnancy_Complications">
+        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Fluids_and_Secretions -->
+
+    <owl:Class rdf:about="&sedic;Fluids_and_Secretions">
+        <rdfs:subClassOf rdf:resource="&sedic;AnatomicEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Foot -->
+
+    <owl:Class rdf:about="&sedic;Foot">
+        <rdfs:subClassOf rdf:resource="&sedic;Lower_Extremity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Gastrointestinal_Tract -->
+
+    <owl:Class rdf:about="&sedic;Gastrointestinal_Tract">
+        <rdfs:subClassOf rdf:resource="&sedic;Digestive_System"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Genitalia -->
+
+    <owl:Class rdf:about="&sedic;Genitalia">
+        <rdfs:subClassOf rdf:resource="&sedic;Urogenital_System"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hamartoma -->
+
+    <owl:Class rdf:about="&sedic;Hamartoma">
+        <rdfs:subClassOf rdf:resource="&sedic;Neoplasms"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hand -->
+
+    <owl:Class rdf:about="&sedic;Hand">
+        <rdfs:subClassOf rdf:resource="&sedic;Upper_Extremity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Head -->
+
+    <owl:Class rdf:about="&sedic;Head">
+        <rdfs:subClassOf rdf:resource="&sedic;Body_Regions"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Heart -->
+
+    <owl:Class rdf:about="&sedic;Heart">
+        <rdfs:subClassOf rdf:resource="&sedic;Cardiovascular_System"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Helminthiasis -->
+
+    <owl:Class rdf:about="&sedic;Helminthiasis">
+        <rdfs:subClassOf rdf:resource="&sedic;Parasitic_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hemic_and_Immune_Systems -->
+
+    <owl:Class rdf:about="&sedic;Hemic_and_Immune_Systems">
+        <rdfs:subClassOf rdf:resource="&sedic;AnatomicEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hemic_and_Lymphatic_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Hemic_and_Lymphatic_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hepatitis,_Viral,_Animal -->
+
+    <owl:Class rdf:about="&sedic;Hepatitis,_Viral,_Animal">
+        <rdfs:subClassOf rdf:resource="&sedic;Virus_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hepatitis,_Viral,_Human -->
+
+    <owl:Class rdf:about="&sedic;Hepatitis,_Viral,_Human">
+        <rdfs:subClassOf rdf:resource="&sedic;Virus_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Immune_System_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Immune_System_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Infection -->
+
+    <owl:Class rdf:about="&sedic;Infection">
+        <rdfs:subClassOf rdf:resource="&sedic;Bacterial_Infections_and_Mycoses"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Integumentary_System -->
+
+    <owl:Class rdf:about="&sedic;Integumentary_System">
+        <rdfs:subClassOf rdf:resource="&sedic;AnatomicEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Intestinal_Diseases,_Parasitic -->
+
+    <owl:Class rdf:about="&sedic;Intestinal_Diseases,_Parasitic">
+        <rdfs:subClassOf rdf:resource="&sedic;Parasitic_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Liver_Diseases,_Parasitic -->
+
+    <owl:Class rdf:about="&sedic;Liver_Diseases,_Parasitic">
+        <rdfs:subClassOf rdf:resource="&sedic;Parasitic_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Lower_Extremity -->
+
+    <owl:Class rdf:about="&sedic;Lower_Extremity">
+        <rdfs:subClassOf rdf:resource="&sedic;Extremities"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Lung_Diseases,_Parasitic -->
+
+    <owl:Class rdf:about="&sedic;Lung_Diseases,_Parasitic">
+        <rdfs:subClassOf rdf:resource="&sedic;Parasitic_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Male_Urogenital_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Male_Urogenital_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#MedicalCondition -->
+
+    <owl:Class rdf:about="&sedic;MedicalCondition"/>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Meningitis,_Viral -->
+
+    <owl:Class rdf:about="&sedic;Meningitis,_Viral">
+        <rdfs:subClassOf rdf:resource="&sedic;Virus_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Mesomycetozoea_Infections -->
+
+    <owl:Class rdf:about="&sedic;Mesomycetozoea_Infections">
+        <rdfs:subClassOf rdf:resource="&sedic;Parasitic_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Muscles -->
+
+    <owl:Class rdf:about="&sedic;Muscles">
+        <rdfs:subClassOf rdf:resource="&sedic;Musculoskeletal_System"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Tissues"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Musculoskeletal_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Musculoskeletal_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Musculoskeletal_System -->
+
+    <owl:Class rdf:about="&sedic;Musculoskeletal_System">
+        <rdfs:subClassOf rdf:resource="&sedic;AnatomicEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Mycoses -->
+
+    <owl:Class rdf:about="&sedic;Mycoses">
+        <rdfs:subClassOf rdf:resource="&sedic;Bacterial_Infections_and_Mycoses"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neoplasms -->
+
+    <owl:Class rdf:about="&sedic;Neoplasms">
+        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neoplasms,_Experimental -->
+
+    <owl:Class rdf:about="&sedic;Neoplasms,_Experimental">
+        <rdfs:subClassOf rdf:resource="&sedic;Neoplasms"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neoplasms,_Hormone-Dependent -->
+
+    <owl:Class rdf:about="&sedic;Neoplasms,_Hormone-Dependent">
+        <rdfs:subClassOf rdf:resource="&sedic;Neoplasms"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neoplasms,_Multiple_Primary -->
+
+    <owl:Class rdf:about="&sedic;Neoplasms,_Multiple_Primary">
+        <rdfs:subClassOf rdf:resource="&sedic;Neoplasms"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neoplasms,_Post-Traumatic -->
+
+    <owl:Class rdf:about="&sedic;Neoplasms,_Post-Traumatic">
+        <rdfs:subClassOf rdf:resource="&sedic;Neoplasms"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neoplasms,_Radiation-Induced -->
+
+    <owl:Class rdf:about="&sedic;Neoplasms,_Radiation-Induced">
+        <rdfs:subClassOf rdf:resource="&sedic;Neoplasms"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neoplasms,_Second_Primary -->
+
+    <owl:Class rdf:about="&sedic;Neoplasms,_Second_Primary">
+        <rdfs:subClassOf rdf:resource="&sedic;Neoplasms"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neoplasms_by_Histologic_Type -->
+
+    <owl:Class rdf:about="&sedic;Neoplasms_by_Histologic_Type">
+        <rdfs:subClassOf rdf:resource="&sedic;Neoplasms"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neoplasms_by_Site -->
+
+    <owl:Class rdf:about="&sedic;Neoplasms_by_Site">
+        <rdfs:subClassOf rdf:resource="&sedic;Neoplasms"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neoplastic_Processes -->
+
+    <owl:Class rdf:about="&sedic;Neoplastic_Processes">
+        <rdfs:subClassOf rdf:resource="&sedic;Neoplasms"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neoplastic_Syndromes,_Hereditary -->
+
+    <owl:Class rdf:about="&sedic;Neoplastic_Syndromes,_Hereditary">
+        <rdfs:subClassOf rdf:resource="&sedic;Neoplasms"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nervous_System -->
+
+    <owl:Class rdf:about="&sedic;Nervous_System">
+        <rdfs:subClassOf rdf:resource="&sedic;AnatomicEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nervous_System_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Nervous_System_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nutritional_and_Metabolic_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Nutritional_and_Metabolic_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Occupational_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Occupational_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Opportunistic_Infections -->
+
+    <owl:Class rdf:about="&sedic;Opportunistic_Infections">
+        <rdfs:subClassOf rdf:resource="&sedic;Parasitic_Diseases"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Virus_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Otorhinolaryngologic_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Otorhinolaryngologic_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Paraneoplastic_Syndromes -->
+
+    <owl:Class rdf:about="&sedic;Paraneoplastic_Syndromes">
+        <rdfs:subClassOf rdf:resource="&sedic;Neoplasms"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Parasitemia -->
+
+    <owl:Class rdf:about="&sedic;Parasitemia">
+        <rdfs:subClassOf rdf:resource="&sedic;Parasitic_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Parasitic_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Parasitic_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Parasitic_Diseases,_Animal -->
+
+    <owl:Class rdf:about="&sedic;Parasitic_Diseases,_Animal">
+        <rdfs:subClassOf rdf:resource="&sedic;Parasitic_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pathological_Conditions,_Signs_and_Symptoms -->
+
+    <owl:Class rdf:about="&sedic;Pathological_Conditions,_Signs_and_Symptoms">
+        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Peripheral_Nervous_System -->
+
+    <owl:Class rdf:about="&sedic;Peripheral_Nervous_System">
+        <rdfs:subClassOf rdf:resource="&sedic;Nervous_System"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Plant -->
+
+    <owl:Class rdf:about="&sedic;Plant"/>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#PlantUsage -->
+
+    <owl:Class rdf:about="&sedic;PlantUsage"/>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pneumonia,_Viral -->
+
+    <owl:Class rdf:about="&sedic;Pneumonia,_Viral">
+        <rdfs:subClassOf rdf:resource="&sedic;Virus_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Precancerous_Conditions -->
+
+    <owl:Class rdf:about="&sedic;Precancerous_Conditions">
+        <rdfs:subClassOf rdf:resource="&sedic;Neoplasms"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pregnancy_Complications,_Neoplastic -->
+
+    <owl:Class rdf:about="&sedic;Pregnancy_Complications,_Neoplastic">
+        <rdfs:subClassOf rdf:resource="&sedic;Neoplasms"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pregnancy_Complications,_Parasitic -->
+
+    <owl:Class rdf:about="&sedic;Pregnancy_Complications,_Parasitic">
+        <rdfs:subClassOf rdf:resource="&sedic;Parasitic_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Protozoan_Infections -->
+
+    <owl:Class rdf:about="&sedic;Protozoan_Infections">
+        <rdfs:subClassOf rdf:resource="&sedic;Parasitic_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#RNA_Virus_Infections -->
+
+    <owl:Class rdf:about="&sedic;RNA_Virus_Infections">
+        <rdfs:subClassOf rdf:resource="&sedic;Virus_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Remedy -->
+
+    <owl:Class rdf:about="&sedic;Remedy"/>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Respiratory_System -->
+
+    <owl:Class rdf:about="&sedic;Respiratory_System">
+        <rdfs:subClassOf rdf:resource="&sedic;AnatomicEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Respiratory_Tract_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Respiratory_Tract_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Sense_Organs -->
+
+    <owl:Class rdf:about="&sedic;Sense_Organs">
+        <rdfs:subClassOf rdf:resource="&sedic;AnatomicEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Sexually_Transmitted_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Sexually_Transmitted_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Virus_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Skeleton -->
+
+    <owl:Class rdf:about="&sedic;Skeleton">
+        <rdfs:subClassOf rdf:resource="&sedic;Musculoskeletal_System"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Skin -->
+
+    <owl:Class rdf:about="&sedic;Skin">
+        <rdfs:subClassOf rdf:resource="&sedic;Integumentary_System"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Skin_Diseases,_Parasitic -->
+
+    <owl:Class rdf:about="&sedic;Skin_Diseases,_Parasitic">
+        <rdfs:subClassOf rdf:resource="&sedic;Parasitic_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Skin_Diseases,_Viral -->
+
+    <owl:Class rdf:about="&sedic;Skin_Diseases,_Viral">
+        <rdfs:subClassOf rdf:resource="&sedic;Virus_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Skin_and_Connective_Tissue_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Skin_and_Connective_Tissue_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Slow_Virus_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Slow_Virus_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Virus_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Stomatognathic_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Stomatognathic_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Stomatognathic_System -->
+
+    <owl:Class rdf:about="&sedic;Stomatognathic_System">
+        <rdfs:subClassOf rdf:resource="&sedic;AnatomicEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Tissues -->
+
+    <owl:Class rdf:about="&sedic;Tissues">
+        <rdfs:subClassOf rdf:resource="&sedic;AnatomicEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Torso -->
+
+    <owl:Class rdf:about="&sedic;Torso">
+        <rdfs:subClassOf rdf:resource="&sedic;Body_Regions"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Tumor_Virus_Infections -->
+
+    <owl:Class rdf:about="&sedic;Tumor_Virus_Infections">
+        <rdfs:subClassOf rdf:resource="&sedic;Neoplasms"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Virus_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Upper_Extremity -->
+
+    <owl:Class rdf:about="&sedic;Upper_Extremity">
+        <rdfs:subClassOf rdf:resource="&sedic;Extremities"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Upper_Gastrointestinal_Tract -->
+
+    <owl:Class rdf:about="&sedic;Upper_Gastrointestinal_Tract">
+        <rdfs:subClassOf rdf:resource="&sedic;Gastrointestinal_Tract"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Urinary_Tract -->
+
+    <owl:Class rdf:about="&sedic;Urinary_Tract">
+        <rdfs:subClassOf rdf:resource="&sedic;Urogenital_System"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Urogenital_System -->
+
+    <owl:Class rdf:about="&sedic;Urogenital_System">
+        <rdfs:subClassOf rdf:resource="&sedic;AnatomicEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Viremia -->
+
+    <owl:Class rdf:about="&sedic;Viremia">
+        <rdfs:subClassOf rdf:resource="&sedic;Virus_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Virus_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Virus_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Wounds_and_Injuries -->
+
+    <owl:Class rdf:about="&sedic;Wounds_and_Injuries">
+        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Zoonoses -->
+
+    <owl:Class rdf:about="&sedic;Zoonoses">
+        <rdfs:subClassOf rdf:resource="&sedic;Bacterial_Infections_and_Mycoses"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Parasitic_Diseases"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Virus_Diseases"/>
+    </owl:Class>
     
 
 
@@ -252,92 +1175,1293 @@
     
 
 
-    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#Arm -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Abdomen -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#Arm">
-        <rdf:type rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#AffectedBodyArea"/>
+    <owl:NamedIndividual rdf:about="&sedic;Abdomen">
+        <rdf:type rdf:resource="&sedic;Torso"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#Head -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Aloe_Vera -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#Head">
-        <rdf:type rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#AffectedBodyArea"/>
+    <owl:NamedIndividual rdf:about="&sedic;Aloe_Vera">
+        <rdf:type rdf:resource="&sedic;Plant"/>
+        <sedic:plantDescription rdf:datatype="&xsd;string">Aloins (barbaloin and isobarbaloin); anthraquinones and anthranoids; aglycones; polysaccharides (including acemannan); glycoproteins (including aloctin A); prostaglandins; fatty acids (including b-sitosterol, cholesterol, campesterol).
+
+Aloe, a genus with over 150 species, is mostly native to East and South Africa. Aloe is a succulent plant that has been used medicinally for centuries. Records of its use date back to 1750 BC. The plant has a variety of uses, including topical application for wounds, burns and rashes. Aloe can also be used internally as a laxative and cathartic. The mucilaginous gel from the aloe leaf is an effective wound healing agent and is now found in many commercial skin-care products, shampoos, and conditioners. The bitter, yellow latex from the plant contains hydroxyanthracene derivatives, which act as bowel stimulants and are used commercially as laxatives.</sedic:plantDescription>
+        <sedic:plantName>Aloe Vera</sedic:plantName>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#Heart -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Amniotic_Fluid -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#Heart">
-        <rdf:type rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#AffectedBodyArea"/>
+    <owl:NamedIndividual rdf:about="&sedic;Amniotic_Fluid">
+        <rdf:type rdf:resource="&sedic;Fluids_and_Secretions"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#Knee -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Amputation_Stumps -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#Knee">
-        <rdf:type rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#AffectedBodyArea"/>
+    <owl:NamedIndividual rdf:about="&sedic;Amputation_Stumps">
+        <rdf:type rdf:resource="&sedic;Extremities"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#Leg -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Anatomic_Landmarks -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#Leg">
-        <rdf:type rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#AffectedBodyArea"/>
+    <owl:NamedIndividual rdf:about="&sedic;Anatomic_Landmarks">
+        <rdf:type rdf:resource="&sedic;Body_Regions"/>
+        <sedic:has_mesh_uid>D059925</sedic:has_mesh_uid>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#Neck -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Ankle -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#Neck">
-        <rdf:type rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#AffectedBodyArea"/>
+    <owl:NamedIndividual rdf:about="&sedic;Ankle">
+        <rdf:type rdf:resource="&sedic;Foot"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#Skin -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Arm -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#Skin">
-        <rdf:type rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#AffectedBodyArea"/>
+    <owl:NamedIndividual rdf:about="&sedic;Arm">
+        <rdf:type rdf:resource="&sedic;Upper_Extremity"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#Throat -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Arteries -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#Throat">
-        <rdf:type rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#AffectedBodyArea"/>
+    <owl:NamedIndividual rdf:about="&sedic;Arteries">
+        <rdf:type rdf:resource="&sedic;Blood_Vessels"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#ceai_de_tei -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Autonomic_Nervous_System -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#ceai_de_tei">
-        <rdf:type rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#Remedy"/>
-        <isCureFor rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#raceala"/>
-        <isPartOf rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#tei"/>
+    <owl:NamedIndividual rdf:about="&sedic;Autonomic_Nervous_System">
+        <rdf:type rdf:resource="&sedic;Peripheral_Nervous_System"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#raceala -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Axilla -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#raceala">
-        <rdf:type rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#Affection"/>
+    <owl:NamedIndividual rdf:about="&sedic;Axilla">
+        <rdf:type rdf:resource="&sedic;Upper_Extremity"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/cosmin/ontologies/sedic#tei -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Back -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/cosmin/ontologies/sedic#tei">
-        <rdf:type rdf:resource="http://www.semanticweb.org/cosmin/ontologies/sedic#Plant"/>
+    <owl:NamedIndividual rdf:about="&sedic;Back">
+        <rdf:type rdf:resource="&sedic;Torso"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Bile_Ducts -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Bile_Ducts">
+        <rdf:type rdf:resource="&sedic;Biliary_Tract"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Blood -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Blood">
+        <rdf:type rdf:resource="&sedic;Hemic_and_Immune_Systems"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Blood-Air_Barrier -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Blood-Air_Barrier">
+        <rdf:type rdf:resource="&sedic;Cardiovascular_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Blood-Aqueous_Barrier -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Blood-Aqueous_Barrier">
+        <rdf:type rdf:resource="&sedic;Cardiovascular_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Blood-Brain_Barrier -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Blood-Brain_Barrier">
+        <rdf:type rdf:resource="&sedic;Cardiovascular_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Blood-Nerve_Barrier -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Blood-Nerve_Barrier">
+        <rdf:type rdf:resource="&sedic;Cardiovascular_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Blood-Retinal_Barrier -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Blood-Retinal_Barrier">
+        <rdf:type rdf:resource="&sedic;Cardiovascular_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Blood-Testis_Barrier -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Blood-Testis_Barrier">
+        <rdf:type rdf:resource="&sedic;Cardiovascular_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Bodily_Secretions -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Bodily_Secretions">
+        <rdf:type rdf:resource="&sedic;Fluids_and_Secretions"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Body_Fluid_Compartments -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Body_Fluid_Compartments">
+        <rdf:type rdf:resource="&sedic;Tissues"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Body_Fluids -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Body_Fluids">
+        <rdf:type rdf:resource="&sedic;Fluids_and_Secretions"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Bone_And_Bones -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Bone_And_Bones">
+        <rdf:type rdf:resource="&sedic;Skeleton"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Brain -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Brain">
+        <rdf:type rdf:resource="&sedic;Central_Nervous_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Buttocks -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Buttocks">
+        <rdf:type rdf:resource="&sedic;Lower_Extremity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Cardio -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Cardio">
+        <rdf:type rdf:resource="&sedic;AnatomicEntity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Cartilage -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Cartilage">
+        <rdf:type rdf:resource="&sedic;Musculoskeletal_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Cheek -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Cheek">
+        <rdf:type rdf:resource="&sedic;Face"/>
+        <rdf:type rdf:resource="&sedic;Stomatognathic_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Chin -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Chin">
+        <rdf:type rdf:resource="&sedic;Face"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Chromaffin_System -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Chromaffin_System">
+        <rdf:type rdf:resource="&sedic;Endocrine_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Connective_Tissue -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Connective_Tissue">
+        <rdf:type rdf:resource="&sedic;Tissues"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Dermis -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Dermis">
+        <rdf:type rdf:resource="&sedic;Skin"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Duodenum -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Duodenum">
+        <rdf:type rdf:resource="&sedic;Upper_Gastrointestinal_Tract"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Ear -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Ear">
+        <rdf:type rdf:resource="&sedic;Head"/>
+        <rdf:type rdf:resource="&sedic;Sense_Organs"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Elbow -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Elbow">
+        <rdf:type rdf:resource="&sedic;Upper_Extremity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Endocardium -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Endocardium">
+        <rdf:type rdf:resource="&sedic;Heart"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Endocrine_Glands -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Endocrine_Glands">
+        <rdf:type rdf:resource="&sedic;Endocrine_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Endothelium,_Vascular -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Endothelium,_Vascular">
+        <rdf:type rdf:resource="&sedic;Blood_Vessels"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Enteroendocrine_Cells -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Enteroendocrine_Cells">
+        <rdf:type rdf:resource="&sedic;Endocrine_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Epidermis -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Epidermis">
+        <rdf:type rdf:resource="&sedic;Skin"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Epithelium -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Epithelium">
+        <rdf:type rdf:resource="&sedic;Tissues"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Esophagus -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Esophagus">
+        <rdf:type rdf:resource="&sedic;Upper_Gastrointestinal_Tract"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Exocrine_Glands -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Exocrine_Glands">
+        <rdf:type rdf:resource="&sedic;Tissues"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Exudates_and_Transudates -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Exudates_and_Transudates">
+        <rdf:type rdf:resource="&sedic;Fluids_and_Secretions"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Eye -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Eye">
+        <rdf:type rdf:resource="&sedic;Face"/>
+        <rdf:type rdf:resource="&sedic;Sense_Organs"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Facial_Muscles -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Facial_Muscles">
+        <rdf:type rdf:resource="&sedic;Stomatognathic_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Fascia -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Fascia">
+        <rdf:type rdf:resource="&sedic;Musculoskeletal_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Feces -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Feces">
+        <rdf:type rdf:resource="&sedic;Fluids_and_Secretions"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Fetal_Heart -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Fetal_Heart">
+        <rdf:type rdf:resource="&sedic;Heart"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Fingers -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Fingers">
+        <rdf:type rdf:resource="&sedic;Hand"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Forearm -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Forearm">
+        <rdf:type rdf:resource="&sedic;Upper_Extremity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Forefoot,_Human -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Forefoot,_Human">
+        <rdf:type rdf:resource="&sedic;Foot"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Forehead -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Forehead">
+        <rdf:type rdf:resource="&sedic;Face"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Gallbladder -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Gallbladder">
+        <rdf:type rdf:resource="&sedic;Biliary_Tract"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Ganglia -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Ganglia">
+        <rdf:type rdf:resource="&sedic;Nervous_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Ganglia,_Sensory -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Ganglia,_Sensory">
+        <rdf:type rdf:resource="&sedic;Peripheral_Nervous_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Gastrointestinal_Contents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Gastrointestinal_Contents">
+        <rdf:type rdf:resource="&sedic;Fluids_and_Secretions"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Genitalia,_Female -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Genitalia,_Female">
+        <rdf:type rdf:resource="&sedic;Genitalia"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Genitalia,_Male -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Genitalia,_Male">
+        <rdf:type rdf:resource="&sedic;Genitalia"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Germ_Cells -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Germ_Cells">
+        <rdf:type rdf:resource="&sedic;Genitalia"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Glomerular_Filtration_Barrier -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Glomerular_Filtration_Barrier">
+        <rdf:type rdf:resource="&sedic;Cardiovascular_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Gonads -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Gonads">
+        <rdf:type rdf:resource="&sedic;Genitalia"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hair -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Hair">
+        <rdf:type rdf:resource="&sedic;Integumentary_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Head -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Head">
+        <rdf:type rdf:resource="&sedic;AnatomicEntity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Heart_Atria -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Heart_Atria">
+        <rdf:type rdf:resource="&sedic;Heart"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Heart_Conduction_System -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Heart_Conduction_System">
+        <rdf:type rdf:resource="&sedic;Heart"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Heart_Septum -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Heart_Septum">
+        <rdf:type rdf:resource="&sedic;Heart"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Heart_Valves -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Heart_Valves">
+        <rdf:type rdf:resource="&sedic;Heart"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Heart_Ventricles -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Heart_Ventricles">
+        <rdf:type rdf:resource="&sedic;Heart"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Heel -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Heel">
+        <rdf:type rdf:resource="&sedic;Foot"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hematopoietic_System -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Hematopoietic_System">
+        <rdf:type rdf:resource="&sedic;Hemic_and_Immune_Systems"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hip -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Hip">
+        <rdf:type rdf:resource="&sedic;Lower_Extremity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hyalin -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Hyalin">
+        <rdf:type rdf:resource="&sedic;Fluids_and_Secretions"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Immune_System -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Immune_System">
+        <rdf:type rdf:resource="&sedic;Hemic_and_Immune_Systems"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Intestines -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Intestines">
+        <rdf:type rdf:resource="&sedic;Gastrointestinal_Tract"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Jaw -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Jaw">
+        <rdf:type rdf:resource="&sedic;Stomatognathic_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Joints -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Joints">
+        <rdf:type rdf:resource="&sedic;Skeleton"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Kidney -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Kidney">
+        <rdf:type rdf:resource="&sedic;Urinary_Tract"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Knee -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Knee">
+        <rdf:type rdf:resource="&sedic;Lower_Extremity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Larynx -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Larynx">
+        <rdf:type rdf:resource="&sedic;Respiratory_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Leg -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Leg">
+        <rdf:type rdf:resource="&sedic;Lower_Extremity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Ligaments -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Ligaments">
+        <rdf:type rdf:resource="&sedic;Musculoskeletal_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Liver -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Liver">
+        <rdf:type rdf:resource="&sedic;Digestive_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Lower_Gastrointestinal_Tract -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Lower_Gastrointestinal_Tract">
+        <rdf:type rdf:resource="&sedic;Gastrointestinal_Tract"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Lung -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Lung">
+        <rdf:type rdf:resource="&sedic;Respiratory_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Lymphoid_Tissue -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Lymphoid_Tissue">
+        <rdf:type rdf:resource="&sedic;Tissues"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Mammary_Glands_Human -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Mammary_Glands_Human">
+        <rdf:type rdf:resource="&sedic;Breast"/>
+        <sedic:has_mesh_uid>D042361</sedic:has_mesh_uid>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Masticatory_Muscles -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Masticatory_Muscles">
+        <rdf:type rdf:resource="&sedic;Stomatognathic_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Membranes -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Membranes">
+        <rdf:type rdf:resource="&sedic;Tissues"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Meninges -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Meninges">
+        <rdf:type rdf:resource="&sedic;Central_Nervous_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Metacarpus -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Metacarpus">
+        <rdf:type rdf:resource="&sedic;Hand"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Microvessels -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Microvessels">
+        <rdf:type rdf:resource="&sedic;Blood_Vessels"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Mouth -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Mouth">
+        <rdf:type rdf:resource="&sedic;Face"/>
+        <rdf:type rdf:resource="&sedic;Gastrointestinal_Tract"/>
+        <rdf:type rdf:resource="&sedic;Stomatognathic_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Muscle,_Skeletal -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Muscle,_Skeletal">
+        <rdf:type rdf:resource="&sedic;Muscles"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Muscle,_Smooth -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Muscle,_Smooth">
+        <rdf:type rdf:resource="&sedic;Muscles"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Muscle,_Smooth,_Vascular -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Muscle,_Smooth,_Vascular">
+        <rdf:type rdf:resource="&sedic;Blood_Vessels"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Myocardium -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Myocardium">
+        <rdf:type rdf:resource="&sedic;Heart"/>
+        <rdf:type rdf:resource="&sedic;Muscles"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nails -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Nails">
+        <rdf:type rdf:resource="&sedic;Integumentary_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nasolabial_Fold -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Nasolabial_Fold">
+        <rdf:type rdf:resource="&sedic;Face"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neck -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Neck">
+        <rdf:type rdf:resource="&sedic;Body_Regions"/>
+        <sedic:has_mesh_uid>D009333</sedic:has_mesh_uid>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nerve_Endings -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Nerve_Endings">
+        <rdf:type rdf:resource="&sedic;Peripheral_Nervous_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nerve_Net -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Nerve_Net">
+        <rdf:type rdf:resource="&sedic;Nervous_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nerve_Tissue -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Nerve_Tissue">
+        <rdf:type rdf:resource="&sedic;Nervous_System"/>
+        <rdf:type rdf:resource="&sedic;Tissues"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neural_Pathways -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Neural_Pathways">
+        <rdf:type rdf:resource="&sedic;Nervous_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neuroglia -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Neuroglia">
+        <rdf:type rdf:resource="&sedic;Nervous_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neurons -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Neurons">
+        <rdf:type rdf:resource="&sedic;Nervous_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neurosecretory_Systems -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Neurosecretory_Systems">
+        <rdf:type rdf:resource="&sedic;Endocrine_System"/>
+        <rdf:type rdf:resource="&sedic;Nervous_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nipples -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Nipples">
+        <rdf:type rdf:resource="&sedic;Breast"/>
+        <sedic:has_mesh_uid>D009558</sedic:has_mesh_uid>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nose -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Nose">
+        <rdf:type rdf:resource="&sedic;Face"/>
+        <rdf:type rdf:resource="&sedic;Respiratory_System"/>
+        <rdf:type rdf:resource="&sedic;Sense_Organs"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Organoids -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Organoids">
+        <rdf:type rdf:resource="&sedic;Tissues"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Organs_at_Risk -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Organs_at_Risk">
+        <rdf:type rdf:resource="&sedic;Body_Regions"/>
+        <sedic:has_mesh_uid>D058958</sedic:has_mesh_uid>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pancreas -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Pancreas">
+        <rdf:type rdf:resource="&sedic;Digestive_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Papillary_Muscles -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Papillary_Muscles">
+        <rdf:type rdf:resource="&sedic;Heart"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Parotid_Region -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Parotid_Region">
+        <rdf:type rdf:resource="&sedic;Face"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pelvis -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Pelvis">
+        <rdf:type rdf:resource="&sedic;Torso"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pericardium -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Pericardium">
+        <rdf:type rdf:resource="&sedic;Heart"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Perineum -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Perineum">
+        <rdf:type rdf:resource="&sedic;Body_Regions"/>
+        <sedic:has_mesh_uid>D010502</sedic:has_mesh_uid>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Peripheral_Nerves -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Peripheral_Nerves">
+        <rdf:type rdf:resource="&sedic;Peripheral_Nervous_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Peritoneal_Stomata -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Peritoneal_Stomata">
+        <rdf:type rdf:resource="&sedic;Tissues"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pharynx -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Pharynx">
+        <rdf:type rdf:resource="&sedic;Gastrointestinal_Tract"/>
+        <rdf:type rdf:resource="&sedic;Respiratory_System"/>
+        <rdf:type rdf:resource="&sedic;Stomatognathic_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pleura -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Pleura">
+        <rdf:type rdf:resource="&sedic;Respiratory_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Respiratory_Mucosa -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Respiratory_Mucosa">
+        <rdf:type rdf:resource="&sedic;Respiratory_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Retinal_Vessels -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Retinal_Vessels">
+        <rdf:type rdf:resource="&sedic;Blood_Vessels"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Scalp -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Scalp">
+        <rdf:type rdf:resource="&sedic;Head"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Sebaceous_Glands -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Sebaceous_Glands">
+        <rdf:type rdf:resource="&sedic;Skin"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Sensory_Receptor_Cells -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Sensory_Receptor_Cells">
+        <rdf:type rdf:resource="&sedic;Peripheral_Nervous_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Shoulder -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Shoulder">
+        <rdf:type rdf:resource="&sedic;Upper_Extremity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Skin -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Skin">
+        <rdf:type rdf:resource="&sedic;AnatomicEntity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Skull_Base -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Skull_Base">
+        <rdf:type rdf:resource="&sedic;Head"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Spinal_Cord -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Spinal_Cord">
+        <rdf:type rdf:resource="&sedic;Central_Nervous_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Stomach -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Stomach">
+        <rdf:type rdf:resource="&sedic;Upper_Gastrointestinal_Tract"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Surgically-Created_Structures -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Surgically-Created_Structures">
+        <rdf:type rdf:resource="&sedic;Tissues"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Sweat_Glands -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Sweat_Glands">
+        <rdf:type rdf:resource="&sedic;Skin"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Synapses -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Synapses">
+        <rdf:type rdf:resource="&sedic;Nervous_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Taste_Buds -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Taste_Buds">
+        <rdf:type rdf:resource="&sedic;Sense_Organs"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Temporomandibular_Joint -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Temporomandibular_Joint">
+        <rdf:type rdf:resource="&sedic;Stomatognathic_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Tendons -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Tendons">
+        <rdf:type rdf:resource="&sedic;Musculoskeletal_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Thorax -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Thorax">
+        <rdf:type rdf:resource="&sedic;Torso"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Throat -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Throat">
+        <rdf:type rdf:resource="&sedic;AnatomicEntity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Tight -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Tight">
+        <rdf:type rdf:resource="&sedic;Lower_Extremity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Trachea -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Trachea">
+        <rdf:type rdf:resource="&sedic;Respiratory_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Transplant_Donor_Site -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Transplant_Donor_Site">
+        <rdf:type rdf:resource="&sedic;Body_Regions"/>
+        <sedic:has_mesh_uid>D060053</sedic:has_mesh_uid>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Transplants -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Transplants">
+        <rdf:type rdf:resource="&sedic;Body_Regions"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Trigger_Points -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Trigger_Points">
+        <rdf:type rdf:resource="&sedic;Body_Regions"/>
+        <sedic:has_mesh_uid>D061028</sedic:has_mesh_uid>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Tunica_Intima -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Tunica_Intima">
+        <rdf:type rdf:resource="&sedic;Blood_Vessels"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Ureter -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Ureter">
+        <rdf:type rdf:resource="&sedic;Urinary_Tract"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Urethra -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Urethra">
+        <rdf:type rdf:resource="&sedic;Urinary_Tract"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Urinary_Bladder -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Urinary_Bladder">
+        <rdf:type rdf:resource="&sedic;Urinary_Tract"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Vasa_Nervorum -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Vasa_Nervorum">
+        <rdf:type rdf:resource="&sedic;Blood_Vessels"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Vasa_Vasorum -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Vasa_Vasorum">
+        <rdf:type rdf:resource="&sedic;Blood_Vessels"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Veins -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Veins">
+        <rdf:type rdf:resource="&sedic;Blood_Vessels"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Viscera -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Viscera">
+        <rdf:type rdf:resource="&sedic;Body_Regions"/>
+        <sedic:has_mesh_uid>D014781</sedic:has_mesh_uid>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Wrist -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Wrist">
+        <rdf:type rdf:resource="&sedic;Hand"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#ceai_de_tei -->
+
+    <owl:NamedIndividual rdf:about="&sedic;ceai_de_tei">
+        <rdf:type rdf:resource="&sedic;Remedy"/>
+        <sedic:isPartOf rdf:resource="&sedic;tei"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#latex -->
+
+    <owl:NamedIndividual rdf:about="&sedic;latex">
+        <rdf:type rdf:resource="&sedic;PlantUsage"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#leaf -->
+
+    <owl:NamedIndividual rdf:about="&sedic;leaf">
+        <rdf:type rdf:resource="&sedic;PlantUsage"/>
+        <owl:sameAs rdf:resource="&sedic;leaf_gel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#leaf_gel -->
+
+    <owl:NamedIndividual rdf:about="&sedic;leaf_gel">
+        <rdf:type rdf:resource="&sedic;PlantUsage"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#tei -->
+
+    <owl:NamedIndividual rdf:about="&sedic;tei">
+        <rdf:type rdf:resource="&sedic;Plant"/>
     </owl:NamedIndividual>
 </rdf:RDF>
 
