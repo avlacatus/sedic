@@ -7,6 +7,7 @@
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
     <!ENTITY sedic "http://www.infoiasi.ro/wad/ontologies/sedic#" >
+    <!ENTITY j.0 "http://www.infoiasi.ro/wad/ontologies/sedic#Pathological_Conditions," >
 ]>
 
 
@@ -16,7 +17,8 @@
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:sedic="http://www.infoiasi.ro/wad/ontologies/sedic#">
+     xmlns:sedic="http://www.infoiasi.ro/wad/ontologies/sedic#"
+     xmlns:j.0="&sedic;Pathological_Conditions,">
     <owl:Ontology rdf:about="http://www.infoiasi.ro/wad/ontologies/sedic"/>
     
 
@@ -35,8 +37,8 @@
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#affectsBodyZone -->
 
     <owl:ObjectProperty rdf:about="&sedic;affectsBodyZone">
-        <rdfs:range rdf:resource="&sedic;AnatomicEntity"/>
-        <rdfs:domain rdf:resource="&sedic;Disease"/>
+        <rdfs:range rdf:resource="&sedic;Anatomic_Entity"/>
+        <rdfs:domain rdf:resource="&sedic;Diseases"/>
     </owl:ObjectProperty>
     
 
@@ -53,7 +55,7 @@
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#isAffectedBy -->
 
     <owl:ObjectProperty rdf:about="&sedic;isAffectedBy">
-        <rdfs:range rdf:resource="&sedic;Disease"/>
+        <rdfs:range rdf:resource="&sedic;Diseases"/>
         <rdfs:domain rdf:resource="&sedic;MedicalCondition"/>
     </owl:ObjectProperty>
     
@@ -62,7 +64,7 @@
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#isCureFor -->
 
     <owl:ObjectProperty rdf:about="&sedic;isCureFor">
-        <rdfs:range rdf:resource="&sedic;Disease"/>
+        <rdfs:range rdf:resource="&sedic;Diseases"/>
         <rdfs:domain rdf:resource="&sedic;Remedy"/>
     </owl:ObjectProperty>
     
@@ -100,7 +102,7 @@
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#affectedAreaName -->
 
     <owl:DatatypeProperty rdf:about="&sedic;affectedAreaName">
-        <rdfs:domain rdf:resource="&sedic;AnatomicEntity"/>
+        <rdfs:domain rdf:resource="&sedic;Anatomic_Entity"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -109,7 +111,7 @@
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#affectionType -->
 
     <owl:DatatypeProperty rdf:about="&sedic;affectionType">
-        <rdfs:domain rdf:resource="&sedic;Disease"/>
+        <rdfs:domain rdf:resource="&sedic;Diseases"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -206,9 +208,185 @@
     
 
 
-    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#AnatomicEntity -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Abdominal_Injuries -->
 
-    <owl:Class rdf:about="&sedic;AnatomicEntity">
+    <owl:Class rdf:about="&sedic;Abdominal_Injuries">
+        <rdfs:subClassOf rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Abortifacient_Agents -->
+
+    <owl:Class rdf:about="&sedic;Abortifacient_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Reproductive_Control_Agents"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Abortion,_Veterinary -->
+
+    <owl:Class rdf:about="&sedic;Abortion,_Veterinary">
+        <rdfs:subClassOf rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Acids -->
+
+    <owl:Class rdf:about="&sedic;Acids">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Acids,_Heterocyclic -->
+
+    <owl:Class rdf:about="&sedic;Acids,_Heterocyclic">
+        <rdfs:subClassOf rdf:resource="&sedic;Heterocyclic_Compounds"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Adrenal_Gland_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Adrenal_Gland_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Endocrine_System_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Agglutinins -->
+
+    <owl:Class rdf:about="&sedic;Agglutinins">
+        <rdfs:subClassOf rdf:resource="&sedic;Immunologic_Factors"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Agricultural_Workers&apos;_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Agricultural_Workers&apos;_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Occupational_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Agrochemicals -->
+
+    <owl:Class rdf:about="&sedic;Agrochemicals">
+        <rdfs:subClassOf rdf:resource="&sedic;Specialty_Uses_of_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Alcohols -->
+
+    <owl:Class rdf:about="&sedic;Alcohols">
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Aldehydes -->
+
+    <owl:Class rdf:about="&sedic;Aldehydes">
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Alkalies -->
+
+    <owl:Class rdf:about="&sedic;Alkalies">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Alkaloids -->
+
+    <owl:Class rdf:about="&sedic;Alkaloids">
+        <rdfs:subClassOf rdf:resource="&sedic;Heterocyclic_Compounds"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Alloys -->
+
+    <owl:Class rdf:about="&sedic;Alloys">
+        <rdfs:subClassOf rdf:resource="&sedic;Biomedical_and_Dental_Materials"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Aluminum_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Aluminum_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Amides -->
+
+    <owl:Class rdf:about="&sedic;Amides">
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Amidines -->
+
+    <owl:Class rdf:about="&sedic;Amidines">
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Amines -->
+
+    <owl:Class rdf:about="&sedic;Amines">
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Amino_Acids -->
+
+    <owl:Class rdf:about="&sedic;Amino_Acids">
+        <rdfs:subClassOf rdf:resource="&sedic;Amino_Acids,_Peptides,_and_Proteins"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Amino_Acids,_Peptides,_and_Proteins -->
+
+    <owl:Class rdf:about="&sedic;Amino_Acids,_Peptides,_and_Proteins">
+        <rdfs:subClassOf rdf:resource="&sedic;Chemicals_and_Drugs"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Amino_Sugars -->
+
+    <owl:Class rdf:about="&sedic;Amino_Sugars">
+        <rdfs:subClassOf rdf:resource="&sedic;Carbohydrates"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Analgesics -->
+
+    <owl:Class rdf:about="&sedic;Analgesics">
+        <rdfs:subClassOf rdf:resource="&sedic;Central_Nervous_System_Agents"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Anatomic_Entity -->
+
+    <owl:Class rdf:about="&sedic;Anatomic_Entity">
         <owl:hasKey rdf:parseType="Collection">
             <rdf:Description rdf:about="&sedic;has_mesh_uid"/>
         </owl:hasKey>
@@ -216,10 +394,147 @@
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Anhydrides -->
+
+    <owl:Class rdf:about="&sedic;Anhydrides">
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Animal_Diseases -->
 
     <owl:Class rdf:about="&sedic;Animal_Diseases">
-        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Anti-Asthmatic_Agents -->
+
+    <owl:Class rdf:about="&sedic;Anti-Asthmatic_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Respiratory_System_Agents"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Anti-Bacterial_Agents -->
+
+    <owl:Class rdf:about="&sedic;Anti-Bacterial_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Anti-Infective_Agents"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Anti-Dyskinesia_Agents -->
+
+    <owl:Class rdf:about="&sedic;Anti-Dyskinesia_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Central_Nervous_System_Agents"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Anti-Infective_Agents -->
+
+    <owl:Class rdf:about="&sedic;Anti-Infective_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Therapeutic_Uses"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Anti-Infective_Agents,_Local -->
+
+    <owl:Class rdf:about="&sedic;Anti-Infective_Agents,_Local">
+        <rdfs:subClassOf rdf:resource="&sedic;Anti-Infective_Agents"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Anti-Inflammatory_Agents -->
+
+    <owl:Class rdf:about="&sedic;Anti-Inflammatory_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Therapeutic_Uses"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Anti-Inflammatory_Agents,_Non-Steroidal -->
+
+    <owl:Class rdf:about="&sedic;Anti-Inflammatory_Agents,_Non-Steroidal">
+        <rdfs:subClassOf rdf:resource="&sedic;Anti-Inflammatory_Agents"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Antirheumatic_Agents"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Anti-Obesity_Agents -->
+
+    <owl:Class rdf:about="&sedic;Anti-Obesity_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Central_Nervous_System_Agents"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Anticoagulants -->
+
+    <owl:Class rdf:about="&sedic;Anticoagulants">
+        <rdfs:subClassOf rdf:resource="&sedic;Hematologic_Agents"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Antigens -->
+
+    <owl:Class rdf:about="&sedic;Antigens">
+        <rdfs:subClassOf rdf:resource="&sedic;Biological_Factors"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Antineoplastic_Agents -->
+
+    <owl:Class rdf:about="&sedic;Antineoplastic_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Therapeutic_Uses"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Antiparasitic_Agents -->
+
+    <owl:Class rdf:about="&sedic;Antiparasitic_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Anti-Infective_Agents"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Antirheumatic_Agents -->
+
+    <owl:Class rdf:about="&sedic;Antirheumatic_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Therapeutic_Uses"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Antisense_Elements_(Genetics) -->
+
+    <owl:Class rdf:about="&sedic;Antisense_Elements_(Genetics)">
+        <rdfs:subClassOf rdf:resource="&sedic;Nucleic_Acids,_Nucleotides,_and_Nucleosides"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Antispermatogenic_Agents -->
+
+    <owl:Class rdf:about="&sedic;Antispermatogenic_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Physiological_Effects_of_Drugs"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Antiviral_Agents -->
+
+    <owl:Class rdf:about="&sedic;Antiviral_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Anti-Infective_Agents"/>
     </owl:Class>
     
 
@@ -228,6 +543,78 @@
 
     <owl:Class rdf:about="&sedic;Arbovirus_Infections">
         <rdfs:subClassOf rdf:resource="&sedic;Virus_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Arm_Injuries -->
+
+    <owl:Class rdf:about="&sedic;Arm_Injuries">
+        <rdfs:subClassOf rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Arsenicals -->
+
+    <owl:Class rdf:about="&sedic;Arsenicals">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Autoimmune_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Autoimmune_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Immune_System_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Autoimmune_Diseases_of_the_Nervous_System -->
+
+    <owl:Class rdf:about="&sedic;Autoimmune_Diseases_of_the_Nervous_System">
+        <rdfs:subClassOf rdf:resource="&sedic;Nervous_System_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Autonomic_Agents -->
+
+    <owl:Class rdf:about="&sedic;Autonomic_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Peripheral_Nervous_System_Agents"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Autonomic_Nervous_System_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Autonomic_Nervous_System_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Nervous_System_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Aza_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Aza_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Azo_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Azo_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Back_Injuries -->
+
+    <owl:Class rdf:about="&sedic;Back_Injuries">
+        <rdfs:subClassOf rdf:resource="&sedic;Wounds_and_Injuries"/>
     </owl:Class>
     
 
@@ -243,7 +630,23 @@
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Bacterial_Infections_and_Mycoses -->
 
     <owl:Class rdf:about="&sedic;Bacterial_Infections_and_Mycoses">
-        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Barium_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Barium_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Barotrauma -->
+
+    <owl:Class rdf:about="&sedic;Barotrauma">
+        <rdfs:subClassOf rdf:resource="&sedic;Wounds_and_Injuries"/>
     </owl:Class>
     
 
@@ -252,6 +655,111 @@
 
     <owl:Class rdf:about="&sedic;Biliary_Tract">
         <rdfs:subClassOf rdf:resource="&sedic;Digestive_System"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Biliary_Tract_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Biliary_Tract_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Digestive_System_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Biocompatible_Materials -->
+
+    <owl:Class rdf:about="&sedic;Biocompatible_Materials">
+        <rdfs:subClassOf rdf:resource="&sedic;Biomedical_and_Dental_Materials"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Biological_Factors -->
+
+    <owl:Class rdf:about="&sedic;Biological_Factors">
+        <rdfs:subClassOf rdf:resource="&sedic;Chemicals_and_Drugs"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Biological_Markers -->
+
+    <owl:Class rdf:about="&sedic;Biological_Markers">
+        <rdfs:subClassOf rdf:resource="&sedic;Biological_Factors"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Biological_Products -->
+
+    <owl:Class rdf:about="&sedic;Biological_Products">
+        <rdfs:subClassOf rdf:resource="&sedic;Complex_Mixtures"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Biomedical_and_Dental_Materials -->
+
+    <owl:Class rdf:about="&sedic;Biomedical_and_Dental_Materials">
+        <rdfs:subClassOf rdf:resource="&sedic;Chemicals_and_Drugs"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Specialty_Uses_of_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Bird_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Bird_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Birth_Injuries -->
+
+    <owl:Class rdf:about="&sedic;Birth_Injuries">
+        <rdfs:subClassOf rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Bites_and_Stings -->
+
+    <owl:Class rdf:about="&sedic;Bites_and_Stings">
+        <rdfs:subClassOf rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Blood_Coagulation_Factor_Inhibitors -->
+
+    <owl:Class rdf:about="&sedic;Blood_Coagulation_Factor_Inhibitors">
+        <rdfs:subClassOf rdf:resource="&sedic;Biological_Factors"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Blood_Coagulation_Factors -->
+
+    <owl:Class rdf:about="&sedic;Blood_Coagulation_Factors">
+        <rdfs:subClassOf rdf:resource="&sedic;Biological_Factors"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Blood_Group_Incompatibility -->
+
+    <owl:Class rdf:about="&sedic;Blood_Group_Incompatibility">
+        <rdfs:subClassOf rdf:resource="&sedic;Immune_System_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Blood_Substitutes -->
+
+    <owl:Class rdf:about="&sedic;Blood_Substitutes">
+        <rdfs:subClassOf rdf:resource="&sedic;Hematologic_Agents"/>
     </owl:Class>
     
 
@@ -267,7 +775,24 @@
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Body_Regions -->
 
     <owl:Class rdf:about="&sedic;Body_Regions">
-        <rdfs:subClassOf rdf:resource="&sedic;AnatomicEntity"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Anatomic_Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Bone_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Bone_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Musculoskeletal_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Boron_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Boron_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
     </owl:Class>
     
 
@@ -288,10 +813,90 @@
     
 
 
-    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Bronchiolitis,_Viral -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Bridged_Compounds -->
 
-    <owl:Class rdf:about="&sedic;Bronchiolitis,_Viral">
-        <rdfs:subClassOf rdf:resource="&sedic;Virus_Diseases"/>
+    <owl:Class rdf:about="&sedic;Bridged_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Polycyclic_Compounds"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Bromine_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Bromine_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Bronchial_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Bronchial_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Respiratory_Tract_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Burns -->
+
+    <owl:Class rdf:about="&sedic;Burns">
+        <rdfs:subClassOf rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Cadmium_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Cadmium_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Calcium_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Calcium_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Carbohydrates -->
+
+    <owl:Class rdf:about="&sedic;Carbohydrates">
+        <rdfs:subClassOf rdf:resource="&sedic;Chemicals_and_Drugs"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Carbon_Compounds,_Inorganic -->
+
+    <owl:Class rdf:about="&sedic;Carbon_Compounds,_Inorganic">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Carboxylic_Acids -->
+
+    <owl:Class rdf:about="&sedic;Carboxylic_Acids">
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Cardiovascular_Abnormalities -->
+
+    <owl:Class rdf:about="&sedic;Cardiovascular_Abnormalities">
+        <rdfs:subClassOf rdf:resource="&sedic;Cardiovascular_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Cardiovascular_Agents -->
+
+    <owl:Class rdf:about="&sedic;Cardiovascular_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Therapeutic_Uses"/>
     </owl:Class>
     
 
@@ -299,7 +904,15 @@
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Cardiovascular_Diseases -->
 
     <owl:Class rdf:about="&sedic;Cardiovascular_Diseases">
-        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Cardiovascular_Infections -->
+
+    <owl:Class rdf:about="&sedic;Cardiovascular_Infections">
+        <rdfs:subClassOf rdf:resource="&sedic;Cardiovascular_Diseases"/>
     </owl:Class>
     
 
@@ -307,7 +920,47 @@
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Cardiovascular_System -->
 
     <owl:Class rdf:about="&sedic;Cardiovascular_System">
-        <rdfs:subClassOf rdf:resource="&sedic;AnatomicEntity"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Anatomic_Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Cariostatic_Agents -->
+
+    <owl:Class rdf:about="&sedic;Cariostatic_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Biomedical_and_Dental_Materials"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Cartilage_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Cartilage_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Musculoskeletal_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Cat_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Cat_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Catenanes -->
+
+    <owl:Class rdf:about="&sedic;Catenanes">
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Cattle_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Cattle_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Animal_Diseases"/>
     </owl:Class>
     
 
@@ -315,7 +968,7 @@
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Cells -->
 
     <owl:Class rdf:about="&sedic;Cells">
-        <rdfs:subClassOf rdf:resource="&sedic;AnatomicEntity"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Anatomic_Entity"/>
     </owl:Class>
     
 
@@ -324,6 +977,31 @@
 
     <owl:Class rdf:about="&sedic;Central_Nervous_System">
         <rdfs:subClassOf rdf:resource="&sedic;Nervous_System"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Central_Nervous_System_Agents -->
+
+    <owl:Class rdf:about="&sedic;Central_Nervous_System_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Therapeutic_Uses"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Central_Nervous_System_Depressants -->
+
+    <owl:Class rdf:about="&sedic;Central_Nervous_System_Depressants">
+        <rdfs:subClassOf rdf:resource="&sedic;Central_Nervous_System_Agents"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Physiological_Effects_of_Drugs"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Central_Nervous_System_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Central_Nervous_System_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Nervous_System_Diseases"/>
     </owl:Class>
     
 
@@ -344,6 +1022,15 @@
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Central_Nervous_System_Stimulants -->
+
+    <owl:Class rdf:about="&sedic;Central_Nervous_System_Stimulants">
+        <rdfs:subClassOf rdf:resource="&sedic;Central_Nervous_System_Agents"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Physiological_Effects_of_Drugs"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Central_Nervous_System_Viral_Diseases -->
 
     <owl:Class rdf:about="&sedic;Central_Nervous_System_Viral_Diseases">
@@ -352,19 +1039,113 @@
     
 
 
-    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Chemically-Induced_Disorders -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Ceramics -->
 
-    <owl:Class rdf:about="&sedic;Chemically-Induced_Disorders">
-        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+    <owl:Class rdf:about="&sedic;Ceramics">
+        <rdfs:subClassOf rdf:resource="&sedic;Biomedical_and_Dental_Materials"/>
     </owl:Class>
     
 
 
-    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Coinfection -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Chemical_Actions_and_Uses -->
 
-    <owl:Class rdf:about="&sedic;Coinfection">
-        <rdfs:subClassOf rdf:resource="&sedic;Parasitic_Diseases"/>
-        <rdfs:subClassOf rdf:resource="&sedic;Virus_Diseases"/>
+    <owl:Class rdf:about="&sedic;Chemical_Actions_and_Uses">
+        <rdfs:subClassOf rdf:resource="&sedic;Chemicals_and_Drugs"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Chemically-Induced_Disorders -->
+
+    <owl:Class rdf:about="&sedic;Chemically-Induced_Disorders">
+        <rdfs:subClassOf rdf:resource="&sedic;Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Chemicals_and_Drugs -->
+
+    <owl:Class rdf:about="&sedic;Chemicals_and_Drugs"/>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Chemotactic_Factors -->
+
+    <owl:Class rdf:about="&sedic;Chemotactic_Factors">
+        <rdfs:subClassOf rdf:resource="&sedic;Biological_Factors"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Chlorine_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Chlorine_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Chromium_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Chromium_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Chronobiology_Disorders -->
+
+    <owl:Class rdf:about="&sedic;Chronobiology_Disorders">
+        <rdfs:subClassOf rdf:resource="&sedic;Nervous_System_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Ciliary_Motility_Disorders -->
+
+    <owl:Class rdf:about="&sedic;Ciliary_Motility_Disorders">
+        <rdfs:subClassOf rdf:resource="&sedic;Otorhinolaryngologic_Diseases"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Respiratory_Tract_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Coagulants -->
+
+    <owl:Class rdf:about="&sedic;Coagulants">
+        <rdfs:subClassOf rdf:resource="&sedic;Hematologic_Agents"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Coenzymes -->
+
+    <owl:Class rdf:about="&sedic;Coenzymes">
+        <rdfs:subClassOf rdf:resource="&sedic;Enzymes_and_Coenzymes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Colloids -->
+
+    <owl:Class rdf:about="&sedic;Colloids">
+        <rdfs:subClassOf rdf:resource="&sedic;Complex_Mixtures"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Coloring_Agents -->
+
+    <owl:Class rdf:about="&sedic;Coloring_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Specialty_Uses_of_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Complex_Mixtures -->
+
+    <owl:Class rdf:about="&sedic;Complex_Mixtures">
+        <rdfs:subClassOf rdf:resource="&sedic;Chemicals_and_Drugs"/>
     </owl:Class>
     
 
@@ -372,7 +1153,79 @@
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Congenital,_Hereditary,_and_Neonatal_Diseases_and_Abnormalities -->
 
     <owl:Class rdf:about="&sedic;Congenital,_Hereditary,_and_Neonatal_Diseases_and_Abnormalities">
-        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Congenital_Abnormalities -->
+
+    <owl:Class rdf:about="&sedic;Congenital_Abnormalities">
+        <rdfs:subClassOf rdf:resource="&sedic;Congenital,_Hereditary,_and_Neonatal_Diseases_and_Abnormalities"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Conjunctival_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Conjunctival_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Eye_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Connective_Tissue_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Connective_Tissue_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Skin_and_Connective_Tissue_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Contraceptive_Agents -->
+
+    <owl:Class rdf:about="&sedic;Contraceptive_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Reproductive_Control_Agents"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Corneal_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Corneal_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Eye_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Cosmetics -->
+
+    <owl:Class rdf:about="&sedic;Cosmetics">
+        <rdfs:subClassOf rdf:resource="&sedic;Specialty_Uses_of_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Cranial_Nerve_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Cranial_Nerve_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Nervous_System_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Craniocerebral_Trauma -->
+
+    <owl:Class rdf:about="&sedic;Craniocerebral_Trauma">
+        <rdfs:subClassOf rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Cyanates -->
+
+    <owl:Class rdf:about="&sedic;Cyanates">
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
     </owl:Class>
     
 
@@ -385,6 +1238,14 @@
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Cytochromes -->
+
+    <owl:Class rdf:about="&sedic;Cytochromes">
+        <rdfs:subClassOf rdf:resource="&sedic;Enzymes_and_Coenzymes"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#DNA_Virus_Infections -->
 
     <owl:Class rdf:about="&sedic;DNA_Virus_Infections">
@@ -393,10 +1254,90 @@
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Demyelinating_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Demyelinating_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Nervous_System_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Dental_Materials -->
+
+    <owl:Class rdf:about="&sedic;Dental_Materials">
+        <rdfs:subClassOf rdf:resource="&sedic;Biomedical_and_Dental_Materials"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Dentifrices -->
+
+    <owl:Class rdf:about="&sedic;Dentifrices">
+        <rdfs:subClassOf rdf:resource="&sedic;Biomedical_and_Dental_Materials"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Deoxy_Sugars -->
+
+    <owl:Class rdf:about="&sedic;Deoxy_Sugars">
+        <rdfs:subClassOf rdf:resource="&sedic;Carbohydrates"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Dermatologic_Agents -->
+
+    <owl:Class rdf:about="&sedic;Dermatologic_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Therapeutic_Uses"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Diabetes_Mellitus -->
+
+    <owl:Class rdf:about="&sedic;Diabetes_Mellitus">
+        <rdfs:subClassOf rdf:resource="&sedic;Endocrine_System_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Diagnostic_Uses_of_Chemicals -->
+
+    <owl:Class rdf:about="&sedic;Diagnostic_Uses_of_Chemicals">
+        <rdfs:subClassOf rdf:resource="&sedic;Pharmacologic_Actions"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Dialysis_Solutions -->
+
+    <owl:Class rdf:about="&sedic;Dialysis_Solutions">
+        <rdfs:subClassOf rdf:resource="&sedic;Pharmaceutical_Solutions"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Dietary_Carbohydrates -->
+
+    <owl:Class rdf:about="&sedic;Dietary_Carbohydrates">
+        <rdfs:subClassOf rdf:resource="&sedic;Carbohydrates"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Digestive_System -->
 
     <owl:Class rdf:about="&sedic;Digestive_System">
-        <rdfs:subClassOf rdf:resource="&sedic;AnatomicEntity"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Anatomic_Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Digestive_System_Abnormalities -->
+
+    <owl:Class rdf:about="&sedic;Digestive_System_Abnormalities">
+        <rdfs:subClassOf rdf:resource="&sedic;Digestive_System_Diseases"/>
     </owl:Class>
     
 
@@ -404,21 +1345,135 @@
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Digestive_System_Diseases -->
 
     <owl:Class rdf:about="&sedic;Digestive_System_Diseases">
-        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Diseases"/>
     </owl:Class>
     
 
 
-    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Disease -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Digestive_System_Fistula -->
 
-    <owl:Class rdf:about="&sedic;Disease"/>
+    <owl:Class rdf:about="&sedic;Digestive_System_Fistula">
+        <rdfs:subClassOf rdf:resource="&sedic;Digestive_System_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Digestive_System_Neoplasms -->
+
+    <owl:Class rdf:about="&sedic;Digestive_System_Neoplasms">
+        <rdfs:subClassOf rdf:resource="&sedic;Digestive_System_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Diseases -->
+
+    <owl:Class rdf:about="&sedic;Diseases"/>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Disinfectants -->
+
+    <owl:Class rdf:about="&sedic;Disinfectants">
+        <rdfs:subClassOf rdf:resource="&sedic;Anti-Infective_Agents"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Specialty_Uses_of_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Dislocations -->
+
+    <owl:Class rdf:about="&sedic;Dislocations">
+        <rdfs:subClassOf rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:Class>
     
 
 
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Disorders_of_Environmental_Origin -->
 
     <owl:Class rdf:about="&sedic;Disorders_of_Environmental_Origin">
-        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Dog_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Dog_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Dosage_Forms -->
+
+    <owl:Class rdf:about="&sedic;Dosage_Forms">
+        <rdfs:subClassOf rdf:resource="&sedic;Pharmaceutical_Preparations"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Specialty_Uses_of_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Drowning -->
+
+    <owl:Class rdf:about="&sedic;Drowning">
+        <rdfs:subClassOf rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Drug-Related_Side_Effects_and_Adverse_Reactions -->
+
+    <owl:Class rdf:about="&sedic;Drug-Related_Side_Effects_and_Adverse_Reactions">
+        <rdfs:subClassOf rdf:resource="&sedic;Chemically-Induced_Disorders"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Drug_Combinations -->
+
+    <owl:Class rdf:about="&sedic;Drug_Combinations">
+        <rdfs:subClassOf rdf:resource="&sedic;Pharmaceutical_Preparations"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Dwarfism -->
+
+    <owl:Class rdf:about="&sedic;Dwarfism">
+        <rdfs:subClassOf rdf:resource="&sedic;Endocrine_System_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Ear_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Ear_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Otorhinolaryngologic_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Electric_Injuries -->
+
+    <owl:Class rdf:about="&sedic;Electric_Injuries">
+        <rdfs:subClassOf rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Electrolytes -->
+
+    <owl:Class rdf:about="&sedic;Electrolytes">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Elements -->
+
+    <owl:Class rdf:about="&sedic;Elements">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
     </owl:Class>
     
 
@@ -431,10 +1486,18 @@
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Endocrine_Gland_Neoplasms -->
+
+    <owl:Class rdf:about="&sedic;Endocrine_Gland_Neoplasms">
+        <rdfs:subClassOf rdf:resource="&sedic;Endocrine_System_Diseases"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Endocrine_System -->
 
     <owl:Class rdf:about="&sedic;Endocrine_System">
-        <rdfs:subClassOf rdf:resource="&sedic;AnatomicEntity"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Anatomic_Entity"/>
     </owl:Class>
     
 
@@ -442,7 +1505,63 @@
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Endocrine_System_Diseases -->
 
     <owl:Class rdf:about="&sedic;Endocrine_System_Diseases">
-        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Environmental_Illness -->
+
+    <owl:Class rdf:about="&sedic;Environmental_Illness">
+        <rdfs:subClassOf rdf:resource="&sedic;Disorders_of_Environmental_Origin"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Environmental_Pollutants -->
+
+    <owl:Class rdf:about="&sedic;Environmental_Pollutants">
+        <rdfs:subClassOf rdf:resource="&sedic;Toxic_Actions"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Enzyme_Precursors -->
+
+    <owl:Class rdf:about="&sedic;Enzyme_Precursors">
+        <rdfs:subClassOf rdf:resource="&sedic;Enzymes_and_Coenzymes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Enzymes -->
+
+    <owl:Class rdf:about="&sedic;Enzymes">
+        <rdfs:subClassOf rdf:resource="&sedic;Enzymes_and_Coenzymes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Enzymes_and_Coenzymes -->
+
+    <owl:Class rdf:about="&sedic;Enzymes_and_Coenzymes">
+        <rdfs:subClassOf rdf:resource="&sedic;Chemicals_and_Drugs"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Erysipelothrix_Infections -->
+
+    <owl:Class rdf:about="&sedic;Erysipelothrix_Infections">
+        <rdfs:subClassOf rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Ethers -->
+
+    <owl:Class rdf:about="&sedic;Ethers">
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
     </owl:Class>
     
 
@@ -455,10 +1574,42 @@
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Eye_Abnormalities -->
+
+    <owl:Class rdf:about="&sedic;Eye_Abnormalities">
+        <rdfs:subClassOf rdf:resource="&sedic;Eye_Diseases"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Eye_Diseases -->
 
     <owl:Class rdf:about="&sedic;Eye_Diseases">
-        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Eye_Diseases,_Hereditary -->
+
+    <owl:Class rdf:about="&sedic;Eye_Diseases,_Hereditary">
+        <rdfs:subClassOf rdf:resource="&sedic;Eye_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Eye_Hemorrhage -->
+
+    <owl:Class rdf:about="&sedic;Eye_Hemorrhage">
+        <rdfs:subClassOf rdf:resource="&sedic;Eye_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Eye_Infections -->
+
+    <owl:Class rdf:about="&sedic;Eye_Infections">
+        <rdfs:subClassOf rdf:resource="&sedic;Eye_Diseases"/>
     </owl:Class>
     
 
@@ -479,6 +1630,38 @@
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Eye_Injuries -->
+
+    <owl:Class rdf:about="&sedic;Eye_Injuries">
+        <rdfs:subClassOf rdf:resource="&sedic;Eye_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Eye_Manifestations -->
+
+    <owl:Class rdf:about="&sedic;Eye_Manifestations">
+        <rdfs:subClassOf rdf:resource="&sedic;Eye_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Eye_Neoplasms -->
+
+    <owl:Class rdf:about="&sedic;Eye_Neoplasms">
+        <rdfs:subClassOf rdf:resource="&sedic;Eye_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Eyelid_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Eyelid_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Eye_Diseases"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Face -->
 
     <owl:Class rdf:about="&sedic;Face">
@@ -487,10 +1670,42 @@
     
 
 
-    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Fatigue_Syndrome,_Chronic -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Fasciitis -->
 
-    <owl:Class rdf:about="&sedic;Fatigue_Syndrome,_Chronic">
-        <rdfs:subClassOf rdf:resource="&sedic;Virus_Diseases"/>
+    <owl:Class rdf:about="&sedic;Fasciitis">
+        <rdfs:subClassOf rdf:resource="&sedic;Musculoskeletal_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Fats -->
+
+    <owl:Class rdf:about="&sedic;Fats">
+        <rdfs:subClassOf rdf:resource="&sedic;Lipids"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Fatty_Acids -->
+
+    <owl:Class rdf:about="&sedic;Fatty_Acids">
+        <rdfs:subClassOf rdf:resource="&sedic;Lipids"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Fatty_Alcohols -->
+
+    <owl:Class rdf:about="&sedic;Fatty_Alcohols">
+        <rdfs:subClassOf rdf:resource="&sedic;Lipids"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Female_Urogenital_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Female_Urogenital_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Female_Urogenital_Diseases_and_Pregnancy_Complications"/>
     </owl:Class>
     
 
@@ -498,7 +1713,39 @@
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Female_Urogenital_Diseases_and_Pregnancy_Complications -->
 
     <owl:Class rdf:about="&sedic;Female_Urogenital_Diseases_and_Pregnancy_Complications">
-        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Fertility_Agents -->
+
+    <owl:Class rdf:about="&sedic;Fertility_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Reproductive_Control_Agents"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Fetal_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Fetal_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Congenital,_Hereditary,_and_Neonatal_Diseases_and_Abnormalities"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Fish_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Fish_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Flavoring_Agents -->
+
+    <owl:Class rdf:about="&sedic;Flavoring_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Specialty_Uses_of_Chemicals"/>
     </owl:Class>
     
 
@@ -506,7 +1753,23 @@
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Fluids_and_Secretions -->
 
     <owl:Class rdf:about="&sedic;Fluids_and_Secretions">
-        <rdfs:subClassOf rdf:resource="&sedic;AnatomicEntity"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Anatomic_Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Fluorine_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Fluorine_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Food_Additives -->
+
+    <owl:Class rdf:about="&sedic;Food_Additives">
+        <rdfs:subClassOf rdf:resource="&sedic;Specialty_Uses_of_Chemicals"/>
     </owl:Class>
     
 
@@ -519,6 +1782,87 @@
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Foot_Deformities -->
+
+    <owl:Class rdf:about="&sedic;Foot_Deformities">
+        <rdfs:subClassOf rdf:resource="&sedic;Musculoskeletal_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Foot_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Foot_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Musculoskeletal_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Foreign_Bodies -->
+
+    <owl:Class rdf:about="&sedic;Foreign_Bodies">
+        <rdfs:subClassOf rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Fossil_Fuels -->
+
+    <owl:Class rdf:about="&sedic;Fossil_Fuels">
+        <rdfs:subClassOf rdf:resource="&sedic;Complex_Mixtures"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Fractures,_Bone -->
+
+    <owl:Class rdf:about="&sedic;Fractures,_Bone">
+        <rdfs:subClassOf rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Free_Radicals -->
+
+    <owl:Class rdf:about="&sedic;Free_Radicals">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Frostbite -->
+
+    <owl:Class rdf:about="&sedic;Frostbite">
+        <rdfs:subClassOf rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Gases -->
+
+    <owl:Class rdf:about="&sedic;Gases">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Gastrointestinal_Agents -->
+
+    <owl:Class rdf:about="&sedic;Gastrointestinal_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Therapeutic_Uses"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Gastrointestinal_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Gastrointestinal_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Digestive_System_Diseases"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Gastrointestinal_Tract -->
 
     <owl:Class rdf:about="&sedic;Gastrointestinal_Tract">
@@ -527,10 +1871,98 @@
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Genetic_Diseases,_Inborn -->
+
+    <owl:Class rdf:about="&sedic;Genetic_Diseases,_Inborn">
+        <rdfs:subClassOf rdf:resource="&sedic;Congenital,_Hereditary,_and_Neonatal_Diseases_and_Abnormalities"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Genital_Diseases,_Male -->
+
+    <owl:Class rdf:about="&sedic;Genital_Diseases,_Male">
+        <rdfs:subClassOf rdf:resource="&sedic;Male_Urogenital_Diseases"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Genitalia -->
 
     <owl:Class rdf:about="&sedic;Genitalia">
         <rdfs:subClassOf rdf:resource="&sedic;Urogenital_System"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Glycerides -->
+
+    <owl:Class rdf:about="&sedic;Glycerides">
+        <rdfs:subClassOf rdf:resource="&sedic;Lipids"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Glycoconjugates -->
+
+    <owl:Class rdf:about="&sedic;Glycoconjugates">
+        <rdfs:subClassOf rdf:resource="&sedic;Carbohydrates"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Glycolipids -->
+
+    <owl:Class rdf:about="&sedic;Glycolipids">
+        <rdfs:subClassOf rdf:resource="&sedic;Lipids"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Glycosides -->
+
+    <owl:Class rdf:about="&sedic;Glycosides">
+        <rdfs:subClassOf rdf:resource="&sedic;Carbohydrates"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Gold_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Gold_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Gonadal_Disorders -->
+
+    <owl:Class rdf:about="&sedic;Gonadal_Disorders">
+        <rdfs:subClassOf rdf:resource="&sedic;Endocrine_System_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Gout_Suppressants -->
+
+    <owl:Class rdf:about="&sedic;Gout_Suppressants">
+        <rdfs:subClassOf rdf:resource="&sedic;Antirheumatic_Agents"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Granuloma,_Respiratory_Tract -->
+
+    <owl:Class rdf:about="&sedic;Granuloma,_Respiratory_Tract">
+        <rdfs:subClassOf rdf:resource="&sedic;Respiratory_Tract_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Growth_Substances -->
+
+    <owl:Class rdf:about="&sedic;Growth_Substances">
+        <rdfs:subClassOf rdf:resource="&sedic;Physiological_Effects_of_Drugs"/>
     </owl:Class>
     
 
@@ -551,6 +1983,30 @@
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hand_Deformities -->
+
+    <owl:Class rdf:about="&sedic;Hand_Deformities">
+        <rdfs:subClassOf rdf:resource="&sedic;Musculoskeletal_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hand_Injuries -->
+
+    <owl:Class rdf:about="&sedic;Hand_Injuries">
+        <rdfs:subClassOf rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hazardous_Substances -->
+
+    <owl:Class rdf:about="&sedic;Hazardous_Substances">
+        <rdfs:subClassOf rdf:resource="&sedic;Toxic_Actions"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Head -->
 
     <owl:Class rdf:about="&sedic;Head">
@@ -567,6 +2023,22 @@
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Heart_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Heart_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Cardiovascular_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Heat_Stress_Disorders -->
+
+    <owl:Class rdf:about="&sedic;Heat_Stress_Disorders">
+        <rdfs:subClassOf rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Helminthiasis -->
 
     <owl:Class rdf:about="&sedic;Helminthiasis">
@@ -575,10 +2047,26 @@
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hematologic_Agents -->
+
+    <owl:Class rdf:about="&sedic;Hematologic_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Therapeutic_Uses"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hematologic_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Hematologic_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Hemic_and_Lymphatic_Diseases"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hemic_and_Immune_Systems -->
 
     <owl:Class rdf:about="&sedic;Hemic_and_Immune_Systems">
-        <rdfs:subClassOf rdf:resource="&sedic;AnatomicEntity"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Anatomic_Entity"/>
     </owl:Class>
     
 
@@ -586,7 +2074,15 @@
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hemic_and_Lymphatic_Diseases -->
 
     <owl:Class rdf:about="&sedic;Hemic_and_Lymphatic_Diseases">
-        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hepatitis,_Animal -->
+
+    <owl:Class rdf:about="&sedic;Hepatitis,_Animal">
+        <rdfs:subClassOf rdf:resource="&sedic;Animal_Diseases"/>
     </owl:Class>
     
 
@@ -607,10 +2103,227 @@
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Heterocyclic_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Heterocyclic_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Chemicals_and_Drugs"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Heterocyclic_Compounds,_1-Ring -->
+
+    <owl:Class rdf:about="&sedic;Heterocyclic_Compounds,_1-Ring">
+        <rdfs:subClassOf rdf:resource="&sedic;Heterocyclic_Compounds"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Heterocyclic_Compounds,_2-Ring -->
+
+    <owl:Class rdf:about="&sedic;Heterocyclic_Compounds,_2-Ring">
+        <rdfs:subClassOf rdf:resource="&sedic;Heterocyclic_Compounds"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Heterocyclic_Compounds,_3-Ring -->
+
+    <owl:Class rdf:about="&sedic;Heterocyclic_Compounds,_3-Ring">
+        <rdfs:subClassOf rdf:resource="&sedic;Heterocyclic_Compounds"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Heterocyclic_Compounds,_Bridged-Ring -->
+
+    <owl:Class rdf:about="&sedic;Heterocyclic_Compounds,_Bridged-Ring">
+        <rdfs:subClassOf rdf:resource="&sedic;Heterocyclic_Compounds"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Heterocyclic_Compounds_with_4_or_More_Rings -->
+
+    <owl:Class rdf:about="&sedic;Heterocyclic_Compounds_with_4_or_More_Rings">
+        <rdfs:subClassOf rdf:resource="&sedic;Heterocyclic_Compounds"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Heterocyclic_Oxides -->
+
+    <owl:Class rdf:about="&sedic;Heterocyclic_Oxides">
+        <rdfs:subClassOf rdf:resource="&sedic;Heterocyclic_Compounds"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hip_Injuries -->
+
+    <owl:Class rdf:about="&sedic;Hip_Injuries">
+        <rdfs:subClassOf rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hormone_Antagonists -->
+
+    <owl:Class rdf:about="&sedic;Hormone_Antagonists">
+        <rdfs:subClassOf rdf:resource="&sedic;Hormones,_Hormone_Substitutes,_and_Hormone_Antagonists"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hormones -->
+
+    <owl:Class rdf:about="&sedic;Hormones">
+        <rdfs:subClassOf rdf:resource="&sedic;Hormones,_Hormone_Substitutes,_and_Hormone_Antagonists"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hormones,_Hormone_Substitutes,_and_Hormone_Antagonists -->
+
+    <owl:Class rdf:about="&sedic;Hormones,_Hormone_Substitutes,_and_Hormone_Antagonists">
+        <rdfs:subClassOf rdf:resource="&sedic;Chemicals_and_Drugs"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Physiological_Effects_of_Drugs"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Horse_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Horse_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Host-Derived_Cellular_Factors -->
+
+    <owl:Class rdf:about="&sedic;Host-Derived_Cellular_Factors">
+        <rdfs:subClassOf rdf:resource="&sedic;Biological_Factors"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hydrazines -->
+
+    <owl:Class rdf:about="&sedic;Hydrazines">
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hydrocarbons -->
+
+    <owl:Class rdf:about="&sedic;Hydrocarbons">
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hydrogen -->
+
+    <owl:Class rdf:about="&sedic;Hydrogen">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hydroxides -->
+
+    <owl:Class rdf:about="&sedic;Hydroxides">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hypersensitivity -->
+
+    <owl:Class rdf:about="&sedic;Hypersensitivity">
+        <rdfs:subClassOf rdf:resource="&sedic;Immune_System_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hypoglycemic_Agents -->
+
+    <owl:Class rdf:about="&sedic;Hypoglycemic_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Physiological_Effects_of_Drugs"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hypolipidemic_Agents -->
+
+    <owl:Class rdf:about="&sedic;Hypolipidemic_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Lipid_Regulating_Agents"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Imides -->
+
+    <owl:Class rdf:about="&sedic;Imides">
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Imines -->
+
+    <owl:Class rdf:about="&sedic;Imines">
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Immune_System_Diseases -->
 
     <owl:Class rdf:about="&sedic;Immune_System_Diseases">
-        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Immunologic_Deficiency_Syndromes -->
+
+    <owl:Class rdf:about="&sedic;Immunologic_Deficiency_Syndromes">
+        <rdfs:subClassOf rdf:resource="&sedic;Immune_System_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Immunologic_Factors -->
+
+    <owl:Class rdf:about="&sedic;Immunologic_Factors">
+        <rdfs:subClassOf rdf:resource="&sedic;Physiological_Effects_of_Drugs"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Immunoproliferative_Disorders -->
+
+    <owl:Class rdf:about="&sedic;Immunoproliferative_Disorders">
+        <rdfs:subClassOf rdf:resource="&sedic;Immune_System_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Immunosuppressive_Agents -->
+
+    <owl:Class rdf:about="&sedic;Immunosuppressive_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Immunologic_Factors"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Infant,_Newborn,_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Infant,_Newborn,_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Congenital,_Hereditary,_and_Neonatal_Diseases_and_Abnormalities"/>
     </owl:Class>
     
 
@@ -623,10 +2336,34 @@
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Inflammation_Mediators -->
+
+    <owl:Class rdf:about="&sedic;Inflammation_Mediators">
+        <rdfs:subClassOf rdf:resource="&sedic;Biological_Factors"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Inorganic_Chemicals -->
+
+    <owl:Class rdf:about="&sedic;Inorganic_Chemicals">
+        <rdfs:subClassOf rdf:resource="&sedic;Chemicals_and_Drugs"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Integumentary_System -->
 
     <owl:Class rdf:about="&sedic;Integumentary_System">
-        <rdfs:subClassOf rdf:resource="&sedic;AnatomicEntity"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Anatomic_Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Intercellular_Signaling_Peptides_and_Proteins -->
+
+    <owl:Class rdf:about="&sedic;Intercellular_Signaling_Peptides_and_Proteins">
+        <rdfs:subClassOf rdf:resource="&sedic;Biological_Factors"/>
     </owl:Class>
     
 
@@ -635,6 +2372,184 @@
 
     <owl:Class rdf:about="&sedic;Intestinal_Diseases,_Parasitic">
         <rdfs:subClassOf rdf:resource="&sedic;Parasitic_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Iodine_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Iodine_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Ionophores -->
+
+    <owl:Class rdf:about="&sedic;Ionophores">
+        <rdfs:subClassOf rdf:resource="&sedic;Specialty_Uses_of_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Iron_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Iron_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Irritants -->
+
+    <owl:Class rdf:about="&sedic;Irritants">
+        <rdfs:subClassOf rdf:resource="&sedic;Specialty_Uses_of_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Isocyanates -->
+
+    <owl:Class rdf:about="&sedic;Isocyanates">
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Isotopes -->
+
+    <owl:Class rdf:about="&sedic;Isotopes">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Jaw_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Jaw_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Musculoskeletal_Diseases"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Stomatognathic_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Joint_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Joint_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Musculoskeletal_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Ketones -->
+
+    <owl:Class rdf:about="&sedic;Ketones">
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Laboratory_Chemicals -->
+
+    <owl:Class rdf:about="&sedic;Laboratory_Chemicals">
+        <rdfs:subClassOf rdf:resource="&sedic;Specialty_Uses_of_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Lacrimal_Apparatus_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Lacrimal_Apparatus_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Eye_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Lactones -->
+
+    <owl:Class rdf:about="&sedic;Lactones">
+        <rdfs:subClassOf rdf:resource="&sedic;Polycyclic_Compounds"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Laryngeal_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Laryngeal_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Otorhinolaryngologic_Diseases"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Respiratory_Tract_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Leg_Injuries -->
+
+    <owl:Class rdf:about="&sedic;Leg_Injuries">
+        <rdfs:subClassOf rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Lens_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Lens_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Eye_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Lipid_Regulating_Agents -->
+
+    <owl:Class rdf:about="&sedic;Lipid_Regulating_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Therapeutic_Uses"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Lipids -->
+
+    <owl:Class rdf:about="&sedic;Lipids">
+        <rdfs:subClassOf rdf:resource="&sedic;Chemicals_and_Drugs"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Lipopeptides -->
+
+    <owl:Class rdf:about="&sedic;Lipopeptides">
+        <rdfs:subClassOf rdf:resource="&sedic;Lipids"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Lipopolysaccharides -->
+
+    <owl:Class rdf:about="&sedic;Lipopolysaccharides">
+        <rdfs:subClassOf rdf:resource="&sedic;Lipids"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Lipoproteins -->
+
+    <owl:Class rdf:about="&sedic;Lipoproteins">
+        <rdfs:subClassOf rdf:resource="&sedic;Lipids"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Lithium_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Lithium_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Liver_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Liver_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Digestive_System_Diseases"/>
     </owl:Class>
     
 
@@ -655,6 +2570,22 @@
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Lubricants -->
+
+    <owl:Class rdf:about="&sedic;Lubricants">
+        <rdfs:subClassOf rdf:resource="&sedic;Specialty_Uses_of_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Lung_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Lung_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Respiratory_Tract_Diseases"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Lung_Diseases,_Parasitic -->
 
     <owl:Class rdf:about="&sedic;Lung_Diseases,_Parasitic">
@@ -663,10 +2594,50 @@
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Lymphatic_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Lymphatic_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Hemic_and_Lymphatic_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Macrocyclic_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Macrocyclic_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Polycyclic_Compounds"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Macromolecular_Substances -->
+
+    <owl:Class rdf:about="&sedic;Macromolecular_Substances">
+        <rdfs:subClassOf rdf:resource="&sedic;Chemicals_and_Drugs"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Magnesium_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Magnesium_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Male_Urogenital_Diseases -->
 
     <owl:Class rdf:about="&sedic;Male_Urogenital_Diseases">
-        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Manganese_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Manganese_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
     </owl:Class>
     
 
@@ -674,6 +2645,22 @@
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#MedicalCondition -->
 
     <owl:Class rdf:about="&sedic;MedicalCondition"/>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Membrane_Lipids -->
+
+    <owl:Class rdf:about="&sedic;Membrane_Lipids">
+        <rdfs:subClassOf rdf:resource="&sedic;Lipids"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Membranes,_Artificial -->
+
+    <owl:Class rdf:about="&sedic;Membranes,_Artificial">
+        <rdfs:subClassOf rdf:resource="&sedic;Biomedical_and_Dental_Materials"/>
+    </owl:Class>
     
 
 
@@ -685,10 +2672,82 @@
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Mercury_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Mercury_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Mesomycetozoea_Infections -->
 
     <owl:Class rdf:about="&sedic;Mesomycetozoea_Infections">
         <rdfs:subClassOf rdf:resource="&sedic;Parasitic_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Metabolic_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Metabolic_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Nutritional_and_Metabolic_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Metals -->
+
+    <owl:Class rdf:about="&sedic;Metals">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Minerals -->
+
+    <owl:Class rdf:about="&sedic;Minerals">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Molecular_Mechanisms_of_Pharmacological_Action -->
+
+    <owl:Class rdf:about="&sedic;Molecular_Mechanisms_of_Pharmacological_Action">
+        <rdfs:subClassOf rdf:resource="&sedic;Pharmacologic_Actions"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Monosaccharides -->
+
+    <owl:Class rdf:about="&sedic;Monosaccharides">
+        <rdfs:subClassOf rdf:resource="&sedic;Carbohydrates"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Mouth_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Mouth_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Stomatognathic_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Mouthwashes -->
+
+    <owl:Class rdf:about="&sedic;Mouthwashes">
+        <rdfs:subClassOf rdf:resource="&sedic;Biomedical_and_Dental_Materials"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Multiprotein_Complexes -->
+
+    <owl:Class rdf:about="&sedic;Multiprotein_Complexes">
+        <rdfs:subClassOf rdf:resource="&sedic;Macromolecular_Substances"/>
     </owl:Class>
     
 
@@ -702,10 +2761,34 @@
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Muscular_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Muscular_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Musculoskeletal_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Muscular_Dystrophy,_Animal -->
+
+    <owl:Class rdf:about="&sedic;Muscular_Dystrophy,_Animal">
+        <rdfs:subClassOf rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Musculoskeletal_Abnormalities -->
+
+    <owl:Class rdf:about="&sedic;Musculoskeletal_Abnormalities">
+        <rdfs:subClassOf rdf:resource="&sedic;Musculoskeletal_Diseases"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Musculoskeletal_Diseases -->
 
     <owl:Class rdf:about="&sedic;Musculoskeletal_Diseases">
-        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Diseases"/>
     </owl:Class>
     
 
@@ -713,7 +2796,7 @@
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Musculoskeletal_System -->
 
     <owl:Class rdf:about="&sedic;Musculoskeletal_System">
-        <rdfs:subClassOf rdf:resource="&sedic;AnatomicEntity"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Anatomic_Entity"/>
     </owl:Class>
     
 
@@ -726,10 +2809,26 @@
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Natriuretic_Agents -->
+
+    <owl:Class rdf:about="&sedic;Natriuretic_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Physiological_Effects_of_Drugs"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neck_Injuries -->
+
+    <owl:Class rdf:about="&sedic;Neck_Injuries">
+        <rdfs:subClassOf rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neoplasms -->
 
     <owl:Class rdf:about="&sedic;Neoplasms">
-        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Diseases"/>
     </owl:Class>
     
 
@@ -737,14 +2836,6 @@
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neoplasms,_Experimental -->
 
     <owl:Class rdf:about="&sedic;Neoplasms,_Experimental">
-        <rdfs:subClassOf rdf:resource="&sedic;Neoplasms"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neoplasms,_Hormone-Dependent -->
-
-    <owl:Class rdf:about="&sedic;Neoplasms,_Hormone-Dependent">
         <rdfs:subClassOf rdf:resource="&sedic;Neoplasms"/>
     </owl:Class>
     
@@ -758,25 +2849,9 @@
     
 
 
-    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neoplasms,_Post-Traumatic -->
-
-    <owl:Class rdf:about="&sedic;Neoplasms,_Post-Traumatic">
-        <rdfs:subClassOf rdf:resource="&sedic;Neoplasms"/>
-    </owl:Class>
-    
-
-
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neoplasms,_Radiation-Induced -->
 
     <owl:Class rdf:about="&sedic;Neoplasms,_Radiation-Induced">
-        <rdfs:subClassOf rdf:resource="&sedic;Neoplasms"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neoplasms,_Second_Primary -->
-
-    <owl:Class rdf:about="&sedic;Neoplasms,_Second_Primary">
         <rdfs:subClassOf rdf:resource="&sedic;Neoplasms"/>
     </owl:Class>
     
@@ -817,7 +2892,7 @@
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nervous_System -->
 
     <owl:Class rdf:about="&sedic;Nervous_System">
-        <rdfs:subClassOf rdf:resource="&sedic;AnatomicEntity"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Anatomic_Entity"/>
     </owl:Class>
     
 
@@ -825,7 +2900,200 @@
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nervous_System_Diseases -->
 
     <owl:Class rdf:about="&sedic;Nervous_System_Diseases">
-        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nervous_System_Malformations -->
+
+    <owl:Class rdf:about="&sedic;Nervous_System_Malformations">
+        <rdfs:subClassOf rdf:resource="&sedic;Nervous_System_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nervous_System_Neoplasms -->
+
+    <owl:Class rdf:about="&sedic;Nervous_System_Neoplasms">
+        <rdfs:subClassOf rdf:resource="&sedic;Nervous_System_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neurocutaneous_Syndromes -->
+
+    <owl:Class rdf:about="&sedic;Neurocutaneous_Syndromes">
+        <rdfs:subClassOf rdf:resource="&sedic;Nervous_System_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neurodegenerative_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Neurodegenerative_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Nervous_System_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neurologic_Manifestations -->
+
+    <owl:Class rdf:about="&sedic;Neurologic_Manifestations">
+        <rdfs:subClassOf rdf:resource="&sedic;Nervous_System_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neuromuscular_Agents -->
+
+    <owl:Class rdf:about="&sedic;Neuromuscular_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Peripheral_Nervous_System_Agents"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neuromuscular_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Neuromuscular_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Nervous_System_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neurotoxicity_Syndromes -->
+
+    <owl:Class rdf:about="&sedic;Neurotoxicity_Syndromes">
+        <rdfs:subClassOf rdf:resource="&sedic;Nervous_System_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neurotransmitter_Agents -->
+
+    <owl:Class rdf:about="&sedic;Neurotransmitter_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Physiological_Effects_of_Drugs"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nitrates -->
+
+    <owl:Class rdf:about="&sedic;Nitrates">
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nitriles -->
+
+    <owl:Class rdf:about="&sedic;Nitriles">
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nitrites -->
+
+    <owl:Class rdf:about="&sedic;Nitrites">
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nitro_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Nitro_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nitrogen_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Nitrogen_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nitroso_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Nitroso_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nonprescription_Drugs -->
+
+    <owl:Class rdf:about="&sedic;Nonprescription_Drugs">
+        <rdfs:subClassOf rdf:resource="&sedic;Pharmaceutical_Preparations"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nose_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Nose_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Otorhinolaryngologic_Diseases"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Respiratory_Tract_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Noxae -->
+
+    <owl:Class rdf:about="&sedic;Noxae">
+        <rdfs:subClassOf rdf:resource="&sedic;Toxic_Actions"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nucleic_Acid_Precursors -->
+
+    <owl:Class rdf:about="&sedic;Nucleic_Acid_Precursors">
+        <rdfs:subClassOf rdf:resource="&sedic;Nucleic_Acids,_Nucleotides,_and_Nucleosides"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nucleic_Acids -->
+
+    <owl:Class rdf:about="&sedic;Nucleic_Acids">
+        <rdfs:subClassOf rdf:resource="&sedic;Nucleic_Acids,_Nucleotides,_and_Nucleosides"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nucleic_Acids,_Nucleotides,_and_Nucleosides -->
+
+    <owl:Class rdf:about="&sedic;Nucleic_Acids,_Nucleotides,_and_Nucleosides">
+        <rdfs:subClassOf rdf:resource="&sedic;Chemicals_and_Drugs"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nucleosides -->
+
+    <owl:Class rdf:about="&sedic;Nucleosides">
+        <rdfs:subClassOf rdf:resource="&sedic;Nucleic_Acids,_Nucleotides,_and_Nucleosides"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nucleotides -->
+
+    <owl:Class rdf:about="&sedic;Nucleotides">
+        <rdfs:subClassOf rdf:resource="&sedic;Nucleic_Acids,_Nucleotides,_and_Nucleosides"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nutrition_Disorders -->
+
+    <owl:Class rdf:about="&sedic;Nutrition_Disorders">
+        <rdfs:subClassOf rdf:resource="&sedic;Nutritional_and_Metabolic_Diseases"/>
     </owl:Class>
     
 
@@ -833,7 +3101,7 @@
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nutritional_and_Metabolic_Diseases -->
 
     <owl:Class rdf:about="&sedic;Nutritional_and_Metabolic_Diseases">
-        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Diseases"/>
     </owl:Class>
     
 
@@ -841,7 +3109,39 @@
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Occupational_Diseases -->
 
     <owl:Class rdf:about="&sedic;Occupational_Diseases">
-        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Ocular_Hypertension -->
+
+    <owl:Class rdf:about="&sedic;Ocular_Hypertension">
+        <rdfs:subClassOf rdf:resource="&sedic;Eye_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Ocular_Motility_Disorders -->
+
+    <owl:Class rdf:about="&sedic;Ocular_Motility_Disorders">
+        <rdfs:subClassOf rdf:resource="&sedic;Eye_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Oils -->
+
+    <owl:Class rdf:about="&sedic;Oils">
+        <rdfs:subClassOf rdf:resource="&sedic;Lipids"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Onium_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Onium_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
     </owl:Class>
     
 
@@ -855,10 +3155,106 @@
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Optic_Nerve_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Optic_Nerve_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Eye_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Orbital_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Orbital_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Eye_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Organic_Chemicals -->
+
+    <owl:Class rdf:about="&sedic;Organic_Chemicals">
+        <rdfs:subClassOf rdf:resource="&sedic;Chemicals_and_Drugs"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Organometallic_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Organometallic_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Organophosphorus_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Organophosphorus_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Organoselenium_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Organoselenium_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Organosilicon_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Organosilicon_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Osmium_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Osmium_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Otorhinolaryngologic_Diseases -->
 
     <owl:Class rdf:about="&sedic;Otorhinolaryngologic_Diseases">
-        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Otorhinolaryngologic_Neoplasms -->
+
+    <owl:Class rdf:about="&sedic;Otorhinolaryngologic_Neoplasms">
+        <rdfs:subClassOf rdf:resource="&sedic;Otorhinolaryngologic_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Oxidants -->
+
+    <owl:Class rdf:about="&sedic;Oxidants">
+        <rdfs:subClassOf rdf:resource="&sedic;Specialty_Uses_of_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Oxygen_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Oxygen_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pancreatic_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Pancreatic_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Digestive_System_Diseases"/>
     </owl:Class>
     
 
@@ -871,18 +3267,10 @@
     
 
 
-    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Parasitemia -->
-
-    <owl:Class rdf:about="&sedic;Parasitemia">
-        <rdfs:subClassOf rdf:resource="&sedic;Parasitic_Diseases"/>
-    </owl:Class>
-    
-
-
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Parasitic_Diseases -->
 
     <owl:Class rdf:about="&sedic;Parasitic_Diseases">
-        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Diseases"/>
     </owl:Class>
     
 
@@ -890,7 +3278,48 @@
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Parasitic_Diseases,_Animal -->
 
     <owl:Class rdf:about="&sedic;Parasitic_Diseases,_Animal">
+        <rdfs:subClassOf rdf:resource="&sedic;Animal_Diseases"/>
         <rdfs:subClassOf rdf:resource="&sedic;Parasitic_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Parathyroid_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Parathyroid_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Endocrine_System_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Parenteral_Nutrition_Solutions -->
+
+    <owl:Class rdf:about="&sedic;Parenteral_Nutrition_Solutions">
+        <rdfs:subClassOf rdf:resource="&sedic;Pharmaceutical_Solutions"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Particulate_Matter -->
+
+    <owl:Class rdf:about="&sedic;Particulate_Matter">
+        <rdfs:subClassOf rdf:resource="&sedic;Complex_Mixtures"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pathologic_Processes -->
+
+    <owl:Class rdf:about="&sedic;Pathologic_Processes">
+        <rdfs:subClassOf rdf:resource="&sedic;Pathological_Conditions,_Signs_and_Symptoms"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pathological_Conditions,_Anatomical -->
+
+    <owl:Class rdf:about="&sedic;Pathological_Conditions,_Anatomical">
+        <rdfs:subClassOf rdf:resource="&sedic;Pathological_Conditions,_Signs_and_Symptoms"/>
     </owl:Class>
     
 
@@ -898,7 +3327,15 @@
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pathological_Conditions,_Signs_and_Symptoms -->
 
     <owl:Class rdf:about="&sedic;Pathological_Conditions,_Signs_and_Symptoms">
-        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Peptides -->
+
+    <owl:Class rdf:about="&sedic;Peptides">
+        <rdfs:subClassOf rdf:resource="&sedic;Amino_Acids,_Peptides,_and_Proteins"/>
     </owl:Class>
     
 
@@ -907,6 +3344,121 @@
 
     <owl:Class rdf:about="&sedic;Peripheral_Nervous_System">
         <rdfs:subClassOf rdf:resource="&sedic;Nervous_System"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Peripheral_Nervous_System_Agents -->
+
+    <owl:Class rdf:about="&sedic;Peripheral_Nervous_System_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Physiological_Effects_of_Drugs"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Peritoneal_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Peritoneal_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Digestive_System_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Peroxides -->
+
+    <owl:Class rdf:about="&sedic;Peroxides">
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pesticides -->
+
+    <owl:Class rdf:about="&sedic;Pesticides">
+        <rdfs:subClassOf rdf:resource="&sedic;Specialty_Uses_of_Chemicals"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Toxic_Actions"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pharmaceutic_Aids -->
+
+    <owl:Class rdf:about="&sedic;Pharmaceutic_Aids">
+        <rdfs:subClassOf rdf:resource="&sedic;Pharmaceutical_Preparations"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Specialty_Uses_of_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pharmaceutical_Preparations -->
+
+    <owl:Class rdf:about="&sedic;Pharmaceutical_Preparations">
+        <rdfs:subClassOf rdf:resource="&sedic;Chemicals_and_Drugs"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pharmaceutical_Solutions -->
+
+    <owl:Class rdf:about="&sedic;Pharmaceutical_Solutions">
+        <rdfs:subClassOf rdf:resource="&sedic;Therapeutic_Uses"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pharmacologic_Actions -->
+
+    <owl:Class rdf:about="&sedic;Pharmacologic_Actions">
+        <rdfs:subClassOf rdf:resource="&sedic;Chemical_Actions_and_Uses"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pharyngeal_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Pharyngeal_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Otorhinolaryngologic_Diseases"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Stomatognathic_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pheromones -->
+
+    <owl:Class rdf:about="&sedic;Pheromones">
+        <rdfs:subClassOf rdf:resource="&sedic;Biological_Factors"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Phosphorus_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Phosphorus_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Physiological_Effects_of_Drugs -->
+
+    <owl:Class rdf:about="&sedic;Physiological_Effects_of_Drugs">
+        <rdfs:subClassOf rdf:resource="&sedic;Pharmacologic_Actions"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pigments,_Biological -->
+
+    <owl:Class rdf:about="&sedic;Pigments,_Biological">
+        <rdfs:subClassOf rdf:resource="&sedic;Biological_Factors"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pituitary_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Pituitary_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Endocrine_System_Diseases"/>
     </owl:Class>
     
 
@@ -923,10 +3475,91 @@
     
 
 
-    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pneumonia,_Viral -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Plant_Extracts -->
 
-    <owl:Class rdf:about="&sedic;Pneumonia,_Viral">
-        <rdfs:subClassOf rdf:resource="&sedic;Virus_Diseases"/>
+    <owl:Class rdf:about="&sedic;Plant_Extracts">
+        <rdfs:subClassOf rdf:resource="&sedic;Pharmaceutical_Preparations"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Platinum_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Platinum_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pleural_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Pleural_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Respiratory_Tract_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pneumoconiosis -->
+
+    <owl:Class rdf:about="&sedic;Pneumoconiosis">
+        <rdfs:subClassOf rdf:resource="&sedic;Occupational_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Poisoning -->
+
+    <owl:Class rdf:about="&sedic;Poisoning">
+        <rdfs:subClassOf rdf:resource="&sedic;Chemically-Induced_Disorders"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Poisons -->
+
+    <owl:Class rdf:about="&sedic;Poisons">
+        <rdfs:subClassOf rdf:resource="&sedic;Specialty_Uses_of_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Polycyclic_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Polycyclic_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Chemicals_and_Drugs"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Polycyclic_Hydrocarbons,_Aromatic -->
+
+    <owl:Class rdf:about="&sedic;Polycyclic_Hydrocarbons,_Aromatic">
+        <rdfs:subClassOf rdf:resource="&sedic;Polycyclic_Compounds"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Polymers -->
+
+    <owl:Class rdf:about="&sedic;Polymers">
+        <rdfs:subClassOf rdf:resource="&sedic;Biomedical_and_Dental_Materials"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Macromolecular_Substances"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Polysaccharides -->
+
+    <owl:Class rdf:about="&sedic;Polysaccharides">
+        <rdfs:subClassOf rdf:resource="&sedic;Carbohydrates"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Potassium_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Potassium_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
     </owl:Class>
     
 
@@ -939,6 +3572,22 @@
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pregnancy_Complications -->
+
+    <owl:Class rdf:about="&sedic;Pregnancy_Complications">
+        <rdfs:subClassOf rdf:resource="&sedic;Female_Urogenital_Diseases_and_Pregnancy_Complications"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pregnancy_Complications,_Cardiovascular -->
+
+    <owl:Class rdf:about="&sedic;Pregnancy_Complications,_Cardiovascular">
+        <rdfs:subClassOf rdf:resource="&sedic;Cardiovascular_Diseases"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pregnancy_Complications,_Neoplastic -->
 
     <owl:Class rdf:about="&sedic;Pregnancy_Complications,_Neoplastic">
@@ -947,10 +3596,27 @@
     
 
 
-    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pregnancy_Complications,_Parasitic -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Primate_Diseases -->
 
-    <owl:Class rdf:about="&sedic;Pregnancy_Complications,_Parasitic">
-        <rdfs:subClassOf rdf:resource="&sedic;Parasitic_Diseases"/>
+    <owl:Class rdf:about="&sedic;Primate_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Protective_Agents -->
+
+    <owl:Class rdf:about="&sedic;Protective_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Physiological_Effects_of_Drugs"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Specialty_Uses_of_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Proteins -->
+
+    <owl:Class rdf:about="&sedic;Proteins">
+        <rdfs:subClassOf rdf:resource="&sedic;Amino_Acids,_Peptides,_and_Proteins"/>
     </owl:Class>
     
 
@@ -963,10 +3629,90 @@
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Psychotropic_Drugs -->
+
+    <owl:Class rdf:about="&sedic;Psychotropic_Drugs">
+        <rdfs:subClassOf rdf:resource="&sedic;Central_Nervous_System_Agents"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pupil_Disorders -->
+
+    <owl:Class rdf:about="&sedic;Pupil_Disorders">
+        <rdfs:subClassOf rdf:resource="&sedic;Eye_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Purpura,_Thrombocytopenic -->
+
+    <owl:Class rdf:about="&sedic;Purpura,_Thrombocytopenic">
+        <rdfs:subClassOf rdf:resource="&sedic;Immune_System_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pyrans -->
+
+    <owl:Class rdf:about="&sedic;Pyrans">
+        <rdfs:subClassOf rdf:resource="&sedic;Heterocyclic_Compounds"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Quinones -->
+
+    <owl:Class rdf:about="&sedic;Quinones">
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#RNA_Virus_Infections -->
 
     <owl:Class rdf:about="&sedic;RNA_Virus_Infections">
         <rdfs:subClassOf rdf:resource="&sedic;Virus_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Radiation-Protective_Agents -->
+
+    <owl:Class rdf:about="&sedic;Radiation-Protective_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Protective_Agents"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Radiation-Sensitizing_Agents -->
+
+    <owl:Class rdf:about="&sedic;Radiation-Sensitizing_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Therapeutic_Uses"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Radiation_Injuries -->
+
+    <owl:Class rdf:about="&sedic;Radiation_Injuries">
+        <rdfs:subClassOf rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Radioactive_Pollutants -->
+
+    <owl:Class rdf:about="&sedic;Radioactive_Pollutants">
+        <rdfs:subClassOf rdf:resource="&sedic;Complex_Mixtures"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Refractive_Errors -->
+
+    <owl:Class rdf:about="&sedic;Refractive_Errors">
+        <rdfs:subClassOf rdf:resource="&sedic;Eye_Diseases"/>
     </owl:Class>
     
 
@@ -977,10 +3723,59 @@
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Renal_Agents -->
+
+    <owl:Class rdf:about="&sedic;Renal_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Therapeutic_Uses"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Reproductive_Control_Agents -->
+
+    <owl:Class rdf:about="&sedic;Reproductive_Control_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Physiological_Effects_of_Drugs"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Therapeutic_Uses"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Respiration_Disorders -->
+
+    <owl:Class rdf:about="&sedic;Respiration_Disorders">
+        <rdfs:subClassOf rdf:resource="&sedic;Respiratory_Tract_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Respiratory_Hypersensitivity -->
+
+    <owl:Class rdf:about="&sedic;Respiratory_Hypersensitivity">
+        <rdfs:subClassOf rdf:resource="&sedic;Respiratory_Tract_Diseases"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Respiratory_System -->
 
     <owl:Class rdf:about="&sedic;Respiratory_System">
-        <rdfs:subClassOf rdf:resource="&sedic;AnatomicEntity"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Anatomic_Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Respiratory_System_Abnormalities -->
+
+    <owl:Class rdf:about="&sedic;Respiratory_System_Abnormalities">
+        <rdfs:subClassOf rdf:resource="&sedic;Respiratory_Tract_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Respiratory_System_Agents -->
+
+    <owl:Class rdf:about="&sedic;Respiratory_System_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Therapeutic_Uses"/>
     </owl:Class>
     
 
@@ -988,7 +3783,103 @@
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Respiratory_Tract_Diseases -->
 
     <owl:Class rdf:about="&sedic;Respiratory_Tract_Diseases">
-        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Respiratory_Tract_Fistula -->
+
+    <owl:Class rdf:about="&sedic;Respiratory_Tract_Fistula">
+        <rdfs:subClassOf rdf:resource="&sedic;Respiratory_Tract_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Respiratory_Tract_Infections -->
+
+    <owl:Class rdf:about="&sedic;Respiratory_Tract_Infections">
+        <rdfs:subClassOf rdf:resource="&sedic;Respiratory_Tract_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Respiratory_Tract_Neoplasms -->
+
+    <owl:Class rdf:about="&sedic;Respiratory_Tract_Neoplasms">
+        <rdfs:subClassOf rdf:resource="&sedic;Respiratory_Tract_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Retinal_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Retinal_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Eye_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Rheumatic_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Rheumatic_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Musculoskeletal_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Riot_Control_Agents,_Chemical -->
+
+    <owl:Class rdf:about="&sedic;Riot_Control_Agents,_Chemical">
+        <rdfs:subClassOf rdf:resource="&sedic;Specialty_Uses_of_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Rodent_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Rodent_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Rupture -->
+
+    <owl:Class rdf:about="&sedic;Rupture">
+        <rdfs:subClassOf rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Ruthenium_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Ruthenium_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Scleral_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Scleral_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Eye_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Selenium_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Selenium_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Semicarbazides -->
+
+    <owl:Class rdf:about="&sedic;Semicarbazides">
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
     </owl:Class>
     
 
@@ -996,7 +3887,23 @@
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Sense_Organs -->
 
     <owl:Class rdf:about="&sedic;Sense_Organs">
-        <rdfs:subClassOf rdf:resource="&sedic;AnatomicEntity"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Anatomic_Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Sensory_System_Agents -->
+
+    <owl:Class rdf:about="&sedic;Sensory_System_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Peripheral_Nervous_System_Agents"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Sequestering_Agents -->
+
+    <owl:Class rdf:about="&sedic;Sequestering_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Specialty_Uses_of_Chemicals"/>
     </owl:Class>
     
 
@@ -1005,6 +3912,46 @@
 
     <owl:Class rdf:about="&sedic;Sexually_Transmitted_Diseases">
         <rdfs:subClassOf rdf:resource="&sedic;Virus_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Sheep_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Sheep_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Shock,_Traumatic -->
+
+    <owl:Class rdf:about="&sedic;Shock,_Traumatic">
+        <rdfs:subClassOf rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Signs_and_Symptoms -->
+
+    <owl:Class rdf:about="&sedic;Signs_and_Symptoms">
+        <rdfs:subClassOf rdf:resource="&sedic;Pathological_Conditions,_Signs_and_Symptoms"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Silicon_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Silicon_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Silver_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Silver_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
     </owl:Class>
     
 
@@ -1021,6 +3968,14 @@
 
     <owl:Class rdf:about="&sedic;Skin">
         <rdfs:subClassOf rdf:resource="&sedic;Integumentary_System"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Skin_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Skin_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Skin_and_Connective_Tissue_Diseases"/>
     </owl:Class>
     
 
@@ -1044,7 +3999,15 @@
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Skin_and_Connective_Tissue_Diseases -->
 
     <owl:Class rdf:about="&sedic;Skin_and_Connective_Tissue_Diseases">
-        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Sleep_Disorders -->
+
+    <owl:Class rdf:about="&sedic;Sleep_Disorders">
+        <rdfs:subClassOf rdf:resource="&sedic;Nervous_System_Diseases"/>
     </owl:Class>
     
 
@@ -1057,10 +4020,98 @@
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Sodium_Channel_Blockers -->
+
+    <owl:Class rdf:about="&sedic;Sodium_Channel_Blockers">
+        <rdfs:subClassOf rdf:resource="&sedic;Cardiovascular_Agents"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Sodium_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Sodium_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Soil -->
+
+    <owl:Class rdf:about="&sedic;Soil">
+        <rdfs:subClassOf rdf:resource="&sedic;Complex_Mixtures"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Solutions -->
+
+    <owl:Class rdf:about="&sedic;Solutions">
+        <rdfs:subClassOf rdf:resource="&sedic;Pharmaceutical_Preparations"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Solvents -->
+
+    <owl:Class rdf:about="&sedic;Solvents">
+        <rdfs:subClassOf rdf:resource="&sedic;Specialty_Uses_of_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Specialty_Uses_of_Chemicals -->
+
+    <owl:Class rdf:about="&sedic;Specialty_Uses_of_Chemicals">
+        <rdfs:subClassOf rdf:resource="&sedic;Chemical_Actions_and_Uses"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Spinal_Cord_Injuries -->
+
+    <owl:Class rdf:about="&sedic;Spinal_Cord_Injuries">
+        <rdfs:subClassOf rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Spinal_Injuries -->
+
+    <owl:Class rdf:about="&sedic;Spinal_Injuries">
+        <rdfs:subClassOf rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Sprains_and_Strains -->
+
+    <owl:Class rdf:about="&sedic;Sprains_and_Strains">
+        <rdfs:subClassOf rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Steroids -->
+
+    <owl:Class rdf:about="&sedic;Steroids">
+        <rdfs:subClassOf rdf:resource="&sedic;Polycyclic_Compounds"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Sterols -->
+
+    <owl:Class rdf:about="&sedic;Sterols">
+        <rdfs:subClassOf rdf:resource="&sedic;Lipids"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Stomatognathic_Diseases -->
 
     <owl:Class rdf:about="&sedic;Stomatognathic_Diseases">
-        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Diseases"/>
     </owl:Class>
     
 
@@ -1068,7 +4119,184 @@
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Stomatognathic_System -->
 
     <owl:Class rdf:about="&sedic;Stomatognathic_System">
-        <rdfs:subClassOf rdf:resource="&sedic;AnatomicEntity"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Anatomic_Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Stomatognathic_System_Abnormalities -->
+
+    <owl:Class rdf:about="&sedic;Stomatognathic_System_Abnormalities">
+        <rdfs:subClassOf rdf:resource="&sedic;Stomatognathic_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Street_Drugs -->
+
+    <owl:Class rdf:about="&sedic;Street_Drugs">
+        <rdfs:subClassOf rdf:resource="&sedic;Pharmaceutical_Preparations"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Substance-Related_Disorders -->
+
+    <owl:Class rdf:about="&sedic;Substance-Related_Disorders">
+        <rdfs:subClassOf rdf:resource="&sedic;Chemically-Induced_Disorders"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Sugar_Acids -->
+
+    <owl:Class rdf:about="&sedic;Sugar_Acids">
+        <rdfs:subClassOf rdf:resource="&sedic;Carbohydrates"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Sugar_Alcohols -->
+
+    <owl:Class rdf:about="&sedic;Sugar_Alcohols">
+        <rdfs:subClassOf rdf:resource="&sedic;Carbohydrates"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Sugar_Phosphates -->
+
+    <owl:Class rdf:about="&sedic;Sugar_Phosphates">
+        <rdfs:subClassOf rdf:resource="&sedic;Carbohydrates"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Sulfur_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Sulfur_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Surface-Active_Agents -->
+
+    <owl:Class rdf:about="&sedic;Surface-Active_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Specialty_Uses_of_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Sweetening_Agents -->
+
+    <owl:Class rdf:about="&sedic;Sweetening_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Specialty_Uses_of_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Swine_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Swine_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Tars -->
+
+    <owl:Class rdf:about="&sedic;Tars">
+        <rdfs:subClassOf rdf:resource="&sedic;Complex_Mixtures"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Technetium_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Technetium_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Temporomandibular_Joint_Disorders -->
+
+    <owl:Class rdf:about="&sedic;Temporomandibular_Joint_Disorders">
+        <rdfs:subClassOf rdf:resource="&sedic;Stomatognathic_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Tendon_Injuries -->
+
+    <owl:Class rdf:about="&sedic;Tendon_Injuries">
+        <rdfs:subClassOf rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Therapeutic_Uses -->
+
+    <owl:Class rdf:about="&sedic;Therapeutic_Uses">
+        <rdfs:subClassOf rdf:resource="&sedic;Pharmacologic_Actions"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Thoracic_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Thoracic_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Respiratory_Tract_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Thoracic_Injuries -->
+
+    <owl:Class rdf:about="&sedic;Thoracic_Injuries">
+        <rdfs:subClassOf rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Thorium_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Thorium_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Thyroid_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Thyroid_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Endocrine_System_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Tin_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Tin_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Tissue_Adhesives -->
+
+    <owl:Class rdf:about="&sedic;Tissue_Adhesives">
+        <rdfs:subClassOf rdf:resource="&sedic;Biomedical_and_Dental_Materials"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Tissue_Extracts -->
+
+    <owl:Class rdf:about="&sedic;Tissue_Extracts">
+        <rdfs:subClassOf rdf:resource="&sedic;Complex_Mixtures"/>
     </owl:Class>
     
 
@@ -1076,7 +4304,23 @@
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Tissues -->
 
     <owl:Class rdf:about="&sedic;Tissues">
-        <rdfs:subClassOf rdf:resource="&sedic;AnatomicEntity"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Anatomic_Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Tooth_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Tooth_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Stomatognathic_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Tooth_Injuries -->
+
+    <owl:Class rdf:about="&sedic;Tooth_Injuries">
+        <rdfs:subClassOf rdf:resource="&sedic;Wounds_and_Injuries"/>
     </owl:Class>
     
 
@@ -1089,11 +4333,68 @@
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Toxic_Actions -->
+
+    <owl:Class rdf:about="&sedic;Toxic_Actions">
+        <rdfs:subClassOf rdf:resource="&sedic;Chemical_Actions_and_Uses"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Toxins,_Biological -->
+
+    <owl:Class rdf:about="&sedic;Toxins,_Biological">
+        <rdfs:subClassOf rdf:resource="&sedic;Biological_Factors"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Tracheal_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Tracheal_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Respiratory_Tract_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Trauma,_Nervous_System -->
+
+    <owl:Class rdf:about="&sedic;Trauma,_Nervous_System">
+        <rdfs:subClassOf rdf:resource="&sedic;Nervous_System_Diseases"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Triazenes -->
+
+    <owl:Class rdf:about="&sedic;Triazenes">
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Tuberculosis,_Urogenital -->
+
+    <owl:Class rdf:about="&sedic;Tuberculosis,_Urogenital">
+        <rdfs:subClassOf rdf:resource="&sedic;Male_Urogenital_Diseases"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Tumor_Virus_Infections -->
 
     <owl:Class rdf:about="&sedic;Tumor_Virus_Infections">
         <rdfs:subClassOf rdf:resource="&sedic;Neoplasms"/>
         <rdfs:subClassOf rdf:resource="&sedic;Virus_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Tungsten_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Tungsten_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
     </owl:Class>
     
 
@@ -1114,6 +4415,22 @@
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Uranium_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Uranium_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Urea -->
+
+    <owl:Class rdf:about="&sedic;Urea">
+        <rdfs:subClassOf rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Urinary_Tract -->
 
     <owl:Class rdf:about="&sedic;Urinary_Tract">
@@ -1122,18 +4439,82 @@
     
 
 
-    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Urogenital_System -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Urogenital_Abnormalities -->
 
-    <owl:Class rdf:about="&sedic;Urogenital_System">
-        <rdfs:subClassOf rdf:resource="&sedic;AnatomicEntity"/>
+    <owl:Class rdf:about="&sedic;Urogenital_Abnormalities">
+        <rdfs:subClassOf rdf:resource="&sedic;Male_Urogenital_Diseases"/>
     </owl:Class>
     
 
 
-    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Viremia -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Urogenital_Neoplasms -->
 
-    <owl:Class rdf:about="&sedic;Viremia">
-        <rdfs:subClassOf rdf:resource="&sedic;Virus_Diseases"/>
+    <owl:Class rdf:about="&sedic;Urogenital_Neoplasms">
+        <rdfs:subClassOf rdf:resource="&sedic;Male_Urogenital_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Urogenital_System -->
+
+    <owl:Class rdf:about="&sedic;Urogenital_System">
+        <rdfs:subClassOf rdf:resource="&sedic;Anatomic_Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Urologic_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Urologic_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Male_Urogenital_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Uveal_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Uveal_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Eye_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Vanadium_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Vanadium_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Vascular_Diseases -->
+
+    <owl:Class rdf:about="&sedic;Vascular_Diseases">
+        <rdfs:subClassOf rdf:resource="&sedic;Cardiovascular_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Vasoconstrictor_Agents -->
+
+    <owl:Class rdf:about="&sedic;Vasoconstrictor_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Cardiovascular_Agents"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Vasodilator_Agents -->
+
+    <owl:Class rdf:about="&sedic;Vasodilator_Agents">
+        <rdfs:subClassOf rdf:resource="&sedic;Cardiovascular_Agents"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Venoms -->
+
+    <owl:Class rdf:about="&sedic;Venoms">
+        <rdfs:subClassOf rdf:resource="&sedic;Complex_Mixtures"/>
     </owl:Class>
     
 
@@ -1141,7 +4522,55 @@
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Virus_Diseases -->
 
     <owl:Class rdf:about="&sedic;Virus_Diseases">
-        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Viscoelastic_Substances -->
+
+    <owl:Class rdf:about="&sedic;Viscoelastic_Substances">
+        <rdfs:subClassOf rdf:resource="&sedic;Specialty_Uses_of_Chemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Vision_Disorders -->
+
+    <owl:Class rdf:about="&sedic;Vision_Disorders">
+        <rdfs:subClassOf rdf:resource="&sedic;Eye_Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Waste_Products -->
+
+    <owl:Class rdf:about="&sedic;Waste_Products">
+        <rdfs:subClassOf rdf:resource="&sedic;Complex_Mixtures"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Waxes -->
+
+    <owl:Class rdf:about="&sedic;Waxes">
+        <rdfs:subClassOf rdf:resource="&sedic;Lipids"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Wounds,_Nonpenetrating -->
+
+    <owl:Class rdf:about="&sedic;Wounds,_Nonpenetrating">
+        <rdfs:subClassOf rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Wounds,_Penetrating -->
+
+    <owl:Class rdf:about="&sedic;Wounds,_Penetrating">
+        <rdfs:subClassOf rdf:resource="&sedic;Wounds_and_Injuries"/>
     </owl:Class>
     
 
@@ -1149,7 +4578,15 @@
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Wounds_and_Injuries -->
 
     <owl:Class rdf:about="&sedic;Wounds_and_Injuries">
-        <rdfs:subClassOf rdf:resource="&sedic;Disease"/>
+        <rdfs:subClassOf rdf:resource="&sedic;Diseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Zinc_Compounds -->
+
+    <owl:Class rdf:about="&sedic;Zinc_Compounds">
+        <rdfs:subClassOf rdf:resource="&sedic;Inorganic_Chemicals"/>
     </owl:Class>
     
 
@@ -1157,9 +4594,7 @@
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Zoonoses -->
 
     <owl:Class rdf:about="&sedic;Zoonoses">
-        <rdfs:subClassOf rdf:resource="&sedic;Bacterial_Infections_and_Mycoses"/>
         <rdfs:subClassOf rdf:resource="&sedic;Parasitic_Diseases"/>
-        <rdfs:subClassOf rdf:resource="&sedic;Virus_Diseases"/>
     </owl:Class>
     
 
@@ -1183,6 +4618,62 @@
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Acid_Rain -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Acid_Rain">
+        <rdf:type rdf:resource="&sedic;Complex_Mixtures"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Actinobacillosis -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Actinobacillosis">
+        <rdf:type rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Adhesives -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Adhesives">
+        <rdf:type rdf:resource="&sedic;Specialty_Uses_of_Chemicals"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Adjuvants,_Anesthesia -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Adjuvants,_Anesthesia">
+        <rdf:type rdf:resource="&sedic;Central_Nervous_System_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Adjuvants,_Immunologic -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Adjuvants,_Immunologic">
+        <rdf:type rdf:resource="&sedic;Immunologic_Factors"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Alcohol_Deterrents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Alcohol_Deterrents">
+        <rdf:type rdf:resource="&sedic;Central_Nervous_System_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Aleutian_Mink_Disease -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Aleutian_Mink_Disease">
+        <rdf:type rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Aloe_Vera -->
 
     <owl:NamedIndividual rdf:about="&sedic;Aloe_Vera">
@@ -1195,6 +4686,14 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Ambergris -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Ambergris">
+        <rdf:type rdf:resource="&sedic;Complex_Mixtures"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Amniotic_Fluid -->
 
     <owl:NamedIndividual rdf:about="&sedic;Amniotic_Fluid">
@@ -1203,10 +4702,34 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Amputation,_Traumatic -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Amputation,_Traumatic">
+        <rdf:type rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Amputation_Stumps -->
 
     <owl:NamedIndividual rdf:about="&sedic;Amputation_Stumps">
         <rdf:type rdf:resource="&sedic;Extremities"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Anal_Gland_Neoplasms -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Anal_Gland_Neoplasms">
+        <rdf:type rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Anaplasmosis -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Anaplasmosis">
+        <rdf:type rdf:resource="&sedic;Animal_Diseases"/>
     </owl:NamedIndividual>
     
 
@@ -1228,6 +4751,153 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Anti-Allergic_Agents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Anti-Allergic_Agents">
+        <rdf:type rdf:resource="&sedic;Therapeutic_Uses"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Anti-Arrhythmia_Agents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Anti-Arrhythmia_Agents">
+        <rdf:type rdf:resource="&sedic;Cardiovascular_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Anti-Infective_Agents,_Urinary -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Anti-Infective_Agents,_Urinary">
+        <rdf:type rdf:resource="&sedic;Anti-Infective_Agents"/>
+        <rdf:type rdf:resource="&sedic;Renal_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Anti-Ulcer_Agents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Anti-Ulcer_Agents">
+        <rdf:type rdf:resource="&sedic;Gastrointestinal_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Anticarcinogenic_Agents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Anticarcinogenic_Agents">
+        <rdf:type rdf:resource="&sedic;Protective_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Anticonvulsants -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Anticonvulsants">
+        <rdf:type rdf:resource="&sedic;Central_Nervous_System_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Antidiarrheals -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Antidiarrheals">
+        <rdf:type rdf:resource="&sedic;Gastrointestinal_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Antidotes -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Antidotes">
+        <rdf:type rdf:resource="&sedic;Protective_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Antiemetics -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Antiemetics">
+        <rdf:type rdf:resource="&sedic;Central_Nervous_System_Agents"/>
+        <rdf:type rdf:resource="&sedic;Gastrointestinal_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Antifungal_Agents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Antifungal_Agents">
+        <rdf:type rdf:resource="&sedic;Anti-Infective_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Antihypertensive_Agents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Antihypertensive_Agents">
+        <rdf:type rdf:resource="&sedic;Cardiovascular_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Antimutagenic_Agents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Antimutagenic_Agents">
+        <rdf:type rdf:resource="&sedic;Protective_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Antioxidants -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Antioxidants">
+        <rdf:type rdf:resource="&sedic;Protective_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Antipruritics -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Antipruritics">
+        <rdf:type rdf:resource="&sedic;Dermatologic_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Antipyretics -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Antipyretics">
+        <rdf:type rdf:resource="&sedic;Physiological_Effects_of_Drugs"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Antisickling_Agents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Antisickling_Agents">
+        <rdf:type rdf:resource="&sedic;Hematologic_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Antistatic_Agents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Antistatic_Agents">
+        <rdf:type rdf:resource="&sedic;Specialty_Uses_of_Chemicals"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Antitussive_Agents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Antitussive_Agents">
+        <rdf:type rdf:resource="&sedic;Central_Nervous_System_Agents"/>
+        <rdf:type rdf:resource="&sedic;Respiratory_System_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Arm -->
 
     <owl:NamedIndividual rdf:about="&sedic;Arm">
@@ -1240,6 +4910,47 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
 
     <owl:NamedIndividual rdf:about="&sedic;Arteries">
         <rdf:type rdf:resource="&sedic;Blood_Vessels"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Asphyxia -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Asphyxia">
+        <rdf:type rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Asthenopia -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Asthenopia">
+        <rdf:type rdf:resource="&sedic;Eye_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Asthma,_Occupational -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Asthma,_Occupational">
+        <rdf:type rdf:resource="&sedic;Occupational_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Astringents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Astringents">
+        <rdf:type rdf:resource="&sedic;Dermatologic_Agents"/>
+        <rdf:type rdf:resource="&sedic;Physiological_Effects_of_Drugs"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Athletic_Injuries -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Athletic_Injuries">
+        <rdf:type rdf:resource="&sedic;Wounds_and_Injuries"/>
     </owl:NamedIndividual>
     
 
@@ -1260,6 +4971,14 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Azides -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Azides">
+        <rdf:type rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Back -->
 
     <owl:NamedIndividual rdf:about="&sedic;Back">
@@ -1272,6 +4991,22 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
 
     <owl:NamedIndividual rdf:about="&sedic;Bile_Ducts">
         <rdf:type rdf:resource="&sedic;Biliary_Tract"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Biofuels -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Biofuels">
+        <rdf:type rdf:resource="&sedic;Complex_Mixtures"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Bird_Fancier&apos;s_Lung -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Bird_Fancier&apos;s_Lung">
+        <rdf:type rdf:resource="&sedic;Occupational_Diseases"/>
     </owl:NamedIndividual>
     
 
@@ -1364,10 +5099,50 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Bone_Density_Conservation_Agents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Bone_Density_Conservation_Agents">
+        <rdf:type rdf:resource="&sedic;Physiological_Effects_of_Drugs"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Bone_Diseases,_Endocrine -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Bone_Diseases,_Endocrine">
+        <rdf:type rdf:resource="&sedic;Endocrine_System_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Borna_Disease -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Borna_Disease">
+        <rdf:type rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Brain -->
 
     <owl:NamedIndividual rdf:about="&sedic;Brain">
         <rdf:type rdf:resource="&sedic;Central_Nervous_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Bronchiolitis,_Viral -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Bronchiolitis,_Viral">
+        <rdf:type rdf:resource="&sedic;Virus_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Bronchoconstrictor_Agents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Bronchoconstrictor_Agents">
+        <rdf:type rdf:resource="&sedic;Respiratory_System_Agents"/>
     </owl:NamedIndividual>
     
 
@@ -1380,10 +5155,51 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Calcium_Channel_Blockers -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Calcium_Channel_Blockers">
+        <rdf:type rdf:resource="&sedic;Cardiovascular_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Cardio -->
 
     <owl:NamedIndividual rdf:about="&sedic;Cardio">
-        <rdf:type rdf:resource="&sedic;AnatomicEntity"/>
+        <rdf:type rdf:resource="&sedic;Anatomic_Entity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Cardioplegic_Solutions -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Cardioplegic_Solutions">
+        <rdf:type rdf:resource="&sedic;Cardiovascular_Agents"/>
+        <rdf:type rdf:resource="&sedic;Pharmaceutical_Solutions"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Cardiotonic_Agents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Cardiotonic_Agents">
+        <rdf:type rdf:resource="&sedic;Cardiovascular_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Cariogenic_Agents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Cariogenic_Agents">
+        <rdf:type rdf:resource="&sedic;Biomedical_and_Dental_Materials"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Cariostatic_Agents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Cariostatic_Agents">
+        <rdf:type rdf:resource="&sedic;Protective_Agents"/>
     </owl:NamedIndividual>
     
 
@@ -1392,6 +5208,38 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
 
     <owl:NamedIndividual rdf:about="&sedic;Cartilage">
         <rdf:type rdf:resource="&sedic;Musculoskeletal_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Cathartics -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Cathartics">
+        <rdf:type rdf:resource="&sedic;Gastrointestinal_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Caustics -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Caustics">
+        <rdf:type rdf:resource="&sedic;Specialty_Uses_of_Chemicals"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Ceroid -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Ceroid">
+        <rdf:type rdf:resource="&sedic;Lipids"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Cerumenolytic_Agents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Cerumenolytic_Agents">
+        <rdf:type rdf:resource="&sedic;Physiological_Effects_of_Drugs"/>
     </owl:NamedIndividual>
     
 
@@ -1413,10 +5261,35 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Cholagogues_and_Choleretics -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Cholagogues_and_Choleretics">
+        <rdf:type rdf:resource="&sedic;Gastrointestinal_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Chromaffin_System -->
 
     <owl:NamedIndividual rdf:about="&sedic;Chromaffin_System">
         <rdf:type rdf:resource="&sedic;Endocrine_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Cogan_Syndrome -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Cogan_Syndrome">
+        <rdf:type rdf:resource="&sedic;Eye_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Coinfection -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Coinfection">
+        <rdf:type rdf:resource="&sedic;Parasitic_Diseases"/>
+        <rdf:type rdf:resource="&sedic;Virus_Diseases"/>
     </owl:NamedIndividual>
     
 
@@ -1429,10 +5302,131 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Contrast_Media -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Contrast_Media">
+        <rdf:type rdf:resource="&sedic;Specialty_Uses_of_Chemicals"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Contrecoup_Injury -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Contrecoup_Injury">
+        <rdf:type rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Controlled_Substances -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Controlled_Substances">
+        <rdf:type rdf:resource="&sedic;Pharmaceutical_Preparations"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Contusions -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Contusions">
+        <rdf:type rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Coordination_Complexes -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Coordination_Complexes">
+        <rdf:type rdf:resource="&sedic;Inorganic_Chemicals"/>
+        <rdf:type rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Counterfeit_Drugs -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Counterfeit_Drugs">
+        <rdf:type rdf:resource="&sedic;Pharmaceutical_Preparations"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Cryoprotective_Agents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Cryoprotective_Agents">
+        <rdf:type rdf:resource="&sedic;Protective_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Dermatitis,_Occupational -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Dermatitis,_Occupational">
+        <rdf:type rdf:resource="&sedic;Occupational_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Dermis -->
 
     <owl:NamedIndividual rdf:about="&sedic;Dermis">
         <rdf:type rdf:resource="&sedic;Skin"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Designer_Drugs -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Designer_Drugs">
+        <rdf:type rdf:resource="&sedic;Pharmaceutical_Preparations"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Digital_Dermatitis -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Digital_Dermatitis">
+        <rdf:type rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Disease_Models,_Animal -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Disease_Models,_Animal">
+        <rdf:type rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Drugs,_Chinese_Herbal -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Drugs,_Chinese_Herbal">
+        <rdf:type rdf:resource="&sedic;Pharmaceutical_Preparations"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Drugs,_Essential -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Drugs,_Essential">
+        <rdf:type rdf:resource="&sedic;Pharmaceutical_Preparations"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Drugs,_Generic -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Drugs,_Generic">
+        <rdf:type rdf:resource="&sedic;Pharmaceutical_Preparations"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Drugs,_Investigational -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Drugs,_Investigational">
+        <rdf:type rdf:resource="&sedic;Pharmaceutical_Preparations"/>
     </owl:NamedIndividual>
     
 
@@ -1462,10 +5456,37 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Emetics -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Emetics">
+        <rdf:type rdf:resource="&sedic;Central_Nervous_System_Agents"/>
+        <rdf:type rdf:resource="&sedic;Gastrointestinal_Agents"/>
+        <rdf:type rdf:resource="&sedic;Physiological_Effects_of_Drugs"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Emollients -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Emollients">
+        <rdf:type rdf:resource="&sedic;Dermatologic_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Endocardium -->
 
     <owl:NamedIndividual rdf:about="&sedic;Endocardium">
         <rdf:type rdf:resource="&sedic;Heart"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Endocrine_Disruptors -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Endocrine_Disruptors">
+        <rdf:type rdf:resource="&sedic;Physiological_Effects_of_Drugs"/>
+        <rdf:type rdf:resource="&sedic;Toxic_Actions"/>
     </owl:NamedIndividual>
     
 
@@ -1494,6 +5515,14 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Enterotoxemia -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Enterotoxemia">
+        <rdf:type rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Epidermis -->
 
     <owl:NamedIndividual rdf:about="&sedic;Epidermis">
@@ -1510,6 +5539,14 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Esophageal_Perforation -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Esophageal_Perforation">
+        <rdf:type rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Esophagus -->
 
     <owl:NamedIndividual rdf:about="&sedic;Esophagus">
@@ -1522,6 +5559,30 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
 
     <owl:NamedIndividual rdf:about="&sedic;Exocrine_Glands">
         <rdf:type rdf:resource="&sedic;Tissues"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Expectorants -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Expectorants">
+        <rdf:type rdf:resource="&sedic;Respiratory_System_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Explosive_Agents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Explosive_Agents">
+        <rdf:type rdf:resource="&sedic;Specialty_Uses_of_Chemicals"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Extravasation_of_Diagnostic_and_Therapeutic_Materials -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Extravasation_of_Diagnostic_and_Therapeutic_Materials">
+        <rdf:type rdf:resource="&sedic;Wounds_and_Injuries"/>
     </owl:NamedIndividual>
     
 
@@ -1559,6 +5620,14 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Fatigue_Syndrome,_Chronic -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Fatigue_Syndrome,_Chronic">
+        <rdf:type rdf:resource="&sedic;Virus_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Feces -->
 
     <owl:NamedIndividual rdf:about="&sedic;Feces">
@@ -1575,10 +5644,51 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Fibrinolytic_Agents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Fibrinolytic_Agents">
+        <rdf:type rdf:resource="&sedic;Cardiovascular_Agents"/>
+        <rdf:type rdf:resource="&sedic;Hematologic_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Fingers -->
 
     <owl:NamedIndividual rdf:about="&sedic;Fingers">
         <rdf:type rdf:resource="&sedic;Hand"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Fixatives -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Fixatives">
+        <rdf:type rdf:resource="&sedic;Specialty_Uses_of_Chemicals"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Flame_Retardants -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Flame_Retardants">
+        <rdf:type rdf:resource="&sedic;Specialty_Uses_of_Chemicals"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Foot-and-Mouth_Disease -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Foot-and-Mouth_Disease">
+        <rdf:type rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Foot_Rot -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Foot_Rot">
+        <rdf:type rdf:resource="&sedic;Animal_Diseases"/>
     </owl:NamedIndividual>
     
 
@@ -1603,6 +5713,30 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
 
     <owl:NamedIndividual rdf:about="&sedic;Forehead">
         <rdf:type rdf:resource="&sedic;Face"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Fractures,_Cartilage -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Fractures,_Cartilage">
+        <rdf:type rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Freund&apos;s_Adjuvant -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Freund&apos;s_Adjuvant">
+        <rdf:type rdf:resource="&sedic;Complex_Mixtures"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Galactogogues -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Galactogogues">
+        <rdf:type rdf:resource="&sedic;Physiological_Effects_of_Drugs"/>
     </owl:NamedIndividual>
     
 
@@ -1671,10 +5805,34 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Glomerulonephritis,_Membranoproliferative -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Glomerulonephritis,_Membranoproliferative">
+        <rdf:type rdf:resource="&sedic;Immune_System_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Goat_Diseases -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Goat_Diseases">
+        <rdf:type rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Gonads -->
 
     <owl:NamedIndividual rdf:about="&sedic;Gonads">
         <rdf:type rdf:resource="&sedic;Genitalia"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Graft_vs_Host_Disease -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Graft_vs_Host_Disease">
+        <rdf:type rdf:resource="&sedic;Immune_System_Diseases"/>
     </owl:NamedIndividual>
     
 
@@ -1687,10 +5845,27 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hallucinogens -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Hallucinogens">
+        <rdf:type rdf:resource="&sedic;Central_Nervous_System_Agents"/>
+        <rdf:type rdf:resource="&sedic;Physiological_Effects_of_Drugs"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hand-Arm_Vibration_Syndrome -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Hand-Arm_Vibration_Syndrome">
+        <rdf:type rdf:resource="&sedic;Occupational_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Head -->
 
     <owl:NamedIndividual rdf:about="&sedic;Head">
-        <rdf:type rdf:resource="&sedic;AnatomicEntity"/>
+        <rdf:type rdf:resource="&sedic;Anatomic_Entity"/>
     </owl:NamedIndividual>
     
 
@@ -1735,6 +5910,14 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Heartwater_Disease -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Heartwater_Disease">
+        <rdf:type rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Heel -->
 
     <owl:NamedIndividual rdf:about="&sedic;Heel">
@@ -1743,10 +5926,26 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hematinics -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Hematinics">
+        <rdf:type rdf:resource="&sedic;Hematologic_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hematopoietic_System -->
 
     <owl:NamedIndividual rdf:about="&sedic;Hematopoietic_System">
         <rdf:type rdf:resource="&sedic;Hemic_and_Immune_Systems"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#High_Pressure_Neurological_Syndrome -->
+
+    <owl:NamedIndividual rdf:about="&sedic;High_Pressure_Neurological_Syndrome">
+        <rdf:type rdf:resource="&sedic;Occupational_Diseases"/>
     </owl:NamedIndividual>
     
 
@@ -1767,10 +5966,58 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hygroscopic_Agents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Hygroscopic_Agents">
+        <rdf:type rdf:resource="&sedic;Specialty_Uses_of_Chemicals"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Hypnotics_and_Sedatives -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Hypnotics_and_Sedatives">
+        <rdf:type rdf:resource="&sedic;Physiological_Effects_of_Drugs"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Immune_Reconstitution_Inflammatory_Syndrome -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Immune_Reconstitution_Inflammatory_Syndrome">
+        <rdf:type rdf:resource="&sedic;Immune_System_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Immune_System -->
 
     <owl:NamedIndividual rdf:about="&sedic;Immune_System">
         <rdf:type rdf:resource="&sedic;Hemic_and_Immune_Systems"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Inert_Gas_Narcosis -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Inert_Gas_Narcosis">
+        <rdf:type rdf:resource="&sedic;Occupational_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Insect_Repellents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Insect_Repellents">
+        <rdf:type rdf:resource="&sedic;Protective_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Interferon_Inducers -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Interferon_Inducers">
+        <rdf:type rdf:resource="&sedic;Immunologic_Factors"/>
     </owl:NamedIndividual>
     
 
@@ -1799,6 +6046,22 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Keratoconjunctivitis,_Infectious -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Keratoconjunctivitis,_Infectious">
+        <rdf:type rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Keratolytic_Agents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Keratolytic_Agents">
+        <rdf:type rdf:resource="&sedic;Dermatologic_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Kidney -->
 
     <owl:NamedIndividual rdf:about="&sedic;Kidney">
@@ -1815,10 +6078,42 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Laboratory_Infection -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Laboratory_Infection">
+        <rdf:type rdf:resource="&sedic;Occupational_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Lacerations -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Lacerations">
+        <rdf:type rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Lameness,_Animal -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Lameness,_Animal">
+        <rdf:type rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Larynx -->
 
     <owl:NamedIndividual rdf:about="&sedic;Larynx">
         <rdf:type rdf:resource="&sedic;Respiratory_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Laxatives -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Laxatives">
+        <rdf:type rdf:resource="&sedic;Gastrointestinal_Agents"/>
     </owl:NamedIndividual>
     
 
@@ -1831,10 +6126,58 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Lewis_Acids -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Lewis_Acids">
+        <rdf:type rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Lewis_Bases -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Lewis_Bases">
+        <rdf:type rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Ligaments -->
 
     <owl:NamedIndividual rdf:about="&sedic;Ligaments">
         <rdf:type rdf:resource="&sedic;Musculoskeletal_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Lignin -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Lignin">
+        <rdf:type rdf:resource="&sedic;Complex_Mixtures"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Lipid_Peroxides -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Lipid_Peroxides">
+        <rdf:type rdf:resource="&sedic;Lipids"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Lipofuscin -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Lipofuscin">
+        <rdf:type rdf:resource="&sedic;Lipids"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Lipotropic_Agents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Lipotropic_Agents">
+        <rdf:type rdf:resource="&sedic;Gastrointestinal_Agents"/>
     </owl:NamedIndividual>
     
 
@@ -1863,6 +6206,14 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Luteolytic_Agents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Luteolytic_Agents">
+        <rdf:type rdf:resource="&sedic;Reproductive_Control_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Lymphoid_Tissue -->
 
     <owl:NamedIndividual rdf:about="&sedic;Lymphoid_Tissue">
@@ -1880,10 +6231,42 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Mammary_Neoplasms,_Animal -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Mammary_Neoplasms,_Animal">
+        <rdf:type rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Manure -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Manure">
+        <rdf:type rdf:resource="&sedic;Complex_Mixtures"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Masticatory_Muscles -->
 
     <owl:NamedIndividual rdf:about="&sedic;Masticatory_Muscles">
         <rdf:type rdf:resource="&sedic;Stomatognathic_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Materia_Medica -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Materia_Medica">
+        <rdf:type rdf:resource="&sedic;Pharmaceutical_Preparations"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Medical_Marijuana -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Medical_Marijuana">
+        <rdf:type rdf:resource="&sedic;Pharmaceutical_Preparations"/>
     </owl:NamedIndividual>
     
 
@@ -1904,10 +6287,26 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Menstruation-Inducing_Agents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Menstruation-Inducing_Agents">
+        <rdf:type rdf:resource="&sedic;Reproductive_Control_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Metacarpus -->
 
     <owl:NamedIndividual rdf:about="&sedic;Metacarpus">
         <rdf:type rdf:resource="&sedic;Hand"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Micelles -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Micelles">
+        <rdf:type rdf:resource="&sedic;Macromolecular_Substances"/>
     </owl:NamedIndividual>
     
 
@@ -1920,12 +6319,28 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Mink_Viral_Enteritis -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Mink_Viral_Enteritis">
+        <rdf:type rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Mouth -->
 
     <owl:NamedIndividual rdf:about="&sedic;Mouth">
         <rdf:type rdf:resource="&sedic;Face"/>
         <rdf:type rdf:resource="&sedic;Gastrointestinal_Tract"/>
         <rdf:type rdf:resource="&sedic;Stomatognathic_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Multiple_Trauma -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Multiple_Trauma">
+        <rdf:type rdf:resource="&sedic;Wounds_and_Injuries"/>
     </owl:NamedIndividual>
     
 
@@ -1954,11 +6369,28 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Muscle_Relaxants,_Central -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Muscle_Relaxants,_Central">
+        <rdf:type rdf:resource="&sedic;Central_Nervous_System_Agents"/>
+        <rdf:type rdf:resource="&sedic;Physiological_Effects_of_Drugs"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Myocardium -->
 
     <owl:NamedIndividual rdf:about="&sedic;Myocardium">
         <rdf:type rdf:resource="&sedic;Heart"/>
         <rdf:type rdf:resource="&sedic;Muscles"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Myxomatosis,_Infectious -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Myxomatosis,_Infectious">
+        <rdf:type rdf:resource="&sedic;Animal_Diseases"/>
     </owl:NamedIndividual>
     
 
@@ -1971,10 +6403,43 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Narcotic_Antagonists -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Narcotic_Antagonists">
+        <rdf:type rdf:resource="&sedic;Central_Nervous_System_Agents"/>
+        <rdf:type rdf:resource="&sedic;Physiological_Effects_of_Drugs"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nasal_Decongestants -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Nasal_Decongestants">
+        <rdf:type rdf:resource="&sedic;Respiratory_System_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nasal_Septal_Perforation -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Nasal_Septal_Perforation">
+        <rdf:type rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nasolabial_Fold -->
 
     <owl:NamedIndividual rdf:about="&sedic;Nasolabial_Fold">
         <rdf:type rdf:resource="&sedic;Face"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Natriuretic_Agents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Natriuretic_Agents">
+        <rdf:type rdf:resource="&sedic;Cardiovascular_Agents"/>
     </owl:NamedIndividual>
     
 
@@ -1984,6 +6449,30 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     <owl:NamedIndividual rdf:about="&sedic;Neck">
         <rdf:type rdf:resource="&sedic;Body_Regions"/>
         <sedic:has_mesh_uid>D009333</sedic:has_mesh_uid>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neoplasms,_Hormone-Dependent -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Neoplasms,_Hormone-Dependent">
+        <rdf:type rdf:resource="&sedic;Neoplasms"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neoplasms,_Post-Traumatic -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Neoplasms,_Post-Traumatic">
+        <rdf:type rdf:resource="&sedic;Neoplasms"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neoplasms,_Second_Primary -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Neoplasms,_Second_Primary">
+        <rdf:type rdf:resource="&sedic;Neoplasms"/>
     </owl:NamedIndividual>
     
 
@@ -2037,6 +6526,15 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neuroprotective_Agents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Neuroprotective_Agents">
+        <rdf:type rdf:resource="&sedic;Central_Nervous_System_Agents"/>
+        <rdf:type rdf:resource="&sedic;Protective_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Neurosecretory_Systems -->
 
     <owl:NamedIndividual rdf:about="&sedic;Neurosecretory_Systems">
@@ -2055,12 +6553,60 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nitric_Oxide_Donors -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Nitric_Oxide_Donors">
+        <rdf:type rdf:resource="&sedic;Cardiovascular_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nootropic_Agents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Nootropic_Agents">
+        <rdf:type rdf:resource="&sedic;Central_Nervous_System_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nose -->
 
     <owl:NamedIndividual rdf:about="&sedic;Nose">
         <rdf:type rdf:resource="&sedic;Face"/>
         <rdf:type rdf:resource="&sedic;Respiratory_System"/>
         <rdf:type rdf:resource="&sedic;Sense_Organs"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Nostrums -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Nostrums">
+        <rdf:type rdf:resource="&sedic;Pharmaceutical_Preparations"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Occupational_Injuries -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Occupational_Injuries">
+        <rdf:type rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Ocular_Hypotension -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Ocular_Hypotension">
+        <rdf:type rdf:resource="&sedic;Eye_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Ophthalmic_Solutions -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Ophthalmic_Solutions">
+        <rdf:type rdf:resource="&sedic;Pharmaceutical_Solutions"/>
     </owl:NamedIndividual>
     
 
@@ -2082,6 +6628,14 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Oxytocics -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Oxytocics">
+        <rdf:type rdf:resource="&sedic;Reproductive_Control_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pancreas -->
 
     <owl:NamedIndividual rdf:about="&sedic;Pancreas">
@@ -2098,6 +6652,22 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Parasitemia -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Parasitemia">
+        <rdf:type rdf:resource="&sedic;Parasitic_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Paratuberculosis -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Paratuberculosis">
+        <rdf:type rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Parotid_Region -->
 
     <owl:NamedIndividual rdf:about="&sedic;Parotid_Region">
@@ -2106,10 +6676,34 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Parturient_Paresis -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Parturient_Paresis">
+        <rdf:type rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pelvic_Floor_Disorders -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Pelvic_Floor_Disorders">
+        <rdf:type rdf:resource="&sedic;Male_Urogenital_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pelvis -->
 
     <owl:NamedIndividual rdf:about="&sedic;Pelvis">
         <rdf:type rdf:resource="&sedic;Torso"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Performance-Enhancing_Substances -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Performance-Enhancing_Substances">
+        <rdf:type rdf:resource="&sedic;Physiological_Effects_of_Drugs"/>
     </owl:NamedIndividual>
     
 
@@ -2147,12 +6741,87 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Persian_Gulf_Syndrome -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Persian_Gulf_Syndrome">
+        <rdf:type rdf:resource="&sedic;Occupational_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Peste-des-Petits-Ruminants -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Peste-des-Petits-Ruminants">
+        <rdf:type rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pharmaceutical_Preparations,_Dental -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Pharmaceutical_Preparations,_Dental">
+        <rdf:type rdf:resource="&sedic;Biomedical_and_Dental_Materials"/>
+        <rdf:type rdf:resource="&sedic;Pharmaceutical_Preparations"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pharynx -->
 
     <owl:NamedIndividual rdf:about="&sedic;Pharynx">
         <rdf:type rdf:resource="&sedic;Gastrointestinal_Tract"/>
         <rdf:type rdf:resource="&sedic;Respiratory_System"/>
         <rdf:type rdf:resource="&sedic;Stomatognathic_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Phospholipids -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Phospholipids">
+        <rdf:type rdf:resource="&sedic;Lipids"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Photosensitizing_Agents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Photosensitizing_Agents">
+        <rdf:type rdf:resource="&sedic;Dermatologic_Agents"/>
+        <rdf:type rdf:resource="&sedic;Radiation-Sensitizing_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Phytochemicals -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Phytochemicals">
+        <rdf:type rdf:resource="&sedic;Complex_Mixtures"/>
+        <rdf:type rdf:resource="&sedic;Heterocyclic_Compounds"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Placebos -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Placebos">
+        <rdf:type rdf:resource="&sedic;Pharmaceutical_Preparations"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Plasticizers -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Plasticizers">
+        <rdf:type rdf:resource="&sedic;Specialty_Uses_of_Chemicals"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Platelet_Aggregation_Inhibitors -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Platelet_Aggregation_Inhibitors">
+        <rdf:type rdf:resource="&sedic;Hematologic_Agents"/>
     </owl:NamedIndividual>
     
 
@@ -2165,10 +6834,114 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pleuropneumonia,_Contagious -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Pleuropneumonia,_Contagious">
+        <rdf:type rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pneumonia,_Viral -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Pneumonia,_Viral">
+        <rdf:type rdf:resource="&sedic;Virus_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Polyendocrinopathies,_Autoimmune -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Polyendocrinopathies,_Autoimmune">
+        <rdf:type rdf:resource="&sedic;Endocrine_System_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Polyhydroxyalkanoates -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Polyhydroxyalkanoates">
+        <rdf:type rdf:resource="&sedic;Lipids"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Potassium_Channel_Blockers -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Potassium_Channel_Blockers">
+        <rdf:type rdf:resource="&sedic;Cardiovascular_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Preconception_Injuries -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Preconception_Injuries">
+        <rdf:type rdf:resource="&sedic;Disorders_of_Environmental_Origin"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pregnancy_Complications,_Parasitic -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Pregnancy_Complications,_Parasitic">
+        <rdf:type rdf:resource="&sedic;Parasitic_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Prescription_Drugs -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Prescription_Drugs">
+        <rdf:type rdf:resource="&sedic;Pharmaceutical_Preparations"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Prodrugs -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Prodrugs">
+        <rdf:type rdf:resource="&sedic;Pharmaceutical_Preparations"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pseudorabies -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Pseudorabies">
+        <rdf:type rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pulmonary_Surfactants -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Pulmonary_Surfactants">
+        <rdf:type rdf:resource="&sedic;Respiratory_System_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Pythiosis -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Pythiosis">
+        <rdf:type rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Respiratory_Mucosa -->
 
     <owl:NamedIndividual rdf:about="&sedic;Respiratory_Mucosa">
         <rdf:type rdf:resource="&sedic;Respiratory_System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Restless_Legs_Syndrome -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Restless_Legs_Syndrome">
+        <rdf:type rdf:resource="&sedic;Nervous_System_Diseases"/>
     </owl:NamedIndividual>
     
 
@@ -2181,6 +6954,54 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Retropneumoperitoneum -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Retropneumoperitoneum">
+        <rdf:type rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Rinderpest -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Rinderpest">
+        <rdf:type rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Root_Canal_Irrigants -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Root_Canal_Irrigants">
+        <rdf:type rdf:resource="&sedic;Biomedical_and_Dental_Materials"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Rotaxanes -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Rotaxanes">
+        <rdf:type rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Salmonella_Infections,_Animal -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Salmonella_Infections,_Animal">
+        <rdf:type rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Salts -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Salts">
+        <rdf:type rdf:resource="&sedic;Inorganic_Chemicals"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Scalp -->
 
     <owl:NamedIndividual rdf:about="&sedic;Scalp">
@@ -2189,10 +7010,27 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Sclerosing_Solutions -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Sclerosing_Solutions">
+        <rdf:type rdf:resource="&sedic;Cardiovascular_Agents"/>
+        <rdf:type rdf:resource="&sedic;Pharmaceutical_Solutions"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Sebaceous_Glands -->
 
     <owl:NamedIndividual rdf:about="&sedic;Sebaceous_Glands">
         <rdf:type rdf:resource="&sedic;Skin"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Self_Mutilation -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Self_Mutilation">
+        <rdf:type rdf:resource="&sedic;Wounds_and_Injuries"/>
     </owl:NamedIndividual>
     
 
@@ -2216,7 +7054,7 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Skin -->
 
     <owl:NamedIndividual rdf:about="&sedic;Skin">
-        <rdf:type rdf:resource="&sedic;AnatomicEntity"/>
+        <rdf:type rdf:resource="&sedic;Anatomic_Entity"/>
     </owl:NamedIndividual>
     
 
@@ -2229,6 +7067,30 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Sleep_Disorders,_Circadian_Rhythm -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Sleep_Disorders,_Circadian_Rhythm">
+        <rdf:type rdf:resource="&sedic;Occupational_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Soft_Tissue_Injuries -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Soft_Tissue_Injuries">
+        <rdf:type rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Sphingolipids -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Sphingolipids">
+        <rdf:type rdf:resource="&sedic;Lipids"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Spinal_Cord -->
 
     <owl:NamedIndividual rdf:about="&sedic;Spinal_Cord">
@@ -2237,10 +7099,34 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Steatitis -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Steatitis">
+        <rdf:type rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Stimulants,_Historical -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Stimulants,_Historical">
+        <rdf:type rdf:resource="&sedic;Therapeutic_Uses"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Stomach -->
 
     <owl:NamedIndividual rdf:about="&sedic;Stomach">
         <rdf:type rdf:resource="&sedic;Upper_Gastrointestinal_Tract"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Sunscreening_Agents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Sunscreening_Agents">
+        <rdf:type rdf:resource="&sedic;Dermatologic_Agents"/>
     </owl:NamedIndividual>
     
 
@@ -2293,6 +7179,14 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Tennis_Elbow -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Tennis_Elbow">
+        <rdf:type rdf:resource="&sedic;Musculoskeletal_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Thorax -->
 
     <owl:NamedIndividual rdf:about="&sedic;Thorax">
@@ -2304,7 +7198,7 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Throat -->
 
     <owl:NamedIndividual rdf:about="&sedic;Throat">
-        <rdf:type rdf:resource="&sedic;AnatomicEntity"/>
+        <rdf:type rdf:resource="&sedic;Anatomic_Entity"/>
     </owl:NamedIndividual>
     
 
@@ -2313,6 +7207,14 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
 
     <owl:NamedIndividual rdf:about="&sedic;Tight">
         <rdf:type rdf:resource="&sedic;Lower_Extremity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Tocolytic_Agents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Tocolytic_Agents">
+        <rdf:type rdf:resource="&sedic;Reproductive_Control_Agents"/>
     </owl:NamedIndividual>
     
 
@@ -2351,10 +7253,26 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Tuberculosis,_Endocrine -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Tuberculosis,_Endocrine">
+        <rdf:type rdf:resource="&sedic;Endocrine_System_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Tunica_Intima -->
 
     <owl:NamedIndividual rdf:about="&sedic;Tunica_Intima">
         <rdf:type rdf:resource="&sedic;Blood_Vessels"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Tympanic_Membrane_Perforation -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Tympanic_Membrane_Perforation">
+        <rdf:type rdf:resource="&sedic;Wounds_and_Injuries"/>
     </owl:NamedIndividual>
     
 
@@ -2375,10 +7293,34 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Uricosuric_Agents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Uricosuric_Agents">
+        <rdf:type rdf:resource="&sedic;Renal_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Urinary_Bladder -->
 
     <owl:NamedIndividual rdf:about="&sedic;Urinary_Bladder">
         <rdf:type rdf:resource="&sedic;Urinary_Tract"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Urological_Agents -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Urological_Agents">
+        <rdf:type rdf:resource="&sedic;Therapeutic_Uses"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Vaginal_Creams,_Foams,_and_Jellies -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Vaginal_Creams,_Foams,_and_Jellies">
+        <rdf:type rdf:resource="&sedic;Pharmaceutical_Preparations"/>
     </owl:NamedIndividual>
     
 
@@ -2399,10 +7341,58 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Vascular_System_Injuries -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Vascular_System_Injuries">
+        <rdf:type rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Vehicle_Emissions -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Vehicle_Emissions">
+        <rdf:type rdf:resource="&sedic;Complex_Mixtures"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Veins -->
 
     <owl:NamedIndividual rdf:about="&sedic;Veins">
         <rdf:type rdf:resource="&sedic;Blood_Vessels"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Venereal_Tumors,_Veterinary -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Venereal_Tumors,_Veterinary">
+        <rdf:type rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Vesicular_Stomatitis -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Vesicular_Stomatitis">
+        <rdf:type rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Veterinary_Drugs -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Veterinary_Drugs">
+        <rdf:type rdf:resource="&sedic;Pharmaceutical_Preparations"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Viremia -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Viremia">
+        <rdf:type rdf:resource="&sedic;Virus_Diseases"/>
     </owl:NamedIndividual>
     
 
@@ -2416,10 +7406,76 @@ Aloe, a genus with over 150 species, is mostly native to East and South Africa. 
     
 
 
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Viscosupplements -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Viscosupplements">
+        <rdf:type rdf:resource="&sedic;Protective_Agents"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Vitreoretinopathy,_Proliferative -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Vitreoretinopathy,_Proliferative">
+        <rdf:type rdf:resource="&sedic;Eye_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Vitreous_Detachment -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Vitreous_Detachment">
+        <rdf:type rdf:resource="&sedic;Eye_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Volatile_Organic_Compounds -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Volatile_Organic_Compounds">
+        <rdf:type rdf:resource="&sedic;Organic_Chemicals"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Wasting_Disease,_Chronic -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Wasting_Disease,_Chronic">
+        <rdf:type rdf:resource="&sedic;Animal_Diseases"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Wound_Infection -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Wound_Infection">
+        <rdf:type rdf:resource="&sedic;Wounds_and_Injuries"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Wrist -->
 
     <owl:NamedIndividual rdf:about="&sedic;Wrist">
         <rdf:type rdf:resource="&sedic;Hand"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Xenobiotics -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Xenobiotics">
+        <rdf:type rdf:resource="&sedic;Pharmaceutical_Preparations"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Zoonoses -->
+
+    <owl:NamedIndividual rdf:about="&sedic;Zoonoses">
+        <rdf:type rdf:resource="&sedic;Animal_Diseases"/>
+        <rdf:type rdf:resource="&sedic;Bacterial_Infections_and_Mycoses"/>
+        <rdf:type rdf:resource="&sedic;Virus_Diseases"/>
     </owl:NamedIndividual>
     
 
