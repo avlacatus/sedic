@@ -7,23 +7,19 @@ import javax.ws.rs.core.MediaType;
 
 import ro.infoiasi.sedic.model.Remedy;
 
-
 @Path("/remedy")
 public class RemedyWS {
 
-	
 	@GET
 	@Produces(MediaType.TEXT_XML)
 	public String getDiseases() {
-		
+
 		Remedy r = new Remedy();
-	
+
 		String response = r.getAllRemedies();
-		
+
 		return "<?xml version=\"1.0\"?>" + "<h1> Remedies: " + response
 				+ "</h1>";
 	}
-
-	
 
 }
