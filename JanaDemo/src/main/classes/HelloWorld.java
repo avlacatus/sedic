@@ -45,7 +45,7 @@ public class HelloWorld {
 		}
 
 		// om.write(System.out, "RDF/XML");
-		saveModelToFile(om, "../sedic.owl");
+		// saveModelToFile(om, "../sedic.owl");
 	}
 	
 	private static String extractOntName(String line) {

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="Test2WS">
+    <wb-module deploy-name="SedicWS">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="Test2WS"/>
-        <property name="java-output-path" value="/Test2WS/build/classes"/>
+        <property name="java-output-path" value="/SedicWS/build/classes"/>
+        <property name="context-root" value="SedicWS"/>
     </wb-module>
 </project-modules>
