@@ -1,0 +1,2856 @@
+Skin Diseases [C17.800]			
+Acneiform Eruptions [C17.800.030]  +		
+Angiolymphoid Hyperplasia with Eosinophilia [C17.800.060]		
+Breast Diseases [C17.800.090]  +		
+Cutaneous Fistula [C17.800.135]		
+Dermatitis [C17.800.174]  +		
+Dermatomyositis [C17.800.185]		
+Erythema [C17.800.229]  +		
+Exanthema [C17.800.257]  +		
+Facial Dermatoses [C17.800.271]  +		
+Foot Diseases [C17.800.321]  +		
+Hair Diseases [C17.800.329]  +		
+Hand Dermatoses [C17.800.338]		
+Keratoacanthoma [C17.800.417]		
+Keratosis [C17.800.428]  +		
+Leg Dermatoses [C17.800.446]		
+Lipomatosis [C17.800.463]  +		
+Lupus Erythematosus, Cutaneous [C17.800.480]  +		
+Mastocytosis [C17.800.508]  +		
+Morgellons Disease [C17.800.518]		
+Nail Diseases [C17.800.529]  +		
+Necrobiotic Disorders [C17.800.550]  +		
+Necrolytic Migratory Erythema [C17.800.551]		
+Nephrogenic Fibrosing Dermopathy [C17.800.553]		
+Panniculitis [C17.800.566]  +		
+Photosensitivity Disorders [C17.800.600]  +		
+Pigmentation Disorders [C17.800.621]  +		
+Prurigo [C17.800.674]		
+Pruritus [C17.800.685]  +		
+Pyoderma [C17.800.695]  +		
+Rosacea [C17.800.716]  +		
+Scalp Dermatoses [C17.800.738]  +		
+Scleredema Adultorum [C17.800.751]		
+Scleroderma, Localized [C17.800.767]		
+Scleroderma, Systemic [C17.800.784]  +		
+Sebaceous Gland Diseases [C17.800.794]  +		
+Skin Abnormalities [C17.800.804]  +		
+Skin Diseases, Eczematous [C17.800.815]  +		
+Skin Diseases, Genetic [C17.800.827]  +		
+Skin Diseases, Infectious [C17.800.838]  +		
+Skin Diseases, Metabolic [C17.800.849]  +		
+Skin Diseases, Papulosquamous [C17.800.859]  +		
+Skin Diseases, Vascular [C17.800.862]  +		
+Skin Diseases, Vesiculobullous [C17.800.865]  +		
+Skin Neoplasms [C17.800.882]  +		
+Skin Ulcer [C17.800.893]  +		
+Sweat Gland Diseases [C17.800.946]  +		
+Xanthogranuloma, Juvenile [C17.800.973]
+
+Acneiform Eruptions [C17.800.030]			
+Acne Keloid [C17.800.030.030]		
+Acne Vulgaris [C17.800.030.150]		
+Chloracne [C17.800.030.575]
+
+Breast Diseases [C17.800.090]			
+Breast Cyst [C17.800.090.249]		
+Breast Neoplasms [C17.800.090.500]  +		
+Fibrocystic Breast Disease [C17.800.090.750]		
+Gynecomastia [C17.800.090.875]		
+Lactation Disorders [C17.800.090.937]  +		
+Mastitis [C17.800.090.968]  +
+
+Dermatitis [C17.800.174]			
+Acrodermatitis [C17.800.174.100]		
+Dandruff [C17.800.174.146]		
+Dermatitis, Atopic [C17.800.174.193]		
+Dermatitis, Contact [C17.800.174.255]  +		
+Dermatitis, Exfoliative [C17.800.174.318]		
+Dermatitis Herpetiformis [C17.800.174.360]		
+Dermatitis, Perioral [C17.800.174.550]		
+Dermatitis, Seborrheic [C17.800.174.580]		
+Drug Eruptions [C17.800.174.600]  +		
+Eczema [C17.800.174.620]  +		
+Intertrigo [C17.800.174.640]		
+Neurodermatitis [C17.800.174.660]		
+Radiodermatitis [C17.800.174.826]
+
+Facial Dermatoses [C17.800.271]			
+Acneiform Eruptions [C17.800.271.125]  +		
+Dermatitis, Perioral [C17.800.271.250]
+
+Foot Diseases [C17.800.321]			
+Foot Dermatoses [C17.800.321.125]  +		
+Foot Ulcer [C17.800.321.250]		
+Immersion Foot [C17.800.321.500]
+
+Hair Diseases [C17.800.329]			
+Folliculitis [C17.800.329.500]  +		
+Hirsutism [C17.800.329.750]		
+Hypertrichosis [C17.800.329.875]		
+Hypotrichosis [C17.800.329.937]  +		
+Menkes Kinky Hair Syndrome [C17.800.329.968]		
+Monilethrix [C17.800.329.984]		
+Piedra [C17.800.329.992]
+
+Keratosis [C17.800.428]			
+Callosities [C17.800.428.200]		
+Cholesteatoma [C17.800.428.260]  +		
+Darier Disease [C17.800.428.275]		
+Erythrokeratodermia Variabilis [C17.800.428.304]		
+Ichthyosis [C17.800.428.333]  +		
+Keratoderma, Palmoplantar [C17.800.428.435]  +		
+Keratosis, Actinic [C17.800.428.570]		
+Keratosis, Seborrheic [C17.800.428.580]		
+Parakeratosis [C17.800.428.736]		
+Porokeratosis [C17.800.428.750]
+
+Lipomatosis [C17.800.463]			
+Adiposis Dolorosa [C17.800.463.249]		
+Lipomatosis, Multiple Symmetrical [C17.800.463.500]
+
+Mastocytosis [C17.800.508]			
+Mastocytoma [C17.800.508.236]  +		
+Mastocytosis, Cutaneous [C17.800.508.473]  +
+
+Nail Diseases [C17.800.529]			
+Nail-Patella Syndrome [C17.800.529.400]		
+Nails, Ingrown [C17.800.529.406]		
+Onycholysis [C17.800.529.478]		
+Onychomycosis [C17.800.529.550]		
+Pachyonychia Congenita [C17.800.529.594]  +		
+Paronychia [C17.800.529.639]		
+Yellow Nail Syndrome [C17.800.529.819]
+
+Necrobiotic Disorders [C17.800.550]			
+Granuloma Annulare [C17.800.550.380]		
+Necrobiosis Lipoidica [C17.800.550.545]		
+Necrobiotic Xanthogranuloma [C17.800.550.772]
+
+Photosensitivity Disorders [C17.800.600]			
+Dermatitis, Photoallergic [C17.800.600.325]		
+Dermatitis, Phototoxic [C17.800.600.335]		
+Hydroa Vacciniforme [C17.800.600.425]		
+Sunburn [C17.800.600.725]		
+Xeroderma Pigmentosum [C17.800.600.925]
+
+Pigmentation Disorders [C17.800.621]			
+Argyria [C17.800.621.166]		
+Cafe-au-Lait Spots [C17.800.621.250]		
+Hyperpigmentation [C17.800.621.430]  +		
+Hypopigmentation [C17.800.621.440]  +		
+Incontinentia Pigmenti [C17.800.621.497]		
+Urticaria Pigmentosa [C17.800.621.893]		
+Xeroderma Pigmentosum [C17.800.621.936]		
+Yellow Nail Syndrome [C17.800.621.968]
+
+Pruritus [C17.800.685]			
+Pruritus Ani [C17.800.685.544]		
+Pruritus Vulvae [C17.800.685.710]
+
+Pyoderma [C17.800.695]			
+Ecthyma [C17.800.695.210]		
+Pyoderma Gangrenosum [C17.800.695.675]
+
+Rosacea [C17.800.716]			
+Rhinophyma [C17.800.716.500]
+
+Scalp Dermatoses [C17.800.738]			
+Dandruff [C17.800.738.353]		
+Tinea Capitis [C17.800.738.708]  +
+
+Sebaceous Gland Diseases [C17.800.794]
+Acne Vulgaris [C17.800.794.111]		
+Dermatitis, Seborrheic [C17.800.794.230]		
+Mucinosis, Follicular [C17.800.794.550]		
+Rhinophyma [C17.800.794.650]		
+Sebaceous Gland Neoplasms [C17.800.794.712]  +
+
+Skin Abnormalities [C17.800.804]			
+Acrodermatitis [C17.800.804.066]		
+Anetoderma [C17.800.804.108]		
+Dyskeratosis Congenita [C17.800.804.150]		
+Ectodermal Dysplasia [C17.800.804.350]  +		
+Ehlers-Danlos Syndrome [C17.800.804.428]		
+Epidermolysis Bullosa [C17.800.804.493]  +		
+Ichthyosis [C17.800.804.512]  +		
+Incontinentia Pigmenti [C17.800.804.580]		
+Port-Wine Stain [C17.800.804.675]		
+Pseudoxanthoma Elasticum [C17.800.804.766]		
+Rothmund-Thomson Syndrome [C17.800.804.775]		
+Sclerema Neonatorum [C17.800.804.812]		
+Trichothiodystrophy Syndromes [C17.800.804.874]		
+Xeroderma Pigmentosum [C17.800.804.936]
+
+Skin Diseases, Eczematous [C17.800.815]			
+Dermatitis, Atopic [C17.800.815.193]		
+Dermatitis, Contact [C17.800.815.255]  +		
+Dermatitis, Exfoliative [C17.800.815.318]		
+Dermatitis, Seborrheic [C17.800.815.580]		
+Eczema [C17.800.815.620]  +		
+Intertrigo [C17.800.815.650]		
+Neurodermatitis [C17.800.815.660]
+
+Skin Diseases, Genetic [C17.800.827]			
+Albinism [C17.800.827.080]  +		
+Cutis Laxa [C17.800.827.180]		
+Darier Disease [C17.800.827.190]		
+Dermatitis, Atopic [C17.800.827.210]		
+Dyskeratosis Congenita [C17.800.827.235]		
+Ectodermal Dysplasia [C17.800.827.250]  +		
+Ehlers-Danlos Syndrome [C17.800.827.260]		
+Epidermolysis Bullosa [C17.800.827.275]  +		
+Erythrokeratodermia Variabilis [C17.800.827.337]		
+Hereditary Autoinflammatory Diseases [C17.800.827.368]  +		
+Hyalinosis, Systemic [C17.800.827.384]		
+Ichthyosiform Erythroderma, Congenital [C17.800.827.400]  +		
+Ichthyosis Bullosa of Siemens [C17.800.827.403]		
+Ichthyosis Vulgaris [C17.800.827.405]		
+Ichthyosis, X-Linked [C17.800.827.408]		
+Incontinentia Pigmenti [C17.800.827.420]		
+Keratoderma, Palmoplantar [C17.800.827.475]  +		
+Leukokeratosis, Hereditary Mucosal [C17.800.827.595]		
+Monilethrix [C17.800.827.602]		
+Muir-Torre Syndrome [C17.800.827.610]		
+Netherton Syndrome [C17.800.827.655]		
+Pemphigus, Benign Familial [C17.800.827.700]		
+Porokeratosis [C17.800.827.730]		
+Porphyria, Erythropoietic [C17.800.827.738]		
+Porphyrias, Hepatic [C17.800.827.742]  +		
+Pseudoxanthoma Elasticum [C17.800.827.750]		
+Rothmund-Thomson Syndrome [C17.800.827.775]		
+Sjogren-Larsson Syndrome [C17.800.827.820]		
+Trichothiodystrophy Syndromes [C17.800.827.895]		
+Xeroderma Pigmentosum [C17.800.827.970]
+
+Skin Diseases, Infectious [C17.800.838]
+Dermatomycoses [C17.800.838.208]  +		
+Paronychia [C17.800.838.486]		
+Skin Diseases, Bacterial [C17.800.838.765]  +		
+Skin Diseases, Parasitic [C17.800.838.775]  +		
+Skin Diseases, Viral [C17.800.838.790]  +
+
+Skin Diseases, Metabolic [C17.800.849]			
+Lipodystrophy [C17.800.849.391]  +		
+Necrobiosis Lipoidica [C17.800.849.495]		
+Porphyrias [C17.800.849.617]  +
+
+Skin Diseases, Vascular [C17.800.862]			
+Angiomatosis, Bacillary [C17.800.862.060]		
+Behcet Syndrome [C17.800.862.150]		
+Giant Cell Arteritis [C17.800.862.252]		
+Livedo Reticularis [C17.800.862.355]		
+Malignant Atrophic Papulosis [C17.800.862.457]		
+Mucocutaneous Lymph Node Syndrome [C17.800.862.560]		
+Polyarteritis Nodosa [C17.800.862.625]		
+Pyoderma Gangrenosum [C17.800.862.675]		
+Sneddon Syndrome [C17.800.862.775]		
+Takayasu Arteritis [C17.800.862.875]		
+Urticaria [C17.800.862.945]  +
+
+Skin Neoplasms [C17.800.882]			
+Sebaceous Gland Neoplasms [C17.800.882.712]  +		
+Sweat Gland Neoplasms [C17.800.882.743]
+
+Skin Ulcer [C17.800.893]			
+Buruli Ulcer [C17.800.893.295]		
+Leg Ulcer [C17.800.893.592]  +		
+Pressure Ulcer [C17.800.893.665]		
+Pyoderma Gangrenosum [C17.800.893.675]
+
+Sweat Gland Diseases [C17.800.946]
+Hidradenitis [C17.800.946.315]  +		
+Hyperhidrosis [C17.800.946.350]  +		
+Hypohidrosis [C17.800.946.370]		
+Miliaria [C17.800.946.492]  +		
+Sweat Gland Neoplasms [C17.800.946.743]
+
+Endocrine System Diseases [C19]				
+Adrenal Gland Diseases [C19.053]  +		
+Bone Diseases, Endocrine [C19.149]		
+Diabetes Mellitus [C19.246]  +		
+Dwarfism [C19.297]  +		
+Endocrine Gland Neoplasms [C19.344]  +		
+Gonadal Disorders [C19.391]  +		
+Parathyroid Diseases [C19.642]  +		
+Pituitary Diseases [C19.700]  +		
+Polyendocrinopathies, Autoimmune [C19.787]		
+Thyroid Diseases [C19.874]  +		
+Tuberculosis, Endocrine [C19.927]
+
+Adrenal Gland Diseases [C19.053]			
+Adrenal Cortex Diseases [C19.053.098]  +		
+Adrenal Gland Neoplasms [C19.053.347]  +		
+Adrenal Hyperplasia, Congenital [C19.053.440]		
+Adrenal Insufficiency [C19.053.500]  +		
+Adrenocortical Hyperfunction [C19.053.800]  +
+Adrenal Fatigue [C19.053.900]
+
+Diabetes Mellitus [C19.246]			
+Diabetes Complications [C19.246.099]  +		
+Diabetes, Gestational [C19.246.200]		
+Diabetes Mellitus, Experimental [C19.246.240]		
+Diabetes Mellitus, Type 1 [C19.246.267]  +		
+Diabetes Mellitus, Type 2 [C19.246.300]  +		
+Donohue Syndrome [C19.246.537]		
+Prediabetic State [C19.246.774]
+
+Endocrine Gland Neoplasms [C19.344]			
+Adrenal Gland Neoplasms [C19.344.078]  +		
+Multiple Endocrine Neoplasia [C19.344.400]  +		
+Ovarian Neoplasms [C19.344.410]  +		
+Pancreatic Neoplasms [C19.344.421]  +		
+Paraneoplastic Endocrine Syndromes [C19.344.473]		
+Parathyroid Neoplasms [C19.344.525]		
+Pituitary Neoplasms [C19.344.609]  +		
+Testicular Neoplasms [C19.344.762]  +		
+Thyroid Neoplasms [C19.344.894]  +
+
+Gonadal Disorders [C19.391]			
+Disorders of Sex Development [C19.391.119]  +		
+Female Athlete Triad Syndrome [C19.391.240]		
+Hypogonadism [C19.391.482]  +		
+Ovarian Diseases [C19.391.630]  +		
+Puberty, Delayed [C19.391.690]		
+Puberty, Precocious [C19.391.693]		
+Testicular Diseases [C19.391.829]  +
+
+Parathyroid Diseases [C19.642]			
+Hyperparathyroidism [C19.642.355]  +		
+Hypoparathyroidism [C19.642.482]  +		
+Parathyroid Neoplasms [C19.642.713]
+
+Pituitary Diseases [C19.700]			
+Diabetes Insipidus [C19.700.159]  +		
+Empty Sella Syndrome [C19.700.320]		
+Hyperpituitarism [C19.700.355]  +		
+Hypopituitarism [C19.700.482]  +		
+Inappropriate ADH Syndrome [C19.700.490]		
+Pituitary Apoplexy [C19.700.725]		
+Pituitary Neoplasms [C19.700.734]  +
+
+Thyroid Diseases [C19.874]			
+Euthyroid Sick Syndromes [C19.874.255]		
+Goiter [C19.874.283]  +		
+Hyperthyroidism [C19.874.397]  +		
+Hyperthyroxinemia [C19.874.410]  +		
+Hypothyroidism [C19.874.482]  +		
+Thyroid Dysgenesis [C19.874.689]  +		
+Thyroid Neoplasms [C19.874.788]  +		
+Thyroiditis [C19.874.871]  +		
+Thyrotoxicosis [C19.874.902]  +
+
+Chemically-Induced Disorders [C25]				
+Drug-Related Side Effects and Adverse Reactions [C25.100]  +		
+Poisoning [C25.723]  +		
+Substance-Related Disorders [C25.775]  +
+
+Drug-Related Side Effects and Adverse Reactions [C25.100]			
+Akathisia, Drug-Induced [C25.100.249]		
+Anticholinergic Syndrome [C25.100.311]		
+Drug Hypersensitivity [C25.100.468]  +		
+Drug-Induced Liver Injury [C25.100.562]  +		
+Dyskinesia, Drug-Induced [C25.100.750]		
+Serotonin Syndrome [C25.100.875]
+
+Poisoning [C25.723]			
+Argyria [C25.723.068]		
+Arsenic Poisoning [C25.723.097]		
+Bites and Stings [C25.723.127]  +		
+Cadmium Poisoning [C25.723.165]		
+Carbon Tetrachloride Poisoning [C25.723.177]		
+Drug-Induced Liver Injury [C25.723.260]  +		
+Ergotism [C25.723.327]		
+Fluoride Poisoning [C25.723.380]		
+Foodborne Diseases [C25.723.415]  +		
+Gas Poisoning [C25.723.455]  +		
+Lead Poisoning [C25.723.589]  +		
+Manganese Poisoning [C25.723.618]		
+Mercury Poisoning [C25.723.647]  +		
+Mycotoxicosis [C25.723.680]  +		
+Neurotoxicity Syndromes [C25.723.705]  +		
+Organophosphate Poisoning [C25.723.717]		
+Plant Poisoning [C25.723.756]  +		
+Psychoses, Substance-Induced [C25.723.809]  +		
+Water Intoxication [C25.723.932]
+
+Substance-Related Disorders [C25.775]			
+Alcohol-Related Disorders [C25.775.100]  +		
+Amphetamine-Related Disorders [C25.775.225]		
+Cocaine-Related Disorders [C25.775.300]		
+Drug Overdose [C25.775.383]		
+Inhalant Abuse [C25.775.467]		
+Marijuana Abuse [C25.775.635]		
+Neonatal Abstinence Syndrome [C25.775.650]		
+Opioid-Related Disorders [C25.775.675]  +		
+Phencyclidine Abuse [C25.775.700]		
+Psychoses, Substance-Induced [C25.775.746]		
+Substance Abuse, Intravenous [C25.775.793]		
+Substance Withdrawal Syndrome [C25.775.835]  +		
+Tobacco Use Disorder [C25.775.912]
+
+Alcohol-Related Disorders [C25.775.100]			
+Alcohol-Induced Disorders [C25.775.100.087]  +		
+Alcoholic Intoxication [C25.775.100.175]		
+Alcoholism [C25.775.100.250]		
+Binge Drinking [C25.775.100.437]		
+Wernicke Encephalopathy [C25.775.100.625]
+
+Alcohol-Induced Disorders [C25.775.100.087]			
+Alcohol-Induced Disorders, Nervous System [C25.775.100.087.193]  +		
+Cardiomyopathy, Alcoholic [C25.775.100.087.250]		
+Fetal Alcohol Spectrum Disorders [C25.775.100.087.323]		
+Liver Diseases, Alcoholic [C25.775.100.087.645]  +		
+Pancreatitis, Alcoholic [C25.775.100.087.730]		
+Psychoses, Alcoholic [C25.775.100.087.750]
+
+Opioid-Related Disorders [C25.775.675]			
+Heroin Dependence [C25.775.675.400]		
+Morphine Dependence [C25.775.675.600]
+
+Central Nervous System Diseases [C10.228]			
+Brain Diseases [C10.228.140]  +		
+Central Nervous System Infections [C10.228.228]  +		
+Encephalomyelitis [C10.228.440]  +		
+High Pressure Neurological Syndrome [C10.228.470]		
+Meningitis [C10.228.566]  +		
+Movement Disorders [C10.228.662]  +		
+Ocular Motility Disorders [C10.228.758]  +		
+Pneumocephalus [C10.228.806]		
+Spinal Cord Diseases [C10.228.854]  +		
+Chronobiology Disorders [C10.281]  +			
+Cranial Nerve Diseases [C10.292]  +			
+Demyelinating Diseases [C10.314]  +			
+Nervous System Malformations [C10.500]  +			
+Nervous System Neoplasms [C10.551]  +			
+Neurocutaneous Syndromes [C10.562]  +			
+Neurodegenerative Diseases [C10.574]  +			
+Neurologic Manifestations [C10.597]  +			
+Neuromuscular Diseases [C10.668]  +			
+Neurotoxicity Syndromes [C10.720]  +			
+Restless Legs Syndrome [C10.803]			
+Sleep Disorders [C10.886]  +			
+Trauma, Nervous System [C10.900]  +
+
+Brain Diseases [C10.228.140]			
+Akinetic Mutism [C10.228.140.042]		
+Amblyopia [C10.228.140.055]		
+Amnesia, Transient Global [C10.228.140.060]		
+Auditory Diseases, Central [C10.228.140.068]  +		
+Basal Ganglia Diseases [C10.228.140.079]  +		
+Brain Abscess [C10.228.140.116]  +		
+Brain Damage, Chronic [C10.228.140.140]  +		
+Brain Death [C10.228.140.151]		
+Brain Diseases, Metabolic [C10.228.140.163]  +		
+Brain Edema [C10.228.140.187]		
+Brain Injuries [C10.228.140.199]  +		
+Brain Neoplasms [C10.228.140.211]  +		
+Cerebellar Diseases [C10.228.140.252]  +		
+Cerebrovascular Disorders [C10.228.140.300]  +		
+Dementia [C10.228.140.380]  +		
+Diffuse Cerebral Sclerosis of Schilder [C10.228.140.400]		
+Encephalitis [C10.228.140.430]  +		
+Encephalomalacia [C10.228.140.461]  +		
+Epilepsy [C10.228.140.490]  +		
+Headache Disorders [C10.228.140.546]  +		
+Hydrocephalus [C10.228.140.602]  +		
+Hypothalamic Diseases [C10.228.140.617]  +		
+Hypoxia, Brain [C10.228.140.624]  +		
+Intracranial Hypertension [C10.228.140.631]  +		
+Intracranial Hypotension [C10.228.140.638]		
+Kluver-Bucy Syndrome [C10.228.140.646]		
+Leukoencephalopathies [C10.228.140.695]  +		
+Neuroaxonal Dystrophies [C10.228.140.744]  +		
+Subdural Effusion [C10.228.140.870]		
+Thalamic Diseases [C10.228.140.915]
+
+Central Nervous System Infections [C10.228.228]			
+Brain Abscess [C10.228.228.090]  +		
+Central Nervous System Bacterial Infections [C10.228.228.180]  +		
+Central Nervous System Fungal Infections [C10.228.228.198]  +		
+Central Nervous System Parasitic Infections [C10.228.228.205]  +		
+Central Nervous System Viral Diseases [C10.228.228.210]  +		
+Empyema, Subdural [C10.228.228.227]		
+Encephalitis [C10.228.228.245]  +		
+Encephalomyelitis [C10.228.228.291]  +		
+Epidural Abscess [C10.228.228.300]		
+Meningitis [C10.228.228.507]  +		
+Meningoencephalitis [C10.228.228.553]  +		
+Myelitis [C10.228.228.618]  +		
+Perimeningeal Infections [C10.228.228.709]  +		
+Prion Diseases [C10.228.228.800]  +
+
+Encephalomyelitis [C10.228.440]			
+Encephalomyelitis, Equine [C10.228.440.406]  +		
+Fatigue Syndrome, Chronic [C10.228.440.600]		
+Leukoencephalitis, Acute Hemorrhagic [C10.228.440.650]
+
+Movement Disorders [C10.228.662]			
+Akathisia, Drug-Induced [C10.228.662.037]		
+Angelman Syndrome [C10.228.662.075]		
+Dyskinesias [C10.228.662.262]  +		
+Dystonic Disorders [C10.228.662.300]  +		
+Essential Tremor [C10.228.662.350]		
+Hepatolenticular Degeneration [C10.228.662.400]		
+Multiple System Atrophy [C10.228.662.550]  +		
+Pantothenate Kinase-Associated Neurodegeneration [C10.228.662.575]		
+Parkinsonian Disorders [C10.228.662.600]  +		
+Supranuclear Palsy, Progressive [C10.228.662.700]		
+Tic Disorders [C10.228.662.825]  +
+
+Neurodegenerative Diseases [C10.574]			
+Heredodegenerative Disorders, Nervous System [C10.574.500]  +		
+Lewy Body Disease [C10.574.531]		
+Motor Neuron Disease [C10.574.562]  +		
+Multiple System Atrophy [C10.574.625]  +		
+Olivopontocerebellar Atrophies [C10.574.750]		
+Paraneoplastic Syndromes, Nervous System [C10.574.781]  +		
+Parkinson Disease [C10.574.812]		
+Postpoliomyelitis Syndrome [C10.574.827]		
+Prion Diseases [C10.574.843]  +		
+Shy-Drager Syndrome [C10.574.875]		
+Subacute Combined Degeneration [C10.574.910]		
+Tauopathies [C10.574.945]  +		
+TDP-43 Proteinopathies [C10.574.950]  +
+
+Tauopathies [C10.574.945]			
+Alzheimer Disease [C10.574.945.249]		
+Diffuse Neurofibrillary Tangles with Calcification [C10.574.945.374]		
+Supranuclear Palsy, Progressive [C10.574.945.500]
+
+Pathologic Processes [C23.550]			
+Acantholysis [C23.550.035]		
+Arrhythmias, Cardiac [C23.550.073]  +		
+Ascites [C23.550.081]		
+Atrial Remodeling [C23.550.113]		
+Azotemia [C23.550.145]		
+Channelopathies [C23.550.177]		
+Chromosome Aberrations [C23.550.210]  +		
+Death [C23.550.260]  +		
+Dehydration [C23.550.274]		
+Delayed Graft Function [C23.550.277]		
+Disease [C23.550.288]  +		
+Disease Attributes [C23.550.291]  +		
+Dysbiosis [C23.550.308]		
+Emphysema [C23.550.325]  +		
+Extravasation of Diagnostic and Therapeutic Materials [C23.550.340]		
+Femoracetabular Impingement [C23.550.347]		
+Fibrosis [C23.550.355]  +		
+Genomic Instability [C23.550.362]  +		
+Gliosis [C23.550.369]		
+Granuloma [C23.550.382]  +		
+Granulomatosis, Orofacial [C23.550.384]		
+Growth Disorders [C23.550.393]  +		
+Hemolysis [C23.550.403]		
+Hemorrhage [C23.550.414]  +		
+Hyperammonemia [C23.550.421]		
+Hyperamylasemia [C23.550.425]		
+Hyperbilirubinemia [C23.550.429]  +		
+Hyperplasia [C23.550.444]		
+Hyperuricemia [C23.550.449]		
+Hypovolemia [C23.550.455]		
+Inflammation [C23.550.470]  +		
+Intraoperative Complications [C23.550.505]  +		
+Ischemia [C23.550.513]  +		
+Leukoaraiosis [C23.550.522]		
+Leukocytosis [C23.550.526]		
+Lithiasis [C23.550.537]		
+Malacoplakia [C23.550.548]		
+Menstruation Disturbances [C23.550.568]  +		
+Metaplasia [C23.550.589]  +		
+Muscle Weakness [C23.550.695]		
+Necrosis [C23.550.717]  +		
+Neointima [C23.550.722]		
+Neoplastic Processes [C23.550.727]  +		
+Nerve Degeneration [C23.550.737]  +		
+Ochronosis [C23.550.744]		
+Ossification, Heterotopic [C23.550.751]  +		
+Polydipsia [C23.550.759]  +		
+Postoperative Complications [C23.550.767]  +		
+Respiratory Aspiration [C23.550.773]  +		
+Retropneumoperitoneum [C23.550.794]		
+Sclerosis [C23.550.823]		
+Shock [C23.550.835]  +		
+Teratogenesis [C23.550.863]		
+Ulcer [C23.550.891]		
+Yang Deficiency [C23.550.945]		
+Yin Deficiency [C23.550.972]
+
+Arrhythmias, Cardiac [C23.550.073]			
+Arrhythmia, Sinus [C23.550.073.093]  +		
+Atrial Fibrillation [C23.550.073.198]		
+Atrial Flutter [C23.550.073.248]		
+Bradycardia [C23.550.073.300]		
+Cardiac Complexes, Premature [C23.550.073.325]  +		
+Heart Block [C23.550.073.425]  +		
+Long QT Syndrome [C23.550.073.547]  +		
+Parasystole [C23.550.073.670]		
+Tachycardia [C23.550.073.845]  +		
+Ventricular Fibrillation [C23.550.073.922]		
+Ventricular Flutter [C23.550.073.961]
+
+Death [C23.550.260]			
+Asphyxia [C23.550.260.095]		
+Brain Death [C23.550.260.159]		
+Cadaver [C23.550.260.224]  +		
+Death, Sudden [C23.550.260.322]  +		
+Drowning [C23.550.260.393]		
+Embryo Loss [C23.550.260.440]		
+Fetal Death [C23.550.260.460]  +		
+Parental Death [C23.550.260.730]  +
+
+Disease Attributes [C23.550.291]			
+Acute Disease [C23.550.291.125]		
+Asymptomatic Diseases [C23.550.291.187]  +		
+Catastrophic Illness [C23.550.291.250]		
+Chronic Disease [C23.550.291.500]		
+Convalescence [C23.550.291.562]		
+Critical Illness [C23.550.291.625]		
+Disease Progression [C23.550.291.656]  +		
+Disease Resistance [C23.550.291.671]		
+Disease Susceptibility [C23.550.291.687]  +		
+Diseases in Twins [C23.550.291.750]		
+Emergencies [C23.550.291.781]		
+Facies [C23.550.291.812]		
+Iatrogenic Disease [C23.550.291.875]		
+Neglected Diseases [C23.550.291.890]		
+Rare Diseases [C23.550.291.906]		
+Recurrence [C23.550.291.937]
+
+Fibrosis [C23.550.355]			
+Cicatrix [C23.550.355.274]  +		
+Nephrogenic Fibrosing Dermopathy [C23.550.355.550]		
+Peritoneal Fibrosis [C23.550.355.625]		
+Retroperitoneal Fibrosis [C23.550.355.700]
+
+Hyperbilirubinemia [C23.550.429]			
+Hyperbilirubinemia, Neonatal [C23.550.429.249]  +		
+Jaundice [C23.550.429.500]  +		
+Kernicterus [C23.550.429.750]
+
+Inflammation [C23.550.470]			
+Acute-Phase Reaction [C23.550.470.099]		
+Foreign-Body Reaction [C23.550.470.251]  +		
+Neurogenic Inflammation [C23.550.470.448]		
+Seroma [C23.550.470.640]		
+Serositis [C23.550.470.646]		
+Suppuration [C23.550.470.756]  +		
+Systemic Inflammatory Response Syndrome [C23.550.470.790]  +
+
+Intraoperative Complications [C23.550.505]			
+Blood Loss, Surgical [C23.550.505.300]		
+Intraoperative Awareness [C23.550.505.400]		
+Malignant Hyperthermia [C23.550.505.700]
+
+Ischemia [C23.550.513]			
+Infarction [C23.550.513.355]		
+No-Reflow Phenomenon [C23.550.513.677]
+
+Menstruation Disturbances [C23.550.568]			
+Amenorrhea [C23.550.568.500]		
+Dysmenorrhea [C23.550.568.750]		
+Menorrhagia [C23.550.568.875]		
+Oligomenorrhea [C23.550.568.937]		
+Premenstrual Syndrome [C23.550.568.968]
+
+Necrosis [C23.550.717]			
+Dental Pulp Necrosis [C23.550.717.182]		
+DNA Degradation, Necrotic [C23.550.717.273]		
+Fat Necrosis [C23.550.717.365]		
+Gangrene [C23.550.717.427]		
+Infarction [C23.550.717.489]		
+Osteonecrosis [C23.550.717.732]  +
+
+Neoplastic Processes [C23.550.727]			
+Anaplasia [C23.550.727.045]		
+Carcinogenesis [C23.550.727.098]  +		
+Neoplasm Invasiveness [C23.550.727.645]  +		
+Neoplasm Metastasis [C23.550.727.650]  +		
+Neoplasm Recurrence, Local [C23.550.727.655]		
+Neoplasm Regression, Spontaneous [C23.550.727.670]		
+Neoplasm, Residual [C23.550.727.700]
+
+Nerve Degeneration [C23.550.737]			
+Retrograde Degeneration [C23.550.737.500]		
+Subacute Combined Degeneration [C23.550.737.625]		
+Wallerian Degeneration [C23.550.737.750]
+
+Polydipsia [C23.550.759]			
+Polydipsia, Psychogenic [C23.550.759.500]
+
+Postoperative Complications [C23.550.767]			
+Afferent Loop Syndrome [C23.550.767.050]		
+Anastomotic Leak [C23.550.767.071]		
+Corneal Endothelial Cell Loss [C23.550.767.093]		
+Coronary-Subclavian Steal Syndrome [C23.550.767.115]		
+Delayed Emergence from Anesthesia [C23.550.767.137]		
+Failed Back Surgery Syndrome [C23.550.767.225]		
+Graft Occlusion, Vascular [C23.550.767.400]		
+Malignant Hyperthermia [C23.550.767.600]		
+Pain, Postoperative [C23.550.767.700]  +		
+Postcholecystectomy Syndrome [C23.550.767.775]		
+Postgastrectomy Syndromes [C23.550.767.812]  +		
+Postoperative Hemorrhage [C23.550.767.850]  +		
+Postoperative Nausea and Vomiting [C23.550.767.859]		
+Postpericardiotomy Syndrome [C23.550.767.863]		
+Prosthesis Failure [C23.550.767.865]  +		
+Prosthesis-Related Infections [C23.550.767.868]		
+Reperfusion Injury [C23.550.767.877]  +		
+Shock, Surgical [C23.550.767.879]		
+Short Bowel Syndrome [C23.550.767.882]		
+Slit Ventricle Syndrome [C23.550.767.884]		
+Surgical Wound Dehiscence [C23.550.767.887]		
+Surgical Wound Infection [C23.550.767.925]		
+Vasoplegia [C23.550.767.962]
+
+Shock [C23.550.835]			
+Multiple Organ Failure [C23.550.835.525]		
+Shock, Cardiogenic [C23.550.835.550]		
+Shock, Hemorrhagic [C23.550.835.650]		
+Shock, Surgical [C23.550.835.775]		
+Shock, Traumatic [C23.550.835.888]		
+Systemic Inflammatory Response Syndrome [C23.550.835.900]  +
+
+Hemic and Lymphatic Diseases [C15]				
+Hematologic Diseases [C15.378]  +		
+Lymphatic Diseases [C15.604]  +
+
+Hematologic Diseases [C15.378]			
+Anemia [C15.378.071]  +		
+Blood Coagulation Disorders [C15.378.100]  +		
+Blood Group Incompatibility [C15.378.120]  +		
+Blood Platelet Disorders [C15.378.140]  +		
+Blood Protein Disorders [C15.378.147]  +		
+Bone Marrow Diseases [C15.378.190]  +		
+Hematologic Neoplasms [C15.378.400]  +		
+Hemoglobinopathies [C15.378.420]  +		
+Hemorrhagic Disorders [C15.378.463]  +		
+Leukocyte Disorders [C15.378.553]  +		
+Methemoglobinemia [C15.378.619]		
+Pancytopenia [C15.378.700]		
+Polycythemia [C15.378.738]		
+Pregnancy Complications, Hematologic [C15.378.785]		
+Preleukemia [C15.378.800]		
+Sulfhemoglobinemia [C15.378.896]		
+Thrombophilia [C15.378.925]  +
+
+Anemia [C15.378.071]			
+Anemia, Aplastic [C15.378.071.085]  +		
+Anemia, Hemolytic [C15.378.071.141]  +		
+Anemia, Hypochromic [C15.378.071.196]  +		
+Anemia, Macrocytic [C15.378.071.252]  +		
+Anemia, Myelophthisic [C15.378.071.307]		
+Anemia, Neonatal [C15.378.071.363]  +		
+Anemia, Refractory [C15.378.071.400]  +		
+Anemia, Sideroblastic [C15.378.071.419]		
+Red-Cell Aplasia, Pure [C15.378.071.750]  +
+
+Blood Coagulation Disorders [C15.378.100]			
+Blood Coagulation Disorders, Inherited [C15.378.100.100]  +		
+Coagulation Protein Disorders [C15.378.100.141]  +		
+Disseminated Intravascular Coagulation [C15.378.100.220]		
+Ecchymosis [C15.378.100.452]		
+Platelet Storage Pool Deficiency [C15.378.100.685]  +		
+Protein S Deficiency [C15.378.100.800]		
+Purpura [C15.378.100.802]  +		
+Thrombocythemia, Essential [C15.378.100.832]		
+Vitamin K Deficiency [C15.378.100.920]  +
+
+Blood Platelet Disorders [C15.378.140]			
+Bernard-Soulier Syndrome [C15.378.140.120]		
+Gray Platelet Syndrome [C15.378.140.427]		
+Platelet Storage Pool Deficiency [C15.378.140.735]  +		
+Thrombasthenia [C15.378.140.810]		
+Thrombocytopenia [C15.378.140.855]  +		
+Thrombocytosis [C15.378.140.860]  +		
+von Willebrand Diseases [C15.378.140.900]
+
+Blood Protein Disorders [C15.378.147]			
+Agammaglobulinemia [C15.378.147.142]		
+Antithrombin III Deficiency [C15.378.147.150]		
+Dysgammaglobulinemia [C15.378.147.333]  +		
+Hypergammaglobulinemia [C15.378.147.542]  +		
+Hypoproteinemia [C15.378.147.607]  +		
+Paraproteinemias [C15.378.147.780]  +		
+Protein C Deficiency [C15.378.147.880]		
+Protein S Deficiency [C15.378.147.890]
+
+Hematologic Neoplasms [C15.378.400]			
+Bone Marrow Neoplasms [C15.378.400.200]
+
+Leukocyte Disorders [C15.378.553]			
+Eosinophilia [C15.378.553.231]  +		
+Infectious Mononucleosis [C15.378.553.381]		
+Leukocytosis [C15.378.553.475]  +		
+Leukopenia [C15.378.553.546]  +		
+Leukostasis [C15.378.553.560]		
+Pelger-Huet Anomaly [C15.378.553.696]		
+Phagocyte Bactericidal Dysfunction [C15.378.553.774]  +
+
+Lymphatic Diseases [C15.604]			
+Histiocytosis [C15.604.250]  +		
+Lymphadenitis [C15.604.315]  +		
+Lymphangiectasis [C15.604.360]  +		
+Lymphangitis [C15.604.406]		
+Lymphatic Abnormalities [C15.604.451]  +		
+Lymphedema [C15.604.496]  +		
+Lymphocele [C15.604.510]		
+Lymphoproliferative Disorders [C15.604.515]  +		
+Mucocutaneous Lymph Node Syndrome [C15.604.560]		
+Pseudolymphoma [C15.604.613]		
+Splenic Diseases [C15.604.744]  +		
+Thymus Hyperplasia [C15.604.816]		
+Thymus Neoplasms [C15.604.861]  +		
+Tuberculosis, Lymph Node [C15.604.921]  +
+
+Vascular Diseases [C14.907]			
+Aneurysm [C14.907.055]  +		
+Angiodysplasia [C14.907.075]  +		
+Angiomatosis [C14.907.077]  +		
+Angioedema [C14.907.079]  +		
+Aortic Diseases [C14.907.109]  +		
+Arterial Occlusive Diseases [C14.907.137]  +		
+Arteriovenous Malformations [C14.907.150]  +		
+Arteritis [C14.907.184]  +		
+Capillary Leak Syndrome [C14.907.218]		
+Cerebrovascular Disorders [C14.907.253]  +		
+Colitis, Ischemic [C14.907.286]		
+Compartment Syndromes [C14.907.303]  +		
+Diabetic Angiopathies [C14.907.320]  +		
+Embolism and Thrombosis [C14.907.355]  +		
+Hand-Arm Vibration Syndrome [C14.907.440]		
+Hemorrhoids [C14.907.449]		
+Hemostatic Disorders [C14.907.454]  +		
+Hepatic Veno-Occlusive Disease [C14.907.460]		
+Hyperemia [C14.907.474]		
+Hypertension [C14.907.489]  +		
+Hypotension [C14.907.514]  +		
+Myocardial Ischemia [C14.907.585]  +		
+Optic Neuropathy, Ischemic [C14.907.601]		
+Peripheral Vascular Diseases [C14.907.617]  +		
+Prehypertension [C14.907.653]		
+Pulmonary Veno-Occlusive Disease [C14.907.690]		
+Reperfusion Injury [C14.907.725]  +		
+Retinal Vein Occlusion [C14.907.760]		
+Scimitar Syndrome [C14.907.780]		
+Spinal Cord Vascular Diseases [C14.907.790]  +		
+Splenic Infarction [C14.907.795]		
+Superior Vena Cava Syndrome [C14.907.800]		
+Telangiectasis [C14.907.823]  +		
+Thoracic Outlet Syndrome [C14.907.863]  +		
+Varicocele [C14.907.903]		
+Varicose Veins [C14.907.927]  +		
+Vascular Fistula [C14.907.933]  +		
+Vascular Neoplasms [C14.907.936]		
+Vascular System Injuries [C14.907.937]		
+Vasculitis [C14.907.940]  +		
+Vasoplegia [C14.907.946]		
+Venous Insufficiency [C14.907.952]  +
+
+Heart Diseases [C14.280]			
+Arrhythmias, Cardiac [C14.280.067]  +		
+Carcinoid Heart Disease [C14.280.104]		
+Cardiac Output, High [C14.280.142]		
+Cardiac Output, Low [C14.280.148]		
+Cardiac Tamponade [C14.280.155]		
+Cardiomegaly [C14.280.195]  +		
+Cardiomyopathies [C14.280.238]  +		
+Endocarditis [C14.280.282]  +		
+Heart Aneurysm [C14.280.358]		
+Heart Arrest [C14.280.383]  +		
+Heart Defects, Congenital [C14.280.400]  +		
+Heart Failure [C14.280.434]  +		
+Heart Neoplasms [C14.280.459]  +		
+Heart Rupture [C14.280.470]  +		
+Heart Valve Diseases [C14.280.484]  +		
+Myocardial Ischemia [C14.280.647]  +		
+Pericardial Effusion [C14.280.695]		
+Pericarditis [C14.280.720]  +		
+Pneumopericardium [C14.280.763]		
+Postpericardiotomy Syndrome [C14.280.793]		
+Pulmonary Heart Disease [C14.280.832]		
+Rheumatic Heart Disease [C14.280.874]		
+Ventricular Dysfunction [C14.280.945]  +		
+Ventricular Outflow Obstruction [C14.280.955]  +
+
+Myocardial Ischemia [C14.280.647]			
+Acute Coronary Syndrome [C14.280.647.124]		
+Angina Pectoris [C14.280.647.187]  +		
+Coronary Disease [C14.280.647.250]  +		
+Myocardial Infarction [C14.280.647.500]  +		
+Myocardial Reperfusion Injury [C14.280.647.625]		
+Myocardial Stunning [C14.280.647.750]
+
+Pharmacologic Actions [D27.505]			
+Diagnostic Uses of Chemicals [D27.505.259]  +		
+Molecular Mechanisms of Pharmacological Action [D27.505.519]  +		
+Physiological Effects of Drugs [D27.505.696]  +		
+Therapeutic Uses [D27.505.954]  +
+
+Therapeutic Uses [D27.505.954]			
+Anti-Allergic Agents [D27.505.954.016]		
+Anti-Infective Agents [D27.505.954.122]  +		
+Anti-Inflammatory Agents [D27.505.954.158]  +		
+Antineoplastic Agents [D27.505.954.248]  +		
+Antirheumatic Agents [D27.505.954.329]  +		
+Cardiovascular Agents [D27.505.954.411]  +		
+Central Nervous System Agents [D27.505.954.427]  +		
+Dermatologic Agents [D27.505.954.444]  +		
+Gastrointestinal Agents [D27.505.954.483]  +		
+Hematologic Agents [D27.505.954.502]  +		
+Lipid Regulating Agents [D27.505.954.557]  +		
+Pharmaceutical Solutions [D27.505.954.578]  +		
+Radiation-Sensitizing Agents [D27.505.954.600]  +		
+Renal Agents [D27.505.954.613]  +		
+Reproductive Control Agents [D27.505.954.705]  +		
+Respiratory System Agents [D27.505.954.796]  +		
+Stimulants, Historical [D27.505.954.888]		
+Urological Agents [D27.505.954.944]
+Surgical-Procedure Support Agents [D27.505.954.991] +
+
+Surgical-Procedure Support Agents [D27.505.954.991]
+Angioplasty Support Agent [D27.505.954.991.001]
+Bypass Support Agent [D27.505.954.991.002]
+
+Signs and Symptoms [C23.888]			
+Aging, Premature [C23.888.069]		
+Asthenia [C23.888.089]		
+Body Temperature Changes [C23.888.119]  +		
+Body Weight [C23.888.144]  +		
+Cardiac Output, High [C23.888.176]		
+Cardiac Output, Low [C23.888.192]		
+Chills [C23.888.208]		
+Cyanosis [C23.888.248]  +		
+Edema [C23.888.277]  +		
+Eye Manifestations [C23.888.307]  +		
+Failure to Thrive [C23.888.338]		
+Fatigue [C23.888.369]  +		
+Feminization [C23.888.378]		
+Fetal Distress [C23.888.380]		
+Flushing [C23.888.388]		
+Heart Murmurs [C23.888.447]  +		
+Hot Flashes [C23.888.475]		
+Hypergammaglobulinemia [C23.888.512]		
+Hypertriglyceridemic Waist [C23.888.521]		
+Intermittent Claudication [C23.888.531]		
+Mobility Limitation [C23.888.550]		
+Motion Sickness [C23.888.571]  +		
+Neurologic Manifestations [C23.888.592]  +		
+Oral Manifestations [C23.888.619]  +		
+Pain [C23.888.646]  +		
+Polydipsia [C23.888.663]  +		
+Prodromal Symptoms [C23.888.672]		
+Pseudophakia [C23.888.681]		
+Reticulocytosis [C23.888.760]		
+Signs and Symptoms, Digestive [C23.888.821]  +		
+Signs and Symptoms, Respiratory [C23.888.852]  +		
+Skin Manifestations [C23.888.885]  +		
+Urological Manifestations [C23.888.942]  +		
+Virilism [C23.888.971]  +
+Climateric Symptoms [C23.888.976] +
+
+Climateric Symptoms [C23.888.976]
+Menopausal Symptoms [C23.888.976.001]
+Postmenopausal Symptoms [C23.888.976.002]
+Premenopausal Symptoms [C23.888.976.003]
+
+Signs and Symptoms, Respiratory [C23.888.852]			
+Anoxia [C23.888.852.079]  +		
+Apnea [C23.888.852.130]		
+Cheyne-Stokes Respiration [C23.888.852.227]		
+Cough [C23.888.852.293]		
+Dyspnea [C23.888.852.371]  +		
+Hemoptysis [C23.888.852.430]		
+Hoarseness [C23.888.852.490]		
+Hypercapnia [C23.888.852.544]		
+Hyperoxia [C23.888.852.567]		
+Hyperventilation [C23.888.852.591]		
+Hypocapnia [C23.888.852.614]		
+Hypoventilation [C23.888.852.638]		
+Infantile Apparent Life-Threatening Event [C23.888.852.700]		
+Mouth Breathing [C23.888.852.761]		
+Respiratory Sounds [C23.888.852.779]  +		
+Sneezing [C23.888.852.889]		
+Tachypnea [C23.888.852.944]  +
+
+Anti-Infective Agents [D27.505.954.122]			
+Anti-Bacterial Agents [D27.505.954.122.085]  +		
+Antifungal Agents [D27.505.954.122.136]		
+Anti-Infective Agents, Local [D27.505.954.122.187]  +		
+Anti-Infective Agents, Urinary [D27.505.954.122.237]		
+Antiparasitic Agents [D27.505.954.122.250]  +		
+Antiviral Agents [D27.505.954.122.388]  +		
+Disinfectants [D27.505.954.122.425]  +
+Antiherpetic Agents [D27.505.954.122.991]
+
+Antiviral Agents [D27.505.954.122.388]			
+Anti-Retroviral Agents [D27.505.954.122.388.077]  +
+
+Antineoplastic Agents [D27.505.954.248]			
+Angiogenesis Inhibitors [D27.505.954.248.025]		
+Antibiotics, Antineoplastic [D27.505.954.248.106]		
+Anticarcinogenic Agents [D27.505.954.248.125]		
+Antimetabolites, Antineoplastic [D27.505.954.248.144]		
+Antimitotic Agents [D27.505.954.248.147]		
+Antineoplastic Agents, Alkylating [D27.505.954.248.150]		
+Antineoplastic Agents, Hormonal [D27.505.954.248.169]		
+Antineoplastic Agents, Phytogenic [D27.505.954.248.179]		
+Myeloablative Agonists [D27.505.954.248.589]		
+Topoisomerase Inhibitors [D27.505.954.248.794]  +
+
+Antirheumatic Agents [D27.505.954.329]			
+Anti-Inflammatory Agents, Non-Steroidal [D27.505.954.329.030]  +		
+Gout Suppressants [D27.505.954.329.337]  +
+
+Cardiovascular Agents [D27.505.954.411]			
+Anti-Arrhythmia Agents [D27.505.954.411.097]		
+Antihypertensive Agents [D27.505.954.411.162]		
+Calcium Channel Blockers [D27.505.954.411.192]		
+Cardioplegic Solutions [D27.505.954.411.207]		
+Cardiotonic Agents [D27.505.954.411.222]		
+Fibrinolytic Agents [D27.505.954.411.320]		
+Natriuretic Agents [D27.505.954.411.455]		
+Nitric Oxide Donors [D27.505.954.411.590]		
+Potassium Channel Blockers [D27.505.954.411.645]		
+Sclerosing Solutions [D27.505.954.411.700]		
+Sodium Channel Blockers [D27.505.954.411.720]  +		
+Vasoconstrictor Agents [D27.505.954.411.793]  +		
+Vasodilator Agents [D27.505.954.411.918]  +
+
+Central Nervous System Agents [D27.505.954.427]			
+Adjuvants, Anesthesia [D27.505.954.427.010]		
+Alcohol Deterrents [D27.505.954.427.020]		
+Analgesics [D27.505.954.427.040]  +		
+Anticonvulsants [D27.505.954.427.080]		
+Anti-Dyskinesia Agents [D27.505.954.427.090]  +		
+Antiemetics [D27.505.954.427.095]		
+Anti-Obesity Agents [D27.505.954.427.140]  +		
+Antitussive Agents [D27.505.954.427.153]		
+Central Nervous System Depressants [D27.505.954.427.210]  +		
+Central Nervous System Stimulants [D27.505.954.427.220]  +		
+Emetics [D27.505.954.427.270]		
+Hallucinogens [D27.505.954.427.300]		
+Muscle Relaxants, Central [D27.505.954.427.525]		
+Narcotic Antagonists [D27.505.954.427.550]		
+Neuroprotective Agents [D27.505.954.427.575]		
+Nootropic Agents [D27.505.954.427.637]		
+Psychotropic Drugs [D27.505.954.427.700]  +
+
+Dermatologic Agents [D27.505.954.444]			
+Antipruritics [D27.505.954.444.075]		
+Astringents [D27.505.954.444.100]		
+Emollients [D27.505.954.444.200]		
+Keratolytic Agents [D27.505.954.444.400]		
+Photosensitizing Agents [D27.505.954.444.600]		
+Sunscreening Agents [D27.505.954.444.695]
+
+Gastrointestinal Agents [D27.505.954.483]			
+Antidiarrheals [D27.505.954.483.161]		
+Antiemetics [D27.505.954.483.200]		
+Anti-Ulcer Agents [D27.505.954.483.203]		
+Cathartics [D27.505.954.483.396]		
+Cholagogues and Choleretics [D27.505.954.483.508]		
+Emetics [D27.505.954.483.560]		
+Laxatives [D27.505.954.483.620]		
+Lipotropic Agents [D27.505.954.483.680]
+Gastrointestinal Stimulant [D27.505.954.483.786]
+Hepatoprotective Agents [D27.505.954.483.745]
+
+Hematologic Agents [D27.505.954.502]			
+Anticoagulants [D27.505.954.502.119]  +		
+Antisickling Agents [D27.505.954.502.135]		
+Blood Substitutes [D27.505.954.502.140]  +		
+Coagulants [D27.505.954.502.270]  +		
+Fibrinolytic Agents [D27.505.954.502.427]		
+Hematinics [D27.505.954.502.543]		
+Platelet Aggregation Inhibitors [D27.505.954.502.780]
+Detoxification Agents [D27.505.954.502.798]
+
+Lipid Regulating Agents [D27.505.954.557]			
+Hypolipidemic Agents [D27.505.954.557.500]  +
+
+Hypolipidemic Agents [D27.505.954.557.500]			
+Anticholesteremic Agents [D27.505.954.557.500.202]  +		
+Lipotropic Agents [D27.505.954.557.500.601]  +
+
+Renal Agents [D27.505.954.613]			
+Anti-Infective Agents, Urinary [D27.505.954.613.056]		
+Uricosuric Agents [D27.505.954.613.860]
+
+Reproductive Control Agents [D27.505.954.705]			
+Abortifacient Agents [D27.505.954.705.131]  +		
+Contraceptive Agents [D27.505.954.705.360]  +		
+Fertility Agents [D27.505.954.705.552]  +		
+Luteolytic Agents [D27.505.954.705.610]		
+Menstruation-Inducing Agents [D27.505.954.705.650]		
+Oxytocics [D27.505.954.705.737]		
+Tocolytic Agents [D27.505.954.705.825]
+
+Respiratory System Agents [D27.505.954.796]			
+Anti-Asthmatic Agents [D27.505.954.796.050]  +		
+Antitussive Agents [D27.505.954.796.090]		
+Bronchoconstrictor Agents [D27.505.954.796.170]		
+Expectorants [D27.505.954.796.250]		
+Nasal Decongestants [D27.505.954.796.560]		
+Pulmonary Surfactants [D27.505.954.796.600]
+
+Anti-Asthmatic Agents [D27.505.954.796.050]			
+Bronchodilator Agents [D27.505.954.796.050.100]
+
+Antiparasitic Agents [D27.505.954.122.250]			
+Anthelmintics [D27.505.954.122.250.075]  +		
+Antiprotozoal Agents [D27.505.954.122.250.100]  +
+
+Central Nervous System Depressants [D27.505.696.277]			
+Anesthetics [D27.505.696.277.100]  +		
+Hypnotics and Sedatives [D27.505.696.277.350]		
+Narcotics [D27.505.696.277.600]  +		
+Tranquilizing Agents [D27.505.696.277.950]  +
+
+Tranquilizing Agents [D27.505.696.277.950]			
+Anti-Anxiety Agents [D27.505.696.277.950.015]		
+Antimanic Agents [D27.505.696.277.950.025]		
+Antipsychotic Agents [D27.505.696.277.950.040]
+
+Anti-Retroviral Agents [D27.505.954.122.388.077]			
+Anti-HIV Agents [D27.505.954.122.388.077.088]  +
+
+Psychotropic Drugs [D27.505.954.427.700]			
+Antidepressive Agents [D27.505.954.427.700.122]  +
+
+Antiprotozoal Agents [D27.505.954.122.250.100]			
+Amebicides [D27.505.954.122.250.100.055]		
+Antimalarials [D27.505.954.122.250.100.085]		
+Antitrichomonal Agents [D27.505.954.122.250.100.115]		
+Coccidiostats [D27.505.954.122.250.100.170]		
+Trypanocidal Agents [D27.505.954.122.250.100.875]
+
+Central Nervous System Stimulants [D27.505.696.282]			
+Aphrodisiacs [D27.505.696.282.045]		
+Appetite Stimulants [D27.505.696.282.050]		
+Convulsants [D27.505.696.282.224]
+
+Anti-Obesity Agents [D27.505.954.427.140]			
+Appetite Depressants [D27.505.954.427.140.155]
+
+Joint Diseases [C05.550]			
+Ankylosis [C05.550.069]  +		
+Arthralgia [C05.550.091]  +		
+Arthritis [C05.550.114]  +		
+Arthrogryposis [C05.550.150]		
+Arthropathy, Neurogenic [C05.550.186]		
+Bursitis [C05.550.251]  +		
+Chondromatosis, Synovial [C05.550.287]		
+Contracture [C05.550.323]  +		
+Femoracetabular Impingement [C05.550.384]		
+Hallux Limitus [C05.550.445]		
+Hallux Rigidus [C05.550.450]		
+Hemarthrosis [C05.550.459]		
+Hydrarthrosis [C05.550.509]		
+Joint Deformities, Acquired [C05.550.515]		
+Joint Instability [C05.550.521]		
+Joint Loose Bodies [C05.550.535]		
+Metatarsalgia [C05.550.610]		
+Nail-Patella Syndrome [C05.550.629]		
+Osteoarthropathy, Primary Hypertrophic [C05.550.648]		
+Osteoarthropathy, Secondary Hypertrophic [C05.550.684]		
+Patellofemoral Pain Syndrome [C05.550.700]		
+Shoulder Impingement Syndrome [C05.550.840]		
+Synovitis [C05.550.870]  +		
+Temporomandibular Joint Disorders [C05.550.905]  +
+
+Arthritis [C05.550.114]			
+Arthritis, Experimental [C05.550.114.015]		
+Arthritis, Infectious [C05.550.114.099]  +		
+Arthritis, Juvenile [C05.550.114.122]		
+Arthritis, Psoriatic [C05.550.114.145]		
+Arthritis, Rheumatoid [C05.550.114.154]  +		
+Chondrocalcinosis [C05.550.114.264]		
+Gout [C05.550.114.423]  +		
+Osteoarthritis [C05.550.114.606]  +		
+Periarthritis [C05.550.114.678]		
+Rheumatic Fever [C05.550.114.843]  +		
+Sacroiliitis [C05.550.114.854]		
+Spondylarthritis [C05.550.114.865]  +
+
+Bronchial Diseases [C08.127]			
+Asthma [C08.127.108]  +		
+Bronchial Fistula [C08.127.196]		
+Bronchial Hyperreactivity [C08.127.210]		
+Bronchial Neoplasms [C08.127.265]		
+Bronchial Spasm [C08.127.321]		
+Bronchiectasis [C08.127.384]  +		
+Bronchitis [C08.127.446]  +		
+Bronchogenic Cyst [C08.127.480]		
+Bronchopneumonia [C08.127.509]		
+Tracheobronchomalacia [C08.127.719]  +		
+Tracheobronchomegaly [C08.127.930]
+
+Asthma [C08.127.108]			
+Asthma, Aspirin-Induced [C08.127.108.054]		
+Asthma, Exercise-Induced [C08.127.108.110]		
+Asthma, Occupational [C08.127.108.495]		
+Status Asthmaticus [C08.127.108.880]
+
+Lung Diseases [C08.381]			
+Acute Chest Syndrome [C08.381.074]		
+alpha 1-Antitrypsin Deficiency [C08.381.112]		
+Cystic Adenomatoid Malformation of Lung, Congenital [C08.381.150]		
+Cystic Fibrosis [C08.381.187]		
+Hemoptysis [C08.381.348]		
+Hepatopulmonary Syndrome [C08.381.385]		
+Hypertension, Pulmonary [C08.381.423]  +		
+Lung Abscess [C08.381.450]		
+Lung Diseases, Fungal [C08.381.472]  +		
+Lung Diseases, Interstitial [C08.381.483]  +		
+Lung Diseases, Obstructive [C08.381.495]  +		
+Lung Diseases, Parasitic [C08.381.517]  +		
+Lung Injury [C08.381.520]  +		
+Lung Neoplasms [C08.381.540]  +		
+Lung, Hyperlucent [C08.381.570]		
+Plasma Cell Granuloma, Pulmonary [C08.381.600]		
+Pneumonia [C08.381.677]  +		
+Pulmonary Alveolar Proteinosis [C08.381.719]		
+Pulmonary Atelectasis [C08.381.730]  +		
+Pulmonary Edema [C08.381.742]		
+Pulmonary Embolism [C08.381.746]  +		
+Pulmonary Eosinophilia [C08.381.750]		
+Pulmonary Fibrosis [C08.381.765]  +		
+Pulmonary Veno-Occlusive Disease [C08.381.780]		
+Respiratory Distress Syndrome, Adult [C08.381.840]		
+Respiratory Distress Syndrome, Newborn [C08.381.842]  +		
+Scimitar Syndrome [C08.381.844]		
+Solitary Pulmonary Nodule [C08.381.884]		
+Tuberculosis, Pulmonary [C08.381.922]  +
+
+Lung Diseases, Obstructive [C08.381.495]			
+Asthma [C08.381.495.108]		
+Bronchitis [C08.381.495.146]  +		
+Pulmonary Disease, Chronic Obstructive [C08.381.495.389]  +
+
+Respiratory Hypersensitivity [C08.674]			
+Alveolitis, Extrinsic Allergic [C08.674.055]  +		
+Aspergillosis, Allergic Bronchopulmonary [C08.674.060]		
+Asthma [C08.674.095]  +		
+Rhinitis, Allergic, Perennial [C08.674.810]		
+Rhinitis, Allergic, Seasonal [C08.674.815]
+
+Hypersensitivity [C20.543]			
+Drug Hypersensitivity [C20.543.206]  +		
+Environmental Illness [C20.543.312]  +		
+Hypersensitivity, Delayed [C20.543.418]  +		
+Hypersensitivity, Immediate [C20.543.480]  +		
+Immune Complex Diseases [C20.543.520]  +		
+Latex Hypersensitivity [C20.543.600]		
+Wissler's Syndrome [C20.543.928]
+
+Hypersensitivity, Immediate [C20.543.480]			
+Anaphylaxis [C20.543.480.099]		
+Asthma, Aspirin-Induced [C20.543.480.149]		
+Conjunctivitis, Allergic [C20.543.480.200]		
+Dermatitis, Atopic [C20.543.480.343]		
+Eosinophilic Esophagitis [C20.543.480.356]		
+Food Hypersensitivity [C20.543.480.370]  +		
+Respiratory Hypersensitivity [C20.543.480.680]  +		
+Urticaria [C20.543.480.904]  +
+
+Food Hypersensitivity [C20.543.480.370]			
+Egg Hypersensitivity [C20.543.480.370.150]		
+Milk Hypersensitivity [C20.543.480.370.500]		
+Nut Hypersensitivity [C20.543.480.370.550]		
+Peanut Hypersensitivity [C20.543.480.370.675]		
+Wheat Hypersensitivity [C20.543.480.370.850]
+
+Respiratory Hypersensitivity [C20.543.480.680]			
+Alveolitis, Extrinsic Allergic [C20.543.480.680.075]  +		
+Aspergillosis, Allergic Bronchopulmonary [C20.543.480.680.085]		
+Asthma [C20.543.480.680.095]  +		
+Rhinitis, Allergic, Perennial [C20.543.480.680.791]		
+Rhinitis, Allergic, Seasonal [C20.543.480.680.795]
+
+Arterial Occlusive Diseases [C14.907.137]			
+Arteriosclerosis [C14.907.137.126]  +		
+Carotid Stenosis [C14.907.137.230]		
+Fibromuscular Dysplasia [C14.907.137.372]		
+Leriche Syndrome [C14.907.137.427]		
+Malignant Atrophic Papulosis [C14.907.137.520]		
+Mesenteric Vascular Occlusion [C14.907.137.534]		
+Moyamoya Disease [C14.907.137.615]		
+Renal Artery Obstruction [C14.907.137.727]		
+Retinal Artery Occlusion [C14.907.137.780]  +		
+Thromboangiitis Obliterans [C14.907.137.870]
+
+Arteriosclerosis [C14.907.137.126]			
+Arteriolosclerosis [C14.907.137.126.056]		
+Arteriosclerosis Obliterans [C14.907.137.126.114]		
+Atherosclerosis [C14.907.137.126.307]  +		
+Coronary Artery Disease [C14.907.137.126.339]		
+Intracranial Arteriosclerosis [C14.907.137.126.372]  +		
+Intermittent Claudication [C14.907.137.126.669]
+
+Mental Disorders Diagnosed in Childhood [F03.550]			
+Anxiety, Separation [F03.550.075]		
+Attention Deficit and Disruptive Behavior Disorders [F03.550.150]  +		
+Child Behavior Disorders [F03.550.300]		
+Child Development Disorders, Pervasive [F03.550.325]  +		
+Communication Disorders [F03.550.350]  +		
+Developmental Disabilities [F03.550.362]		
+Elimination Disorders [F03.550.375]  +		
+Feeding and Eating Disorders of Childhood [F03.550.400]  +		
+Learning Disorders [F03.550.450]  +		
+Intellectual Disability [F03.550.600]		
+Motor Skills Disorders [F03.550.650]		
+Mutism [F03.550.700]		
+Reactive Attachment Disorder [F03.550.750]		
+Schizophrenia, Childhood [F03.550.768]		
+Stereotypic Movement Disorder [F03.550.787]		
+Tic Disorders [F03.550.825]  +
+
+Attention Deficit and Disruptive Behavior Disorders [F03.550.150]			
+Attention Deficit Disorder with Hyperactivity [F03.550.150.150]		
+Conduct Disorder [F03.550.150.300]
+
+Bronchitis [C08.127.446]			
+Bronchiolitis [C08.127.446.135]  +		
+Bronchitis, Chronic [C08.127.446.567]
+
+Mycoses [C01.703]			
+Blastomycosis [C01.703.128]		
+Candidiasis [C01.703.160]  +		
+Central Nervous System Fungal Infections [C01.703.181]  +		
+Coccidioidomycosis [C01.703.203]		
+Cryptococcosis [C01.703.248]  +		
+Dermatomycoses [C01.703.295]  +		
+Eye Infections, Fungal [C01.703.343]  +		
+Fungemia [C01.703.360]  +		
+Geotrichosis [C01.703.392]		
+Histoplasmosis [C01.703.450]		
+Hyalohyphomycosis [C01.703.513]  +		
+Lung Diseases, Fungal [C01.703.534]  +		
+Microsporidiosis [C01.703.617]  +		
+Otomycosis [C01.703.658]		
+Paracoccidioidomycosis [C01.703.700]		
+Phaeohyphomycosis [C01.703.726]		
+Piedra [C01.703.753]		
+Pneumocystis Infections [C01.703.770]  +		
+Trichosporonosis [C01.703.875]		
+Zygomycosis [C01.703.980]  +
+
+Candidiasis [C01.703.160]			
+Candidiasis, Chronic Mucocutaneous [C01.703.160.165]		
+Candidiasis, Cutaneous [C01.703.160.170]		
+Candidiasis, Invasive [C01.703.160.175]  +		
+Candidiasis, Oral [C01.703.160.180]		
+Candidiasis, Vulvovaginal [C01.703.160.190]
+
+Skin Diseases, Infectious [C01.539.800]			
+Cellulitis [C01.539.800.130]		
+Dermatomycoses [C01.539.800.200]  +		
+Paronychia [C01.539.800.460]		
+Skin Diseases, Bacterial [C01.539.800.720]  +
+
+Suppuration [C01.539.830]			
+Abscess [C01.539.830.025]  +		
+Cellulitis [C01.539.830.200]		
+Empyema [C01.539.830.305]  +		
+Hidradenitis Suppurativa [C01.539.830.499]		
+Otitis Media, Suppurative [C01.539.830.694]		
+Pyomyositis [C01.539.830.767]		
+Thyroiditis, Suppurative [C01.539.830.840]		
+Uveitis, Suppurative [C01.539.830.900]
+
+Connective Tissue Diseases [C17.300]			
+Anetoderma [C17.300.116]		
+Cartilage Diseases [C17.300.182]  +		
+Cellulitis [C17.300.185]  +		
+Collagen Diseases [C17.300.200]  +		
+Cutis Laxa [C17.300.230]		
+Dermatomyositis [C17.300.250]		
+Dupuytren Contracture [C17.300.270]		
+Homocystinuria [C17.300.428]		
+Lupus Erythematosus, Cutaneous [C17.300.475]  +		
+Lupus Erythematosus, Systemic [C17.300.480]  +		
+Marfan Syndrome [C17.300.500]		
+Mixed Connective Tissue Disease [C17.300.540]		
+Mucinoses [C17.300.550]  +		
+Neoplasms, Connective Tissue [C17.300.680]  +		
+Noonan Syndrome [C17.300.690]		
+Osteopoikilosis [C17.300.705]		
+Panniculitis [C17.300.710]  +		
+Penile Induration [C17.300.715]		
+Pseudoxanthoma Elasticum [C17.300.766]		
+Rheumatic Diseases [C17.300.775]  +		
+Scleroderma, Localized [C17.300.787]		
+Scleroderma, Systemic [C17.300.799]  +		
+Weill-Marchesani Syndrome [C17.300.899]
+
+Gastrointestinal Diseases [C06.405]			
+Esophageal Diseases [C06.405.117]  +		
+Gastroenteritis [C06.405.205]  +		
+Gastrointestinal Hemorrhage [C06.405.227]  +		
+Gastrointestinal Neoplasms [C06.405.249]  +		
+Intestinal Diseases [C06.405.469]  +		
+Peptic Ulcer [C06.405.608]  +		
+Stomach Diseases [C06.405.748]  +		
+Tuberculosis, Gastrointestinal [C06.405.874]		
+Visceral Prolapse [C06.405.937]
+
+Gastroenteritis [C06.405.205]			
+Appendicitis [C06.405.205.099]		
+Cholera Morbus [C06.405.205.200]		
+Colitis [C06.405.205.265]  +		
+Diverticulitis [C06.405.205.298]		
+Dysentery [C06.405.205.331]  +		
+Enteritis [C06.405.205.462]  +		
+Enterocolitis [C06.405.205.596]  +		
+Esophagitis [C06.405.205.663]  +		
+Gastritis [C06.405.205.697]  +		
+Inflammatory Bowel Diseases [C06.405.205.731]  +		
+Mucositis [C06.405.205.798]		
+Proctitis [C06.405.205.865]  +		
+Typhlitis [C06.405.205.932]
+
+Inflammatory Bowel Diseases [C06.405.205.731]			
+Colitis, Ulcerative [C06.405.205.731.249]		
+Crohn Disease [C06.405.205.731.500]
+
+RNA Virus Infections [C02.782]			
+Arenaviridae Infections [C02.782.082]  +		
+Astroviridae Infections [C02.782.105]		
+Birnaviridae Infections [C02.782.123]		
+Bunyaviridae Infections [C02.782.147]  +		
+Caliciviridae Infections [C02.782.160]  +		
+Encephalitis, Arbovirus [C02.782.310]  +		
+Flaviviridae Infections [C02.782.350]  +		
+Hemorrhagic Fevers, Viral [C02.782.417]  +		
+Hepatitis D [C02.782.450]  +		
+Hepatitis E [C02.782.455]		
+Mononegavirales Infections [C02.782.580]  +		
+Nidovirales Infections [C02.782.600]  +		
+Orthomyxoviridae Infections [C02.782.620]  +		
+Picornaviridae Infections [C02.782.687]  +		
+Reoviridae Infections [C02.782.791]  +		
+Retroviridae Infections [C02.782.815]  +		
+Togaviridae Infections [C02.782.930]  +
+
+Picornaviridae Infections [C02.782.687]			
+Cardiovirus Infections [C02.782.687.150]		
+Common Cold [C02.782.687.207]		
+Enterovirus Infections [C02.782.687.359]  +		
+Foot-and-Mouth Disease [C02.782.687.484]
+
+Respiratory Tract Infections [C08.730]			
+Bovine Respiratory Disease Complex [C08.730.085]  +		
+Bronchitis [C08.730.099]  +		
+Common Cold [C08.730.162]		
+Empyema, Pleural [C08.730.265]  +		
+Influenza, Human [C08.730.310]		
+Laryngitis [C08.730.368]		
+Legionellosis [C08.730.382]  +		
+Lung Abscess [C08.730.407]		
+Lung Diseases, Fungal [C08.730.435]  +		
+Lung Diseases, Parasitic [C08.730.450]  +		
+Pharyngitis [C08.730.561]  +		
+Pleurisy [C08.730.582]  +		
+Pneumonia [C08.730.610]  +		
+Rhinitis [C08.730.674]		
+Rhinoscleroma [C08.730.702]		
+Severe Acute Respiratory Syndrome [C08.730.730]		
+Sinusitis [C08.730.749]  +		
+Supraglottitis [C08.730.798]  +		
+Tracheitis [C08.730.848]		
+Tuberculosis, Laryngeal [C08.730.860]		
+Tuberculosis, Pleural [C08.730.912]  +		
+Tuberculosis, Pulmonary [C08.730.939]  +		
+Whooping Cough [C08.730.969]
+
+Signs and Symptoms, Digestive [C23.888.821]			
+Abdominal Pain [C23.888.821.030]  +		
+Aerophagy [C23.888.821.061]		
+Anorexia [C23.888.821.108]		
+Constipation [C23.888.821.150]		
+Diarrhea [C23.888.821.214]  +		
+Dyspepsia [C23.888.821.236]		
+Encopresis [C23.888.821.266]		
+Eructation [C23.888.821.297]		
+Flatulence [C23.888.821.360]		
+Gagging [C23.888.821.414]		
+Halitosis [C23.888.821.475]		
+Heartburn [C23.888.821.525]		
+Hiccup [C23.888.821.578]		
+Hyperphagia [C23.888.821.645]  +		
+Nausea [C23.888.821.712]  +		
+Vomiting [C23.888.821.937]  +
+
+Urologic Diseases [C12.777]			
+Kidney Diseases [C12.777.419]  +		
+Ureteral Diseases [C12.777.725]  +		
+Urethral Diseases [C12.777.767]  +		
+Urinary Bladder Diseases [C12.777.829]  +		
+Urinary Tract Infections [C12.777.892]  +		
+Urination Disorders [C12.777.934]  +		
+Urolithiasis [C12.777.967]  +
+
+Urinary Bladder Diseases [C12.777.829]			
+Bladder Exstrophy [C12.777.829.132]		
+Cystitis [C12.777.829.495]  +		
+Cystocele [C12.777.829.707]		
+Urinary Bladder Calculi [C12.777.829.720]		
+Urinary Bladder Fistula [C12.777.829.733]		
+Urinary Bladder Neck Obstruction [C12.777.829.760]		
+Urinary Bladder Neoplasms [C12.777.829.813]		
+Urinary Bladder, Neurogenic [C12.777.829.839]		
+Urinary Bladder, Overactive [C12.777.829.866]		
+Vesico-Ureteral Reflux [C12.777.829.920]
+
+Urinary Tract Infections [C12.777.892]			
+Bacteriuria [C12.777.892.219]		
+Pyuria [C12.777.892.719]		
+Schistosomiasis haematobia [C12.777.892.775]
+
+Kidney Diseases [C12.777.419]			
+AIDS-Associated Nephropathy [C12.777.419.050]		
+Anuria [C12.777.419.078]		
+Diabetes Insipidus [C12.777.419.135]  +		
+Diabetic Nephropathies [C12.777.419.192]		
+Fanconi Syndrome [C12.777.419.250]		
+Hepatorenal Syndrome [C12.777.419.291]		
+Hydronephrosis [C12.777.419.307]  +		
+Hyperoxaluria [C12.777.419.313]  +		
+Hypertension, Renal [C12.777.419.331]  +		
+Kidney Cortex Necrosis [C12.777.419.393]		
+Kidney Diseases, Cystic [C12.777.419.403]  +		
+Kidney Neoplasms [C12.777.419.473]  +		
+Kidney Papillary Necrosis [C12.777.419.493]		
+Nephritis [C12.777.419.570]  +		
+Nephrocalcinosis [C12.777.419.590]		
+Nephrolithiasis [C12.777.419.600]  +		
+Nephrosclerosis [C12.777.419.610]		
+Nephrosis [C12.777.419.630]  +		
+Perinephritis [C12.777.419.685]		
+Renal Artery Obstruction [C12.777.419.775]		
+Renal Insufficiency [C12.777.419.780]  +		
+Renal Nutcracker Syndrome [C12.777.419.787]		
+Renal Osteodystrophy [C12.777.419.795]		
+Renal Tubular Transport, Inborn Errors [C12.777.419.815]  +		
+Tuberculosis, Renal [C12.777.419.912]		
+Uremia [C12.777.419.936]  +		
+Zellweger Syndrome [C12.777.419.978]
+
+Noxae [D27.888.569]			
+Alkylating Agents [D27.888.569.035]  +		
+Antimetabolites [D27.888.569.042]  +		
+Antispermatogenic Agents [D27.888.569.071]  +		
+Carcinogens [D27.888.569.100]  +		
+Cardiotoxins [D27.888.569.142]		
+Caustics [D27.888.569.185]		
+Cytostatic Agents [D27.888.569.199]		
+Cytotoxins [D27.888.569.213]  +		
+Dermotoxins [D27.888.569.242]		
+Immunotoxins [D27.888.569.271]		
+Irritants [D27.888.569.300]  +		
+Mutagens [D27.888.569.468]  +		
+Neurotoxins [D27.888.569.504]		
+Oxidants [D27.888.569.540]  +		
+Poisons [D27.888.569.612]  +		
+Pyrogens [D27.888.569.673]		
+Riot Control Agents, Chemical [D27.888.569.734]  +		
+Teratogens [D27.888.569.864]
+Diaphoretic Agent [D27.888.569.869]
+
+Tooth Diseases [C07.793]			
+Bruxism [C07.793.099]  +		
+Dental Deposits [C07.793.208]  +		
+Dental Leakage [C07.793.221]		
+Dental Pulp Diseases [C07.793.237]  +		
+Dentin Sensitivity [C07.793.266]		
+Fluorosis, Dental [C07.793.330]		
+Focal Infection, Dental [C07.793.348]		
+Hypercementosis [C07.793.422]		
+Malocclusion [C07.793.494]  +		
+Mouth, Edentulous [C07.793.597]  +		
+Tooth Abnormalities [C07.793.700]  +		
+Tooth Ankylosis [C07.793.710]		
+Tooth Demineralization [C07.793.720]  +		
+Tooth Discoloration [C07.793.735]		
+Tooth Eruption, Ectopic [C07.793.790]		
+Tooth Wear [C07.793.818]  +		
+Tooth, Impacted [C07.793.846]		
+Tooth Injuries [C07.793.850]  +		
+Tooth Loss [C07.793.870]		
+Tooth Resorption [C07.793.901]  +		
+Tooth, Unerupted [C07.793.915]		
+Toothache [C07.793.929]
+
+Tooth Demineralization [C07.793.720]			
+Dental Caries [C07.793.720.210]  +
+
+Dental Caries [C07.793.720.210]			
+Dental Fissures [C07.793.720.210.220]		
+Root Caries [C07.793.720.210.650]
+
+Neuromuscular Diseases [C10.668]			
+Fatigue Syndrome, Chronic [C10.668.364]		
+Isaacs Syndrome [C10.668.402]		
+Motor Neuron Disease [C10.668.467]  +		
+Muscular Atrophy, Spinal [C10.668.475]  +		
+Muscular Diseases [C10.668.491]  +		
+Muscular Disorders, Atrophic [C10.668.550]  +		
+Neuromuscular Junction Diseases [C10.668.758]  +		
+Peripheral Nervous System Diseases [C10.668.829]  +		
+Poliomyelitis [C10.668.864]  +		
+Stiff-Person Syndrome [C10.668.900]
+
+Peripheral Nervous System Diseases [C10.668.829]			
+Acrodynia [C10.668.829.025]		
+Amyloid Neuropathies [C10.668.829.050]  +		
+Brachial Plexus Neuropathies [C10.668.829.100]  +		
+Complex Regional Pain Syndromes [C10.668.829.250]  +		
+Diabetic Neuropathies [C10.668.829.300]		
+Giant Axonal Neuropathy [C10.668.829.325]		
+Guillain-Barre Syndrome [C10.668.829.350]  +		
+Hand-Arm Vibration Syndrome [C10.668.829.380]		
+Isaacs Syndrome [C10.668.829.425]		
+Mononeuropathies [C10.668.829.500]  +		
+Nerve Compression Syndromes [C10.668.829.550]  +		
+Neuralgia [C10.668.829.600]  +		
+Neuritis [C10.668.829.650]  +		
+Neurofibromatosis 1 [C10.668.829.675]		
+Pain Insensitivity, Congenital [C10.668.829.700]		
+Peripheral Nerve Injuries [C10.668.829.712]		
+Peripheral Nervous System Neoplasms [C10.668.829.725]  +		
+Polyneuropathies [C10.668.829.800]  +		
+Radiculopathy [C10.668.829.820]		
+Tarlov Cysts [C10.668.829.900]
+
+Diabetes Complications [C19.246.099]			
+Diabetic Angiopathies [C19.246.099.500]  +		
+Diabetic Cardiomyopathies [C19.246.099.625]		
+Diabetic Coma [C19.246.099.750]  +		
+Diabetic Ketoacidosis [C19.246.099.812]		
+Diabetic Nephropathies [C19.246.099.875]		
+Diabetic Neuropathies [C19.246.099.937]  +		
+Fetal Macrosomia [C19.246.099.968]
+
+Natriuretic Agents [D27.505.696.560]			
+Antidiuretic Agents [D27.505.696.560.249]		
+Diuretics [D27.505.696.560.500]  +
+
+Peptic Ulcer [C06.405.469.275.800]				
+Duodenal Ulcer [C06.405.469.275.800.348]
+Peptic Ulcer Perforation [C06.405.469.275.800.698]
+
+Peptic Ulcer [C06.405.608]			
+Duodenal Ulcer [C06.405.608.173]		
+Esophagitis, Peptic [C06.405.608.348]		
+Peptic Ulcer Perforation [C06.405.608.698]		
+Stomach Ulcer [C06.405.608.849]		
+Zollinger-Ellison Syndrome [C06.405.608.924]
+
+Urological Manifestations [C23.888.942]			
+Hypercalciuria [C23.888.942.337]		
+Lower Urinary Tract Symptoms [C23.888.942.343]  +		
+Oliguria [C23.888.942.400]		
+Polyuria [C23.888.942.600]		
+Proteinuria [C23.888.942.750]  +		
+Urinoma [C23.888.942.900]
+
+Lower Urinary Tract Symptoms [C23.888.942.343]			
+Dysuria [C23.888.942.343.274]		
+Nocturia [C23.888.942.343.550]		
+Prostatism [C23.888.942.343.600]		
+Urinary Bladder, Overactive [C23.888.942.343.780]		
+Urinary Incontinence [C23.888.942.343.800]  +
+
+Genital Diseases, Male [C12.294]			
+Epididymitis [C12.294.199]		
+Fournier Gangrene [C12.294.229]		
+Genital Neoplasms, Male [C12.294.260]  +		
+Hematocele [C12.294.287]		
+Hemospermia [C12.294.293]		
+Herpes Genitalis [C12.294.329]		
+Infertility [C12.294.365]  +		
+Penile Diseases [C12.294.494]  +		
+Prostatic Diseases [C12.294.565]  +		
+Reproductive Tract Infections [C12.294.604]		
+Sexual Dysfunction, Physiological [C12.294.644]  +		
+Sexually Transmitted Diseases [C12.294.668]  +		
+Spermatic Cord Torsion [C12.294.693]		
+Spermatocele [C12.294.731]		
+Testicular Diseases [C12.294.829]  +		
+Testicular Hydrocele [C12.294.882]		
+Tuberculosis, Male Genital [C12.294.909]		
+Varicocele [C12.294.936]
+
+Sexual Dysfunction, Physiological [C12.294.644]			
+Dyspareunia [C12.294.644.242]		
+Erectile Dysfunction [C12.294.644.486]  +		
+Premature Ejaculation [C12.294.644.743]
+
+Fatty Acids [D10.251]			
+Caprylates [D10.251.122]		
+Decanoic Acids [D10.251.175]  +		
+Eicosanoic Acids [D10.251.220]		
+Endocannabinoids [D10.251.265]		
+Fatty Acids, Nonesterified [D10.251.310]		
+Fatty Acids, Unsaturated [D10.251.355]  +		
+Fatty Acids, Volatile [D10.251.400]  +		
+Heptanoic Acids [D10.251.450]  +		
+Lauric Acids [D10.251.500]  +		
+Mupirocin [D10.251.536]		
+Mycolic Acids [D10.251.572]		
+Mycophenolic Acid [D10.251.618]		
+Myristic Acids [D10.251.640]  +		
+Palmitic Acids [D10.251.694]  +		
+Prostanoic Acids [D10.251.740]		
+Sodium Morrhuate [D10.251.860]		
+Stearic Acids [D10.251.882]  +		
+Thioctic Acid [D10.251.941]
+
+Fatty Acids, Unsaturated [D10.251.355]			
+Arachidonic Acids [D10.251.355.096]  +		
+Eicosanoids [D10.251.355.255]  +		
+Fatty Acids, Essential [D10.251.355.310]  +		
+Fatty Acids, Monounsaturated [D10.251.355.325]  +		
+Fatty Acids, Omega-3 [D10.251.355.337]  +		
+Fatty Acids, Omega-6 [D10.251.355.343]  +		
+Gefarnate [D10.251.355.350]		
+Ionomycin [D10.251.355.391]		
+Isoprostanes [D10.251.355.411]  +		
+Linolenic Acids [D10.251.355.450]  +		
+Oxylipins [D10.251.355.645]		
+Sorbic Acid [D10.251.355.840]		
+Trans Fatty Acids [D10.251.355.920]
+
+Fatty Acids, Omega-6 [D10.251.355.343]			
+gamma-Linolenic Acid [D10.251.355.343.249]		
+Linoleic Acids [D10.251.355.343.500]  +
+
+Liver Diseases [C06.552]			
+alpha 1-Antitrypsin Deficiency [C06.552.074]		
+Cholestasis, Intrahepatic [C06.552.150]  +		
+Drug-Induced Liver Injury [C06.552.195]  +		
+Fatty Liver [C06.552.241]  +		
+Focal Nodular Hyperplasia [C06.552.270]		
+Hepatic Insufficiency [C06.552.308]  +		
+Budd-Chiari Syndrome [C06.552.347]		
+Hepatic Veno-Occlusive Disease [C06.552.360]		
+Hepatitis [C06.552.380]  +		
+Hepatolenticular Degeneration [C06.552.413]		
+Hepatomegaly [C06.552.416]		
+Hepatopulmonary Syndrome [C06.552.455]		
+Hepatorenal Syndrome [C06.552.465]		
+Hypertension, Portal [C06.552.494]  +		
+Liver Abscess [C06.552.597]  +		
+Liver Cirrhosis [C06.552.630]  +		
+Liver Diseases, Alcoholic [C06.552.645]  +		
+Liver Diseases, Parasitic [C06.552.664]  +		
+Liver Neoplasms [C06.552.697]  +		
+Peliosis Hepatis [C06.552.802]		
+Porphyrias, Hepatic [C06.552.830]  +		
+Tuberculosis, Hepatic [C06.552.933]		
+Zellweger Syndrome [C06.552.970]
+
+Fatty Liver [C06.552.241]			
+Fatty Liver, Alcoholic [C06.552.241.390]		
+Reye Syndrome [C06.552.241.649]
+
+Biliary Tract Diseases [C06.130]			
+Bile Duct Diseases [C06.130.120]  +		
+Bile Reflux [C06.130.140]		
+Biliary Tract Neoplasms [C06.130.320]  +		
+Cholelithiasis [C06.130.409]  +		
+Gallbladder Diseases [C06.130.564]  +		
+Postcholecystectomy Syndrome [C06.130.825]
+
+Mouth Diseases [C07.465]			
+Behcet Syndrome [C07.465.075]		
+Bell Palsy [C07.465.094]		
+Burning Mouth Syndrome [C07.465.114]		
+Candidiasis, Oral [C07.465.130]		
+Dry Socket [C07.465.227]		
+Facial Hemiatrophy [C07.465.284]		
+Facial Neuralgia [C07.465.313]		
+Facial Paralysis [C07.465.327]		
+Focal Epithelial Hyperplasia [C07.465.342]		
+Granulomatosis, Orofacial [C07.465.353]		
+Hemifacial Spasm [C07.465.364]		
+Leukoedema, Oral [C07.465.385]		
+Lichen Planus, Oral [C07.465.397]		
+Lip Diseases [C07.465.409]  +		
+Ludwig's Angina [C07.465.433]		
+Melkersson-Rosenthal Syndrome [C07.465.466]		
+Mouth Abnormalities [C07.465.525]  +		
+Mouth, Edentulous [C07.465.550]  +		
+Mouth Neoplasms [C07.465.565]  +		
+Mucositis [C07.465.584]		
+Noma [C07.465.604]		
+Oral Fistula [C07.465.614]  +		
+Oral Hemorrhage [C07.465.625]  +		
+Oral Manifestations [C07.465.634]		
+Oral Submucous Fibrosis [C07.465.654]		
+Oral Ulcer [C07.465.672]		
+Peri-Implantitis [C07.465.693]		
+Periodontal Diseases [C07.465.714]  +		
+Ranula [C07.465.780]		
+Salivary Gland Diseases [C07.465.815]  +		
+Stomatitis [C07.465.864]  +		
+Tongue Diseases [C07.465.910]  +		
+Tuberculosis, Oral [C07.465.943]
+
+Periodontal Diseases [C07.465.714]			
+Furcation Defects [C07.465.714.204]		
+Gingival Diseases [C07.465.714.258]  +		
+Peri-Implantitis [C07.465.714.282]		
+Periapical Diseases [C07.465.714.306]  +		
+Periodontal Atrophy [C07.465.714.354]  +		
+Periodontal Cyst [C07.465.714.470]		
+Periodontitis [C07.465.714.533]  +		
+Tooth Loss [C07.465.714.804]		
+Tooth Migration [C07.465.714.836]  +		
+Tooth Mobility [C07.465.714.898]
+
+Gingival Diseases [C07.465.714.258]			
+Gingival Hemorrhage [C07.465.714.258.250]		
+Gingival Neoplasms [C07.465.714.258.409]		
+Gingival Overgrowth [C07.465.714.258.428]  +		
+Gingival Recession [C07.465.714.258.447]		
+Gingivitis [C07.465.714.258.480]  +		
+Granuloma, Giant Cell [C07.465.714.258.557]		
+Pericoronitis [C07.465.714.258.771]
+
+Gingivitis [C07.465.714.258.480]			
+Gingival Pocket [C07.465.714.258.480.360]		
+Gingivitis, Necrotizing Ulcerative [C07.465.714.258.480.446]
+
+Infection [C01.539]			
+Aneurysm, Infected [C01.539.069]		
+Arthritis, Infectious [C01.539.100]  +		
+Bone Diseases, Infectious [C01.539.160]  +		
+Cardiovascular Infections [C01.539.190]  +		
+Catheter-Related Infections [C01.539.195]		
+Coinfection [C01.539.218]		
+Communicable Diseases [C01.539.221]  +		
+Community-Acquired Infections [C01.539.234]		
+Cross Infection [C01.539.248]  +		
+Eye Infections [C01.539.375]  +		
+Focal Infection [C01.539.392]  +		
+Gingivitis, Necrotizing Ulcerative [C01.539.424]		
+Intraabdominal Infections [C01.539.463]  +		
+Laboratory Infection [C01.539.503]		
+Ludwig's Angina [C01.539.535]		
+Opportunistic Infections [C01.539.597]  +		
+Pelvic Infection [C01.539.635]  +		
+Pregnancy Complications, Infectious [C01.539.674]  +		
+Prosthesis-Related Infections [C01.539.685]		
+Reproductive Tract Infections [C01.539.730]		
+Respiratory Tract Infections [C01.539.739]  +		
+Sepsis [C01.539.757]  +		
+Sexually Transmitted Diseases [C01.539.778]  +		
+Skin Diseases, Infectious [C01.539.800]  +		
+Soft Tissue Infections [C01.539.820]		
+Suppuration [C01.539.830]  +		
+Toxemia [C01.539.861]  +		
+Urinary Tract Infections [C01.539.895]  +		
+Wound Infection [C01.539.947]  +
+
+Ocular Hypertension [C11.525]			
+Glaucoma [C11.525.381]  +
+
+Glaucoma [C11.525.381]			
+Glaucoma, Angle-Closure [C11.525.381.056]		
+Glaucoma, Neovascular [C11.525.381.348]		
+Glaucoma, Open-Angle [C11.525.381.407]  +
+
+Metabolic Diseases [C18.452]			
+Acid-Base Imbalance [C18.452.076]  +		
+Brain Diseases, Metabolic [C18.452.132]  +		
+Calcium Metabolism Disorders [C18.452.174]  +		
+DNA Repair-Deficiency Disorders [C18.452.284]  +		
+Glucose Metabolism Disorders [C18.452.394]  +		
+Iron Metabolism Disorders [C18.452.565]  +		
+Lipid Metabolism Disorders [C18.452.584]  +		
+Malabsorption Syndromes [C18.452.603]  +		
+Metabolic Syndrome X [C18.452.625]		
+Metabolism, Inborn Errors [C18.452.648]  +		
+Mitochondrial Diseases [C18.452.660]  +		
+Phosphorus Metabolism Disorders [C18.452.750]  +		
+Porphyrias [C18.452.811]  +		
+Proteostasis Deficiencies [C18.452.845]  +		
+Skin Diseases, Metabolic [C18.452.880]  +		
+Wasting Syndrome [C18.452.915]  +		
+Water-Electrolyte Imbalance [C18.452.950]  +
+
+Glucose Metabolism Disorders [C18.452.394]			
+Diabetes Mellitus [C18.452.394.750]  +		
+Glycosuria [C18.452.394.937]  +		
+Hyperglycemia [C18.452.394.952]  +		
+Hyperinsulinism [C18.452.394.968]  +		
+Hypoglycemia [C18.452.394.984]  +
+
+Hyperglycemia [C18.452.394.952]			
+Glucose Intolerance [C18.452.394.952.500]
+
+Pain [C10.597.617]				
+Acute Pain [C10.597.617.088]			
+Breakthrough Pain [C10.597.617.178]			
+Mastodynia [C10.597.617.205]			
+Musculoskeletal Pain [C10.597.617.231]  +			
+Back Pain [C10.597.617.232]  +			
+Chronic Pain [C10.597.617.258]			
+Facial Pain [C10.597.617.364]			
+Headache [C10.597.617.470]			
+Labor Pain [C10.597.617.515]			
+Metatarsalgia [C10.597.617.560]			
+Neck Pain [C10.597.617.576]			
+Neuralgia [C10.597.617.682]  +			
+Nociceptive Pain [C10.597.617.735]  +			
+Pain, Intractable [C10.597.617.788]			
+Pain, Referred [C10.597.617.894]			
+Slit Ventricle Syndrome [C10.597.617.947]
+
+Neurologic Manifestations [C10.597]			
+Cerebrospinal Fluid Otorrhea [C10.597.230]		
+Cerebrospinal Fluid Rhinorrhea [C10.597.267]		
+Decerebrate State [C10.597.305]		
+Dyskinesias [C10.597.350]  +		
+Gait Disorders, Neurologic [C10.597.404]  +		
+Meningism [C10.597.544]		
+Neurobehavioral Manifestations [C10.597.606]  +		
+Neurogenic Inflammation [C10.597.609]		
+Neuromuscular Manifestations [C10.597.613]  +		
+Pain [C10.597.617]  +		
+Paralysis [C10.597.622]  +		
+Paresis [C10.597.636]  +		
+Pupil Disorders [C10.597.690]  +		
+Reflex, Abnormal [C10.597.704]  +		
+Seizures [C10.597.742]  +		
+Sensation Disorders [C10.597.751]  +		
+Susac Syndrome [C10.597.825]		
+Urinary Bladder, Neurogenic [C10.597.900]		
+Vertigo [C10.597.951]		
+Voice Disorders [C10.597.975]  +
+Sensation Disorders [C10.597.751]			
+Dizziness [C10.597.751.237]		
+Hearing Disorders [C10.597.751.418]  +		
+Olfaction Disorders [C10.597.751.600]		
+Somatosensory Disorders [C10.597.751.791]  +		
+Taste Disorders [C10.597.751.861]  +		
+Vision Disorders [C10.597.751.941]  +
+
+Ear Diseases [C09.218]			
+Cholesteatoma, Middle Ear [C09.218.200]		
+Ear Deformities, Acquired [C09.218.271]		
+Ear Neoplasms [C09.218.334]		
+Earache [C09.218.350]		
+Hearing Disorders [C09.218.458]  +		
+Herpes Zoster Oticus [C09.218.513]		
+Labyrinth Diseases [C09.218.568]  +		
+Myringosclerosis [C09.218.636]		
+Otitis [C09.218.705]  +		
+Otomycosis [C09.218.736]		
+Otosclerosis [C09.218.768]		
+Retrocochlear Diseases [C09.218.807]  +		
+Susac Syndrome [C09.218.855]		
+Tympanic Membrane Perforation [C09.218.903]
+
+Hearing Disorders [C09.218.458]			
+Hearing Loss [C09.218.458.341]  +		
+Hyperacusis [C09.218.458.505]		
+Tinnitus [C09.218.458.670]
+
+Heat Stress Disorders [C26.522]				
+Heat Exhaustion [C26.522.250]			
+Heat Stroke [C26.522.500]  +
+
+Bacterial Infections [C01.252]			
+Bacteremia [C01.252.100]  +		
+Central Nervous System Bacterial Infections [C01.252.200]  +		
+Endocarditis, Bacterial [C01.252.300]  +		
+Eye Infections, Bacterial [C01.252.354]  +		
+Fournier Gangrene [C01.252.377]		
+Gram-Negative Bacterial Infections [C01.252.400]  +		
+Gram-Positive Bacterial Infections [C01.252.410]  +		
+Pneumonia, Bacterial [C01.252.620]  +		
+Sexually Transmitted Diseases, Bacterial [C01.252.810]  +		
+Skin Diseases, Bacterial [C01.252.825]  +		
+Spirochaetales Infections [C01.252.847]  +		
+Vaginosis, Bacterial [C01.252.954]
+
+Gram-Negative Bacterial Infections [C01.252.400]			
+Aliivibrio Infections [C01.252.400.050]		
+Anaplasmataceae Infections [C01.252.400.054]  +		
+Bacteroidaceae Infections [C01.252.400.110]  +		
+Bartonellaceae Infections [C01.252.400.126]  +		
+Bordetella Infections [C01.252.400.143]  +		
+Borrelia Infections [C01.252.400.155]  +		
+Brucellosis [C01.252.400.167]  +		
+Burkholderia Infections [C01.252.400.170]  +		
+Campylobacter Infections [C01.252.400.177]		
+Cat-Scratch Disease [C01.252.400.200]		
+Chlamydiaceae Infections [C01.252.400.210]  +		
+Cytophagaceae Infections [C01.252.400.245]		
+Desulfovibrionaceae Infections [C01.252.400.260]		
+Enterobacteriaceae Infections [C01.252.400.310]  +		
+Flavobacteriaceae Infections [C01.252.400.349]		
+Fusobacteriaceae Infections [C01.252.400.388]  +		
+Helicobacter Infections [C01.252.400.466]		
+Legionellosis [C01.252.400.500]  +		
+Leptospirosis [C01.252.400.511]  +		
+Moraxellaceae Infections [C01.252.400.560]  +		
+Mycoplasmatales Infections [C01.252.400.610]  +		
+Neisseriaceae Infections [C01.252.400.625]  +		
+Pasteurellaceae Infections [C01.252.400.700]  +		
+Piscirickettsiaceae Infections [C01.252.400.719]		
+Pseudomonas Infections [C01.252.400.739]		
+Q Fever [C01.252.400.755]		
+Rat-Bite Fever [C01.252.400.771]		
+Rickettsiaceae Infections [C01.252.400.780]  +		
+Tick-Borne Diseases [C01.252.400.825]  +		
+Treponemal Infections [C01.252.400.840]  +		
+Tularemia [C01.252.400.939]		
+Vibrio Infections [C01.252.400.959]  +
+
+Retroviridae Infections [C02.782.815]			
+Avian Leukosis [C02.782.815.096]		
+Deltaretrovirus Infections [C02.782.815.200]  +		
+Lentivirus Infections [C02.782.815.616]  +		
+Leukemia, Feline [C02.782.815.622]		
+Murine Acquired Immunodeficiency Syndrome [C02.782.815.650]		
+Pulmonary Adenomatosis, Ovine [C02.782.815.725]		
+Sarcoma, Avian [C02.782.815.800]
+
+Lentivirus Infections [C02.782.815.616]			
+Equine Infectious Anemia [C02.782.815.616.300]		
+Feline Acquired Immunodeficiency Syndrome [C02.782.815.616.350]		
+HIV Infections [C02.782.815.616.400]  +		
+Pneumonia, Progressive Interstitial, of Sheep [C02.782.815.616.660]		
+Simian Acquired Immunodeficiency Syndrome [C02.782.815.616.850]		
+Visna [C02.782.815.616.900]
+
+HIV Infections [C02.782.815.616.400]			
+Acquired Immunodeficiency Syndrome [C02.782.815.616.400.040]		
+AIDS Arteritis, Central Nervous System [C02.782.815.616.400.048]		
+AIDS-Associated Nephropathy [C02.782.815.616.400.050]		
+AIDS Dementia Complex [C02.782.815.616.400.070]		
+AIDS-Related Complex [C02.782.815.616.400.080]		
+AIDS-Related Opportunistic Infections [C02.782.815.616.400.100]		
+HIV-Associated Lipodystrophy Syndrome [C02.782.815.616.400.400]		
+HIV Enteropathy [C02.782.815.616.400.480]		
+HIV Seropositivity [C02.782.815.616.400.500]		
+HIV Wasting Syndrome [C02.782.815.616.400.520]
+
+Sexually Transmitted Diseases [C02.800]			
+Sexually Transmitted Diseases, Viral [C02.800.801]  +
+
+Sexually Transmitted Diseases, Viral [C02.800.801]			
+Condylomata Acuminata [C02.800.801.220]  +		
+Herpes Genitalis [C02.800.801.350]		
+HIV Infections [C02.800.801.400]  +
+
+Immunologic Deficiency Syndromes [C20.673]			
+Agammaglobulinemia [C20.673.088]		
+Ataxia Telangiectasia [C20.673.290]		
+Common Variable Immunodeficiency [C20.673.330]		
+Dysgammaglobulinemia [C20.673.430]  +		
+HIV Infections [C20.673.480]  +		
+Deltaretrovirus Infections [C20.673.483]  +		
+Leukocyte-Adhesion Deficiency Syndrome [C20.673.600]		
+Lymphopenia [C20.673.627]  +		
+Phagocyte Bactericidal Dysfunction [C20.673.774]  +		
+Severe Combined Immunodeficiency [C20.673.815]  +		
+Wiskott-Aldrich Syndrome [C20.673.972]
+
+Physiological Effects of Drugs [D27.505.696]			
+Antipyretics [D27.505.696.068]		
+Antispermatogenic Agents [D27.505.696.138]  +		
+Astringents [D27.505.696.207]		
+Bone Density Conservation Agents [D27.505.696.242]		
+Central Nervous System Depressants [D27.505.696.277]  +		
+Central Nervous System Stimulants [D27.505.696.282]  +		
+Cerumenolytic Agents [D27.505.696.305]		
+Emetics [D27.505.696.329]		
+Endocrine Disruptors [D27.505.696.353]		
+Galactogogues [D27.505.696.365]		
+Growth Substances [D27.505.696.377]  +		
+Hallucinogens [D27.505.696.388]		
+Hormones, Hormone Substitutes, and Hormone Antagonists [D27.505.696.399]  +		
+Hypnotics and Sedatives [D27.505.696.410]		
+Hypoglycemic Agents [D27.505.696.422]  +		
+Immunologic Factors [D27.505.696.477]  +		
+Muscle Relaxants, Central [D27.505.696.510]		
+Narcotic Antagonists [D27.505.696.543]		
+Natriuretic Agents [D27.505.696.560]  +		
+Neurotransmitter Agents [D27.505.696.577]  +		
+Performance-Enhancing Substances [D27.505.696.620]		
+Peripheral Nervous System Agents [D27.505.696.663]  +		
+Protective Agents [D27.505.696.706]  +		
+Reproductive Control Agents [D27.505.696.875]  +
+Homeostatic Agents [D27.505.696.001] +
+
+Homeostatic Agents [D27.505.696.001]
+Thermoregulator Agents [D27.505.696.001.004]
+
+Sulfur Compounds [D02.886]			
+Amino Acids, Sulfur [D02.886.030]  +		
+Benzothiepins [D02.886.092]  +		
+beta-Lactams [D02.886.108]  +		
+Cyclic S-Oxides [D02.886.124]		
+Isothiocyanates [D02.886.250]  +		
+Organothiophosphorus Compounds [D02.886.300]  +		
+Phenothiazines [D02.886.369]  +		
+Sulfhydryl Compounds [D02.886.489]  +		
+Sulfides [D02.886.520]  +		
+Sulfones [D02.886.590]  +		
+Sulfonium Compounds [D02.886.620]		
+Sulfoxides [D02.886.640]  +		
+Sulfur Acids [D02.886.645]  +		
+Thiazides [D02.886.655]  +		
+Thiazines [D02.886.665]  +		
+Thiazoles [D02.886.675]  +		
+Thiepins [D02.886.680]  +		
+Thioamides [D02.886.685]  +		
+Thiocarbamates [D02.886.706]  +		
+Thiocyanates [D02.886.728]		
+Thioglycosides [D02.886.740]  +		
+Thiones [D02.886.753]  +		
+Thionucleosides [D02.886.759]  +		
+Thionucleotides [D02.886.765]  +		
+Thiophenes [D02.886.778]  +		
+Thiosemicarbazones [D02.886.803]  +		
+Thiourea [D02.886.904]  +		
+Thioxanthenes [D02.886.952]  +
+
+Amino Acids, Sulfur [D02.886.030]			
+Cystathionine [D02.886.030.175]		
+Cysteic Acid [D02.886.030.215]		
+Cysteine [D02.886.030.230]  +		
+Ethionine [D02.886.030.388]		
+Homocysteine [D02.886.030.498]  +		
+Homocystine [D02.886.030.554]		
+Methionine [D02.886.030.676]  +		
+Penicillamine [D02.886.030.786]  +		
+Thiorphan [D02.886.030.893]		
+Tiopronin [D02.886.030.896]
+
+Lipid Metabolism Disorders [C18.452.584]			
+Dyslipidemias [C18.452.584.500]  +		
+Lipid Metabolism, Inborn Errors [C18.452.584.562]		
+Lipodystrophy [C18.452.584.625]  +		
+Lipidoses [C18.452.584.687]  +		
+Lipomatosis [C18.452.584.718]  +		
+Xanthomatosis [C18.452.584.750]  +
+
+Dyslipidemias [C18.452.584.500]			
+Hyperlipidemias [C18.452.584.500.500]  +		
+Hypolipoproteinemias [C18.452.584.500.875]  +		
+Smith-Lemli-Opitz Syndrome [C18.452.584.500.937]
+
+Hyperlipidemias [C18.452.584.500.500]			
+Hypercholesterolemia [C18.452.584.500.500.396]		
+Hyperlipidemia, Familial Combined [C18.452.584.500.500.438]		
+Hyperlipoproteinemias [C18.452.584.500.500.644]  +		
+Hypertriglyceridemia [C18.452.584.500.500.851]  +
+
+Hyperpituitarism [C10.228.140.617.738.250]			
+Acromegaly [C10.228.140.617.738.250.100]		
+Hyperprolactinemia [C10.228.140.617.738.250.450]		
+Pituitary ACTH Hypersecretion [C10.228.140.617.738.250.725]
+
+Pituitary Diseases [C10.228.140.617.738]			
+Empty Sella Syndrome [C10.228.140.617.738.200]		
+Hyperpituitarism [C10.228.140.617.738.250]  +		
+Hypopituitarism [C10.228.140.617.738.300]  +		
+Inappropriate ADH Syndrome [C10.228.140.617.738.320]		
+Pituitary Apoplexy [C10.228.140.617.738.350]		
+Pituitary Neoplasms [C10.228.140.617.738.675]  +
+
+Hormones [D06.472]			
+Adrenal Cortex Hormones [D06.472.040]  +		
+Gastrointestinal Hormones [D06.472.317]  +		
+Gonadal Hormones [D06.472.334]  +		
+Hormones, Ectopic [D06.472.397]		
+Invertebrate Hormones [D06.472.445]  +		
+Melatonin [D06.472.506]		
+Peptide Hormones [D06.472.699]  +		
+Thymus Hormones [D06.472.910]  +		
+Thyroid Hormones [D06.472.931]  +
+
+Peptide Hormones [D06.472.699]			
+Activins [D06.472.699.009]  +		
+Adipokines [D06.472.699.042]  +		
+Adrenomedullin [D06.472.699.077]		
+Angiotensins [D06.472.699.094]  +		
+Bombesin [D06.472.699.100]		
+Calcitonin [D06.472.699.150]		
+Gastric Inhibitory Polypeptide [D06.472.699.275]		
+Gastrins [D06.472.699.280]		
+Ghrelin [D06.472.699.301]		
+Gonadotropins [D06.472.699.322]  +		
+Hypothalamic Hormones [D06.472.699.327]  +		
+Inhibins [D06.472.699.337]  +		
+Motilin [D06.472.699.500]		
+Natriuretic Peptides [D06.472.699.584]  +		
+Pancreatic Hormones [D06.472.699.587]  +		
+Parathyroid Hormone [D06.472.699.590]  +		
+Parathyroid Hormone-Related Protein [D06.472.699.591]		
+Peptide PHI [D06.472.699.592]		
+Peptide YY [D06.472.699.595]		
+Pituitary Hormones [D06.472.699.631]  +		
+Placental Hormones [D06.472.699.649]  +		
+Relaxin [D06.472.699.715]		
+Secretin [D06.472.699.810]		
+Urocortins [D06.472.699.857]		
+Urotensins [D06.472.699.905]		
+Vasoactive Intestinal Peptide [D06.472.699.952]
+
+Pancreatic Hormones [D06.472.699.587]			
+Insulins [D06.472.699.587.200]  +		
+Proglucagon [D06.472.699.587.469]  +		
+Pancreatic Polypeptide [D06.472.699.587.700]		
+Somatostatin [D06.472.699.587.780]  +
+
+Insulins [D06.472.699.587.200]			
+Biphasic Insulins [D06.472.699.587.200.200]		
+Insulin, Long-Acting [D06.472.699.587.200.300]  +		
+Insulin, Short-Acting [D06.472.699.587.200.400]  +		
+Proinsulin [D06.472.699.587.200.500]  +
+
+Proinsulin [D06.472.699.587.200.500]			
+C-Peptide [D06.472.699.587.200.500.250]		
+Insulin [D06.472.699.587.200.500.625]  +
+
+Insulin [D12.644.548.586.200.500.625]			
+Insulin, Regular, Human [D12.644.548.586.200.500.625.500]		
+Insulin, Regular, Pork [D12.644.548.586.200.500.625.700]
+
+Hyperinsulinism [C18.452.394.968]			
+Congenital Hyperinsulinism [C18.452.394.968.250]  +		
+Insulin Resistance [C18.452.394.968.500]  +
+
+Intestinal Diseases [C06.405.469]			
+Cecal Diseases [C06.405.469.110]  +		
+Colonic Diseases [C06.405.469.158]  +		
+Duodenal Diseases [C06.405.469.275]  +		
+Dysentery [C06.405.469.300]  +		
+Enteritis [C06.405.469.326]  +		
+Enterocolitis [C06.405.469.363]  +		
+HIV Enteropathy [C06.405.469.400]		
+Ileal Diseases [C06.405.469.420]  +		
+Inflammatory Bowel Diseases [C06.405.469.432]  +		
+Intestinal Atresia [C06.405.469.445]		
+Intestinal Diseases, Parasitic [C06.405.469.452]  +		
+Intestinal Fistula [C06.405.469.471]  +		
+Intestinal Neoplasms [C06.405.469.491]  +		
+Intestinal Obstruction [C06.405.469.531]  +		
+Intestinal Perforation [C06.405.469.557]		
+Intestinal Polyposis [C06.405.469.578]  +		
+Jejunal Diseases [C06.405.469.600]  +		
+Malabsorption Syndromes [C06.405.469.637]  +		
+Mesenteric Vascular Occlusion [C06.405.469.675]		
+Pneumatosis Cystoides Intestinalis [C06.405.469.778]		
+Protein-Losing Enteropathies [C06.405.469.818]		
+Rectal Diseases [C06.405.469.860]  +		
+Zollinger-Ellison Syndrome [C06.405.469.965]
+
+Biological Products [D20.215]			
+Antitoxins [D20.215.121]  +		
+Biological Control Agents [D20.215.191]		
+Biological Warfare Agents [D20.215.226]		
+Biosimilar Pharmaceuticals [D20.215.261]		
+Immune Sera [D20.215.401]  +		
+Menotropins [D20.215.535]		
+Picibanil [D20.215.659]		
+Plant Exudates [D20.215.721]  +		
+Plant Nectar [D20.215.780]		
+Plant Preparations [D20.215.784]  +		
+Vaccines [D20.215.894]  +
+
+Vaccines [D20.215.894]			
+Alzheimer Vaccines [D20.215.894.067]		
+Bacterial Vaccines [D20.215.894.135]  +		
+Cancer Vaccines [D20.215.894.200]		
+Fungal Vaccines [D20.215.894.354]		
+Protozoan Vaccines [D20.215.894.582]  +		
+Toxoids [D20.215.894.691]  +		
+Vaccines, Attenuated [D20.215.894.811]		
+Vaccines, Combined [D20.215.894.815]  +		
+Vaccines, Contraceptive [D20.215.894.818]		
+Vaccines, Inactivated [D20.215.894.830]  +		
+Vaccines, Marker [D20.215.894.845]		
+Vaccines, Subunit [D20.215.894.860]  +		
+Vaccines, Synthetic [D20.215.894.865]  +		
+Vaccines, Live, Unattenuated [D20.215.894.882]		
+Viral Vaccines [D20.215.894.899]  +
+
+Vaccines, Subunit [D20.215.894.860]			
+ISCOMs [D20.215.894.860.449]		
+Vaccines, Acellular [D20.215.894.860.900]  +		
+Vaccines, Edible [D20.215.894.860.915]
+
+Colonic Diseases [C06.405.469.158]			
+Chilaiditi Syndrome [C06.405.469.158.093]		
+Colitis [C06.405.469.158.188]  +		
+Colonic Diseases, Functional [C06.405.469.158.272]  +		
+Colorectal Neoplasms [C06.405.469.158.356]  +		
+Diverticulosis, Colonic [C06.405.469.158.587]  +		
+Megacolon [C06.405.469.158.701]  +		
+Sigmoid Diseases [C06.405.469.158.850]  +
+
+Colonic Diseases, Functional [C06.405.469.158.272]			
+Colonic Pseudo-Obstruction [C06.405.469.158.272.217]		
+Irritable Bowel Syndrome [C06.405.469.158.272.608]		
+Neurogenic Bowel [C06.405.469.158.272.804]
+
+Collagen Diseases [C17.300.200]			
+Ehlers-Danlos Syndrome [C17.300.200.310]		
+Epidermolysis Bullosa Dystrophica [C17.300.200.367]		
+Keloid [C17.300.200.425]  +		
+Necrobiotic Disorders [C17.300.200.495]  +		
+Nephritis, Hereditary [C17.300.200.517]		
+Osteogenesis Imperfecta [C17.300.200.540]
+
+Cicatrix [C23.550.355.274]			
+Cicatrix, Hypertrophic [C23.550.355.274.505]		
+Keloid [C23.550.355.274.510]		
+Tissue Adhesions [C23.550.355.274.840]
+
+Nephrolithiasis [C12.777.419.600]			
+Kidney Calculi [C12.777.419.600.500]
+
+Neoplasms by Histologic Type [C04.557]			
+Histiocytic Disorders, Malignant [C04.557.227]  +		
+Leukemia [C04.557.337]  +		
+Lymphatic Vessel Tumors [C04.557.375]  +		
+Lymphoma [C04.557.386]  +		
+Neoplasms, Complex and Mixed [C04.557.435]  +		
+Neoplasms, Connective and Soft Tissue [C04.557.450]  +		
+Neoplasms, Germ Cell and Embryonal [C04.557.465]  +		
+Neoplasms, Glandular and Epithelial [C04.557.470]  +		
+Neoplasms, Gonadal Tissue [C04.557.475]  +		
+Neoplasms, Nerve Tissue [C04.557.580]  +		
+Neoplasms, Plasma Cell [C04.557.595]  +		
+Neoplasms, Vascular Tissue [C04.557.645]  +		
+Nevi and Melanomas [C04.557.665]  +		
+Odontogenic Tumors [C04.557.695]  +
+
+Hepatic Insufficiency [C06.552.308]			
+Liver Failure [C06.552.308.500]  +
+
+Liver Failure [C06.552.308.500]			
+End Stage Liver Disease [C06.552.308.500.177]		
+Hepatic Encephalopathy [C06.552.308.500.356]		
+Liver Failure, Acute [C06.552.308.500.750]  +
+
+Borrelia Infections [C01.252.400.155]			
+Lyme Disease [C01.252.400.155.569]  +		
+Relapsing Fever [C01.252.400.155.644]
+
+Spirochaetales Infections [C01.252.847]			
+Borrelia Infections [C01.252.847.193]  +		
+Leptospirosis [C01.252.847.511]  +		
+Treponemal Infections [C01.252.847.840]  +
+Lyme Disease [C01.252.400.155.569]			
+Erythema Chronicum Migrans [C01.252.400.155.569.200]		
+Lyme Neuroborreliosis [C01.252.400.155.569.600]
+
+Headache Disorders [C10.228.140.546]			
+Headache Disorders, Primary [C10.228.140.546.399]  +		
+Headache Disorders, Secondary [C10.228.140.546.699]  +
+
+Headache Disorders, Primary [C10.228.140.546.399]			
+Migraine Disorders [C10.228.140.546.399.750]  +		
+Tension-Type Headache [C10.228.140.546.399.875]		
+Trigeminal Autonomic Cephalalgias [C10.228.140.546.399.937]  +
+
+Pregnancy Complications [C13.703]			
+Abortion, Spontaneous [C13.703.039]  +		
+Chorea Gravidarum [C13.703.141]		
+Diabetes, Gestational [C13.703.170]  +		
+Fetal Death [C13.703.243]  +		
+Fetal Diseases [C13.703.277]  +		
+Hypertension, Pregnancy-Induced [C13.703.395]  +		
+Maternal Death [C13.703.401]		
+Morning Sickness [C13.703.407]  +		
+Nuchal Cord [C13.703.413]		
+Obstetric Labor Complications [C13.703.420]  +		
+Oligohydramnios [C13.703.560]		
+Pelvic Floor Disorders [C13.703.565]		
+Pemphigoid Gestationis [C13.703.570]		
+Phenylketonuria, Maternal [C13.703.575]		
+Placenta Diseases [C13.703.590]  +		
+Polyhydramnios [C13.703.610]		
+Pregnancy Complications, Cardiovascular [C13.703.634]  +		
+Pregnancy Complications, Hematologic [C13.703.667]		
+Pregnancy Complications, Infectious [C13.703.700]  +		
+Pregnancy Complications, Neoplastic [C13.703.720]  +		
+Pregnancy in Diabetics [C13.703.726]  +		
+Pregnancy, Ectopic [C13.703.733]  +		
+Pregnancy, Heterotopic [C13.703.769]		
+Pregnancy, Prolonged [C13.703.805]		
+Prenatal Injuries [C13.703.824]  +		
+Puerperal Disorders [C13.703.844]  +
+
+Vomiting [C23.888.821.937]			
+Hematemesis [C23.888.821.937.019]		
+Morning Sickness [C23.888.821.937.049]  +		
+Postoperative Nausea and Vomiting [C23.888.821.937.059]		
+Vomiting, Anticipatory [C23.888.821.937.080]
+
+Demyelinating Diseases [C10.314]			
+Demyelinating Autoimmune Diseases, CNS [C10.314.350]  +		
+Hereditary Central Nervous System Demyelinating Diseases [C10.314.400]  +		
+Leukoencephalopathy, Progressive Multifocal [C10.314.450]		
+Marchiafava-Bignami Disease [C10.314.475]		
+Myelinolysis, Central Pontine [C10.314.500]		
+Ophthalmoplegic Migraine [C10.314.687]		
+Polyradiculoneuropathy [C10.314.750]  +		
+Subacute Combined Degeneration [C10.314.875]
+
+Autoimmune Diseases of the Nervous System [C10.114]			
+Demyelinating Autoimmune Diseases, CNS [C10.114.375]  +		
+Lambert-Eaton Myasthenic Syndrome [C10.114.468]		
+Leukoencephalitis, Acute Hemorrhagic [C10.114.562]		
+Myasthenia Gravis [C10.114.656]  +		
+Nervous System Autoimmune Disease, Experimental [C10.114.703]  +		
+Polyradiculoneuropathy [C10.114.750]  +		
+Stiff-Person Syndrome [C10.114.812]		
+Uveomeningoencephalitic Syndrome [C10.114.843]		
+Vasculitis, Central Nervous System [C10.114.875]  +
+
+Demyelinating Autoimmune Diseases, CNS [C10.114.375]			
+Diffuse Cerebral Sclerosis of Schilder [C10.114.375.112]		
+Encephalomyelitis, Acute Disseminated [C10.114.375.225]		
+Leukoencephalitis, Acute Hemorrhagic [C10.114.375.362]		
+Multiple Sclerosis [C10.114.375.500]  +		
+Myelitis, Transverse [C10.114.375.600]  +		
+Neuromyelitis Optica [C10.114.375.650]
+
+Muscular Disorders, Atrophic [C05.651.534]			
+Muscular Dystrophies [C05.651.534.500]  +		
+Postpoliomyelitis Syndrome [C05.651.534.750]
+
+Muscular Diseases [C10.668.491]			
+Medial Tibial Stress Syndrome [C10.668.491.087]		
+Muscular Disorders, Atrophic [C10.668.491.175]  +		
+Eosinophilia-Myalgia Syndrome [C10.668.491.387]		
+Fibromyalgia [C10.668.491.425]		
+Mitochondrial Myopathies [C10.668.491.500]  +		
+Myalgia [C10.668.491.525]		
+Myopathies, Structural, Congenital [C10.668.491.550]  +		
+Myositis [C10.668.491.562]  +		
+Myotonic Disorders [C10.668.491.606]  +		
+Paralyses, Familial Periodic [C10.668.491.650]  +
+
+Somatoform Disorders [F03.875]				
+Body Dysmorphic Disorders [F03.875.149]			
+Conversion Disorder [F03.875.300]			
+Hypochondriasis [F03.875.450]			
+Neurasthenia [F03.875.600]
+
+Bone Diseases [C05.116]			
+Bone Cysts [C05.116.070]  +		
+Bone Diseases, Developmental [C05.116.099]  +		
+Bone Diseases, Endocrine [C05.116.132]  +		
+Bone Diseases, Infectious [C05.116.165]  +		
+Bone Diseases, Metabolic [C05.116.198]  +		
+Bone Malalignment [C05.116.214]  +		
+Bone Neoplasms [C05.116.231]  +		
+Bone Resorption [C05.116.264]  +		
+Coxa Valga [C05.116.327]		
+Eosinophilic Granuloma [C05.116.391]		
+Epiphyses, Slipped [C05.116.425]  +		
+Genu Valgum [C05.116.482]		
+Genu Varum [C05.116.511]		
+Hyperostosis [C05.116.540]  +		
+Osteitis [C05.116.680]		
+Osteitis Deformans [C05.116.692]		
+Osteoarthropathy, Primary Hypertrophic [C05.116.725]		
+Osteoarthropathy, Secondary Hypertrophic [C05.116.758]		
+Osteochondritis [C05.116.791]  +		
+Osteochondrosis [C05.116.821]  +		
+Osteonecrosis [C05.116.852]  +		
+Spinal Diseases [C05.116.900]  +
+
+Autonomic Agents [D27.505.696.663.050]			
+Antiemetics [D27.505.696.663.050.030]		
+Bronchoconstrictor Agents [D27.505.696.663.050.100]		
+Bronchodilator Agents [D27.505.696.663.050.110]		
+Emetics [D27.505.696.663.050.225]		
+Ganglionic Blockers [D27.505.696.663.050.340]		
+Ganglionic Stimulants [D27.505.696.663.050.400]		
+Miotics [D27.505.696.663.050.495]		
+Mydriatics [D27.505.696.663.050.500]		
+Parasympatholytics [D27.505.696.663.050.650]		
+Parasympathomimetics [D27.505.696.663.050.675]		
+Sympatholytics [D27.505.696.663.050.850]		
+Sympathomimetics [D27.505.696.663.050.870]
+
+Peripheral Vascular Diseases [C14.907.617]			
+Blue Toe Syndrome [C14.907.617.249]		
+Erythromelalgia [C14.907.617.500]		
+Livedo Reticularis [C14.907.617.625]		
+May-Thurner Syndrome [C14.907.617.648]		
+Peripheral Arterial Disease [C14.907.617.671]		
+Phlebitis [C14.907.617.718]  +		
+Raynaud Disease [C14.907.617.812]  +
+Bone Diseases, Metabolic [C05.116.198]			
+Bone Demineralization, Pathologic [C05.116.198.247]  +		
+Mucolipidoses [C05.116.198.371]		
+Osteoporosis [C05.116.198.579]  +		
+Pseudohypoparathyroidism [C05.116.198.709]  +		
+Renal Osteodystrophy [C05.116.198.762]		
+Rickets [C05.116.198.816]  +
+
+Vasculitis [C14.907.940]			
+Aortitis [C14.907.940.080]		
+Arteritis [C14.907.940.090]  +		
+Behcet Syndrome [C14.907.940.100]		
+Cogan Syndrome [C14.907.940.320]		
+Malignant Atrophic Papulosis [C14.907.940.530]		
+Mucocutaneous Lymph Node Syndrome [C14.907.940.560]		
+Phlebitis [C14.907.940.740]  +		
+Purpura, Schoenlein-Henoch [C14.907.940.777]		
+Retinal Vasculitis [C14.907.940.815]		
+Shwartzman Phenomenon [C14.907.940.890]		
+Systemic Vasculitis [C14.907.940.897]  +		
+Thromboangiitis Obliterans [C14.907.940.905]		
+Vasculitis, Central Nervous System [C14.907.940.907]  +		
+Vasculitis, Leukocytoclastic, Cutaneous [C14.907.940.910]
+
+Anxiety Disorders [F03.080]			
+Agoraphobia [F03.080.100]		
+Neurocirculatory Asthenia [F03.080.500]		
+Obsessive-Compulsive Disorder [F03.080.600]  +		
+Panic Disorder [F03.080.700]		
+Phobic Disorders [F03.080.725]		
+Stress Disorders, Traumatic [F03.080.931]  +
+
+Hormones [D27.505.696.399.472]			
+Anabolic Agents [D27.505.696.399.472.080]		
+Androgens [D27.505.696.399.472.161]		
+Cannabinoid Receptor Modulators [D27.505.696.399.472.188]  +		
+Estrogens [D27.505.696.399.472.277]  +		
+Glucocorticoids [D27.505.696.399.472.488]		
+Incretins [D27.505.696.399.472.580]		
+Mineralocorticoids [D27.505.696.399.472.673]		
+Progestins [D27.505.696.399.472.858]
+
+Estrogens [D27.505.696.399.472.277]			
+Estrogens, Non-Steroidal [D27.505.696.399.472.277.540]  +
+
+Estrogens, Non-Steroidal [D27.505.696.399.472.277.540]				
+Phytoestrogens [D27.505.696.399.472.277.540.500]
+
+Obstetric Labor Complications [C13.703.420]				
+Abruptio Placentae [C13.703.420.078]			
+Breech Presentation [C13.703.420.183]			
+Cephalopelvic Disproportion [C13.703.420.235]			
+Dystocia [C13.703.420.288]  +			
+Fetal Membranes, Premature Rupture [C13.703.420.339]  +			
+Obstetric Labor, Premature [C13.703.420.491]  +			
+Placenta Accreta [C13.703.420.643]			
+Placenta Previa [C13.703.420.714]			
+Postpartum Hemorrhage [C13.703.420.725]			
+Uterine Inversion [C13.703.420.814]			
+Uterine Rupture [C13.703.420.904]			
+Vasa Previa [C13.703.420.952]
+
+Puerperal Disorders [C13.703.844]				
+Depression, Postpartum [C13.703.844.253]			
+Lactation Disorders [C13.703.844.506]  +			
+Mastitis [C13.703.844.603]  +			
+Postpartum Hemorrhage [C13.703.844.700]			
+Postpartum Thyroiditis [C13.703.844.714]			
+Pubic Symphysis Diastasis [C13.703.844.728]			
+Puerperal Infection [C13.703.844.757]
+
+Hemorrhage [C23.550.414]			
+Blood Loss, Surgical [C23.550.414.300]		
+Ecchymosis [C23.550.414.625]		
+Epistaxis [C23.550.414.712]		
+Exsanguination [C23.550.414.734]		
+Eye Hemorrhage [C23.550.414.756]  +		
+Gastrointestinal Hemorrhage [C23.550.414.788]  +		
+Hemarthrosis [C23.550.414.794]		
+Hematocele [C23.550.414.817]		
+Hematoma [C23.550.414.838]  +		
+Hematuria [C23.550.414.849]		
+Hemobilia [C23.550.414.864]		
+Hemoperitoneum [C23.550.414.888]		
+Hemoptysis [C23.550.414.896]		
+Hemothorax [C23.550.414.904]  +		
+Intracranial Hemorrhages [C23.550.414.913]  +		
+Oral Hemorrhage [C23.550.414.922]  +		
+Postoperative Hemorrhage [C23.550.414.941]  +		
+Purpura [C23.550.414.950]  +		
+Retrobulbar Hemorrhage [C23.550.414.960]		
+Shock, Hemorrhagic [C23.550.414.980]		
+Uterine Hemorrhage [C23.550.414.993]  +
+
+Uterine Hemorrhage [C23.550.414.993]				
+Metrorrhagia [C23.550.414.993.700]			
+Postpartum Hemorrhage [C23.550.414.993.850]
+
+Prostatic Diseases [C12.294.565]			
+Prostatic Hyperplasia [C12.294.565.500]		
+Prostatic Neoplasms [C12.294.565.625]  +		
+Prostatitis [C12.294.565.750]
+
+Skin Diseases, Papulosquamous [C17.800.859]			
+Dermatitis, Seborrheic [C17.800.859.350]		
+Lichenoid Eruptions [C17.800.859.475]  +		
+Parapsoriasis [C17.800.859.575]  +		
+Pityriasis [C17.800.859.600]  +		
+Psoriasis [C17.800.859.675]  +
+
+Dyskinesias [C10.597.350]			
+Ataxia [C10.597.350.090]  +		
+Athetosis [C10.597.350.110]		
+Catalepsy [C10.597.350.200]		
+Chorea [C10.597.350.250]		
+Dystonia [C10.597.350.300]  +		
+Hyperkinesis [C10.597.350.350]		
+Hypokinesia [C10.597.350.400]		
+Myoclonus [C10.597.350.500]  +		
+Psychomotor Agitation [C10.597.350.600]		
+Synkinesis [C10.597.350.675]		
+Tics [C10.597.350.700]		
+Tremor [C10.597.350.850]
+
+Neurobehavioral Manifestations [C10.597.606]			
+Anhedonia [C10.597.606.057]		
+Catatonia [C10.597.606.115]		
+Communication Disorders [C10.597.606.150]  +		
+Confusion [C10.597.606.337]  +		
+Consciousness Disorders [C10.597.606.358]  +		
+Lethargy [C10.597.606.441]		
+Memory Disorders [C10.597.606.525]  +		
+Intellectual Disability [C10.597.606.643]  +		
+Perceptual Disorders [C10.597.606.762]  +		
+Psychomotor Disorders [C10.597.606.881]  +
+
+Psychomotor Disorders [C10.597.606.881]				
+Apraxias [C10.597.606.881.350]  +			
+Psychomotor Agitation [C10.597.606.881.700]
+
+Mood Disorders [F03.600]			
+Affective Disorders, Psychotic [F03.600.150]  +		
+Depressive Disorder [F03.600.300]  +
+
+Depressive Disorder [F03.600.300]			
+Depression, Postpartum [F03.600.300.350]		
+Depressive Disorder, Major [F03.600.300.375]		
+Depressive Disorder, Treatment-Resistant [F03.600.300.387]		
+Dysthymic Disorder [F03.600.300.400]		
+Seasonal Affective Disorder [F03.600.300.700]
+
+Arthritis, Rheumatoid [C05.550.114.154]				
+Caplan Syndrome [C05.550.114.154.219]			
+Felty Syndrome [C05.550.114.154.389]			
+Rheumatoid Nodule [C05.550.114.154.683]			
+Rheumatoid Vasculitis [C05.550.114.154.728]			
+Sjogren's Syndrome [C05.550.114.154.774]			
+Still's Disease, Adult-Onset [C05.550.114.154.870]
+
+Salivary Gland Diseases [C07.465.815]				
+Xerostomia [C07.465.815.929]				
+Sjogren's Syndrome [C07.465.815.929.669]
+
+Lacrimal Apparatus Diseases [C11.496]           
+Dacryocystitis [C11.496.221]        
+Dry Eye Syndromes [C11.496.260]  +      
+Lacrimal Duct Obstruction [C11.496.456]
+
+Dry Eye Syndromes [C11.496.260]             
+Keratoconjunctivitis Sicca [C11.496.260.394]            
+Sjogren's Syndrome [C11.496.260.719]            
+Xerophthalmia [C11.496.260.892]
+
+Arthritis, Rheumatoid [C20.111.199]             
+Felty Syndrome [C20.111.199.389]            
+Rheumatoid Vasculitis [C20.111.199.581]         
+Sjogren's Syndrome [C20.111.199.774]            
+Still's Disease, Adult-Onset [C20.111.199.870]
+
+Sleep Disorders [C10.886]           
+Dyssomnias [C10.886.425]  +     
+Parasomnias [C10.886.659]  +
+
+Dyssomnias [C10.886.425]            
+Sleep Deprivation [C10.886.425.175]     
+Sleep Disorders, Circadian Rhythm [C10.886.425.200]  +      
+Sleep Disorders, Intrinsic [C10.886.425.800]  +
+
+Sleep Disorders, Intrinsic [C10.886.425.800]            
+Disorders of Excessive Somnolence [C10.886.425.800.200]  +      
+Nocturnal Myoclonus Syndrome [C10.886.425.800.600]      
+Restless Legs Syndrome [C10.886.425.800.700]        
+Sleep Apnea Syndromes [C10.886.425.800.750]  +      
+Sleep Initiation and Maintenance Disorders [C10.886.425.800.800]  +
+
+Poisoning [C25.723]         
+Argyria [C25.723.068]       
+Arsenic Poisoning [C25.723.097]     
+Bites and Stings [C25.723.127]  +       
+Cadmium Poisoning [C25.723.165]     
+Carbon Tetrachloride Poisoning [C25.723.177]        
+Drug-Induced Liver Injury [C25.723.260]  +      
+Ergotism [C25.723.327]      
+Fluoride Poisoning [C25.723.380]        
+Foodborne Diseases [C25.723.415]  +     
+Gas Poisoning [C25.723.455]  +      
+Lead Poisoning [C25.723.589]  +     
+Manganese Poisoning [C25.723.618]       
+Mercury Poisoning [C25.723.647]  +      
+Mycotoxicosis [C25.723.680]  +      
+Neurotoxicity Syndromes [C25.723.705]  +        
+Organophosphate Poisoning [C25.723.717]     
+Plant Poisoning [C25.723.756]  +        
+Psychoses, Substance-Induced [C25.723.809]  +       
+Water Intoxication [C25.723.932]
+
+Bites and Stings [C25.723.127]             
+Insect Bites and Stings [C25.723.127.071]           
+Scorpion Stings [C25.723.127.142]           
+Snake Bites [C25.723.127.442]           
+Spider Bites [C25.723.127.723]          
+Tick Bites [C25.723.127.789]  +
+
+Muscular Diseases [C05.651]         
+Arthrogryposis [C05.651.102]        
+Compartment Syndromes [C05.651.180]  +      
+Contracture [C05.651.197]  +        
+Craniomandibular Disorders [C05.651.243]  +     
+Eosinophilia-Myalgia Syndrome [C05.651.290]     
+Fatigue Syndrome, Chronic [C05.651.310]     
+Fibromyalgia [C05.651.324]      
+Isaacs Syndrome [C05.651.392]       
+Medial Tibial Stress Syndrome [C05.651.426]     
+Mitochondrial Myopathies [C05.651.460]  +       
+Muscle Cramp [C05.651.475]      
+Muscle Neoplasms [C05.651.494]      
+Muscle Rigidity [C05.651.504]       
+Muscle Spasticity [C05.651.512]     
+Muscle Weakness [C05.651.515]       
+Muscular Disorders, Atrophic [C05.651.534]  +       
+Musculoskeletal Pain [C05.651.538]      
+Myalgia [C05.651.542]       
+Myofascial Pain Syndromes [C05.651.550]  +      
+Myopathies, Structural, Congenital [C05.651.575]  +     
+Myositis [C05.651.594]  +       
+Myotonic Disorders [C05.651.662]  +     
+Paralyses, Familial Periodic [C05.651.701]  +       
+Polymyalgia Rheumatica [C05.651.742]        
+Rhabdomyolysis [C05.651.807]  +     
+Tendinopathy [C05.651.869]  +
+
+Tendon Injuries [C26.874]           
+Tendinopathy [C26.874.800]
+
+Dermatomycoses [C01.539.800.200]            
+Blastomycosis [C01.539.800.200.055]     
+Candidiasis, Chronic Mucocutaneous [C01.539.800.200.100]        
+Candidiasis, Cutaneous [C01.539.800.200.105]        
+Chromoblastomycosis [C01.539.800.200.110]       
+Hyalohyphomycosis [C01.539.800.200.383]  +      
+Lobomycosis [C01.539.800.200.475]       
+Mycetoma [C01.539.800.200.500]      
+Paracoccidioidomycosis [C01.539.800.200.600]        
+Phaeohyphomycosis [C01.539.800.200.637]     
+Sporotrichosis [C01.539.800.200.675]        
+Tinea [C01.539.800.200.720]  +      
+Tinea Versicolor [C01.539.800.200.860]
+
+Tinea [C01.539.800.200.720]         
+Onychomycosis [C01.539.800.200.720.550]     
+Tinea Capitis [C01.539.800.200.720.730]  +      
+Tinea Pedis [C01.539.800.200.720.760]
+
+Skin Diseases, Infectious [C17.800.838]         
+Dermatomycoses [C17.800.838.208]  +     
+Paronychia [C17.800.838.486]        
+Skin Diseases, Bacterial [C17.800.838.765]  +       
+Skin Diseases, Parasitic [C17.800.838.775]  +       
+Skin Diseases, Viral [C17.800.838.790]  +
+
+Tinea [C17.800.838.208.883]         
+Onychomycosis [C17.800.838.208.883.458]     
+Tinea Capitis [C17.800.838.208.883.558]  +      
+Tinea Pedis [C17.800.838.208.883.658]
+
+Urethral Diseases [C13.351.968.767]             
+Epispadias [C13.351.968.767.374]            
+Urethral Neoplasms [C13.351.968.767.601]            
+Urethral Obstruction [C13.351.968.767.700]  +           
+Urethritis [C13.351.968.767.851]
+
+Embolism and Thrombosis [C14.907.355]           
+Embolism [C14.907.355.350]  +       
+Thromboembolism [C14.907.355.590]  +        
+Thrombosis [C14.907.355.830]  +
+
+Thrombosis [C14.907.355.830]            
+Coronary Thrombosis [C14.907.355.830.220]       
+Thromboembolism [C14.907.355.830.850]  +        
+Venous Thrombosis [C14.907.355.830.925]  +
+
+Venous Thrombosis [C14.907.355.830.925]         
+Budd-Chiari Syndrome [C14.907.355.830.925.275]      
+Postthrombotic Syndrome [C14.907.355.830.925.462]       
+Retinal Vein Occlusion [C14.907.355.830.925.650]        
+Thrombophlebitis [C14.907.355.830.925.770]  +       
+Upper Extremity Deep Vein Thrombosis [C14.907.355.830.925.885]
+
+Hypopigmentation [C17.800.621.440]              
+Albinism [C17.800.621.440.102]  +           
+Vitiligo [C17.800.621.440.895]
+
+Protective Agents [D27.505.696.706]         
+Anticarcinogenic Agents [D27.505.696.706.018]       
+Antidotes [D27.505.696.706.037]     
+Antimutagenic Agents [D27.505.696.706.080]      
+Antioxidants [D27.505.696.706.125]      
+Cariostatic Agents [D27.505.696.706.222]        
+Cryoprotective Agents [D27.505.696.706.320]     
+Insect Repellents [D27.505.696.706.434]     
+Neuroprotective Agents [D27.505.696.706.548]        
+Radiation-Protective Agents [D27.505.696.706.776]  +        
+Viscosupplements [D27.505.696.706.888]
+Anti-Aging Agents [D27.505.696.706.980]
+Antimelanogenesis Agents [D27.505.696.706.981]
+
+Specialty Uses of Chemicals [D27.720]           
+Adhesives [D27.720.013]     
+Agrochemicals [D27.720.031]  +      
+Antistatic Agents [D27.720.066]     
+Biomedical and Dental Materials [D27.720.102]  +        
+Caustics [D27.720.185]      
+Coloring Agents [D27.720.233]  +        
+Contrast Media [D27.720.259]        
+Cosmetics [D27.720.269]  +      
+Disinfectants [D27.720.274]  +      
+Dosage Forms [D27.720.280]  +       
+Explosive Agents [D27.720.317]      
+Fixatives [D27.720.355]     
+Flame Retardants [D27.720.361]      
+Flavoring Agents [D27.720.364]  +       
+Food Additives [D27.720.368]  +     
+Hygroscopic Agents [D27.720.369]        
+Ionophores [D27.720.395]  +     
+Irritants [D27.720.400]  +      
+Laboratory Chemicals [D27.720.470]  +       
+Lubricants [D27.720.556]  +     
+Oxidants [D27.720.642]  +       
+Pesticides [D27.720.723]  +     
+Pharmaceutic Aids [D27.720.744]  +      
+Plasticizers [D27.720.760]      
+Poisons [D27.720.777]  +        
+Protective Agents [D27.720.799]  +      
+Riot Control Agents, Chemical [D27.720.821]  +      
+Sequestering Agents [D27.720.832]  +        
+Solvents [D27.720.844]  +       
+Surface-Active Agents [D27.720.877]  +      
+Sweetening Agents [D27.720.888]  +      
+Viscoelastic Substances [D27.720.944]  +
+Diaphoretic Agent [D27.720.946]
