@@ -1,0 +1,17 @@
+Mental Disorders [F03]				
+Adjustment Disorders [F03.075]		
+Anxiety Disorders [F03.080]  +		
+Delirium, Dementia, Amnestic, Cognitive Disorders [F03.087]  +		
+Dissociative Disorders [F03.300]  +		
+Eating Disorders [F03.375]  +		
+Factitious Disorders [F03.400]  +		
+Impulse Control Disorders [F03.500]  +		
+Mental Disorders Diagnosed in Childhood [F03.550]  +		
+Mood Disorders [F03.600]  +		
+Neurotic Disorders [F03.650]		
+Personality Disorders [F03.675]  +		
+Schizophrenia and Disorders with Psychotic Features [F03.700]  +		
+Sexual and Gender Disorders [F03.800]  +		
+Sleep Disorders [F03.870]  +		
+Somatoform Disorders [F03.875]  +		
+Substance-Related Disorders [F03.900]  +
