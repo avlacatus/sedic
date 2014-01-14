@@ -56,7 +56,7 @@ public class Remedy {
 				+ "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
 				+ "PREFIX sedic: <http://www.infoiasi.ro/wad/ontologies/sedic#> "
 				+ "SELECT ?subject "
-				+ "	WHERE { ?subject rdfs:subClassOf sedic:Remedy }";
+				+ "	WHERE { ?subject rdf:type sedic:Remedy}";
 		String response = "";
 		Query query = QueryFactory.create(sparqlQueryString);
 		ARQ.getContext().setTrue(ARQ.useSAX);

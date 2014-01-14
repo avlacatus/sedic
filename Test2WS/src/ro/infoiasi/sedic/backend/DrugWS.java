@@ -4,6 +4,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import ro.infoiasi.sedic.URLConstants;
@@ -22,12 +23,15 @@ public class DrugWS {
 	}
 
 	@GET
-	@PathParam(URLConstants.PARAM_DRUG_ID)
 	@Produces(MediaType.APPLICATION_JSON)
-	public String getSpecificDisease(@PathParam(URLConstants.PARAM_DRUG_ID)String Id) {
-		Drug d = new Drug();
-		String response = d.getDrug(Id);
-		return  response;
+	public String getSpecificDisease(@QueryParam(URLConstants.PARAM_DRUG_ID) String Id) {
+		if (Id != null) {
+			Drug d = new Drug();
+			String response = d.getDrug(Id);
+			return  response;
+		} else {
+			return URLConstants.PARAM_DRUG_ID + " cannot be null";
+		}
 	}
 
 }

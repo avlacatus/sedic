@@ -80,9 +80,7 @@ public class Drug {
 				+ "PREFIX sedic: <http://www.infoiasi.ro/wad/ontologies/sedic#> "
 				+ "SELECT ?subject "
 				+ "	WHERE { ?subject rdfs:subClassOf sedic:Chemicals_and_Drugs,"
-				+ "?subject sedic:Id " +
-				//drugId + 
-				"}";
+				+ "?subject sedic:has_drug_id " + drugId + "}";
 		String response = "";
 		Query query = QueryFactory.create(sparqlQueryString);
 		ARQ.getContext().setTrue(ARQ.useSAX);

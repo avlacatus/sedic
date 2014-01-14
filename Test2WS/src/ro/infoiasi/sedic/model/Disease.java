@@ -2,6 +2,9 @@ package ro.infoiasi.sedic.model;
 
 import java.io.InputStream;
 
+
+import javax.ws.rs.core.Context;
+
 import ro.infoiasi.sedic.URLConstants;
 
 import com.hp.hpl.jena.ontology.OntClass;
@@ -20,8 +23,9 @@ import com.hp.hpl.jena.util.FileManager;
 public class Disease {
 	Model m;
 
-	public Disease() {
-		String inputFileName = URLConstants.SEDIC_PATH + "sedic.owl";
+
+	public Disease(String inputFileNam) {
+	String inputFileName = URLConstants.SEDIC_PATH + "sedic.owl";
 		m = ModelFactory.createDefaultModel();
 		InputStream in = FileManager.get().open(inputFileName);
 		if (in == null) {
