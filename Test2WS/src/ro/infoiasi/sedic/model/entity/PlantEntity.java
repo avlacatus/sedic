@@ -1,4 +1,4 @@
-package ro.infoiasi.sedic.model;
+package ro.infoiasi.sedic.model.entity;
 
 
 import org.apache.jena.atlas.json.JsonObject;
