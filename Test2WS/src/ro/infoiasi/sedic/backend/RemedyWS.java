@@ -4,10 +4,12 @@ import javax.servlet.ServletContext;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 import ro.infoiasi.sedic.OntologyConstants;
+import ro.infoiasi.sedic.URLConstants;
 import ro.infoiasi.sedic.model.Remedy;
 
 @Path("/remedy")
@@ -16,12 +18,11 @@ public class RemedyWS {
 	private ServletContext context;
 
 	@GET
-	@Produces(MediaType.TEXT_XML)
-	public String getDiseases() {
+	@Produces(MediaType.APPLICATION_JSON)
+	public String getSpecificRemedy(
+			@QueryParam(URLConstants.PARAM_REMEDY_ID) String id) {
 		OntologyConstants.initSedicPath(context);
-		Remedy r = new Remedy();
-		String response = r.getAllRemedies();
-		return "<?xml version=\"1.0\"?>" + "<h1> Remedies: " + response + "</h1>";
+		Remedy remedy = new Remedy();
+		return remedy.getSpecificRemedy(id);
 	}
-
 }
