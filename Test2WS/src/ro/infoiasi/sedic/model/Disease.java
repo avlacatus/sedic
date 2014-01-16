@@ -31,23 +31,27 @@ public class Disease extends EntityHelper {
 	public JsonArray getAllDiseases() {
 		OntClass diseaseClass = getOntModel().getResource(
 				OntologyConstants.NS + "Diseases").as(OntClass.class);
-		Property hasDiseaseId = getOntModel().getProperty(
-				OntologyConstants.NS + "has_disease_id");
-		ExtendedIterator<? extends OntResource> listInstances = diseaseClass
-				.listInstances();
+		ExtendedIterator<OntClass> iterator = diseaseClass.listSubClasses();
 		List<DiseaseEntity> diseases = new ArrayList<DiseaseEntity>();
-		while (listInstances.hasNext()) {
-			Individual diseaseResource = (Individual) listInstances.next();
-			RDFNode propertyValue = diseaseResource
-					.getPropertyValue(hasDiseaseId);
-			DiseaseEntity disease = new DiseaseEntity();
-			String diseaseName = diseaseResource.getURI()
-					.substring(OntologyConstants.NS.length())
-					.replaceAll("_", " ");
-			disease.setDiseaseURI(diseaseResource.getURI());
-			disease.setDiseaseName(diseaseName);
-			disease.setDiseaseId(Long.valueOf(propertyValue.toString()));
-			diseases.add(disease);
+		while (iterator.hasNext()) {
+			Property hasDiseaseId = getOntModel().getProperty(
+					OntologyConstants.NS + "has_disease_id");
+			ExtendedIterator<? extends OntResource> listInstances = iterator.next()
+					.listInstances();
+
+			while (listInstances.hasNext()) {
+				Individual diseaseResource = (Individual) listInstances.next();
+				RDFNode propertyValue = diseaseResource
+						.getPropertyValue(hasDiseaseId);
+				DiseaseEntity disease = new DiseaseEntity();
+				String diseaseName = diseaseResource.getURI()
+						.substring(OntologyConstants.NS.length())
+						.replaceAll("_", " ");
+				//disease.setDiseaseURI(diseaseResource.getURI());
+				disease.setDiseaseName(diseaseName);
+				disease.setDiseaseId(Long.valueOf(propertyValue.toString()));
+				diseases.add(disease);
+			}
 		}
 
 		JsonArray diseasesArray = new JsonArray();
@@ -55,31 +59,14 @@ public class Disease extends EntityHelper {
 			diseasesArray.add(d.toJSONString());
 		}
 		return diseasesArray;
-		// String sparqlQueryString = OntologyConstants.SPARQL_PREFIXES +
-		// "SELECT ?subject "
-		// + "	WHERE {   ?subject rdf:type ?object . "
-		// + "?object  rdfs:subClassOf sedic:Diseases }";
-		// String response = "";
-		// Query query = QueryFactory.create(sparqlQueryString);
-		// ARQ.getContext().setTrue(ARQ.useSAX);
-		// QueryExecution qexec = QueryExecutionFactory.create(query,
-		// getOntModel());
-		// com.hp.hpl.jena.query.ResultSet results = qexec.execSelect();
-		//
-		// while (results.hasNext()) {
-		// QuerySolution soln = results.nextSolution();
-		// response += soln.get("subject").toString().substring(44) + "\n";
-		// }
-		// qexec.close();
-		// return response;
-
+		
 	}
 
 	public String getSpecificDisease(String Id) {
+
 		String sparqlQueryString = OntologyConstants.SPARQL_PREFIXES
-				+ "SELECT ?subject "
-				+ "	WHERE {   ?subject rdf:type ?object . "
-				+ "?object  rdfs:subClassOf sedic:Diseases ."
+				+ "SELECT ?subject " + "	WHERE {   ?subject a ?class . "
+				+ "?class  rdfs:subClassOf* sedic:Diseases ."
 				+ "?subject sedic:has_disease_id ?value ."
 				+ "FILTER (STR(?value)= '" + Id + "')" + "}";
 		String response = "";
@@ -88,15 +75,21 @@ public class Disease extends EntityHelper {
 		QueryExecution qexec = QueryExecutionFactory.create(query,
 				getOntModel());
 		com.hp.hpl.jena.query.ResultSet results = qexec.execSelect();
+		// System.out.println(sparqlQueryString);
+		System.out.println("results:" + results.getRowNumber());
+
 		if (results.hasNext()) {
 			QuerySolution soln = results.nextSolution();
+
 			response = soln.get("subject").toString();
+			System.out.println(response.toString());
 			Individual diseaseResource = getOntModel().getResource(response)
 					.as(Individual.class);
 			Property hasDiseaseId = getOntModel().getProperty(
 					OntologyConstants.NS + "has_disease_id");
 			RDFNode propertyValue = diseaseResource
 					.getPropertyValue(hasDiseaseId);
+			
 			DiseaseEntity disease = new DiseaseEntity();
 			String diseaseName = diseaseResource.getURI()
 					.substring(OntologyConstants.NS.length())
@@ -106,8 +99,8 @@ public class Disease extends EntityHelper {
 			disease.setDiseaseId(Long.valueOf(propertyValue.toString()));
 
 			qexec.close();
-			JsonObject diseaseJson = disease.toJSONString();
-			return diseaseJson.toString();
+			//JsonObject diseaseJson = disease.toJSONString();
+			return disease.toString();
 		} else
 			return "Disease not found!";
 	}

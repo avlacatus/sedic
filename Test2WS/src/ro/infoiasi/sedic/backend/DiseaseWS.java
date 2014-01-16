@@ -43,5 +43,6 @@ public class DiseaseWS {
 	private String getDiseaseByID(Disease d, String id) {
 		return d.getSpecificDisease(id);
 	}
+	
 
 }
