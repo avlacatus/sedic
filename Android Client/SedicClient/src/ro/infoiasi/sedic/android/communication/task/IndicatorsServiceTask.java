@@ -22,37 +22,24 @@ import org.apache.http.params.HttpParams;
 import ro.infoiasi.sedic.android.communication.task.Message.EntityType;
 import ro.infoiasi.sedic.android.communication.task.Response.ResponseStatus;
 import ro.infoiasi.sedic.android.model.Indicator;
-import ro.infoiasi.sedic.android.util.Constants;
-import ro.infoiasi.sedic.android.util.EntityOperationsCallback;
+import ro.infoiasi.sedic.android.util.URLConstants;
 import ro.infoiasi.sedic.android.util.JSONHelper;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
-public class IndicatorsServiceTask extends
-		AsyncTask<Message, Void, Response<Indicator>> {
+public class IndicatorsServiceTask extends AsyncTask<Message, Void, Response<Indicator>> {
 
-	private static final String tag = IndicatorsServiceTask.class
-			.getSimpleName();
+	private static final String tag = IndicatorsServiceTask.class.getSimpleName();
 
 	@SuppressWarnings("unused")
 	private Context context;
-	private EntityOperationsCallback<Indicator> callback = null;
 
-	public IndicatorsServiceTask(Context context,
-			EntityOperationsCallback<Indicator> responder) {
+	public IndicatorsServiceTask(Context context) {
 		this.context = context;
-		this.callback = responder;
 	}
 
-	@Override
-	protected void onPreExecute() {
-		super.onPreExecute();
-		if (callback != null) {
-			callback.onEntityOperationStarted();
-		}
-	}
-
+	
 	@Override
 	protected Response<Indicator> doInBackground(Message... params) {
 		if (params.length == 0)
@@ -86,8 +73,7 @@ public class IndicatorsServiceTask extends
 		InputStream instream;
 		try {
 			instream = entity.getContent();
-			strOutput = new Scanner(instream, "UTF-8").useDelimiter("\\A")
-					.next();
+			strOutput = new Scanner(instream, "UTF-8").useDelimiter("\\A").next();
 			Log.d(tag, request.getURI() + " " + strOutput);
 
 			instream.close();
@@ -110,28 +96,6 @@ public class IndicatorsServiceTask extends
 			return new Response<Indicator>(msg, ResponseStatus.FAILED);
 	}
 
-	@Override
-	protected void onPostExecute(Response<Indicator> result) {
-		super.onPostExecute(result);
-		if (callback != null) {
-			switch (result.getOriginalMessage().requestType) {
-			case PUT:
-				callback.onAddEntityOperationFinished();
-				break;
-			case GET:
-				callback.onGetEntitiesOperationFinished(result);
-				break;
-			case POST:
-				callback.onUpdateEntityOperationFinished();
-				break;
-			case DELETE:
-				callback.onDeleteEntityOperationFinished();
-				break;
-			}
-
-		}
-	}
-
 	private HttpRequestBase buildHttpRequest(Message msg) {
 		if (!msg.entityType.equals(EntityType.INDICATOR))
 			// I only handle Indicator operations!
@@ -144,7 +108,7 @@ public class IndicatorsServiceTask extends
 			try {
 				entity = new StringEntity(msg.extraData);
 				entity.setContentType("application/json");
-				request = new HttpPut(Constants.INDICATORS_CONTROLLER);
+				request = new HttpPut(URLConstants.INDICATORS_CONTROLLER);
 				((HttpPut) request).setEntity(entity);
 			} catch (UnsupportedEncodingException e) {
 				e.printStackTrace();
@@ -153,7 +117,7 @@ public class IndicatorsServiceTask extends
 		}
 			break;
 		case GET:
-			request = new HttpGet(Constants.INDICATORS_CONTROLLER);
+			request = new HttpGet(URLConstants.INDICATORS_CONTROLLER);
 			if (msg.extraData != null && !msg.extraData.equals("")) {
 				HttpParams httpParams = new BasicHttpParams();
 				httpParams.setParameter("id", msg.extraData);
@@ -164,7 +128,7 @@ public class IndicatorsServiceTask extends
 			try {
 				entity = new StringEntity(msg.extraData);
 				entity.setContentType("application/json");
-				request = new HttpPost(Constants.INDICATORS_CONTROLLER);
+				request = new HttpPost(URLConstants.INDICATORS_CONTROLLER);
 				((HttpPost) request).setEntity(entity);
 			} catch (UnsupportedEncodingException e) {
 				e.printStackTrace();
@@ -172,8 +136,7 @@ public class IndicatorsServiceTask extends
 		}
 			break;
 		case DELETE: {
-			request = new HttpDelete(Constants.INDICATORS_CONTROLLER
-					+ "?id=" + msg.extraData);
+			request = new HttpDelete(URLConstants.INDICATORS_CONTROLLER + "?id=" + msg.extraData);
 			// HttpParams httpParams = new BasicHttpParams();
 			// httpParams.setParameter("id", msg.extraData);
 

@@ -18,42 +18,33 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpParams;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import ro.infoiasi.sedic.android.communication.event.GetPlantsEvent;
 import ro.infoiasi.sedic.android.communication.task.Message.EntityType;
 import ro.infoiasi.sedic.android.communication.task.Response.ResponseStatus;
-import ro.infoiasi.sedic.android.model.MappedIndicator;
-import ro.infoiasi.sedic.android.util.Constants;
-import ro.infoiasi.sedic.android.util.EntityOperationsCallback;
+import ro.infoiasi.sedic.android.model.PlantBean;
 import ro.infoiasi.sedic.android.util.JSONHelper;
+import ro.infoiasi.sedic.android.util.URLConstants;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import de.greenrobot.event.EventBus;
 
-public class MappingsServiceTask extends
-		AsyncTask<Message, Void, Response<MappedIndicator>> {
+public class PlantsServiceTask extends AsyncTask<Message, Void, Response<PlantBean>> {
 
-	private static final String tag = MappingsServiceTask.class.getSimpleName();
+	private static final String tag = PlantsServiceTask.class.getSimpleName();
 
 	@SuppressWarnings("unused")
 	private Context context;
-	private EntityOperationsCallback<MappedIndicator> callback = null;
 
-	public MappingsServiceTask(Context context,
-			EntityOperationsCallback<MappedIndicator> responder) {
+	public PlantsServiceTask(Context context) {
 		this.context = context;
-		this.callback = responder;
 	}
 
 	@Override
-	protected void onPreExecute() {
-		super.onPreExecute();
-		if (callback != null) {
-			callback.onEntityOperationStarted();
-		}
-	}
-
-	@Override
-	protected Response<MappedIndicator> doInBackground(Message... params) {
+	protected Response<PlantBean> doInBackground(Message... params) {
 		if (params.length == 0)
 			// I don't have any message to process!
 			return null;
@@ -62,78 +53,67 @@ public class MappingsServiceTask extends
 		HttpRequestBase request = buildHttpRequest(msg);
 
 		if (request == null)
-			return new Response<MappedIndicator>(msg, ResponseStatus.FAILED);
+			return new Response<PlantBean>(msg, ResponseStatus.FAILED);
 
 		HttpResponse response = null;
 		try {
 			HttpClient httpClient = new DefaultHttpClient();
 			response = httpClient.execute(request);
 		} catch (Exception e) {
-			return new Response<MappedIndicator>(msg, ResponseStatus.FAILED);
+			return new Response<PlantBean>(msg, ResponseStatus.FAILED);
 		}
 
 		if (response == null)
-			return new Response<MappedIndicator>(msg, ResponseStatus.FAILED);
+			return new Response<PlantBean>(msg, ResponseStatus.FAILED);
 
 		HttpEntity entity = response.getEntity();
 
 		if (entity == null) {
-			return new Response<MappedIndicator>(msg, ResponseStatus.OK);
+			return new Response<PlantBean>(msg, ResponseStatus.OK);
 		}
 
 		String strOutput = null;
 		InputStream instream;
 		try {
 			instream = entity.getContent();
-			strOutput = new Scanner(instream, "UTF-8").useDelimiter("\\A")
-					.next();
+			strOutput = new Scanner(instream, "UTF-8").useDelimiter("\\A").next();
 			Log.d(tag, request.getURI() + " " + strOutput);
 
 			instream.close();
 		} catch (IllegalStateException e) {
 			e.printStackTrace();
-			return new Response<MappedIndicator>(msg, ResponseStatus.FAILED);
+			return new Response<PlantBean>(msg, ResponseStatus.FAILED);
 		} catch (IOException e) {
 			e.printStackTrace();
-			return new Response<MappedIndicator>(msg, ResponseStatus.FAILED);
+			return new Response<PlantBean>(msg, ResponseStatus.FAILED);
 		}
 
 		if (strOutput == null)
-			return new Response<MappedIndicator>(msg, ResponseStatus.FAILED);
+			return new Response<PlantBean>(msg, ResponseStatus.FAILED);
 
-		List<MappedIndicator> output = JSONHelper.buildMappingsArray(strOutput);
+		List<PlantBean> output = null;
+		try {
+			JSONObject jsonResponse = new JSONObject(strOutput);
+			output = JSONHelper.buildPlantsArray(jsonResponse.getJSONArray("plants").toString());
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
 
 		if (output != null)
-			return new Response<MappedIndicator>(msg, ResponseStatus.OK, output);
+			return new Response<PlantBean>(msg, ResponseStatus.OK, output);
 		else
-			return new Response<MappedIndicator>(msg, ResponseStatus.FAILED);
+			return new Response<PlantBean>(msg, ResponseStatus.FAILED);
 	}
-
+	
 	@Override
-	protected void onPostExecute(Response<MappedIndicator> result) {
+	protected void onPostExecute(Response<PlantBean> result) {
 		super.onPostExecute(result);
-		if (callback != null) {
-			switch (result.getOriginalMessage().requestType) {
-			case PUT:
-				callback.onAddEntityOperationFinished();
-				break;
-			case GET:
-				callback.onGetEntitiesOperationFinished(result);
-				break;
-			case POST:
-				callback.onUpdateEntityOperationFinished();
-				break;
-			case DELETE:
-				callback.onDeleteEntityOperationFinished();
-				break;
-			}
-
-		}
+		EventBus.getDefault().post(new GetPlantsEvent(result));
 	}
 
 	private HttpRequestBase buildHttpRequest(Message msg) {
-		if (!msg.entityType.equals(EntityType.MAPPING))
-			// I only handle Mapping operations!
+		if (!msg.entityType.equals(EntityType.ROAD))
+			// I only handle Road operations!
 			return null;
 
 		HttpRequestBase request = null;
@@ -143,7 +123,7 @@ public class MappingsServiceTask extends
 			try {
 				entity = new StringEntity(msg.extraData);
 				entity.setContentType("application/json");
-				request = new HttpPut(Constants.MAPPING_CONTROLLER);
+				request = new HttpPut(URLConstants.PLANTS_CONTROLLER);
 				((HttpPut) request).setEntity(entity);
 			} catch (UnsupportedEncodingException e) {
 				e.printStackTrace();
@@ -152,7 +132,7 @@ public class MappingsServiceTask extends
 		}
 			break;
 		case GET:
-			request = new HttpGet(Constants.MAPPING_CONTROLLER);
+			request = new HttpGet(URLConstants.PLANTS_CONTROLLER);
 			if (msg.extraData != null && !msg.extraData.equals("")) {
 				HttpParams httpParams = new BasicHttpParams();
 				httpParams.setParameter("id", msg.extraData);
@@ -163,7 +143,7 @@ public class MappingsServiceTask extends
 			try {
 				entity = new StringEntity(msg.extraData);
 				entity.setContentType("application/json");
-				request = new HttpPost(Constants.MAPPING_CONTROLLER);
+				request = new HttpPost(URLConstants.PLANTS_CONTROLLER);
 				((HttpPost) request).setEntity(entity);
 			} catch (UnsupportedEncodingException e) {
 				e.printStackTrace();
@@ -171,8 +151,7 @@ public class MappingsServiceTask extends
 		}
 			break;
 		case DELETE: {
-			request = new HttpDelete(Constants.MAPPING_CONTROLLER + "?id="
-					+ msg.extraData);
+			request = new HttpDelete(URLConstants.PLANTS_CONTROLLER + "?id=" + msg.extraData);
 			// HttpParams httpParams = new BasicHttpParams();
 			// httpParams.setParameter("id", msg.extraData);
 

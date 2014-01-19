@@ -9,47 +9,19 @@ import org.json.JSONObject;
 
 import ro.infoiasi.sedic.android.model.Indicator;
 import ro.infoiasi.sedic.android.model.MappedIndicator;
-import ro.infoiasi.sedic.android.model.Road;
+import ro.infoiasi.sedic.android.model.PlantBean;
 
 public class JSONHelper {
 
-	public static String buildMappingJSONArray(List<MappedIndicator> mappings,
-			int roadID, int indicatorID) {
-		JSONArray mappingsArray = new JSONArray();
-		for (MappedIndicator mapping : mappings) {
-			mappingsArray.put(buildJSONObject(mapping));
-		}
-		return mappingsArray.toString();
-
-	}
-
-	public static String buildRoadsJSONArray(List<Road> roads) {
-
-		JSONArray roadsArray = new JSONArray();
-		for (Road road : roads) {
-			roadsArray.put(JSONHelper.buildJSONObject(road));
-		}
-		return roadsArray.toString();
-
-	}
-
-	public static String buildIndicatorsJSONArray(List<Indicator> indicators) {
-		JSONArray indicatorsArray = new JSONArray();
-		for (Indicator indicator : indicators) {
-			indicatorsArray.put(JSONHelper.buildJSONObject(indicator));
-		}
-		return indicatorsArray.toString();
-	}
-
-	public static List<Road> buildRoadsArray(String strOutput) {
-		List<Road> output = null;
+	public static List<PlantBean> buildPlantsArray(String strOutput) {
+		List<PlantBean> output = null;
 		try {
-			JSONArray jsonRoadsArray = new JSONArray(strOutput);
-			output = new ArrayList<Road>();
+			JSONArray jsonPlantsArray = new JSONArray(strOutput);
+			output = new ArrayList<PlantBean>();
 
-			for (int i = 0; i < jsonRoadsArray.length(); i++) {
-				JSONObject jsonRoad = jsonRoadsArray.getJSONObject(i);
-				Road newRoad = JSONHelper.parseJSONRoad(jsonRoad.toString());
+			for (int i = 0; i < jsonPlantsArray.length(); i++) {
+				JSONObject jsonPlant = jsonPlantsArray.getJSONObject(i);
+				PlantBean newRoad = JSONHelper.parseJSONPlant(jsonPlant);
 				output.add(newRoad);
 			}
 
@@ -68,8 +40,7 @@ public class JSONHelper {
 
 			for (int i = 0; i < jsonIndicatorsArray.length(); i++) {
 				JSONObject jsonIndicator = jsonIndicatorsArray.getJSONObject(i);
-				Indicator newIndicator = JSONHelper
-						.parseJSONIndicator(jsonIndicator.toString());
+				Indicator newIndicator = JSONHelper.parseJSONIndicator(jsonIndicator.toString());
 				output.add(newIndicator);
 			}
 
@@ -88,8 +59,7 @@ public class JSONHelper {
 
 			for (int i = 0; i < jsonIndicatorsArray.length(); i++) {
 				JSONObject jsonIndicator = jsonIndicatorsArray.getJSONObject(i);
-				MappedIndicator newIndicator = JSONHelper
-						.parseJSONMappedIndicator(jsonIndicator.toString());
+				MappedIndicator newIndicator = JSONHelper.parseJSONMappedIndicator(jsonIndicator.toString());
 				output.add(newIndicator);
 			}
 
@@ -100,86 +70,21 @@ public class JSONHelper {
 		return output;
 	}
 
-	public static JSONObject buildJSONObject(MappedIndicator mappedIndicator) {
-		JSONObject mappingJSON = new JSONObject();
-		try {
-			mappingJSON.put("id", mappedIndicator.getID());
-			mappingJSON.put("km", mappedIndicator.getKm());
-			mappingJSON.put("observations", mappedIndicator.getObservations());
-			mappingJSON.put("indicatorID", mappedIndicator.getIndicator()
-					.getID());
-			mappingJSON.put("roadID", mappedIndicator.getRoad().getID());
-		} catch (JSONException e) {
-			e.printStackTrace();
+	public static PlantBean parseJSONPlant(JSONObject jsonPlant) throws NumberFormatException, JSONException {
+		PlantBean output = new PlantBean();
+		if (jsonPlant.has("plant_id")) {
+			output.setPlantId(Long.parseLong(jsonPlant.getString("plant_id")));
 		}
 
-		return mappingJSON;
-	}
-
-	public static JSONObject buildJSONObject(Indicator road) {
-		JSONObject indicatorJSON = new JSONObject();
-		try {
-			indicatorJSON.put("id", road.getID());
-			indicatorJSON.put("name", road.getName());
-			indicatorJSON.put("code", road.getCode());
-		} catch (JSONException e) {
-			e.printStackTrace();
+		if (jsonPlant.has("plant_name")) {
+			output.setPlantName(jsonPlant.getString("plant_name"));
 		}
 
-		return indicatorJSON;
-	}
-
-	public static JSONObject buildJSONObject(Road road) {
-		JSONObject roadJSON = new JSONObject();
-		try {
-			roadJSON.put("id", road.getID());
-			roadJSON.put("indicative", road.getIndicative());
-			roadJSON.put("length", road.getLength());
-			roadJSON.put("region", road.getRegion());
-			roadJSON.put("type", road.getType());
-			if (road.getFirstCoordinates() != null
-					&& road.getSecondCoordinates() != null) {
-				JSONObject jsonCoords = buildJSONCoordinatesObject(
-						road.getFirstCoordinates(), road.getSecondCoordinates());
-				roadJSON.put("coordinates", jsonCoords);
-			}
-		} catch (JSONException e) {
-			e.printStackTrace();
+		if (jsonPlant.has("plant_uri")) {
+			output.setPlantURI(jsonPlant.getString("plant_uri"));
 		}
 
-		return roadJSON;
-	}
-
-	public static Road parseJSONRoad(String strJSONRoad) {
-		Road road = null;
-		try {
-			JSONObject roadJSON = new JSONObject(strJSONRoad);
-			road = new Road();
-			road.setIndicative(roadJSON.getString("indicative"));
-			road.setLength(roadJSON.getInt("length"));
-			road.setRegion(roadJSON.getString("region"));
-			road.setType(roadJSON.getString("type"));
-			if (roadJSON.has("id"))
-				road.setID(roadJSON.getInt("id"));
-			if (roadJSON.has("coordinates")) {
-				double[] coordsArray = parseCordinatesJSON(roadJSON
-						.getString("coordinates"));
-				if (coordsArray != null) {
-					double[] first = new double[2];
-					first[0] = coordsArray[0];
-					first[1] = coordsArray[1];
-
-					double[] second = new double[2];
-					second[0] = coordsArray[2];
-					second[1] = coordsArray[3];
-					road.setFirstCoordinates(first);
-					road.setSecondCoordinates(second);
-				}
-			}
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
-		return road;
+		return output;
 	}
 
 	public static Indicator parseJSONIndicator(String strJSONIndicator) {
@@ -214,8 +119,7 @@ public class JSONHelper {
 		return indicator;
 	}
 
-	public static JSONObject buildJSONCoordinatesObject(double[] first,
-			double[] second) {
+	public static JSONObject buildJSONCoordinatesObject(double[] first, double[] second) {
 		JSONObject coordJSON = new JSONObject();
 		JSONObject firstCoordJSON = new JSONObject();
 		JSONObject secondCoordJSON = new JSONObject();

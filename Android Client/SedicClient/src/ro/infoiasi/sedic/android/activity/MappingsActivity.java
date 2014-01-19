@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import ro.infoiasi.sedic.android.adapter.EntityAdapter;
 import ro.infoiasi.sedic.android.adapter.MappingsAdapter;
-import ro.infoiasi.sedic.android.communication.task.MappingsServiceTask;
+import ro.infoiasi.sedic.android.communication.task.RemedyInfoServiceTask;
 import ro.infoiasi.sedic.android.communication.task.Message;
 import ro.infoiasi.sedic.android.communication.task.Message.EntityType;
 import ro.infoiasi.sedic.android.communication.task.Message.RequestType;
@@ -15,7 +15,7 @@ public class MappingsActivity extends EntityActivity<MappedIndicator> {
 	@SuppressWarnings("unused")
 	private static final String tag = MappingsActivity.class.getSimpleName();
 	private MappingsAdapter adapter = null;
-	
+
 	@Override
 	public EntityType getEntityType() {
 		return EntityType.MAPPING;
@@ -24,15 +24,13 @@ public class MappingsActivity extends EntityActivity<MappedIndicator> {
 	@Override
 	protected EntityAdapter<MappedIndicator> getAdapter() {
 		if (adapter == null) {
-			adapter = new MappingsAdapter(this,
-					new ArrayList<MappedIndicator>());
+			adapter = new MappingsAdapter(this, new ArrayList<MappedIndicator>());
 		}
 		return adapter;
 	}
 
 	protected void onRefresh() {
-		new MappingsServiceTask(this, this).execute(new Message(
-				RequestType.GET, getEntityType()));
+		new RemedyInfoServiceTask(this).execute(new Message(RequestType.GET, getEntityType()));
 	}
 
 	@Override
@@ -40,7 +38,6 @@ public class MappingsActivity extends EntityActivity<MappedIndicator> {
 
 	}
 
-	
 	@Override
 	protected void onOpenEntity(MappedIndicator item) {
 		// TODO Auto-generated method stub
@@ -55,9 +52,8 @@ public class MappingsActivity extends EntityActivity<MappedIndicator> {
 
 	@Override
 	protected void onRemoveEntity(MappedIndicator road) {
-		new MappingsServiceTask(this, this).execute(new Message(
-				RequestType.DELETE, getEntityType(), String.valueOf(road
-						.getID())));
+		new RemedyInfoServiceTask(this).execute(new Message(RequestType.DELETE, getEntityType(), String.valueOf(road
+				.getID())));
 	}
 
 }

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import ro.infoiasi.sedic.android.adapter.EntityAdapter;
 import ro.infoiasi.sedic.android.adapter.RoadsAdapter;
 import ro.infoiasi.sedic.android.communication.task.Message;
-import ro.infoiasi.sedic.android.communication.task.RoadsServiceTask;
+import ro.infoiasi.sedic.android.communication.task.PlantsServiceTask;
 import ro.infoiasi.sedic.android.communication.task.Message.EntityType;
 import ro.infoiasi.sedic.android.communication.task.Message.RequestType;
 import ro.infoiasi.sedic.android.model.Road;
@@ -19,8 +19,7 @@ public class RoadsActivity extends EntityActivity<Road> {
 	private RoadsAdapter adapter = null;
 
 	protected void onRefresh() {
-		new RoadsServiceTask(this, this).execute(new Message(RequestType.GET,
-				getEntityType()));
+		new PlantsServiceTask(this).execute(new Message(RequestType.GET, getEntityType()));
 	}
 
 	@Override
@@ -55,9 +54,8 @@ public class RoadsActivity extends EntityActivity<Road> {
 
 	@Override
 	protected void onRemoveEntity(Road road) {
-		new RoadsServiceTask(this, this).execute(new Message(
-				RequestType.DELETE, getEntityType(), String.valueOf(road
-						.getID())));
+		new PlantsServiceTask(this).execute(new Message(RequestType.DELETE, getEntityType(),
+				String.valueOf(road.getID())));
 	}
 
 	@Override

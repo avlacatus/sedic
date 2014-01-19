@@ -17,8 +17,7 @@ public class IndicatorsActivity extends EntityActivity<Indicator> {
 	private IndicatorsAdapter adapter = null;
 
 	protected void onRefresh() {
-		new IndicatorsServiceTask(this, this).execute(new Message(
-				RequestType.GET, getEntityType()));
+		new IndicatorsServiceTask(this).execute(new Message(RequestType.GET, getEntityType()));
 	}
 
 	@Override
@@ -53,9 +52,8 @@ public class IndicatorsActivity extends EntityActivity<Indicator> {
 
 	@Override
 	protected void onRemoveEntity(Indicator item) {
-		new IndicatorsServiceTask(this, this).execute(new Message(
-				RequestType.DELETE, getEntityType(), String.valueOf(item
-						.getID())));
+		new IndicatorsServiceTask(this).execute(new Message(RequestType.DELETE, getEntityType(), String.valueOf(item
+				.getID())));
 	}
 
 }

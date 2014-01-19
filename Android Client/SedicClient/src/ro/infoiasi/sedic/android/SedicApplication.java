@@ -4,13 +4,14 @@ import java.util.List;
 
 import ro.infoiasi.sedic.android.model.Indicator;
 import ro.infoiasi.sedic.android.model.MappedIndicator;
+import ro.infoiasi.sedic.android.model.PlantBean;
 import ro.infoiasi.sedic.android.model.Road;
 import android.app.Application;
 
 public class SedicApplication extends Application {
 
 	private static SedicApplication sInstance = null;
-	private List<Road> roads;
+	private List<PlantBean> plants;
 	private List<Indicator> indicators;
 	private List<MappedIndicator> mappings;
 
@@ -24,12 +25,12 @@ public class SedicApplication extends Application {
 		return sInstance;
 	}
 
-	public List<Road> getRoads() {
-		return roads;
+	public List<PlantBean> getPlants() {
+		return plants;
 	}
 
-	public void setRoads(List<Road> roads) {
-		this.roads = roads;
+	public void setPlants(List<PlantBean> plants) {
+		this.plants = plants;
 	}
 
 	public List<Indicator> getIndicators() {

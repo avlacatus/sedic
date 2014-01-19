@@ -22,8 +22,7 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.Toast;
 
-public abstract class EntityActivity<E> extends ListActivity implements
-		EntityOperationsCallback<E> {
+public abstract class EntityActivity<E> extends ListActivity {
 
 	protected SedicApplication application;
 
@@ -72,8 +71,7 @@ public abstract class EntityActivity<E> extends ListActivity implements
 	}
 
 	@Override
-	public void onCreateContextMenu(ContextMenu menu, View v,
-			ContextMenuInfo menuInfo) {
+	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
 		if (v.getId() == android.R.id.list) {
 			menu.setHeaderTitle(getEntityType().toString() + " options");
 			String[] menuItems = { "Open", "Edit", "Remove" };
@@ -85,8 +83,7 @@ public abstract class EntityActivity<E> extends ListActivity implements
 
 	@Override
 	public boolean onContextItemSelected(MenuItem menuItem) {
-		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuItem
-				.getMenuInfo();
+		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuItem.getMenuInfo();
 
 		E item = getAdapter().getItem(info.position);
 		if (item != null) {
@@ -122,51 +119,10 @@ public abstract class EntityActivity<E> extends ListActivity implements
 
 	protected abstract void onEditEntity(E item);
 
-	@Override
-	public void onEntityOperationStarted() {
-		setProgressBarIndeterminateVisibility(true);
-	}
-
-	@Override
-	public void onAddEntityOperationFinished() {
-		setProgressBarIndeterminateVisibility(false);
-		Toast.makeText(this, "addition ok", Toast.LENGTH_SHORT).show();
-	}
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public void onGetEntitiesOperationFinished(Response<E> result) {
-		if (result.getStatus().equals(ResponseStatus.OK)) {
-			if (result.getData() != null) {
-				List<E> data = (List<E>) result.getData();
-				getAdapter().clear();
-				getAdapter().addAll(data);
-			}
-			setProgressBarIndeterminateVisibility(false);
-		} else {
-			setProgressBarIndeterminateVisibility(false);
-			Toast.makeText(this, "An error ocurred", Toast.LENGTH_SHORT).show();
-		}
-
-	}
-
-	@Override
-	public void onUpdateEntityOperationFinished() {
-		setProgressBarIndeterminateVisibility(false);
-		Toast.makeText(this, "update ok", Toast.LENGTH_SHORT).show();
-	}
-
-	@Override
-	public void onDeleteEntityOperationFinished() {
-		setProgressBarIndeterminateVisibility(false);
-		onRefresh();
-	}
-
 	private ProgressDialog progressDialog = null;
 
 	public void onSayStarted() {
-		progressDialog = ProgressDialog.show(this, "Wait",
-				"Sending your greetings..");
+		progressDialog = ProgressDialog.show(this, "Wait", "Sending your greetings..");
 	}
 
 	public void onSayResponded(String result) {
