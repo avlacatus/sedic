@@ -4,10 +4,7 @@ import java.util.ArrayList;
 
 import ro.infoiasi.sedic.android.adapter.EntityAdapter;
 import ro.infoiasi.sedic.android.adapter.MappingsAdapter;
-import ro.infoiasi.sedic.android.communication.task.RemedyInfoServiceTask;
-import ro.infoiasi.sedic.android.communication.task.Message;
 import ro.infoiasi.sedic.android.communication.task.Message.EntityType;
-import ro.infoiasi.sedic.android.communication.task.Message.RequestType;
 import ro.infoiasi.sedic.android.model.MappedIndicator;
 
 public class MappingsActivity extends EntityActivity<MappedIndicator> {
@@ -30,7 +27,7 @@ public class MappingsActivity extends EntityActivity<MappedIndicator> {
 	}
 
 	protected void onRefresh() {
-		new RemedyInfoServiceTask(this).execute(new Message(RequestType.GET, getEntityType()));
+		// new RemedyInfoServiceTask().execute(new Message(RequestType.GET, getEntityType()));
 	}
 
 	@Override
@@ -52,8 +49,8 @@ public class MappingsActivity extends EntityActivity<MappedIndicator> {
 
 	@Override
 	protected void onRemoveEntity(MappedIndicator road) {
-		new RemedyInfoServiceTask(this).execute(new Message(RequestType.DELETE, getEntityType(), String.valueOf(road
-				.getID())));
+		// new RemedyInfoServiceTask().execute(new Message(RequestType.DELETE, getEntityType(), String.valueOf(road
+		// .getID())));
 	}
 
 }

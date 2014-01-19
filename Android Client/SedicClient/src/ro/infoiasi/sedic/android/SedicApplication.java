@@ -2,10 +2,10 @@ package ro.infoiasi.sedic.android;
 
 import java.util.List;
 
+import ro.infoiasi.sedic.android.communication.task.GetPlantsServiceTask;
 import ro.infoiasi.sedic.android.model.Indicator;
 import ro.infoiasi.sedic.android.model.MappedIndicator;
 import ro.infoiasi.sedic.android.model.PlantBean;
-import ro.infoiasi.sedic.android.model.Road;
 import android.app.Application;
 
 public class SedicApplication extends Application {
@@ -22,6 +22,7 @@ public class SedicApplication extends Application {
 	}
 
 	public static SedicApplication getInstance() {
+		new GetPlantsServiceTask().execute();
 		return sInstance;
 	}
 

@@ -34,25 +34,22 @@ public final class R {
         public static final int im_km=0x7f080006;
         public static final int im_observations=0x7f080004;
         public static final int im_road_id=0x7f080005;
-        public static final int indicators_button=0x7f08000f;
         public static final int ir_indicative=0x7f080007;
         public static final int ir_km_label=0x7f08000c;
         public static final int ir_length=0x7f08000b;
         public static final int ir_region=0x7f080009;
         public static final int ir_right_panel=0x7f080008;
         public static final int ir_road_type=0x7f08000a;
-        public static final int latitude=0x7f080012;
-        public static final int left_drawer=0x7f080011;
-        public static final int longitude=0x7f080013;
-        public static final int mapping_button=0x7f080010;
-        public static final int mi_add=0x7f080019;
-        public static final int mi_discard=0x7f080017;
-        public static final int mi_refresh=0x7f080018;
-        public static final int mi_save=0x7f080016;
-        public static final int mi_say_hello=0x7f08001a;
-        public static final int roads_button=0x7f08000e;
-        public static final int x=0x7f080014;
-        public static final int y=0x7f080015;
+        public static final int latitude=0x7f08000f;
+        public static final int left_drawer=0x7f08000e;
+        public static final int longitude=0x7f080010;
+        public static final int mi_add=0x7f080016;
+        public static final int mi_discard=0x7f080014;
+        public static final int mi_refresh=0x7f080015;
+        public static final int mi_save=0x7f080013;
+        public static final int mi_say_hello=0x7f080017;
+        public static final int x=0x7f080011;
+        public static final int y=0x7f080012;
     }
     public static final class layout {
         public static final int item_drawer_list_layout=0x7f030000;

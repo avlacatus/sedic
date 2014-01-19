@@ -1,14 +1,9 @@
 package ro.infoiasi.sedic.android.activity;
 
-import java.util.List;
-
 import ro.infoiasi.sedic.android.R;
 import ro.infoiasi.sedic.android.SedicApplication;
 import ro.infoiasi.sedic.android.adapter.EntityAdapter;
 import ro.infoiasi.sedic.android.communication.task.Message.EntityType;
-import ro.infoiasi.sedic.android.communication.task.Response;
-import ro.infoiasi.sedic.android.communication.task.Response.ResponseStatus;
-import ro.infoiasi.sedic.android.util.EntityOperationsCallback;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.os.Bundle;

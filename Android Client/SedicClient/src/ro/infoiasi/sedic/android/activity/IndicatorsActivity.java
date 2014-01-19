@@ -4,10 +4,7 @@ import java.util.ArrayList;
 
 import ro.infoiasi.sedic.android.adapter.EntityAdapter;
 import ro.infoiasi.sedic.android.adapter.IndicatorsAdapter;
-import ro.infoiasi.sedic.android.communication.task.IndicatorsServiceTask;
-import ro.infoiasi.sedic.android.communication.task.Message;
 import ro.infoiasi.sedic.android.communication.task.Message.EntityType;
-import ro.infoiasi.sedic.android.communication.task.Message.RequestType;
 import ro.infoiasi.sedic.android.model.Indicator;
 
 public class IndicatorsActivity extends EntityActivity<Indicator> {
@@ -17,7 +14,7 @@ public class IndicatorsActivity extends EntityActivity<Indicator> {
 	private IndicatorsAdapter adapter = null;
 
 	protected void onRefresh() {
-		new IndicatorsServiceTask(this).execute(new Message(RequestType.GET, getEntityType()));
+//		new IndicatorsServiceTask().execute(new Message(RequestType.GET, getEntityType()));
 	}
 
 	@Override
@@ -52,8 +49,9 @@ public class IndicatorsActivity extends EntityActivity<Indicator> {
 
 	@Override
 	protected void onRemoveEntity(Indicator item) {
-		new IndicatorsServiceTask(this).execute(new Message(RequestType.DELETE, getEntityType(), String.valueOf(item
-				.getID())));
+		//TODO
+//		new IndicatorsServiceTask().execute(String.valueOf(item
+//				.getID());
 	}
 
 }

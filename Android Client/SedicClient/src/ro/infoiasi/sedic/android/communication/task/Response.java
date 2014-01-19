@@ -5,20 +5,20 @@ public class Response<E> {
 		OK, FAILED
 	}
 
-	private Message originalMessage;
+	private ServiceTask<E> originalTask;
 	private ResponseStatus status;
 	private String errorMessage;
 	private Object data;
 
-	public Response(Message message, ResponseStatus status, Object data) {
+	public Response(ServiceTask<E> message, ResponseStatus status, Object data) {
 		this.status = status;
 		this.data = data;
-		this.originalMessage = message;
+		this.originalTask = message;
 	}
 
-	public Response(Message message, ResponseStatus status) {
+	public Response(ServiceTask<E> message, ResponseStatus status) {
 		this.status = status;
-		this.originalMessage = message;
+		this.originalTask = message;
 	}
 
 	public ResponseStatus getStatus() {
@@ -45,12 +45,12 @@ public class Response<E> {
 		this.data = data;
 	}
 
-	public Message getOriginalMessage() {
-		return originalMessage;
+	public ServiceTask<E> getOriginalMessage() {
+		return originalTask;
 	}
 
-	public void setOriginalMessage(Message originalMessage) {
-		this.originalMessage = originalMessage;
+	public void setOriginalMessage(ServiceTask<E> originalMessage) {
+		this.originalTask = originalMessage;
 	}
 
 }

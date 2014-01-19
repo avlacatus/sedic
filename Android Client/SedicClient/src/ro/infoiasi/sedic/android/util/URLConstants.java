@@ -8,7 +8,8 @@ public class URLConstants {
 	public static final String uaic_url = "http://172.17.50.151:8081";
 	public static final String BASE_URL = fake_url;
 
-	public static final String PLANTS_CONTROLLER = BASE_URL + "/resources" + "/plant";
+	public static final String URL_RESOURCE_PLANT = BASE_URL + "/resources/plant";
+	public static final String URL_RESOURCE_REMEDY = BASE_URL + "/resources/remedy";
 	public static final String INDICATORS_CONTROLLER = BASE_URL + "/resources" + "/indicators";
 	public static final String MAPPING_CONTROLLER = BASE_URL + "/resources" + "/mapping";
 
