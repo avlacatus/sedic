@@ -9,6 +9,13 @@
         android:layout_centerInParent="true"
         android:gravity="center_vertical|center_horizontal"
         android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/result_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="text goes here"
+            android:textColor="@android:color/black" />
     </LinearLayout>
 
     <ListView
@@ -18,7 +25,6 @@
         android:layout_gravity="start"
         android:background="#111"
         android:choiceMode="singleChoice"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="0dp" />
+        android:divider="@android:color/darker_gray" />
 
 </android.support.v4.widget.DrawerLayout>

@@ -1,22 +1,22 @@
 package ro.infoiasi.sedic.android.model;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
+import java.util.List;
 
 public class DiseaseBean {
 	private String diseaseName;
 	private long diseaseId;
 	private String diseaseURI;
+	private List<String> diseaseParents;
 
 	public DiseaseBean() {
 	}
 
-	public DiseaseBean(String diseaseName, long diseaseId, String diseaseURI) {
+	public DiseaseBean(String diseaseName, long diseaseId, String diseaseURI, List<String> diseaseParents) {
 		super();
 		this.diseaseName = diseaseName;
 		this.diseaseId = diseaseId;
 		this.diseaseURI = diseaseURI;
+		this.setDiseaseParents(diseaseParents);
 	}
 
 	@Override
@@ -30,14 +30,6 @@ public class DiseaseBean {
 		builder.append(diseaseURI);
 		builder.append("]");
 		return builder.toString();
-	}
-
-	public JSONObject toJSONString() throws JSONException {
-		JSONObject outputObject = new JSONObject();
-		outputObject.put("disease_name", diseaseName);
-		outputObject.put("disease_id", diseaseId);
-		// outputObject.put("disease_uri", diseaseURI);
-		return outputObject;
 	}
 
 	public String getDiseaseName() {
@@ -62,6 +54,14 @@ public class DiseaseBean {
 
 	public void setDiseaseURI(String diseaseURI) {
 		this.diseaseURI = diseaseURI;
+	}
+
+	public List<String> getDiseaseParents() {
+		return diseaseParents;
+	}
+
+	public void setDiseaseParents(List<String> diseaseParents) {
+		this.diseaseParents = diseaseParents;
 	}
 
 }

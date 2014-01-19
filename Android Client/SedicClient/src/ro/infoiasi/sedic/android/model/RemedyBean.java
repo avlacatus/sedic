@@ -1,12 +1,10 @@
 package ro.infoiasi.sedic.android.model;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 public class RemedyBean {
 	private String remedyName;
 	private long remedyId;
 	private String remedyURI;
+	private long remedyPlantId;
 	private String adjuvantUsage = "";
 	private String frequentUsage = "";
 	private String reportedUsage = "";
@@ -15,13 +13,13 @@ public class RemedyBean {
 	public RemedyBean() {
 	}
 
-	public RemedyBean(String remedyName, long remedyId, String remedyURI,
-			String adjuvant, String frequent, String reported,
-			String therapeutical) {
+	public RemedyBean(String remedyName, long remedyId, String remedyURI, long remedyPlantId, String adjuvant,
+			String frequent, String reported, String therapeutical) {
 		super();
 		this.remedyName = remedyName;
 		this.remedyId = remedyId;
 		this.remedyURI = remedyURI;
+		this.remedyPlantId = remedyPlantId;
 		this.adjuvantUsage = adjuvant;
 		this.frequentUsage = frequent;
 		this.reportedUsage = reported;
@@ -30,27 +28,8 @@ public class RemedyBean {
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("remedyEntity [remedyName=");
-		builder.append(remedyName);
-		builder.append(", remedyId=");
-		builder.append(remedyId);
-		builder.append(", remedyResource=");
-		builder.append(remedyURI);
-		builder.append("]");
-		return builder.toString();
-	}
-
-	public JSONObject toJSONString() throws JSONException {
-		JSONObject outputObject = new JSONObject();
-		outputObject.put("remedy_name", remedyName);
-		outputObject.put("remedy_id", remedyId);
-		outputObject.put("adjuvant_usage", adjuvantUsage);
-		outputObject.put("therapeutical_usage", therapeuticalUsage);
-		outputObject.put("frequent_usage", frequentUsage);
-		outputObject.put("reported_usage", reportedUsage);
-		outputObject.put("remedy_uri", remedyURI);
-		return outputObject;
+		return "RemedyBean [remedyName=" + remedyName + ", remedyId=" + remedyId + ", remedyURI=" + remedyURI
+				+ ", remedyPlantId=" + remedyPlantId + "]";
 	}
 
 	public String getRemedyName() {
@@ -107,6 +86,14 @@ public class RemedyBean {
 
 	public void setReportedUsage(String reportedUsage) {
 		this.reportedUsage += reportedUsage + "; ";
+	}
+
+	public long getRemedyPlantId() {
+		return remedyPlantId;
+	}
+
+	public void setRemedyPlantId(long remedyPlantId) {
+		this.remedyPlantId = remedyPlantId;
 	}
 
 }

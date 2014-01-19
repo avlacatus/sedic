@@ -14,9 +14,11 @@ import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.impl.client.DefaultHttpClient;
 
+import ro.infoiasi.sedic.android.communication.event.ResponseEvent;
 import ro.infoiasi.sedic.android.communication.task.Response.ResponseStatus;
 import android.os.AsyncTask;
 import android.util.Log;
+import de.greenrobot.event.EventBus;
 
 public abstract class ServiceTask<E> extends AsyncTask<Void, Void, Response<E>> {
 
@@ -36,6 +38,8 @@ public abstract class ServiceTask<E> extends AsyncTask<Void, Void, Response<E>> 
 	public abstract void prepareRequest(HttpRequestBase request);
 
 	public abstract Response<E> parseResponse(String response);
+
+	public abstract ResponseEvent getEvent(Response<E> response);
 
 	protected Response<E> doInBackground(Void... params) {
 		HttpRequestBase request = buildHttpRequest();
@@ -80,7 +84,9 @@ public abstract class ServiceTask<E> extends AsyncTask<Void, Void, Response<E>> 
 		if (strOutput == null)
 			return new Response<E>(this, ResponseStatus.FAILED);
 
-		return parseResponse(strOutput);
+		Response<E> output = parseResponse(strOutput);
+		EventBus.getDefault().post(getEvent(output));
+		return output;
 	}
 
 	private HttpRequestBase buildHttpRequest() {

@@ -6,12 +6,13 @@ import org.apache.http.client.methods.HttpRequestBase;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import ro.infoiasi.sedic.android.SedicApplication;
 import ro.infoiasi.sedic.android.communication.event.GetPlantsEvent;
+import ro.infoiasi.sedic.android.communication.event.ResponseEvent;
 import ro.infoiasi.sedic.android.communication.task.Response.ResponseStatus;
 import ro.infoiasi.sedic.android.model.PlantBean;
 import ro.infoiasi.sedic.android.util.JSONHelper;
 import ro.infoiasi.sedic.android.util.URLConstants;
-import de.greenrobot.event.EventBus;
 
 public class GetPlantsServiceTask extends ServiceTask<PlantBean> {
 
@@ -25,7 +26,6 @@ public class GetPlantsServiceTask extends ServiceTask<PlantBean> {
 	@Override
 	protected void onPostExecute(Response<PlantBean> result) {
 		super.onPostExecute(result);
-		EventBus.getDefault().post(new GetPlantsEvent(result));
 	}
 
 	@Override
@@ -47,16 +47,22 @@ public class GetPlantsServiceTask extends ServiceTask<PlantBean> {
 		List<PlantBean> output = null;
 		try {
 			JSONObject jsonResponse = new JSONObject(response);
-			output = JSONHelper.buildPlantsArray(jsonResponse.getJSONArray("plants").toString());
+			output = JSONHelper.parsePlantsArray(jsonResponse.getJSONArray("plants").toString());
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
 
 		if (output != null) {
+			SedicApplication.getInstance().setPlants(output);
 			return new Response<PlantBean>(this, ResponseStatus.OK, output);
 		} else {
 			return new Response<PlantBean>(this, ResponseStatus.FAILED);
 		}
+	}
+
+	@Override
+	public ResponseEvent getEvent(Response<PlantBean> response) {
+		return new GetPlantsEvent(response);
 	}
 
 }
