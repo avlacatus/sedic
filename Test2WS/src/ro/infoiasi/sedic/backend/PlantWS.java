@@ -11,7 +11,7 @@ import javax.ws.rs.core.MediaType;
 import org.apache.jena.atlas.json.JsonArray;
 import org.apache.jena.atlas.json.JsonObject;
 
-import ro.infoiasi.sedic.OntologyConstants;
+import ro.infoiasi.sedic.OntologyUtils;
 import ro.infoiasi.sedic.URLConstants;
 import ro.infoiasi.sedic.model.Plant;
 
@@ -23,12 +23,12 @@ public class PlantWS {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public String getSpecificPlant(@QueryParam(URLConstants.PARAM_PLANT_ID) String id) {
-		OntologyConstants.initSedicPath(context);
-		Plant p = new Plant();
+		OntologyUtils.initSedicPath(context);
+		Plant plant = Plant.getInstance();
 		if (id != null) {
-			return getPlantByID(p, id);
+			return getPlantByID(plant, id);
 		} else {
-			return getAllPlants(p);
+			return getAllPlants(plant);
 		}
 	}
 

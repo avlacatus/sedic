@@ -14,8 +14,9 @@ import javax.ws.rs.core.MediaType;
 import org.apache.jena.atlas.json.JSON;
 import org.apache.jena.atlas.json.JsonArray;
 import org.apache.jena.atlas.json.JsonObject;
+import org.apache.jena.atlas.json.JsonValue;
 
-import ro.infoiasi.sedic.OntologyConstants;
+import ro.infoiasi.sedic.OntologyUtils;
 import ro.infoiasi.sedic.URLConstants;
 import ro.infoiasi.sedic.model.Remedy;
 
@@ -26,19 +27,19 @@ public class RemedyWS {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public String getSpecificRemedy(
-			@QueryParam(URLConstants.PARAM_REMEDY_ID) String id) {
-		OntologyConstants.initSedicPath(context);
-		Remedy remedy = new Remedy();
+	public String getSpecificRemedy(@QueryParam(URLConstants.PARAM_REMEDY_ID) String id) {
+		OntologyUtils.initSedicPath(context);
+		Remedy remedy = Remedy.getInstance();
 		if (id != null) {
 			return remedy.getSpecificRemedy(id);
 		} else {
-			return getAllRemedies(remedy);
+			return getCompactRemedies(remedy);
 		}
-		
+
 	}
-	private String getAllRemedies(Remedy r) {
-		JsonArray response = r.getCompactRemedies();
+
+	private String getCompactRemedies(Remedy remedy) {
+		JsonArray response = remedy.getCompactRemedies();
 		JsonObject output = new JsonObject();
 		output.put("remedies", response);
 		return output.toString();
@@ -49,34 +50,35 @@ public class RemedyWS {
 	public String performRemedySearch(String payload) {
 		JsonObject jsonPayload = JSON.parse(payload);
 		ArrayList<String> adjuvantEffects = new ArrayList<String>();
-		JsonValue adjuvant =  jsonPayload.get("adjuvant_effect");
+		JsonValue adjuvant = jsonPayload.get("adjuvant_effect");
 		JsonArray array = adjuvant.getAsArray();
-		//System.out.println(array);
-		for(int i = 0 ; i < array.size() ; i++){
+		// System.out.println(array);
+		for (int i = 0; i < array.size(); i++) {
 			JsonObject obj = (JsonObject) array.get(i);
 			long id = Long.parseLong(obj.get("id").toString());
 			String uri = obj.get("uri").toString();
-			
-			String adjuvantUri ="<" +uri.replace('"', '>').substring(1);
+
+			String adjuvantUri = "<" + uri.replace('"', '>').substring(1);
 			adjuvantEffects.add(adjuvantUri);
 		}
 		ArrayList<String> therapeuticalEffects = new ArrayList<String>();
-		JsonValue therapeutical =  jsonPayload.get("therapeutical_effect");
+		JsonValue therapeutical = jsonPayload.get("therapeutical_effect");
 		array = therapeutical.getAsArray();
-		for(int i = 0 ; i < array.size() ; i++){
-			//System.out.println(array.get(i).toString());
+		for (int i = 0; i < array.size(); i++) {
+			// System.out.println(array.get(i).toString());
 			JsonObject obj = (JsonObject) array.get(i);
 			long id = Long.parseLong(obj.get("id").toString());
 			String uri = obj.get("uri").toString();
-			String thUri ="<" +uri.replace('"', '>').substring(1);
+			String thUri = "<" + uri.replace('"', '>').substring(1);
 			therapeuticalEffects.add(thUri);
 		}
 		System.out.println(adjuvantEffects.get(0));
-		return "Hello from post + " + getQueryResult(adjuvantEffects, therapeuticalEffects);
+		return getQueryResult(adjuvantEffects, therapeuticalEffects).toString();
 	}
-	private ArrayList<String> getQueryResult(ArrayList<String>adjuvantEffects, ArrayList<String>therapeuticalEffects){
-			Remedy remedy = new Remedy();
+
+	private ArrayList<String> getQueryResult(ArrayList<String> adjuvantEffects, ArrayList<String> therapeuticalEffects) {
+		Remedy remedy = Remedy.getInstance();
 		return remedy.getQueryResult(adjuvantEffects, therapeuticalEffects);
-		
+
 	}
 }

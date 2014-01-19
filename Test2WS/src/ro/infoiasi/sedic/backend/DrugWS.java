@@ -11,7 +11,7 @@ import javax.ws.rs.core.MediaType;
 import org.apache.jena.atlas.json.JsonArray;
 import org.apache.jena.atlas.json.JsonObject;
 
-import ro.infoiasi.sedic.OntologyConstants;
+import ro.infoiasi.sedic.OntologyUtils;
 import ro.infoiasi.sedic.URLConstants;
 import ro.infoiasi.sedic.model.Drug;
 
@@ -23,8 +23,8 @@ public class DrugWS {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public String getDrugs(@QueryParam(URLConstants.PARAM_DRUG_ID) String id) {
-		OntologyConstants.initSedicPath(context);
-		Drug d = new Drug();
+		OntologyUtils.initSedicPath(context);
+		Drug d = Drug.getInstance();
 		if (id != null) {
 			return getDrugByID(d, id);
 		} else {
@@ -35,7 +35,7 @@ public class DrugWS {
 	private String getAllDrugs(Drug d) {
 		JsonArray response = d.getAllDrugs();
 		JsonObject output = new JsonObject();
-		output.put("diseases", response);
+		output.put("drugs", response);
 		return output.toString();
 	}
 

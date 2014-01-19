@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.jena.atlas.json.JsonArray;
 import org.apache.jena.atlas.json.JsonObject;
 
-import ro.infoiasi.sedic.OntologyConstants;
+import ro.infoiasi.sedic.OntologyUtils;
 import ro.infoiasi.sedic.model.entity.PlantEntity;
 
 import com.hp.hpl.jena.ontology.Individual;
@@ -24,25 +24,29 @@ import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 
 public class Plant extends EntityHelper {
 
-	public Plant() {
+	private static Plant sInstance;
+	
+	private Plant() {
 		super();
+	}
+	
+	public static Plant getInstance() {
+		if (sInstance == null) {
+			sInstance = new Plant();
+		}
+		return sInstance;
 	}
 
 	public JsonArray getPlantArray() {
-		OntClass plantClass = getOntModel().getResource(
-				OntologyConstants.NS + "Plant").as(OntClass.class);
-		Property hasPlantId = getOntModel().getProperty(
-				OntologyConstants.NS + "has_plant_id");
-		ExtendedIterator<? extends OntResource> listInstances = plantClass
-				.listInstances();
+		OntClass plantClass = getOntModel().getResource(OntologyUtils.NS + "Plant").as(OntClass.class);
+		Property hasPlantId = getOntModel().getProperty(OntologyUtils.NS + "has_plant_id");
+		ExtendedIterator<? extends OntResource> listInstances = plantClass.listInstances();
 		List<PlantEntity> plants = new ArrayList<PlantEntity>();
 		while (listInstances.hasNext()) {
 			Individual plantResource = (Individual) listInstances.next();
 			RDFNode propertyValue = plantResource.getPropertyValue(hasPlantId);
 			PlantEntity plant = new PlantEntity();
-			String plantName = plantResource.getURI()
-					.substring(OntologyConstants.NS.length())
-					.replaceAll("_", " ");
+			String plantName = plantResource.getURI().substring(OntologyUtils.NS.length()).replaceAll("_", " ");
 			plant.setPlantURI(plantResource.getURI());
 			plant.setPlantName(plantName);
 			plant.setPlantId(Long.valueOf(propertyValue.toString()));
@@ -57,29 +61,21 @@ public class Plant extends EntityHelper {
 	}
 
 	public String getSpecificPlant(String id) {
-		String sparqlQueryString = OntologyConstants.SPARQL_PREFIXES
-				+ "SELECT ?subject "
-				+ "	WHERE { ?subject rdf:type sedic:Plant . "
+		String sparqlQueryString = OntologyUtils.SPARQL_PREFIXES + "SELECT ?subject "
+				+ "WHERE { ?subject rdf:type sedic:Plant . "
 				+ "?subject sedic:has_plant_id ?value ."
 				+ "FILTER (STR(?value)= '" + id + "')" + "}";
 		String response = "";
-		Query query = QueryFactory.create(sparqlQueryString);
-		ARQ.getContext().setTrue(ARQ.useSAX);
-		QueryExecution qexec = QueryExecutionFactory.create(query,
-				getOntModel());
+		QueryExecution qexec = OntologyUtils.getSPARQLQuery(this, sparqlQueryString);
 		com.hp.hpl.jena.query.ResultSet results = qexec.execSelect();
 		if (results.hasNext()) {
 			QuerySolution soln = results.nextSolution();
 			response = soln.get("subject").toString();
-			Individual plantResource = getOntModel().getResource(response).as(
-					Individual.class);
-			Property hasPlantId = getOntModel().getProperty(
-					OntologyConstants.NS + "has_plant_id");
+			Individual plantResource = getOntModel().getResource(response).as(Individual.class);
+			Property hasPlantId = getOntModel().getProperty(OntologyUtils.NS + "has_plant_id");
 			RDFNode propertyValue = plantResource.getPropertyValue(hasPlantId);
 			PlantEntity plant = new PlantEntity();
-			String plantName = plantResource.getURI()
-					.substring(OntologyConstants.NS.length())
-					.replaceAll("_", " ");
+			String plantName = plantResource.getURI().substring(OntologyUtils.NS.length()).replaceAll("_", " ");
 			plant.setPlantURI(plantResource.getURI());
 			plant.setPlantName(plantName);
 			plant.setPlantId(Long.valueOf(propertyValue.toString()));

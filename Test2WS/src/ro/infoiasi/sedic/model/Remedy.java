@@ -6,8 +6,7 @@ import java.util.List;
 import org.apache.jena.atlas.json.JsonArray;
 import org.apache.jena.atlas.json.JsonObject;
 
-import ro.infoiasi.sedic.OntologyConstants;
-import ro.infoiasi.sedic.model.entity.PlantEntity;
+import ro.infoiasi.sedic.OntologyUtils;
 import ro.infoiasi.sedic.model.entity.RemedyEntity;
 
 import com.hp.hpl.jena.ontology.Individual;
@@ -26,141 +25,128 @@ import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 
 public class Remedy extends EntityHelper {
 
-	public Remedy() {
+	private static Remedy sInstance;
+
+	private Remedy() {
 		super();
 	}
-public String getSpecificRemedy(String id)
-{
-	String sparqlQueryString = OntologyConstants.SPARQL_PREFIXES
-			+ "SELECT ?subject "
-			+ "	WHERE { ?subject rdf:type sedic:Remedy . "
-			+ "?subject sedic:has_remedy_id ?value ."
-			+ "FILTER (STR(?value)= '" + id + "')" + "}";
-	String response = "";
-	Query query = QueryFactory.create(sparqlQueryString);
-	ARQ.getContext().setTrue(ARQ.useSAX);
-	QueryExecution qexec = QueryExecutionFactory.create(query,
-			getOntModel());
-	com.hp.hpl.jena.query.ResultSet results = qexec.execSelect();
-if (results.hasNext())
-{
-	QuerySolution soln = results.nextSolution();
-	response = soln.get("subject").toString();
-	Individual remedyResource = getOntModel().getResource(response).as(
-			Individual.class);
-	Property hasRemedyId = getOntModel().getProperty(
-			OntologyConstants.NS + "has_remedy_id");
-	Property hasAdjuvantUsage = getOntModel().getProperty(
-			OntologyConstants.NS + "hasAdjuvantUsage");
-	Property hasTherapeuticalUsage = getOntModel().getProperty(
-			OntologyConstants.NS + "hasTherapeuticalUsage");
-	Property hasFrequentUsage = getOntModel().getProperty(
-			OntologyConstants.NS + "hasFrequentUsage");
-	Property hasReportedUsage = getOntModel().getProperty(
-			OntologyConstants.NS + "hasReportedUsage");
-	RDFNode propertyValue = remedyResource.getPropertyValue(hasRemedyId);
-	RemedyEntity remedy = new RemedyEntity();
-	String remedyName = remedyResource.getURI()
-			.substring(OntologyConstants.NS.length()).replaceAll("_", " ");
-	remedy.setRemedyURI(remedyResource.getURI());
-	remedy.setRemedyName(remedyName);
-	remedy.setRemedyId(Long.valueOf(propertyValue.toString()));
-	NodeIterator it = remedyResource.listPropertyValues(hasAdjuvantUsage);
-	while (it.hasNext())
-	{
-		RDFNode property = it.next();
-		remedy.setAdjuvantUsage(property.toString().substring(OntologyConstants.NS.length()).replaceAll("_", " "));
-	}
-	it = remedyResource.listPropertyValues(hasTherapeuticalUsage);
-	while (it.hasNext())
-	{
-		RDFNode property = it.next();
-		remedy.setTherapeuticalUsage(property.toString().substring(OntologyConstants.NS.length()).replaceAll("_", " "));
-	}
-	it = remedyResource.listPropertyValues(hasFrequentUsage);
-	while (it.hasNext())
-	{
-		RDFNode property = it.next();
-		remedy.setFrequentUsage(property.toString().substring(OntologyConstants.NS.length()).replaceAll("_", " "));
-	}
-	it = remedyResource.listPropertyValues(hasReportedUsage);
-	while (it.hasNext())
-	{
-		RDFNode property = it.next();
-		remedy.setReportedUsage(property.toString().substring(OntologyConstants.NS.length()).replaceAll("_", " "));
-	}
-	qexec.close();
-	JsonObject remedyJson = remedy.toJSONString();
-	
-	return remedyJson.toString();
-}
-else
-	return "Remedy not found!";
 
-}
-public JsonArray getCompactRemedies() {
-	OntClass remedyClass = getOntModel().getResource(
-			OntologyConstants.NS + "Remedy").as(OntClass.class);
-	Property hasRemedyId = getOntModel().getProperty(
-			OntologyConstants.NS + "has_remedy_id");
-	ExtendedIterator<? extends OntResource> listInstances = remedyClass
-			.listInstances();
-	List<RemedyEntity> remedies = new ArrayList<RemedyEntity>();
-	while (listInstances.hasNext()) {
-		Individual remedyResource = (Individual) listInstances.next();
-		RDFNode propertyValue = remedyResource.getPropertyValue(hasRemedyId);
-		RemedyEntity remedy = new RemedyEntity();
-		String remedyName = remedyResource.getURI()
-				.substring(OntologyConstants.NS.length())
-				.replaceAll("_", " ");
-		remedy.setRemedyURI(remedyResource.getURI());
-		remedy.setRemedyName(remedyName);
-		remedy.setRemedyId(Long.valueOf(propertyValue.toString()));
-		remedies.add(remedy);
+	public static Remedy getInstance() {
+		if (sInstance == null) {
+			sInstance = new Remedy();
+		}
+		return sInstance;
 	}
 
-	JsonArray remediesArray = new JsonArray();
-	for (RemedyEntity r : remedies) {
-		remediesArray.add(r.toString());
-	}
-	return remediesArray;
-}
+	public String getSpecificRemedy(String id) {
+		String sparqlQueryString = OntologyUtils.SPARQL_PREFIXES + "SELECT ?subject "
+				+ "	WHERE { ?subject rdf:type sedic:Remedy . " + "?subject sedic:has_remedy_id ?value ."
+				+ "FILTER (STR(?value)= '" + id + "')" + "}";
+		String response = "";
+		QueryExecution qexec = OntologyUtils.getSPARQLQuery(this, sparqlQueryString);
+		com.hp.hpl.jena.query.ResultSet results = qexec.execSelect();
+		if (results.hasNext()) {
+			QuerySolution soln = results.nextSolution();
+			response = soln.get("subject").toString();
+			Individual remedyResource = getOntModel().getResource(response).as(Individual.class);
+			Property hasRemedyId = getOntModel().getProperty(OntologyUtils.NS + "has_remedy_id");
+			Property hasAdjuvantUsage = getOntModel().getProperty(OntologyUtils.NS + "hasAdjuvantUsage");
+			Property hasTherapeuticalUsage = getOntModel().getProperty(OntologyUtils.NS + "hasTherapeuticalUsage");
+			Property hasFrequentUsage = getOntModel().getProperty(OntologyUtils.NS + "hasFrequentUsage");
+			Property hasReportedUsage = getOntModel().getProperty(OntologyUtils.NS + "hasReportedUsage");
+			RDFNode propertyValue = remedyResource.getPropertyValue(hasRemedyId);
+			RemedyEntity remedy = new RemedyEntity();
+			String remedyName = remedyResource.getURI().substring(OntologyUtils.NS.length()).replaceAll("_", " ");
+			remedy.setRemedyURI(remedyResource.getURI());
+			remedy.setRemedyName(remedyName);
+			remedy.setRemedyId(Long.valueOf(propertyValue.toString()));
+			NodeIterator it = remedyResource.listPropertyValues(hasAdjuvantUsage);
+			while (it.hasNext()) {
+				RDFNode property = it.next();
+				remedy.setAdjuvantUsage(property.toString().substring(OntologyUtils.NS.length()).replaceAll("_", " "));
+			}
+			it = remedyResource.listPropertyValues(hasTherapeuticalUsage);
+			while (it.hasNext()) {
+				RDFNode property = it.next();
+				remedy.setTherapeuticalUsage(property.toString().substring(OntologyUtils.NS.length())
+						.replaceAll("_", " "));
+			}
+			it = remedyResource.listPropertyValues(hasFrequentUsage);
+			while (it.hasNext()) {
+				RDFNode property = it.next();
+				remedy.setFrequentUsage(property.toString().substring(OntologyUtils.NS.length()).replaceAll("_", " "));
+			}
+			it = remedyResource.listPropertyValues(hasReportedUsage);
+			while (it.hasNext()) {
+				RDFNode property = it.next();
+				remedy.setReportedUsage(property.toString().substring(OntologyUtils.NS.length()).replaceAll("_", " "));
+			}
+			qexec.close();
+			JsonObject remedyJson = remedy.toJSONString();
 
-public ArrayList<String> getQueryResult(ArrayList<String> adjuvantEffects, ArrayList<String> therapeuticalEffects)
-{
-	String sparqlQueryString = OntologyConstants.SPARQL_PREFIXES
-			+ "SELECT ?subject "
-			+ "	WHERE { ?subject rdf:type sedic:Remedy . " ;
-	for (String adjuvant:adjuvantEffects)
-	{
-		sparqlQueryString += " ?subject sedic:hasAdjuvantUsage" + adjuvant + ".";
+			return remedyJson.toString();
+		} else
+			return "Remedy not found!";
+
 	}
-	for (String th:therapeuticalEffects)
-	{
-		sparqlQueryString += " ?subject sedic:hasTherapeuticalUsage " + th + ".";
+
+	public JsonArray getCompactRemedies() {
+		OntClass remedyClass = getOntModel().getResource(OntologyUtils.NS + "Remedy").as(OntClass.class);
+		Property hasRemedyId = getOntModel().getProperty(OntologyUtils.NS + "has_remedy_id");
+		Property usesPlant = getOntModel().getProperty(OntologyUtils.NS + "usesPlant");
+		Property hasPlantId = getOntModel().getProperty(OntologyUtils.NS + "has_plant_id");
+
+		ExtendedIterator<? extends OntResource> listInstances = remedyClass.listInstances();
+		List<RemedyEntity> remedies = new ArrayList<RemedyEntity>();
+		while (listInstances.hasNext()) {
+			Individual remedyResource = (Individual) listInstances.next();
+			RDFNode hasRemedyIdValue = remedyResource.getPropertyValue(hasRemedyId);
+			RDFNode usesPlantValue = remedyResource.getPropertyValue(usesPlant);
+			Individual plantResource = getOntModel().getResource(usesPlantValue.toString()).as(Individual.class);
+			RDFNode hasPlantIdValue = plantResource.getPropertyValue(hasPlantId);
+
+			RemedyEntity remedy = new RemedyEntity();
+			String remedyName = remedyResource.getURI().substring(OntologyUtils.NS.length()).replaceAll("_", " ");
+			remedy.setRemedyURI(remedyResource.getURI());
+			remedy.setRemedyName(remedyName);
+			remedy.setRemedyId(Long.valueOf(hasRemedyIdValue.toString()));
+			remedy.setPlantId(Long.valueOf(hasPlantIdValue.toString()));
+			remedies.add(remedy);
+		}
+
+		JsonArray remediesArray = new JsonArray();
+		for (RemedyEntity remedy : remedies) {
+			JsonObject remedyJson = remedy.toCompactJSONString();
+			remediesArray.add(remedyJson);
+		}
+		return remediesArray;
 	}
+
+	public ArrayList<String> getQueryResult(ArrayList<String> adjuvantEffects, ArrayList<String> therapeuticalEffects) {
+		String sparqlQueryString = OntologyUtils.SPARQL_PREFIXES + "SELECT ?subject "
+				+ "	WHERE { ?subject rdf:type sedic:Remedy . ";
+		for (String adjuvant : adjuvantEffects) {
+			sparqlQueryString += " ?subject sedic:hasAdjuvantUsage" + adjuvant + ".";
+		}
+		for (String th : therapeuticalEffects) {
+			sparqlQueryString += " ?subject sedic:hasTherapeuticalUsage " + th + ".";
+		}
 		sparqlQueryString += " }";
 		System.out.println(sparqlQueryString);
-	String response = "";
-	Query query = QueryFactory.create(sparqlQueryString);
-	ARQ.getContext().setTrue(ARQ.useSAX);
-	QueryExecution qexec = QueryExecutionFactory.create(query,
-			getOntModel());
-	com.hp.hpl.jena.query.ResultSet results = qexec.execSelect();
-	ArrayList<String> result = new ArrayList<String>();
-	while (results.hasNext()) {
-		QuerySolution soln = results.nextSolution();
-		response = soln.get("subject").toString();
-		Individual remedyResource = getOntModel().getResource(response).as(
-				Individual.class);
-		String remedyName = remedyResource.getURI()
-				.substring(OntologyConstants.NS.length())
-				.replaceAll("_", " ");
-		result.add(remedyName);
-	}
+		String response = "";
+		QueryExecution qexec = OntologyUtils.getSPARQLQuery(this, sparqlQueryString);
+		com.hp.hpl.jena.query.ResultSet results = qexec.execSelect();
+		ArrayList<String> result = new ArrayList<String>();
+		while (results.hasNext()) {
+			QuerySolution soln = results.nextSolution();
+			response = soln.get("subject").toString();
+			Individual remedyResource = getOntModel().getResource(response).as(Individual.class);
+			String remedyName = remedyResource.getURI().substring(OntologyUtils.NS.length()).replaceAll("_", " ");
+			result.add(remedyName);
+		}
 		qexec.close();
-		
+
 		return result;
-	 
-}
+
+	}
 }
