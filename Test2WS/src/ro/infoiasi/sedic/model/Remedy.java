@@ -1,7 +1,6 @@
 package ro.infoiasi.sedic.model;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.apache.jena.atlas.json.JsonArray;

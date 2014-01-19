@@ -14,7 +14,6 @@ import javax.ws.rs.core.MediaType;
 import org.apache.jena.atlas.json.JSON;
 import org.apache.jena.atlas.json.JsonArray;
 import org.apache.jena.atlas.json.JsonObject;
-import org.apache.jena.atlas.json.JsonValue;
 
 import ro.infoiasi.sedic.OntologyConstants;
 import ro.infoiasi.sedic.URLConstants;

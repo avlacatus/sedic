@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.jena.atlas.json.JsonArray;
-import org.apache.jena.atlas.json.JsonObject;
 
 import ro.infoiasi.sedic.OntologyConstants;
 import ro.infoiasi.sedic.model.entity.DiseaseEntity;
