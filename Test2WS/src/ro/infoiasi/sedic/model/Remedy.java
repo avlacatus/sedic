@@ -39,47 +39,77 @@ public class Remedy extends EntityHelper {
 	}
 
 	public String getSpecificRemedy(String id) {
-		String sparqlQueryString = OntologyUtils.SPARQL_PREFIXES + "SELECT ?subject "
-				+ "	WHERE { ?subject rdf:type sedic:Remedy . " + "?subject sedic:has_remedy_id ?value ."
+		String sparqlQueryString = OntologyUtils.SPARQL_PREFIXES
+				+ "SELECT ?subject "
+				+ "	WHERE { ?subject rdf:type sedic:Remedy . "
+				+ "?subject sedic:has_remedy_id ?value ."
 				+ "FILTER (STR(?value)= '" + id + "')" + "}";
 		String response = "";
-		QueryExecution qexec = OntologyUtils.getSPARQLQuery(this, sparqlQueryString);
+		QueryExecution qexec = OntologyUtils.getSPARQLQuery(this,
+				sparqlQueryString);
 		com.hp.hpl.jena.query.ResultSet results = qexec.execSelect();
 		if (results.hasNext()) {
 			QuerySolution soln = results.nextSolution();
 			response = soln.get("subject").toString();
-			Individual remedyResource = getOntModel().getResource(response).as(Individual.class);
-			Property hasRemedyId = getOntModel().getProperty(OntologyUtils.NS + "has_remedy_id");
-			Property hasAdjuvantUsage = getOntModel().getProperty(OntologyUtils.NS + "hasAdjuvantUsage");
-			Property hasTherapeuticalUsage = getOntModel().getProperty(OntologyUtils.NS + "hasTherapeuticalUsage");
-			Property hasFrequentUsage = getOntModel().getProperty(OntologyUtils.NS + "hasFrequentUsage");
-			Property hasReportedUsage = getOntModel().getProperty(OntologyUtils.NS + "hasReportedUsage");
-			RDFNode propertyValue = remedyResource.getPropertyValue(hasRemedyId);
+			Individual remedyResource = getOntModel().getResource(response).as(
+					Individual.class);
+			Property hasRemedyId = getOntModel().getProperty(
+					OntologyUtils.NS + "has_remedy_id");
+			Property hasAdjuvantUsage = getOntModel().getProperty(
+					OntologyUtils.NS + "hasAdjuvantUsage");
+			Property hasTherapeuticalUsage = getOntModel().getProperty(
+					OntologyUtils.NS + "hasTherapeuticalUsage");
+			Property hasFrequentUsage = getOntModel().getProperty(
+					OntologyUtils.NS + "hasFrequentUsage");
+			Property hasReportedUsage = getOntModel().getProperty(
+					OntologyUtils.NS + "hasReportedUsage");
+			Property usesPlant = getOntModel().getProperty(
+					OntologyUtils.NS + "usesPlant");
+			Property hasPlantId = getOntModel().getProperty(
+					OntologyUtils.NS + "has_plant_id");
+			RDFNode propertyValue = remedyResource
+					.getPropertyValue(hasRemedyId);
+			RDFNode usesPlantValue = remedyResource.getPropertyValue(usesPlant);
+			Individual plantResource = getOntModel().getResource(
+					usesPlantValue.toString()).as(Individual.class);
+			RDFNode hasPlantIdValue = plantResource
+					.getPropertyValue(hasPlantId);
+
 			RemedyEntity remedy = new RemedyEntity();
-			String remedyName = remedyResource.getURI().substring(OntologyUtils.NS.length()).replaceAll("_", " ");
+			String remedyName = remedyResource.getURI()
+					.substring(OntologyUtils.NS.length()).replaceAll("_", " ");
 			remedy.setRemedyURI(remedyResource.getURI());
 			remedy.setRemedyName(remedyName);
 			remedy.setRemedyId(Long.valueOf(propertyValue.toString()));
-			NodeIterator it = remedyResource.listPropertyValues(hasAdjuvantUsage);
+			remedy.setPlantId(Long.valueOf(hasPlantIdValue.toString()));
+			NodeIterator it = remedyResource
+					.listPropertyValues(hasAdjuvantUsage);
 			while (it.hasNext()) {
 				RDFNode property = it.next();
-				remedy.setAdjuvantUsage(property.toString().substring(OntologyUtils.NS.length()).replaceAll("_", " "));
+				remedy.addAdjuvantUsage(property.toString()
+						.substring(OntologyUtils.NS.length())
+						.replaceAll("_", " "));
 			}
 			it = remedyResource.listPropertyValues(hasTherapeuticalUsage);
 			while (it.hasNext()) {
 				RDFNode property = it.next();
-				remedy.setTherapeuticalUsage(property.toString().substring(OntologyUtils.NS.length())
+				remedy.addTherapeuticalUsage(property.toString()
+						.substring(OntologyUtils.NS.length())
 						.replaceAll("_", " "));
 			}
 			it = remedyResource.listPropertyValues(hasFrequentUsage);
 			while (it.hasNext()) {
 				RDFNode property = it.next();
-				remedy.setFrequentUsage(property.toString().substring(OntologyUtils.NS.length()).replaceAll("_", " "));
+				remedy.addFrequentUsage(property.toString()
+						.substring(OntologyUtils.NS.length())
+						.replaceAll("_", " "));
 			}
 			it = remedyResource.listPropertyValues(hasReportedUsage);
 			while (it.hasNext()) {
 				RDFNode property = it.next();
-				remedy.setReportedUsage(property.toString().substring(OntologyUtils.NS.length()).replaceAll("_", " "));
+				remedy.addReportedUsage(property.toString()
+						.substring(OntologyUtils.NS.length())
+						.replaceAll("_", " "));
 			}
 			qexec.close();
 			JsonObject remedyJson = remedy.toJSONString();
@@ -91,22 +121,31 @@ public class Remedy extends EntityHelper {
 	}
 
 	public JsonArray getCompactRemedies() {
-		OntClass remedyClass = getOntModel().getResource(OntologyUtils.NS + "Remedy").as(OntClass.class);
-		Property hasRemedyId = getOntModel().getProperty(OntologyUtils.NS + "has_remedy_id");
-		Property usesPlant = getOntModel().getProperty(OntologyUtils.NS + "usesPlant");
-		Property hasPlantId = getOntModel().getProperty(OntologyUtils.NS + "has_plant_id");
+		OntClass remedyClass = getOntModel().getResource(
+				OntologyUtils.NS + "Remedy").as(OntClass.class);
+		Property hasRemedyId = getOntModel().getProperty(
+				OntologyUtils.NS + "has_remedy_id");
+		Property usesPlant = getOntModel().getProperty(
+				OntologyUtils.NS + "usesPlant");
+		Property hasPlantId = getOntModel().getProperty(
+				OntologyUtils.NS + "has_plant_id");
 
-		ExtendedIterator<? extends OntResource> listInstances = remedyClass.listInstances();
+		ExtendedIterator<? extends OntResource> listInstances = remedyClass
+				.listInstances();
 		List<RemedyEntity> remedies = new ArrayList<RemedyEntity>();
 		while (listInstances.hasNext()) {
 			Individual remedyResource = (Individual) listInstances.next();
-			RDFNode hasRemedyIdValue = remedyResource.getPropertyValue(hasRemedyId);
+			RDFNode hasRemedyIdValue = remedyResource
+					.getPropertyValue(hasRemedyId);
 			RDFNode usesPlantValue = remedyResource.getPropertyValue(usesPlant);
-			Individual plantResource = getOntModel().getResource(usesPlantValue.toString()).as(Individual.class);
-			RDFNode hasPlantIdValue = plantResource.getPropertyValue(hasPlantId);
+			Individual plantResource = getOntModel().getResource(
+					usesPlantValue.toString()).as(Individual.class);
+			RDFNode hasPlantIdValue = plantResource
+					.getPropertyValue(hasPlantId);
 
 			RemedyEntity remedy = new RemedyEntity();
-			String remedyName = remedyResource.getURI().substring(OntologyUtils.NS.length()).replaceAll("_", " ");
+			String remedyName = remedyResource.getURI()
+					.substring(OntologyUtils.NS.length()).replaceAll("_", " ");
 			remedy.setRemedyURI(remedyResource.getURI());
 			remedy.setRemedyName(remedyName);
 			remedy.setRemedyId(Long.valueOf(hasRemedyIdValue.toString()));
@@ -122,31 +161,60 @@ public class Remedy extends EntityHelper {
 		return remediesArray;
 	}
 
-	public ArrayList<String> getQueryResult(ArrayList<String> adjuvantEffects, ArrayList<String> therapeuticalEffects) {
-		String sparqlQueryString = OntologyUtils.SPARQL_PREFIXES + "SELECT ?subject "
+	public JsonArray getQueryResults(ArrayList<String> adjuvantEffects,
+			ArrayList<String> therapeuticalEffects) {
+		String sparqlQueryString = OntologyUtils.SPARQL_PREFIXES
+				+ "SELECT ?subject "
 				+ "	WHERE { ?subject rdf:type sedic:Remedy . ";
 		for (String adjuvant : adjuvantEffects) {
-			sparqlQueryString += " ?subject sedic:hasAdjuvantUsage" + adjuvant + ".";
+			sparqlQueryString += " ?subject sedic:hasAdjuvantUsage" + adjuvant
+					+ ".";
 		}
 		for (String th : therapeuticalEffects) {
-			sparqlQueryString += " ?subject sedic:hasTherapeuticalUsage " + th + ".";
+			sparqlQueryString += " ?subject sedic:hasTherapeuticalUsage " + th
+					+ ".";
 		}
 		sparqlQueryString += " }";
-		System.out.println(sparqlQueryString);
 		String response = "";
-		QueryExecution qexec = OntologyUtils.getSPARQLQuery(this, sparqlQueryString);
+		QueryExecution qexec = OntologyUtils.getSPARQLQuery(this,
+				sparqlQueryString);
 		com.hp.hpl.jena.query.ResultSet results = qexec.execSelect();
-		ArrayList<String> result = new ArrayList<String>();
+		ArrayList<RemedyEntity> result = new ArrayList<RemedyEntity>();
+		Property usesPlant = getOntModel().getProperty(
+				OntologyUtils.NS + "usesPlant");
+		Property hasPlantId = getOntModel().getProperty(
+				OntologyUtils.NS + "has_plant_id");
+		Property hasRemedyId = getOntModel().getProperty(
+				OntologyUtils.NS + "has_remedy_id");
 		while (results.hasNext()) {
 			QuerySolution soln = results.nextSolution();
 			response = soln.get("subject").toString();
-			Individual remedyResource = getOntModel().getResource(response).as(Individual.class);
-			String remedyName = remedyResource.getURI().substring(OntologyUtils.NS.length()).replaceAll("_", " ");
-			result.add(remedyName);
+			Individual remedyResource = getOntModel().getResource(response).as(
+					Individual.class);
+			String remedyName = remedyResource.getURI()
+					.substring(OntologyUtils.NS.length()).replaceAll("_", " ");
+			RemedyEntity remedyEntity = new RemedyEntity();
+			remedyEntity.setRemedyName(remedyName);
+			RDFNode hasRemedyIdValue = remedyResource
+					.getPropertyValue(hasRemedyId);
+			RDFNode usesPlantValue = remedyResource.getPropertyValue(usesPlant);
+			Individual plantResource = getOntModel().getResource(
+					usesPlantValue.toString()).as(Individual.class);
+			RDFNode hasPlantIdValue = plantResource
+					.getPropertyValue(hasPlantId);
+			remedyEntity.setRemedyURI(remedyResource.getURI());
+			remedyEntity.setRemedyName(remedyName);
+			remedyEntity.setRemedyId(Long.valueOf(hasRemedyIdValue.toString()));
+			remedyEntity.setPlantId(Long.valueOf(hasPlantIdValue.toString()));
+			result.add(remedyEntity);
 		}
 		qexec.close();
-
-		return result;
+		JsonArray resultArray = new JsonArray();
+		for (RemedyEntity r : result) {
+			System.out.println(r.toString());
+			resultArray.add(r.toCompactJSONString());
+		}
+		return resultArray;
 
 	}
 }

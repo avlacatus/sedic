@@ -1,22 +1,27 @@
 package ro.infoiasi.sedic.model.entity;
 
+import java.util.ArrayList;
+
+import org.apache.jena.atlas.json.JsonArray;
 import org.apache.jena.atlas.json.JsonObject;
 
 public class RemedyEntity {
 	private String remedyName;
 	private long remedyId;
 	private String remedyURI;
-	private String adjuvantUsage = "";
-	private String frequentUsage = "";
-	private String reportedUsage = "";
-	private String therapeuticalUsage = "";
+	private ArrayList<String> adjuvantUsage = new ArrayList<String>();
+	private ArrayList<String> frequentUsage = new ArrayList<String>();
+	private ArrayList<String> reportedUsage = new ArrayList<String>();
+	private ArrayList<String> therapeuticalUsage = new ArrayList<String>();
 	private long plantId;
 
 	public RemedyEntity() {
 	}
 
-	public RemedyEntity(String remedyName, long remedyId, String remedyURI, String adjuvantUsage, String frequentUsage,
-			String reportedUsage, String therapeuticalUsage, long plantId) {
+	public RemedyEntity(String remedyName, long remedyId, String remedyURI,
+			ArrayList<String> adjuvantUsage, ArrayList<String> frequentUsage,
+			ArrayList<String> reportedUsage,
+			ArrayList<String> therapeuticalUsage, long plantId) {
 		super();
 		this.remedyName = remedyName;
 		this.remedyId = remedyId;
@@ -38,8 +43,9 @@ public class RemedyEntity {
 
 	@Override
 	public String toString() {
-		return "RemedyEntity [remedyName=" + remedyName + ", remedyId=" + remedyId + ", remedyURI=" + remedyURI
-				+ ", plantId=" + plantId + "]";
+		return "RemedyEntity [remedyName=" + remedyName + ", remedyId="
+				+ remedyId + ", remedyURI=" + remedyURI + ", plantId="
+				+ plantId + "]";
 	}
 
 	public JsonObject toCompactJSONString() {
@@ -55,10 +61,26 @@ public class RemedyEntity {
 		JsonObject outputObject = new JsonObject();
 		outputObject.put("remedy_name", remedyName);
 		outputObject.put("remedy_id", remedyId);
-		outputObject.put("adjuvant_usage", adjuvantUsage);
-		outputObject.put("therapeutical_usage", therapeuticalUsage);
-		outputObject.put("frequent_usage", frequentUsage);
-		outputObject.put("reported_usage", reportedUsage);
+		JsonArray adjuvantArray = new JsonArray();
+		for (String s : adjuvantUsage) {
+			adjuvantArray.add(s);
+		}
+		JsonArray therapeuticalArray = new JsonArray();
+		for (String s : therapeuticalUsage) {
+			therapeuticalArray.add(s);
+		}
+		JsonArray frequentArray = new JsonArray();
+		for (String s : frequentUsage) {
+			frequentArray.add(s);
+		}
+		JsonArray reportedArray = new JsonArray();
+		for (String s : reportedUsage) {
+			reportedArray.add(s);
+		}
+		outputObject.put("adjuvant_usage", adjuvantArray);
+		outputObject.put("therapeutical_usage", therapeuticalArray);
+		outputObject.put("frequent_usage", frequentArray);
+		outputObject.put("reported_usage", reportedArray);
 		outputObject.put("remedy_uri", remedyURI);
 		outputObject.put("remedy_plant_id", plantId);
 		return outputObject;
@@ -88,36 +110,52 @@ public class RemedyEntity {
 		this.remedyURI = remedyURI;
 	}
 
-	public String getAdjuvantUsage() {
+	public ArrayList<String> getAdjuvantUsage() {
 		return adjuvantUsage;
 	}
 
-	public void setAdjuvantUsage(String adjuvantUsage) {
-		this.adjuvantUsage += adjuvantUsage + "; ";
+	public void setAdjuvantUsage(ArrayList<String> adjuvantUsage) {
+		this.adjuvantUsage = adjuvantUsage;
 	}
 
-	public String getTherapeuticalUsage() {
+	public void addAdjuvantUsage(String adjuvant) {
+		this.adjuvantUsage.add(adjuvant);
+	}
+
+	public ArrayList<String> getTherapeuticalUsage() {
 		return therapeuticalUsage;
 	}
 
-	public void setTherapeuticalUsage(String tUsage) {
-		this.therapeuticalUsage += tUsage + "; ";
+	public void setTherapeuticalUsage(ArrayList<String> tUsage) {
+		this.therapeuticalUsage = tUsage;
 	}
 
-	public String getFrequentUsage() {
+	public void addTherapeuticalUsage(String therapeutical) {
+		this.therapeuticalUsage.add(therapeutical);
+	}
+
+	public ArrayList<String> getFrequentUsage() {
 		return frequentUsage;
 	}
 
-	public void setFrequentUsage(String fUsage) {
-		this.frequentUsage += fUsage + "; ";
+	public void setFrequentUsage(ArrayList<String> fUsage) {
+		this.frequentUsage = fUsage;
 	}
 
-	public String getReportedUsage() {
+	public void addFrequentUsage(String frequent) {
+		this.frequentUsage.add(frequent);
+	}
+
+	public ArrayList<String> getReportedUsage() {
 		return reportedUsage;
 	}
 
-	public void setReportedUsage(String reportedUsage) {
-		this.reportedUsage += reportedUsage + "; ";
+	public void setReportedUsage(ArrayList<String> reportedUsage) {
+		this.reportedUsage = reportedUsage;
+	}
+
+	public void addReportedUsage(String reported) {
+		this.reportedUsage.add(reported);
 	}
 
 }

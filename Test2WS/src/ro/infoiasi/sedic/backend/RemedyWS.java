@@ -48,6 +48,7 @@ public class RemedyWS {
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	public String performRemedySearch(String payload) {
+		OntologyUtils.initSedicPath(context);
 		JsonObject jsonPayload = JSON.parse(payload);
 		ArrayList<String> adjuvantEffects = new ArrayList<String>();
 		JsonValue adjuvant = jsonPayload.get("adjuvant_effect");
@@ -72,13 +73,15 @@ public class RemedyWS {
 			String thUri = "<" + uri.replace('"', '>').substring(1);
 			therapeuticalEffects.add(thUri);
 		}
-		System.out.println(adjuvantEffects.get(0));
-		return getQueryResult(adjuvantEffects, therapeuticalEffects).toString();
+		JsonArray response = getQueryResult(adjuvantEffects, therapeuticalEffects);
+		JsonObject output = new JsonObject();
+		output.put("remedies", response);
+		return output.toString();
 	}
 
-	private ArrayList<String> getQueryResult(ArrayList<String> adjuvantEffects, ArrayList<String> therapeuticalEffects) {
+	private JsonArray getQueryResult(ArrayList<String> adjuvantEffects, ArrayList<String> therapeuticalEffects) {
 		Remedy remedy = Remedy.getInstance();
-		return remedy.getQueryResult(adjuvantEffects, therapeuticalEffects);
+		return remedy.getQueryResults(adjuvantEffects, therapeuticalEffects);
 
 	}
 }
