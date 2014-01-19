@@ -7,12 +7,15 @@ import org.apache.jena.atlas.json.JsonArray;
 
 import ro.infoiasi.sedic.OntologyUtils;
 import ro.infoiasi.sedic.model.entity.DiseaseEntity;
+import ro.infoiasi.sedic.model.entity.DrugEntity;
+import ro.infoiasi.sedic.model.entity.ParentEntity;
 
 import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntResource;
 import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QuerySolution;
+import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;
@@ -33,43 +36,86 @@ public class Disease extends EntityHelper {
 	}
 
 	public JsonArray getAllDiseases() {
-		String sparqlQueryString = OntologyUtils.SPARQL_PREFIXES + "SELECT DISTINCT ?subject ?class ?id WHERE "
-				+ "{" + "?class rdfs:subClassOf* sedic:Diseases . " + "?subject a ?class . "
-				+ "?class sedic:has_disease_id ?id " + "} " + "order by asc (?subject)";
-		OntClass diseaseClass = getOntModel().getResource(OntologyUtils.NS + "Diseases").as(OntClass.class);
-		ExtendedIterator<OntClass> iterator = diseaseClass.listSubClasses();
-		List<DiseaseEntity> diseases = new ArrayList<DiseaseEntity>();
-		while (iterator.hasNext()) {
-			Property hasDiseaseId = getOntModel().getProperty(OntologyUtils.NS + "has_disease_id");
-			ExtendedIterator<? extends OntResource> listInstances = iterator.next().listInstances();
+		String sparqlQueryString = OntologyUtils.SPARQL_PREFIXES
+				+ "SELECT DISTINCT ?subject ?class ?id WHERE " + "{"
+				+ "?class rdfs:subClassOf* sedic:Diseases . "
+				+ "?subject a ?class . " + "?class sedic:has_disease_id ?id "
+				+ "} " + "order by asc (?subject)";
 
-			while (listInstances.hasNext()) {
-				Individual diseaseResource = (Individual) listInstances.next();
-				RDFNode propertyValue = diseaseResource.getPropertyValue(hasDiseaseId);
-				DiseaseEntity disease = new DiseaseEntity();
-				String diseaseName = diseaseResource.getURI().substring(OntologyUtils.NS.length())
-						.replaceAll("_", " ");
-				// disease.setDiseaseURI(diseaseResource.getURI());
-				disease.setDiseaseName(diseaseName);
-				disease.setDiseaseId(Long.valueOf(propertyValue.toString()));
+		QueryExecution query = OntologyUtils.getSPARQLQuery(this,
+				sparqlQueryString);
+		ResultSet results = query.execSelect();
+		String response = "";
+		List<DiseaseEntity> diseases = new ArrayList<DiseaseEntity>();
+		List<String> diseaseNames = new ArrayList<String>();
+		diseaseNames.add("bla");
+		while (results.hasNext()) {
+			QuerySolution soln = results.nextSolution();
+
+			response = soln.get("subject").toString();
+			Individual diseaseResource = getOntModel().getResource(response)
+					.as(Individual.class);
+			Property hasDiseaseId = getOntModel().getProperty(
+					OntologyUtils.NS + "has_disease_id");
+			RDFNode propertyValue = diseaseResource
+					.getPropertyValue(hasDiseaseId);
+			DiseaseEntity disease = new DiseaseEntity();
+			String diseaseName = diseaseResource.getURI()
+					.substring(OntologyUtils.NS.length()).replaceAll("_", " ");
+			disease.setDiseaseURI(diseaseResource.getURI());
+			disease.setDiseaseName(diseaseName);
+			disease.setDiseaseId(Long.valueOf(propertyValue.toString()));
+			if (diseaseNames.contains(diseaseName)) {
+
+				String parent = soln.get("class").toString();
+				DiseaseEntity diseaseEntity = new DiseaseEntity();
+				for (DiseaseEntity d : diseases) {
+
+					if (d.getDiseaseName().equals(diseaseName)) {
+						diseaseEntity = d;
+						break;
+					}
+				}
+				// System.out.println("name=" +diseaseEntity.getDiseaseName());
+				ArrayList<ParentEntity> parents = diseaseEntity.getParents();
+				ParentEntity parentEntity = new ParentEntity();
+				String id = soln.get("id").toString();
+				parentEntity.setParentURI(parent);
+				parentEntity.setParentId(Long.valueOf(id));
+				parents.add(parentEntity);
+				disease.setParents(parents);
+			} else {
+				diseaseNames.add(diseaseName);
+				String parent = soln.get("class").toString();
+				ArrayList<ParentEntity> parents = new ArrayList<ParentEntity>();
+				ParentEntity parentEntity = new ParentEntity();
+				String id = soln.get("id").toString();
+				parentEntity.setParentURI(parent);
+				parentEntity.setParentId(Long.valueOf(id));
+				parents.add(parentEntity);
+				disease.setParents(parents);
 				diseases.add(disease);
 			}
 		}
-
-		JsonArray diseasesArray = new JsonArray();
+		query.close();
+		JsonArray diseaseArray = new JsonArray();
 		for (DiseaseEntity d : diseases) {
-			diseasesArray.add(d.toJSONString());
+			diseaseArray.add(d.toJSONString());
 		}
-		return diseasesArray;
+		// JsonObject drugJson = drug.toJSONString();
+		return diseaseArray;
 
 	}
 
 	public String getSpecificDisease(String Id) {
 
-		String sparqlQueryString = OntologyUtils.SPARQL_PREFIXES + "SELECT ?subject "
-				+ "	WHERE {   ?subject a ?class . " + "?class  rdfs:subClassOf* sedic:Diseases ."
-				+ "?subject sedic:has_disease_id ?value ." + "FILTER (STR(?value)= '" + Id + "')" + "}";
-		QueryExecution qexec = OntologyUtils.getSPARQLQuery(this, sparqlQueryString);
+		String sparqlQueryString = OntologyUtils.SPARQL_PREFIXES
+				+ "SELECT ?subject " + "	WHERE {   ?subject a ?class . "
+				+ "?class  rdfs:subClassOf* sedic:Diseases ."
+				+ "?subject sedic:has_disease_id ?value ."
+				+ "FILTER (STR(?value)= '" + Id + "')" + "}";
+		QueryExecution qexec = OntologyUtils.getSPARQLQuery(this,
+				sparqlQueryString);
 		com.hp.hpl.jena.query.ResultSet results = qexec.execSelect();
 		// System.out.println(sparqlQueryString);
 		System.out.println("results:" + results.getRowNumber());
@@ -79,12 +125,16 @@ public class Disease extends EntityHelper {
 
 			String response = soln.get("subject").toString();
 			System.out.println(response.toString());
-			Individual diseaseResource = getOntModel().getResource(response).as(Individual.class);
-			Property hasDiseaseId = getOntModel().getProperty(OntologyUtils.NS + "has_disease_id");
-			RDFNode propertyValue = diseaseResource.getPropertyValue(hasDiseaseId);
+			Individual diseaseResource = getOntModel().getResource(response)
+					.as(Individual.class);
+			Property hasDiseaseId = getOntModel().getProperty(
+					OntologyUtils.NS + "has_disease_id");
+			RDFNode propertyValue = diseaseResource
+					.getPropertyValue(hasDiseaseId);
 
 			DiseaseEntity disease = new DiseaseEntity();
-			String diseaseName = diseaseResource.getURI().substring(OntologyUtils.NS.length()).replaceAll("_", " ");
+			String diseaseName = diseaseResource.getURI()
+					.substring(OntologyUtils.NS.length()).replaceAll("_", " ");
 			disease.setDiseaseURI(diseaseResource.getURI());
 			disease.setDiseaseName(diseaseName);
 			disease.setDiseaseId(Long.valueOf(propertyValue.toString()));

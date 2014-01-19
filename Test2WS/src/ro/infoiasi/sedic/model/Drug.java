@@ -7,14 +7,12 @@ import org.apache.jena.atlas.json.JsonArray;
 import org.apache.jena.atlas.json.JsonObject;
 
 import ro.infoiasi.sedic.OntologyUtils;
+import ro.infoiasi.sedic.model.entity.DiseaseEntity;
 import ro.infoiasi.sedic.model.entity.DrugEntity;
+import ro.infoiasi.sedic.model.entity.ParentEntity;
 
 import com.hp.hpl.jena.ontology.Individual;
-import com.hp.hpl.jena.query.ARQ;
-import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryExecution;
-import com.hp.hpl.jena.query.QueryExecutionFactory;
-import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.rdf.model.Property;
@@ -43,6 +41,7 @@ public class Drug extends EntityHelper {
 		ResultSet results = query.execSelect();
 		String response = "";
 		List<DrugEntity> drugs = new ArrayList<DrugEntity>();
+		List<String> drugNames = new ArrayList<String>();
 		while (results.hasNext()) {
 			QuerySolution soln = results.nextSolution();
 
@@ -55,16 +54,33 @@ public class Drug extends EntityHelper {
 			drug.setDrugURI(drugResource.getURI());
 			drug.setDrugName(drugName);
 			drug.setDrugId(Long.valueOf(propertyValue.toString()));
-			if (drugs.contains(drug)) {
+			if (drugNames.contains(drugName)) {
 
 				String parent = soln.get("class").toString();
-				ArrayList<String> parents = drug.getParents();
-				parents.add(parent);
+				DrugEntity drugEntity = new DrugEntity();
+				for (DrugEntity d : drugs) {
+
+					if (d.getDrugName().equals(drugName)) {
+						drugEntity = d;
+						break;
+					}
+				}
+				ArrayList<ParentEntity> parents = drugEntity.getParents();
+				ParentEntity parentEntity = new ParentEntity();
+				String id = soln.get("id").toString();
+				parentEntity.setParentURI(parent);
+				parentEntity.setParentId(Long.valueOf(id));
+				parents.add(parentEntity);
 				drug.setParents(parents);
 			} else {
 				String parent = soln.get("class").toString();
-				ArrayList<String> parents = new ArrayList<String>();
-				parents.add(parent);
+				drugNames.add(drugName);
+				ArrayList<ParentEntity> parents = new ArrayList<ParentEntity>();
+				ParentEntity parentEntity = new ParentEntity();
+				String id = soln.get("id").toString();
+				parentEntity.setParentURI(parent);
+				parentEntity.setParentId(Long.valueOf(id));
+				parents.add(parentEntity);
 				drug.setParents(parents);
 				drugs.add(drug);
 			}
