@@ -24,15 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="ro.infoiasi.sedic.android.activity.RoadsActivity"
-            android:label="@string/roads" />
-        <activity
-            android:name="ro.infoiasi.sedic.android.activity.IndicatorsActivity"
-            android:label="@string/indicators" />
-        <activity
-            android:name="ro.infoiasi.sedic.android.activity.MappingsActivity"
-            android:label="@string/mapped_indicators" />
     </application>
 
 </manifest>

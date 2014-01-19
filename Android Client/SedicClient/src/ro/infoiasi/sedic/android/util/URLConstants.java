@@ -3,17 +3,14 @@ package ro.infoiasi.sedic.android.util;
 public class URLConstants {
 	public static final String fake_url = "http://students.info.uaic.ro/~alexandra.lacatus";
 	public static final String ralu_url = "http://192.168.1.9:8081";
-	public static final String ana_url = "http://192.168.0.158:8081";
-	public static final String real_url = "http://10.0.2.2:8081";
+	public static final String ema_url = "http://192.168.0.104:8080";
+	public static final String real_url = "http://10.0.2.2:8080";
 	public static final String uaic_url = "http://172.17.50.151:8081";
-	public static final String BASE_URL = fake_url;
+	public static final String BASE_URL = ema_url + "/SedicWS";
 
-	public static final String URL_RESOURCE_PLANT = BASE_URL + "/resources/plant";
-	public static final String URL_RESOURCE_REMEDY = BASE_URL + "/resources/remedy";
-	public static final String INDICATORS_CONTROLLER = BASE_URL + "/resources" + "/indicators";
-	public static final String MAPPING_CONTROLLER = BASE_URL + "/resources" + "/mapping";
+	public static final String URL_RESOURCE_PLANT = BASE_URL + "/resource/plant";
+	public static final String URL_RESOURCE_REMEDY = BASE_URL + "/resource/remedy";
+	public static final String INDICATORS_CONTROLLER = BASE_URL + "/resource" + "/indicators";
+	public static final String MAPPING_CONTROLLER = BASE_URL + "/resource" + "/mapping";
 
-	public static final String INTENT_EXTRA_ROAD_FIRST_POSITION = "road_first_positions";
-	public static final String INTENT_EXTRA_ROAD_SECOND_POSITION = "road_second_positions";
-	public static final String INTENT_EXTRA_ROAD_ID = "road_id";
 }

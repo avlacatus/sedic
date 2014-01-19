@@ -19,11 +19,12 @@ public final class R {
         public static final int blue_marker=0x7f020000;
         public static final int green_marker=0x7f020001;
         public static final int ic_action_search=0x7f020002;
-        public static final int ic_launcher=0x7f020003;
-        public static final int marker=0x7f020004;
-        public static final int orange_marker=0x7f020005;
-        public static final int popup_frame=0x7f020006;
-        public static final int purple_marker=0x7f020007;
+        public static final int ic_drawer_am=0x7f020003;
+        public static final int ic_launcher=0x7f020004;
+        public static final int marker=0x7f020005;
+        public static final int orange_marker=0x7f020006;
+        public static final int popup_frame=0x7f020007;
+        public static final int purple_marker=0x7f020008;
     }
     public static final class id {
         public static final int drawer_layout=0x7f08000d;
@@ -40,16 +41,17 @@ public final class R {
         public static final int ir_region=0x7f080009;
         public static final int ir_right_panel=0x7f080008;
         public static final int ir_road_type=0x7f08000a;
-        public static final int latitude=0x7f08000f;
-        public static final int left_drawer=0x7f08000e;
-        public static final int longitude=0x7f080010;
-        public static final int mi_add=0x7f080016;
-        public static final int mi_discard=0x7f080014;
-        public static final int mi_refresh=0x7f080015;
-        public static final int mi_save=0x7f080013;
-        public static final int mi_say_hello=0x7f080017;
-        public static final int x=0x7f080011;
-        public static final int y=0x7f080012;
+        public static final int latitude=0x7f080010;
+        public static final int left_drawer=0x7f08000f;
+        public static final int longitude=0x7f080011;
+        public static final int mi_add=0x7f080017;
+        public static final int mi_discard=0x7f080015;
+        public static final int mi_refresh=0x7f080016;
+        public static final int mi_save=0x7f080014;
+        public static final int mi_say_hello=0x7f080018;
+        public static final int result_text=0x7f08000e;
+        public static final int x=0x7f080012;
+        public static final int y=0x7f080013;
     }
     public static final class layout {
         public static final int item_drawer_list_layout=0x7f030000;

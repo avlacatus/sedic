@@ -1,81 +1,68 @@
 package ro.infoiasi.sedic.android.model;
 
-
 import java.util.ArrayList;
-
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
 
 public class DrugBean {
-    private String drugName;
-    private long drugId;
-    private String drugURI;
-    private ArrayList<String>parents;
+	private String drugName;
+	private long drugId;
+	private String drugURI;
+	private List<String> parents;
 
-    public DrugBean() {
-   
-    }
+	public DrugBean() {
 
-    public DrugBean(String drugName, long drugId, String drugURI, ArrayList<String>parents) {
-        super();
-        this.drugName = drugName;
-        this.drugId = drugId;
-        this.drugURI = drugURI;
-        this.parents = parents;
-    }
+	}
 
-    @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("drugEntity [drugName=");
-        builder.append(drugName);
-        builder.append(", drugId=");
-        builder.append(drugId);
-        builder.append(", drugResource=");
-        builder.append(drugURI);
-        builder.append("]");
-        return builder.toString();
-    }
-    
-    public JSONObject toJSONString() throws JSONException {
-        JSONObject outputObject = new JSONObject();
-        outputObject.put("drug_name", drugName);
-        outputObject.put("drug_id", drugId);
-        outputObject.put("drug_uri", drugURI);
-        outputObject.put("drug_parents", "parents");
-        return outputObject;
-    }
+	public DrugBean(String drugName, long drugId, String drugURI, List<String> parents) {
+		super();
+		this.drugName = drugName;
+		this.drugId = drugId;
+		this.drugURI = drugURI;
+		this.parents = parents;
+	}
 
-    public String getDrugName() {
-        return drugName;
-    }
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("drugEntity [drugName=");
+		builder.append(drugName);
+		builder.append(", drugId=");
+		builder.append(drugId);
+		builder.append(", drugResource=");
+		builder.append(drugURI);
+		builder.append("]");
+		return builder.toString();
+	}
 
-    public void setDrugName(String drugName) {
-        this.drugName = drugName;
-    }
+	public String getDrugName() {
+		return drugName;
+	}
 
-    public long getDrugId() {
-        return drugId;
-    }
+	public void setDrugName(String drugName) {
+		this.drugName = drugName;
+	}
 
-    public void setDrugId(long drugId) {
-        this.drugId = drugId;
-    }
+	public long getDrugId() {
+		return drugId;
+	}
 
-    public String getDrugURI() {
-        return drugURI;
-    }
+	public void setDrugId(long drugId) {
+		this.drugId = drugId;
+	}
 
-    public void setDrugURI(String drugURI) {
-        this.drugURI = drugURI;
-    }
-    public ArrayList<String> getParents()
-    {
-    	return parents;
-    }
-    
-public void setParents(ArrayList<String>parents)
-{
-	this.parents = parents;
-}
+	public String getDrugURI() {
+		return drugURI;
+	}
+
+	public void setDrugURI(String drugURI) {
+		this.drugURI = drugURI;
+	}
+
+	public List<String> getParents() {
+		return parents;
+	}
+
+	public void setParents(ArrayList<String> parents) {
+		this.parents = parents;
+	}
 }

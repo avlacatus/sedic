@@ -10,10 +10,10 @@ public class Response<E> {
 	private String errorMessage;
 	private Object data;
 
-	public Response(ServiceTask<E> message, ResponseStatus status, Object data) {
+	public Response(ServiceTask<E> serviceTask, ResponseStatus status, Object data) {
 		this.status = status;
 		this.data = data;
-		this.originalTask = message;
+		this.originalTask = serviceTask;
 	}
 
 	public Response(ServiceTask<E> message, ResponseStatus status) {
