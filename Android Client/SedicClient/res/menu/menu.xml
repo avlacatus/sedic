@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/mi_refresh"
+        android:showAsAction="ifRoom"
+        android:title="Refresh">
+    </item>
+    <item
+        android:id="@+id/mi_add"
+        android:showAsAction="ifRoom"
+        android:title="Add">
+    </item>
+    <item
+        android:id="@+id/mi_say_hello"
+        android:showAsAction="ifRoom"
+        android:title="Say Hello">
+    </item>
+
+</menu>

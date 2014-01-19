@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="3dp" >
+
+    <TextView
+        android:id="@+id/im_indicator_id"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/im_observations"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill_horizontal"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/im_road_id"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/im_km"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textSize="18dp" />
+
+</LinearLayout>

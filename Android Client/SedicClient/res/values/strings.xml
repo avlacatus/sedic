@@ -1,0 +1,18 @@
+<resources>
+
+    <string name="app_name">Sematic Medicine</string>
+    <string name="title_main_activity">Sematic Medicine</string>
+    <string name="roads">Roads</string>
+    <string name="indicators">Indicators</string>
+    <string name="browse_roads">Browse all roads</string>
+    <string name="browse_indicators">Browse all indicators</string>
+    <string name="browse_mapped_indicators">Browse mapped indicators</string>
+    <string name="list_empty_message">There is no available data.</string>
+    <string name="km">km</string>
+    <string name="road_type">Road type</string>
+    <string name="region">Region</string>
+    <string name="name">Name</string>
+    <string name="code">Code</string>
+    <string name="mapped_indicators">Mapped indicators</string>
+
+</resources>
