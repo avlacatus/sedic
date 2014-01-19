@@ -91,7 +91,7 @@ public class MainActivity extends Activity {
 					mDrawerLayout.closeDrawer(Gravity.START);
 					break;
 				case 2:
-					new GetRemedyDetailsServiceTask(20000).execute();
+					new GetRemedyDetailsServiceTask(20044).execute();
 					mDrawerLayout.closeDrawer(Gravity.START);
 					break;
 				}

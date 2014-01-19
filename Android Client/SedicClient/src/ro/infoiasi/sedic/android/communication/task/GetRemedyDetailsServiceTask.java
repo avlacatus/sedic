@@ -1,16 +1,11 @@
 package ro.infoiasi.sedic.android.communication.task;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-
 import org.apache.http.client.methods.HttpRequestBase;
 
 import ro.infoiasi.sedic.android.communication.event.GetRemedyDetailsEvent;
 import ro.infoiasi.sedic.android.communication.event.ResponseEvent;
 import ro.infoiasi.sedic.android.model.RemedyBean;
 import ro.infoiasi.sedic.android.util.URLConstants;
-import android.net.Uri;
-import android.util.Log;
 
 public class GetRemedyDetailsServiceTask extends ServiceTask<RemedyBean> {
 
@@ -29,22 +24,11 @@ public class GetRemedyDetailsServiceTask extends ServiceTask<RemedyBean> {
 
 	@Override
 	public String getURL() {
-		Uri.Builder builder = new Uri.Builder();
-		return builder.appendPath(URLConstants.URL_RESOURCE_REMEDY).appendQueryParameter("remedyID", String.valueOf(remedyId))
-				.build().toString();
+		return URLConstants.URL_RESOURCE_REMEDY + "?remedyID=" + String.valueOf(remedyId);
 	}
 
 	@Override
 	public void prepareRequest(HttpRequestBase request) {
-		Uri.Builder builder = new Uri.Builder();
-		String encodedURI = builder.appendPath(URLConstants.URL_RESOURCE_REMEDY)
-				.appendQueryParameter("remedyID", "20000").build().toString();
-		Log.e("debug", "encoded uri: " + encodedURI);
-		try {
-			request.setURI(new URI(encodedURI));
-		} catch (URISyntaxException e) {
-			e.printStackTrace();
-		}
 	}
 
 	@Override
