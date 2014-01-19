@@ -29,6 +29,14 @@ public class Disease extends EntityHelper {
 	}
 
 	public JsonArray getAllDiseases() {
+		String sparqlQueryString = OntologyConstants.SPARQL_PREFIXES
+				+"SELECT DISTINCT ?subject ?class ?id WHERE "
+				+"{"
+				+"?class rdfs:subClassOf* sedic:Diseases . "
+				+"?subject a ?class . "
+				+"?class sedic:has_disease_id ?id "
+				+"} "
+				+"order by asc (?subject)";
 		OntClass diseaseClass = getOntModel().getResource(
 				OntologyConstants.NS + "Diseases").as(OntClass.class);
 		ExtendedIterator<OntClass> iterator = diseaseClass.listSubClasses();

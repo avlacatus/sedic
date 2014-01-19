@@ -22,6 +22,7 @@ public class DrugEntity {
         this.drugURI = drugURI;
         this.parents = parents;
     }
+    
 
     @Override
     public String toString() {
@@ -41,7 +42,12 @@ public class DrugEntity {
         outputObject.put("drug_name", drugName);
         outputObject.put("drug_id", drugId);
         outputObject.put("drug_uri", drugURI);
-        outputObject.put("drug_parents", "parents");
+        String parentsString = "";
+        for (String p :parents)
+        {
+       parentsString += p + "; ";
+        }
+        outputObject.put("drug_parents", parentsString);
         return outputObject;
     }
 

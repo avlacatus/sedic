@@ -50,7 +50,7 @@ public class RemedyWS {
 	public String performRemedySearch(String payload) {
 		JsonObject jsonPayload = JSON.parse(payload);
 		ArrayList<String> adjuvantEffects = new ArrayList<String>();
-		JsonObject adjuvant = (JsonObject) jsonPayload.get("adjuvant_effect");
+		JsonValue adjuvant =  jsonPayload.get("adjuvant_effect");
 		JsonArray array = adjuvant.getAsArray();
 		//System.out.println(array);
 		for(int i = 0 ; i < array.size() ; i++){
@@ -58,19 +58,26 @@ public class RemedyWS {
 			long id = Long.parseLong(obj.get("id").toString());
 			String uri = obj.get("uri").toString();
 			
-//			System.out.println(().toString());
-			adjuvantEffects.add(uri);
+			String adjuvantUri ="<" +uri.replace('"', '>').substring(1);
+			adjuvantEffects.add(adjuvantUri);
 		}
 		ArrayList<String> therapeuticalEffects = new ArrayList<String>();
-		JsonObject therapeutical = (JsonObject) jsonPayload.get("therapeutical_effect");
+		JsonValue therapeutical =  jsonPayload.get("therapeutical_effect");
 		array = therapeutical.getAsArray();
 		for(int i = 0 ; i < array.size() ; i++){
 			//System.out.println(array.get(i).toString());
 			JsonObject obj = (JsonObject) array.get(i);
 			long id = Long.parseLong(obj.get("id").toString());
 			String uri = obj.get("uri").toString();
-			therapeuticalEffects.add(array.get(i).toString());
+			String thUri ="<" +uri.replace('"', '>').substring(1);
+			therapeuticalEffects.add(thUri);
 		}
-		return "Hello from post + " + jsonPayload.toString();
+		System.out.println(adjuvantEffects.get(0));
+		return "Hello from post + " + getQueryResult(adjuvantEffects, therapeuticalEffects);
+	}
+	private ArrayList<String> getQueryResult(ArrayList<String>adjuvantEffects, ArrayList<String>therapeuticalEffects){
+			Remedy remedy = new Remedy();
+		return remedy.getQueryResult(adjuvantEffects, therapeuticalEffects);
+		
 	}
 }

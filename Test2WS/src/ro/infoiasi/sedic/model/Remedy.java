@@ -8,6 +8,7 @@ import org.apache.jena.atlas.json.JsonArray;
 import org.apache.jena.atlas.json.JsonObject;
 
 import ro.infoiasi.sedic.OntologyConstants;
+import ro.infoiasi.sedic.model.entity.PlantEntity;
 import ro.infoiasi.sedic.model.entity.RemedyEntity;
 
 import com.hp.hpl.jena.ontology.Individual;
@@ -124,5 +125,43 @@ public JsonArray getCompactRemedies() {
 		remediesArray.add(r.toString());
 	}
 	return remediesArray;
+}
+
+public ArrayList<String> getQueryResult(ArrayList<String> adjuvantEffects, ArrayList<String> therapeuticalEffects)
+{
+	String sparqlQueryString = OntologyConstants.SPARQL_PREFIXES
+			+ "SELECT ?subject "
+			+ "	WHERE { ?subject rdf:type sedic:Remedy . " ;
+	for (String adjuvant:adjuvantEffects)
+	{
+		sparqlQueryString += " ?subject sedic:hasAdjuvantUsage" + adjuvant + ".";
+	}
+	for (String th:therapeuticalEffects)
+	{
+		sparqlQueryString += " ?subject sedic:hasTherapeuticalUsage " + th + ".";
+	}
+		sparqlQueryString += " }";
+		System.out.println(sparqlQueryString);
+	String response = "";
+	Query query = QueryFactory.create(sparqlQueryString);
+	ARQ.getContext().setTrue(ARQ.useSAX);
+	QueryExecution qexec = QueryExecutionFactory.create(query,
+			getOntModel());
+	com.hp.hpl.jena.query.ResultSet results = qexec.execSelect();
+	ArrayList<String> result = new ArrayList<String>();
+	while (results.hasNext()) {
+		QuerySolution soln = results.nextSolution();
+		response = soln.get("subject").toString();
+		Individual remedyResource = getOntModel().getResource(response).as(
+				Individual.class);
+		String remedyName = remedyResource.getURI()
+				.substring(OntologyConstants.NS.length())
+				.replaceAll("_", " ");
+		result.add(remedyName);
+	}
+		qexec.close();
+		
+		return result;
+	 
 }
 }

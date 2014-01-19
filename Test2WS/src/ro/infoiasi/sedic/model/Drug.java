@@ -29,46 +29,57 @@ public class Drug extends EntityHelper {
 	}
 
 	public JsonArray getAllDrugs() {
-		OntClass drugClass = getOntModel().getResource(
-				OntologyConstants.NS + "Chemicals_and_Drugs")
-				.as(OntClass.class);
-		ExtendedIterator<OntClass> iterator = drugClass.listSubClasses();
+		String sparqlQueryString = OntologyConstants.SPARQL_PREFIXES
+				+ "SELECT DISTINCT ?subject ?class ?id WHERE " + "{"
+				+ "?class rdfs:subClassOf* sedic:Chemicals_and_Drugs . "
+				+ "?subject a ?class . " + "?class sedic:has_adjuvant_id ?id "
+				+ "} " + "order by asc (?subject)";
+		String response = "";
 		List<DrugEntity> drugs = new ArrayList<DrugEntity>();
-		Property hasDiseaseId = getOntModel().getProperty(
-				OntologyConstants.NS + "has_adjuvant_id");
-		while (iterator.hasNext()) {
-			OntClass myclass = iterator.next();
-			ExtendedIterator<? extends OntResource> listInstances = myclass.listInstances();
-			//System.out.println(myclass.getURI());
-			ArrayList<String>parents = new ArrayList<String>();
-			List<OntClass> superClasses = myclass.listSuperClasses().toList();
-			for (OntClass o :superClasses)
-			{
-			String id = "property";
-			parents.add(id);
-			}
-			while (listInstances.hasNext()) {
-				Individual drugResource = (Individual) listInstances.next();
-				RDFNode propertyValue = drugResource
-						.getPropertyValue(hasDiseaseId);
-				DrugEntity drug = new DrugEntity();
-				String drugName = drugResource.getURI()
-						.substring(OntologyConstants.NS.length())
-						.replaceAll("_", " ");
-				
-				drug.setDrugURI(drugResource.getURI());
-				drug.setDrugName(drugName);
-				drug.setDrugId(Long.valueOf(propertyValue.toString()));
+		Query query = QueryFactory.create(sparqlQueryString);
+		ARQ.getContext().setTrue(ARQ.useSAX);
+		QueryExecution qexec = QueryExecutionFactory.create(query,
+				getOntModel());
+		com.hp.hpl.jena.query.ResultSet results = qexec.execSelect();
+		List<String> drugList = new ArrayList<String>();
+		while (results.hasNext()) {
+			QuerySolution soln = results.nextSolution();
+
+			response = soln.get("subject").toString();
+			Individual drugResource = getOntModel().getResource(response).as(
+					Individual.class);
+			Property hasDrugId = getOntModel().getProperty(
+					OntologyConstants.NS + "has_adjuvant_id");
+			RDFNode propertyValue = drugResource.getPropertyValue(hasDrugId);
+			DrugEntity drug = new DrugEntity();
+			String drugName = drugResource.getURI()
+					.substring(OntologyConstants.NS.length())
+					.replaceAll("_", " ");
+			drug.setDrugURI(drugResource.getURI());
+			drug.setDrugName(drugName);
+			drug.setDrugId(Long.valueOf(propertyValue.toString()));
+			if (drugs.contains(drug)) {
+
+				String parent = soln.get("class").toString();
+				ArrayList<String> parents = drug.getParents();
+				parents.add(parent);
+				drug.setParents(parents);
+			} else {
+				String parent = soln.get("class").toString();
+				ArrayList<String> parents = new ArrayList<String>();
+				parents.add(parent);
 				drug.setParents(parents);
 				drugs.add(drug);
 			}
 		}
-
+		qexec.close();
 		JsonArray drugsArray = new JsonArray();
 		for (DrugEntity d : drugs) {
 			drugsArray.add(d.toJSONString());
 		}
+		// JsonObject drugJson = drug.toJSONString();
 		return drugsArray;
+
 	}
 
 	public String getDrug(String drugId) {
