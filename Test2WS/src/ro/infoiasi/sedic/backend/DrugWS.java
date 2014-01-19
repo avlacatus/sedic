@@ -40,7 +40,7 @@ public class DrugWS {
 	}
 
 	private String getDrugByID(Drug d, String id) {
-		return d.getDrug(id);
+		return d.getDrug(id).toString();
 	}
 
 }

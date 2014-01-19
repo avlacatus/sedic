@@ -4,21 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.jena.atlas.json.JsonArray;
+import org.apache.jena.atlas.json.JsonObject;
 
 import ro.infoiasi.sedic.OntologyUtils;
 import ro.infoiasi.sedic.model.entity.DiseaseEntity;
-import ro.infoiasi.sedic.model.entity.DrugEntity;
 import ro.infoiasi.sedic.model.entity.ParentEntity;
 
 import com.hp.hpl.jena.ontology.Individual;
-import com.hp.hpl.jena.ontology.OntClass;
-import com.hp.hpl.jena.ontology.OntResource;
 import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
-import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 
 public class Disease extends EntityHelper {
 
@@ -48,7 +45,6 @@ public class Disease extends EntityHelper {
 		String response = "";
 		List<DiseaseEntity> diseases = new ArrayList<DiseaseEntity>();
 		List<String> diseaseNames = new ArrayList<String>();
-		diseaseNames.add("bla");
 		while (results.hasNext()) {
 			QuerySolution soln = results.nextSolution();
 
@@ -107,13 +103,15 @@ public class Disease extends EntityHelper {
 
 	}
 
-	public String getSpecificDisease(String Id) {
+	public JsonObject getSpecificDisease(String Id) {
 
 		String sparqlQueryString = OntologyUtils.SPARQL_PREFIXES
-				+ "SELECT ?subject " + "	WHERE {   ?subject a ?class . "
-				+ "?class  rdfs:subClassOf* sedic:Diseases ."
+				+ "SELECT DISTINCT ?subject ?class ?id WHERE " + "{"
+				+ "?class rdfs:subClassOf* sedic:Diseases . "
+				+ "?subject a ?class . "
 				+ "?subject sedic:has_disease_id ?value ."
-				+ "FILTER (STR(?value)= '" + Id + "')" + "}";
+				+ "?class sedic:has_disease_id ?id " + "FILTER (STR(?value)= '"
+				+ Id + "')" + "} ";
 		QueryExecution qexec = OntologyUtils.getSPARQLQuery(this,
 				sparqlQueryString);
 		com.hp.hpl.jena.query.ResultSet results = qexec.execSelect();
@@ -138,12 +136,31 @@ public class Disease extends EntityHelper {
 			disease.setDiseaseURI(diseaseResource.getURI());
 			disease.setDiseaseName(diseaseName);
 			disease.setDiseaseId(Long.valueOf(propertyValue.toString()));
-
+			String parent = soln.get("class").toString();
+			ArrayList<ParentEntity> parents = new ArrayList<ParentEntity>();
+			ParentEntity parentEntity = new ParentEntity();
+			String id = soln.get("id").toString();
+			parentEntity.setParentURI(parent);
+			parentEntity.setParentId(Long.valueOf(id));
+			parents.add(parentEntity);
+			while (results.hasNext()) {
+				soln = results.nextSolution();
+				parent = soln.get("class").toString();
+				parentEntity = new ParentEntity();
+				id = soln.get("id").toString();
+				parentEntity.setParentURI(parent);
+				parentEntity.setParentId(Long.valueOf(id));
+				parents.add(parentEntity);
+			}
+			disease.setParents(parents);
 			qexec.close();
 			// JsonObject diseaseJson = disease.toJSONString();
-			return disease.toString();
-		} else
-			return "Disease not found!";
+			return disease.toJSONString();
+		} else {
+			JsonObject jo = new JsonObject();
+			jo.put("Error", "Disease not found!");
+			return jo;
+		}
 	}
 
 }

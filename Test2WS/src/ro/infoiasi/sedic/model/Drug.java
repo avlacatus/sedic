@@ -95,11 +95,12 @@ public class Drug extends EntityHelper {
 
 	}
 
-	public String getDrug(String drugId) {
-
-		String sparqlQueryString = OntologyUtils.SPARQL_PREFIXES + "SELECT ?subject "
-				+ "	WHERE {   ?subject a ?class . " + "?class  rdfs:subClassOf* sedic:Chemicals_and_Drugs ."
-				+ "?subject sedic:has_adjuvant_id ?value ." + "FILTER (STR(?value)= '" + drugId + "')" + "}";
+	public JsonObject getDrug(String drugId) {
+		String sparqlQueryString = OntologyUtils.SPARQL_PREFIXES + "SELECT DISTINCT ?subject ?class ?id WHERE " + "{"
+				+ "?class rdfs:subClassOf* sedic:Chemicals_and_Drugs . " + "?subject a ?class . "
+				+ "?subject sedic:has_adjuvant_id ?value ."
+				+ "?class sedic:has_adjuvant_id ?id " 
+				+ "FILTER (STR(?value)= '" + drugId + "')"+ "} " ;
 		String response = "";
 		QueryExecution qexec = OntologyUtils.getSPARQLQuery(this, sparqlQueryString);
 		com.hp.hpl.jena.query.ResultSet results = qexec.execSelect();
@@ -115,13 +116,32 @@ public class Drug extends EntityHelper {
 			drug.setDrugURI(drugResource.getURI());
 			drug.setDrugName(drugName);
 			drug.setDrugId(Long.valueOf(propertyValue.toString()));
-
+			String parent = soln.get("class").toString();
+			ArrayList<ParentEntity> parents = new ArrayList<ParentEntity>();
+			ParentEntity parentEntity = new ParentEntity();
+			String id = soln.get("id").toString();
+			parentEntity.setParentURI(parent);
+			parentEntity.setParentId(Long.valueOf(id));
+			parents.add(parentEntity);
+			while (results.hasNext()) {
+				soln = results.nextSolution();
+				parent = soln.get("class").toString();
+				parentEntity = new ParentEntity();
+				id = soln.get("id").toString();
+				parentEntity.setParentURI(parent);
+				parentEntity.setParentId(Long.valueOf(id));
+				parents.add(parentEntity);
+			}
+			drug.setParents(parents);
 			qexec.close();
 			JsonObject drugJson = drug.toJSONString();
-			return drugJson.toString();
+			return drugJson;
 		} else
-			return "Drug not found!";
-
+		 {
+			JsonObject jo = new JsonObject();
+			jo.put("Error", "Disease not found!");
+			return jo;
+		}
 	}
 
 }

@@ -40,7 +40,7 @@ public class DiseaseWS {
 	}
 
 	private String getDiseaseByID(Disease d, String id) {
-		return d.getSpecificDisease(id);
+		return d.getSpecificDisease(id).toString();
 	}
 
 }
