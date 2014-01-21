@@ -21,46 +21,53 @@ public final class R {
         public static final int ic_action_search=0x7f020002;
         public static final int ic_drawer_am=0x7f020003;
         public static final int ic_launcher=0x7f020004;
-        public static final int marker=0x7f020005;
-        public static final int orange_marker=0x7f020006;
-        public static final int popup_frame=0x7f020007;
-        public static final int purple_marker=0x7f020008;
+        public static final int orange_marker=0x7f020005;
+        public static final int popup_frame=0x7f020006;
+        public static final int purple_marker=0x7f020007;
+        public static final int sedic_logo=0x7f020008;
     }
     public static final class id {
         public static final int drawer_layout=0x7f08000d;
         public static final int idl_text=0x7f080000;
-        public static final int ii_code=0x7f080002;
-        public static final int ii_name=0x7f080001;
-        public static final int im_indicator_id=0x7f080003;
-        public static final int im_km=0x7f080006;
-        public static final int im_observations=0x7f080004;
-        public static final int im_road_id=0x7f080005;
+        public static final int im_indicator_id=0x7f080001;
+        public static final int im_km=0x7f080004;
+        public static final int im_observations=0x7f080002;
+        public static final int im_road_id=0x7f080003;
+        public static final int ir_code=0x7f080006;
         public static final int ir_indicative=0x7f080007;
         public static final int ir_km_label=0x7f08000c;
         public static final int ir_length=0x7f08000b;
+        public static final int ir_name=0x7f080005;
         public static final int ir_region=0x7f080009;
         public static final int ir_right_panel=0x7f080008;
         public static final int ir_road_type=0x7f08000a;
         public static final int latitude=0x7f080010;
         public static final int left_drawer=0x7f08000f;
         public static final int longitude=0x7f080011;
-        public static final int mi_add=0x7f080017;
-        public static final int mi_discard=0x7f080015;
-        public static final int mi_refresh=0x7f080016;
-        public static final int mi_save=0x7f080014;
-        public static final int mi_say_hello=0x7f080018;
+        public static final int mi_add=0x7f08001c;
+        public static final int mi_discard=0x7f08001a;
+        public static final int mi_refresh=0x7f08001b;
+        public static final int mi_save=0x7f080019;
+        public static final int mi_say_hello=0x7f08001d;
+        public static final int rd_description=0x7f080014;
+        public static final int rd_frequent=0x7f080015;
+        public static final int rd_reported=0x7f080016;
         public static final int result_text=0x7f08000e;
+        public static final int splash_logo=0x7f080017;
+        public static final int splash_text=0x7f080018;
         public static final int x=0x7f080012;
         public static final int y=0x7f080013;
     }
     public static final class layout {
         public static final int item_drawer_list_layout=0x7f030000;
-        public static final int item_indicator_layout=0x7f030001;
-        public static final int item_mapping_layout=0x7f030002;
+        public static final int item_mapping_layout=0x7f030001;
+        public static final int item_remedy_layout=0x7f030002;
         public static final int item_road_layout=0x7f030003;
         public static final int list_activity_layout=0x7f030004;
         public static final int main_layout=0x7f030005;
         public static final int popup=0x7f030006;
+        public static final int remedy_detail_layout=0x7f030007;
+        public static final int splash_layout=0x7f030008;
     }
     public static final class menu {
         public static final int edit_position_menu=0x7f070000;
@@ -84,5 +91,6 @@ public final class R {
     }
     public static final class style {
         public static final int AppTheme=0x7f060000;
+        public static final int AppTheme_NoActionBar=0x7f060001;
     }
 }

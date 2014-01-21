@@ -8,16 +8,17 @@ import ro.infoiasi.sedic.android.communication.event.GetCompactRemediesEvent;
 import ro.infoiasi.sedic.android.communication.event.GetPlantsEvent;
 import ro.infoiasi.sedic.android.communication.event.GetRemedyDetailsEvent;
 import ro.infoiasi.sedic.android.communication.event.ResponseEvent;
-import ro.infoiasi.sedic.android.communication.task.GetCompactRemedyListServiceTask;
 import ro.infoiasi.sedic.android.communication.task.GetPlantsServiceTask;
 import ro.infoiasi.sedic.android.communication.task.GetRemedyDetailsServiceTask;
 import ro.infoiasi.sedic.android.communication.task.Response;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -70,10 +71,24 @@ public class MainActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_MENU) {
+			if (mDrawerLayout.isDrawerOpen(Gravity.START)) {
+				mDrawerLayout.closeDrawer(Gravity.START);
+			} else {
+				mDrawerLayout.openDrawer(Gravity.START);
+			}
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
+	}
+
 	private void setupListeners() {
 		ArrayList<String> menuOptions = new ArrayList<String>();
 		menuOptions.add("GetPlants");
-		menuOptions.add("GetCompactRemedyList");
+		menuOptions.add("Browse Remedies");
+		menuOptions.add("Browse Drugs");
+		menuOptions.add("Browse Diseases");
 		menuOptions.add("GetRemedyDetails");
 		DrawerAdapter adapter = new DrawerAdapter(this, R.layout.item_drawer_list_layout, R.id.idl_text, menuOptions);
 		mLeftDrawer.setAdapter(adapter);
@@ -86,11 +101,25 @@ public class MainActivity extends Activity {
 					new GetPlantsServiceTask().execute();
 					mDrawerLayout.closeDrawer(Gravity.START);
 					break;
-				case 1:
-					new GetCompactRemedyListServiceTask().execute();
+				case 1: {
+					Intent intent = new Intent(MainActivity.this, RemedyListActivity.class);
+					startActivity(intent);
 					mDrawerLayout.closeDrawer(Gravity.START);
+				}
 					break;
-				case 2:
+				case 2: {
+					Intent intent = new Intent(MainActivity.this, DrugsListActivity.class);
+					startActivity(intent);
+					mDrawerLayout.closeDrawer(Gravity.START);
+				}
+					break;
+				case 3: {
+					Intent intent = new Intent(MainActivity.this, DiseasesListActivity.class);
+					startActivity(intent);
+					mDrawerLayout.closeDrawer(Gravity.START);
+				}
+					break;
+				case 4:
 					new GetRemedyDetailsServiceTask(20044).execute();
 					mDrawerLayout.closeDrawer(Gravity.START);
 					break;
@@ -132,13 +161,11 @@ public class MainActivity extends Activity {
 	private void method(ResponseEvent e) {
 		Response<?> response = e.getResponse();
 		if (response.getErrorMessage() != null) {
-			Toast.makeText(this, e.getClass().toString() + e.getResponse().toString(), Toast.LENGTH_LONG).show();
 			String text = "";
 			text += e.getClass().getSimpleName() + " " + e.getResponse().getStatus() + " " + response.getErrorMessage()
 					+ " " + e.getResponse().getData();
 			mTestView.setText(text);
 		} else {
-			Toast.makeText(this, e.getClass().toString() + e.getResponse().toString(), Toast.LENGTH_LONG).show();
 			String text = "";
 			text += e.getClass().getSimpleName() + " " + e.getResponse().getStatus() + " " + e.getResponse().getData();
 			mTestView.setText(text);

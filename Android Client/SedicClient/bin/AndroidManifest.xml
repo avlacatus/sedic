@@ -16,13 +16,32 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="ro.infoiasi.sedic.android.activity.MainActivity"
-            android:label="@string/title_main_activity" >
+            android:name="ro.infoiasi.sedic.android.activity.SplashActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="ro.infoiasi.sedic.android.activity.MainActivity"
+            android:label="@string/title_main_activity" >
+        </activity>
+        <activity
+            android:name="ro.infoiasi.sedic.android.activity.RemedyListActivity"
+            android:label="Remedy list" >
+        </activity>
+        <activity android:name="ro.infoiasi.sedic.android.activity.RemedyDetailActivity" >
+        </activity>
+        <activity
+            android:name="ro.infoiasi.sedic.android.activity.DiseasesListActivity"
+            android:label="Therapeutics" >
+        </activity>
+        <activity
+            android:name="ro.infoiasi.sedic.android.activity.DrugsListActivity"
+            android:label="Adjuvants" >
         </activity>
     </application>
 

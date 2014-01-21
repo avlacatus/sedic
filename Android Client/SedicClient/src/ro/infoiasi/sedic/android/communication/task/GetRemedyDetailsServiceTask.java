@@ -1,16 +1,20 @@
 package ro.infoiasi.sedic.android.communication.task;
 
 import org.apache.http.client.methods.HttpRequestBase;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import ro.infoiasi.sedic.android.communication.event.GetRemedyDetailsEvent;
 import ro.infoiasi.sedic.android.communication.event.ResponseEvent;
 import ro.infoiasi.sedic.android.model.RemedyBean;
+import ro.infoiasi.sedic.android.util.JSONHelper;
 import ro.infoiasi.sedic.android.util.URLConstants;
 
 public class GetRemedyDetailsServiceTask extends ServiceTask<RemedyBean> {
 
 	@SuppressWarnings("unused")
-	private static final String tag = GetRemedyDetailsServiceTask.class.getSimpleName();
+	private static final String tag = GetRemedyDetailsServiceTask.class
+			.getSimpleName();
 	private long remedyId;
 
 	public GetRemedyDetailsServiceTask(long remedyId) {
@@ -24,7 +28,8 @@ public class GetRemedyDetailsServiceTask extends ServiceTask<RemedyBean> {
 
 	@Override
 	public String getURL() {
-		return URLConstants.URL_RESOURCE_REMEDY + "?remedyID=" + String.valueOf(remedyId);
+		return URLConstants.URL_RESOURCE_REMEDY + "?remedyID="
+				+ String.valueOf(remedyId);
 	}
 
 	@Override
@@ -33,7 +38,21 @@ public class GetRemedyDetailsServiceTask extends ServiceTask<RemedyBean> {
 
 	@Override
 	public Response<RemedyBean> parseResponse(String response) {
-		return new Response<RemedyBean>(this, Response.ResponseStatus.OK);
+		RemedyBean output = null;
+		try {
+			JSONObject jsonResponse = new JSONObject(response);
+			output = JSONHelper.paseJSONRemedy(jsonResponse);
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+
+		if (output != null) {
+			return new Response<RemedyBean>(this, Response.ResponseStatus.OK,
+					output);
+		} else {
+			return new Response<RemedyBean>(this, Response.ResponseStatus.OK);
+
+		}
 	}
 
 	@Override

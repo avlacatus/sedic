@@ -3,23 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:padding="3dp" >
+    android:padding="5dp" >
 
     <TextView
-        android:id="@+id/ii_name"
+        android:id="@+id/ir_name"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
         android:gravity="left"
-        android:textSize="18dp" />
+        android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/ii_code"
+        android:id="@+id/ir_code"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="3"
         android:gravity="center"
-        android:textSize="18dp"
         android:textStyle="bold" />
 
 </LinearLayout>

@@ -31,7 +31,8 @@ public class JSONHelper {
 		return output;
 	}
 
-	public static PlantBean parseJSONPlant(JSONObject jsonPlant) throws NumberFormatException, JSONException {
+	public static PlantBean parseJSONPlant(JSONObject jsonPlant)
+			throws NumberFormatException, JSONException {
 		PlantBean output = new PlantBean();
 		if (jsonPlant.has("plant_id")) {
 			output.setPlantId(Long.parseLong(jsonPlant.getString("plant_id")));
@@ -47,7 +48,7 @@ public class JSONHelper {
 
 		return output;
 	}
-	
+
 	public static List<RemedyBean> parseCompactRemedyArray(String strOutput) {
 		List<RemedyBean> output = null;
 		try {
@@ -56,7 +57,8 @@ public class JSONHelper {
 
 			for (int i = 0; i < jsonRemedyArray.length(); i++) {
 				JSONObject jsonRemedy = jsonRemedyArray.getJSONObject(i);
-				RemedyBean newRemedy = JSONHelper.parseJSONCompactRemedy(jsonRemedy);
+				RemedyBean newRemedy = JSONHelper
+						.parseJSONCompactRemedy(jsonRemedy);
 				output.add(newRemedy);
 			}
 
@@ -66,15 +68,18 @@ public class JSONHelper {
 
 		return output;
 	}
-	
-	public static RemedyBean parseJSONCompactRemedy(JSONObject jsonCompactRemedy) throws NumberFormatException, JSONException {
+
+	public static RemedyBean parseJSONCompactRemedy(JSONObject jsonCompactRemedy)
+			throws NumberFormatException, JSONException {
 		RemedyBean output = new RemedyBean();
 		if (jsonCompactRemedy.has("remedy_id")) {
-			output.setRemedyId(Long.parseLong(jsonCompactRemedy.getString("remedy_id")));
+			output.setRemedyId(Long.parseLong(jsonCompactRemedy
+					.getString("remedy_id")));
 		}
-		
+
 		if (jsonCompactRemedy.has("remedy_plant_id")) {
-			output.setRemedyPlantId(Long.parseLong(jsonCompactRemedy.getString("remedy_plant_id")));
+			output.setRemedyPlantId(Long.parseLong(jsonCompactRemedy
+					.getString("remedy_plant_id")));
 		}
 
 		if (jsonCompactRemedy.has("remedy_name")) {
@@ -85,6 +90,59 @@ public class JSONHelper {
 			output.setRemedyURI(jsonCompactRemedy.getString("remedy_uri"));
 		}
 
+		return output;
+	}
+
+	public static RemedyBean paseJSONRemedy(JSONObject jsonRemedy)
+			throws NumberFormatException, JSONException {
+		RemedyBean output = parseJSONCompactRemedy(jsonRemedy);
+		if (jsonRemedy.has("adjuvant_usage")) {
+			Object obj = jsonRemedy.get("adjuvant_usage");
+			if (obj != null && obj instanceof JSONArray) {
+				output.setAdjuvantUsage(parseStringJSONArray((JSONArray) obj));
+			}
+		}
+
+		if (jsonRemedy.has("therapeutical_usage")) {
+			Object obj = jsonRemedy.get("therapeutical_usage");
+			if (obj != null && obj instanceof JSONArray) {
+				output.setTherapeuticalUsage(parseStringJSONArray((JSONArray) obj));
+			}
+		}
+
+		if (jsonRemedy.has("frequent_usage")) {
+			Object obj = jsonRemedy.get("frequent_usage");
+			if (obj != null && obj instanceof JSONArray) {
+				output.setFrequentUsage(parseStringJSONArray((JSONArray) obj));
+			}
+		}
+
+		if (jsonRemedy.has("reported_usage")) {
+			Object obj = jsonRemedy.get("reported_usage");
+			if (obj != null && obj instanceof JSONArray) {
+				output.setReportedUsage(parseStringJSONArray((JSONArray) obj));
+			}
+		}
+
+		return output;
+	}
+
+	private static List<String> parseStringJSONArray(JSONArray usagesArray) {
+		List<String> output = new ArrayList<String>();
+		for (int i = 0; i < usagesArray.length(); i++) {
+			Object child = null;
+			try {
+				child = usagesArray.get(i);
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if (child != null) {
+				if (child instanceof String) {
+					output.add((String) child);
+				}
+			}
+		}
 		return output;
 	}
 
