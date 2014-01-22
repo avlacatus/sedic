@@ -7,16 +7,12 @@ import org.apache.jena.atlas.json.JsonArray;
 import org.apache.jena.atlas.json.JsonObject;
 
 import ro.infoiasi.sedic.OntologyUtils;
+import ro.infoiasi.sedic.model.entity.RemedyPropertyEntity;
 import ro.infoiasi.sedic.model.entity.RemedyEntity;
-
 import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntResource;
-import com.hp.hpl.jena.query.ARQ;
-import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryExecution;
-import com.hp.hpl.jena.query.QueryExecutionFactory;
-import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.rdf.model.NodeIterator;
 import com.hp.hpl.jena.rdf.model.Property;
@@ -67,6 +63,12 @@ public class Remedy extends EntityHelper {
 					OntologyUtils.NS + "usesPlant");
 			Property hasPlantId = getOntModel().getProperty(
 					OntologyUtils.NS + "has_plant_id");
+			Property hasPlantPartUsage = getOntModel().getProperty(
+					OntologyUtils.NS + "hasPlantPartUsage");
+			Property hasAdjuvantId = getOntModel().getProperty(
+					OntologyUtils.NS + "has_adjuvant_id");
+			Property hasTherapeuticalId = getOntModel().getProperty(
+					OntologyUtils.NS + "has_disease_id");
 			RDFNode propertyValue = remedyResource
 					.getPropertyValue(hasRemedyId);
 			RDFNode usesPlantValue = remedyResource.getPropertyValue(usesPlant);
@@ -86,30 +88,78 @@ public class Remedy extends EntityHelper {
 					.listPropertyValues(hasAdjuvantUsage);
 			while (it.hasNext()) {
 				RDFNode property = it.next();
-				remedy.addAdjuvantUsage(property.toString()
+				//RDFNode hasAdjuvantValue = remedyResource.getPropertyValue(hasAdjuvantUsage);
+				Individual adjuvantResource = getOntModel().getResource(
+						property.toString()).as(Individual.class);
+				RDFNode hasAdjuvantIdValue = adjuvantResource
+						.getPropertyValue(hasAdjuvantId);
+				RemedyPropertyEntity adjuvant = new RemedyPropertyEntity();
+				adjuvant.setName(property.toString()
+						.substring(OntologyUtils.NS.length())
+						.replaceAll("_", " "));
+				adjuvant.setId(Long.valueOf(hasAdjuvantIdValue.toString()));
+				remedy.addAdjuvantUsage(adjuvant);
+			}
+			it = remedyResource.listPropertyValues(hasPlantPartUsage);
+			while (it.hasNext()) {
+				RDFNode property = it.next();
+				remedy.addPlantPartUsage(property.toString()
 						.substring(OntologyUtils.NS.length())
 						.replaceAll("_", " "));
 			}
 			it = remedyResource.listPropertyValues(hasTherapeuticalUsage);
 			while (it.hasNext()) {
 				RDFNode property = it.next();
-				remedy.addTherapeuticalUsage(property.toString()
+				Individual therapeuticalResource = getOntModel().getResource(
+						property.toString()).as(Individual.class);
+				RDFNode hasTherapeuticalIdValue = therapeuticalResource
+						.getPropertyValue(hasTherapeuticalId);
+				RemedyPropertyEntity therapeutic = new RemedyPropertyEntity();
+				therapeutic.setName(property.toString()
 						.substring(OntologyUtils.NS.length())
 						.replaceAll("_", " "));
+				therapeutic.setId(Long.valueOf(hasTherapeuticalIdValue.toString()));
+				remedy.addTherapeuticalUsage(therapeutic);
 			}
 			it = remedyResource.listPropertyValues(hasFrequentUsage);
 			while (it.hasNext()) {
 				RDFNode property = it.next();
-				remedy.addFrequentUsage(property.toString()
+				Individual frequentUsageResource = getOntModel().getResource(
+						property.toString()).as(Individual.class);
+				RDFNode hasFrequentIdValue;
+				if (frequentUsageResource.hasProperty(hasAdjuvantId))
+					 hasFrequentIdValue = frequentUsageResource
+					.getPropertyValue(hasAdjuvantId);
+				else
+					 hasFrequentIdValue = frequentUsageResource
+						.getPropertyValue(hasTherapeuticalId);
+				RemedyPropertyEntity frequentUsage = new RemedyPropertyEntity();
+				frequentUsage.setName(property.toString()
 						.substring(OntologyUtils.NS.length())
 						.replaceAll("_", " "));
+				if (hasFrequentIdValue != null)
+				frequentUsage.setId(Long.valueOf(hasFrequentIdValue.toString()));
+				remedy.addFrequentUsage(frequentUsage);
 			}
 			it = remedyResource.listPropertyValues(hasReportedUsage);
 			while (it.hasNext()) {
 				RDFNode property = it.next();
-				remedy.addReportedUsage(property.toString()
+				Individual frequentUsageResource = getOntModel().getResource(
+						property.toString()).as(Individual.class);
+				RDFNode hasFrequentIdValue;
+				if (frequentUsageResource.hasProperty(hasAdjuvantId))
+					 hasFrequentIdValue = frequentUsageResource
+					.getPropertyValue(hasAdjuvantId);
+				else
+					 hasFrequentIdValue = frequentUsageResource
+						.getPropertyValue(hasTherapeuticalId);
+				RemedyPropertyEntity frequentUsage = new RemedyPropertyEntity();
+				frequentUsage.setName(property.toString()
 						.substring(OntologyUtils.NS.length())
 						.replaceAll("_", " "));
+				if (hasFrequentIdValue != null)
+				frequentUsage.setId(Long.valueOf(hasFrequentIdValue.toString()));
+				remedy.addReportedUsage(frequentUsage);
 			}
 			qexec.close();
 			JsonObject remedyJson = remedy.toJSONString();

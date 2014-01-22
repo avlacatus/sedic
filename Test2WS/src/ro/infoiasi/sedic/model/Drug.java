@@ -139,7 +139,7 @@ public class Drug extends EntityHelper {
 		} else
 		 {
 			JsonObject jo = new JsonObject();
-			jo.put("Error", "Disease not found!");
+			jo.put("Error", "Drug not found!");
 			return jo;
 		}
 	}
