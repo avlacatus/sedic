@@ -45,7 +45,7 @@ public class DiseaseEntity {
 		for (ParentEntity p : parents) {
 			parentsArray.add(p.toJSONString());
 		}
-		outputObject.put("disease_parents", parentsArray);
+		outputObject.put("disease_children", parentsArray);
 		return outputObject;
 	}
 

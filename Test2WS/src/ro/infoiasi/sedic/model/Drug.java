@@ -92,17 +92,26 @@ public class Drug extends EntityHelper {
 	}
 
 	public JsonObject getDrug(String drugId) {
-		String sparqlQueryString = OntologyUtils.SPARQL_PREFIXES + "SELECT DISTINCT ?subject ?class ?id WHERE " + "{"
-				+ "?class rdfs:subClassOf* sedic:Chemicals_and_Drugs . " + "?subject a ?class . "
-				+ "?subject sedic:has_adjuvant_id ?value ." + "?class sedic:has_adjuvant_id ?id "
-				+ "FILTER (STR(?value)= '" + drugId + "')" + "} ";
+		StringBuffer selectSubClassesQuery = new StringBuffer(OntologyUtils.SPARQL_PREFIXES);
+		selectSubClassesQuery.append("SELECT DISTINCT ?class ?subclass (str(?id) as ?strId) where { ");
+		selectSubClassesQuery.append("{ ?class rdfs:subClassOf* sedic:Chemicals_and_Drugs .  ");
+		selectSubClassesQuery.append("?subclass rdfs:subClassOf ?class . ");
+		selectSubClassesQuery.append("?subclass sedic:has_adjuvant_id ?id .");
+		selectSubClassesQuery.append("?class  sedic:has_adjuvant_id ?idclass .");
+		selectSubClassesQuery.append("FILTER (STR(?idclass)= '" + drugId + "') }");
+		selectSubClassesQuery.append("UNION ");
+		selectSubClassesQuery.append("{?class rdfs:subClassOf* sedic:Chemicals_and_Drugs .  ");
+		selectSubClassesQuery.append("?subclass a ?class . ");
+		selectSubClassesQuery.append("?subclass sedic:has_adjuvant_id ?id .");
+		selectSubClassesQuery.append("?class  sedic:has_adjuvant_id ?idclass .");
+		selectSubClassesQuery.append("FILTER (STR(?idclass)= '" + drugId + "')" + "} }");
 		String response = "";
-		QueryExecution qexec = OntologyUtils.getSPARQLQuery(this, sparqlQueryString);
+		QueryExecution qexec = OntologyUtils.getSPARQLQuery(this, selectSubClassesQuery.toString());
 		com.hp.hpl.jena.query.ResultSet results = qexec.execSelect();
 		if (results.hasNext()) {
 			QuerySolution soln = results.nextSolution();
 
-			response = soln.get("subject").toString();
+			response = soln.get("class").toString();
 			Individual drugResource = getOntModel().getResource(response).as(Individual.class);
 			Property hasDrugId = getOntModel().getProperty(OntologyUtils.NS + "has_adjuvant_id");
 			RDFNode propertyValue = drugResource.getPropertyValue(hasDrugId);
@@ -111,21 +120,25 @@ public class Drug extends EntityHelper {
 			drug.setDrugURI(drugResource.getURI());
 			drug.setDrugName(drugName);
 			drug.setDrugId(Long.valueOf(propertyValue.toString()));
-			String parent = soln.get("class").toString();
+			String parent = soln.get("subclass").toString();
 			ArrayList<ParentEntity> parents = new ArrayList<ParentEntity>();
 			ParentEntity parentEntity = new ParentEntity();
-			String id = soln.get("id").toString();
+			String id = soln.get("strId").toString();
 			parentEntity.setParentURI(parent);
 			parentEntity.setParentId(Long.valueOf(id));
+			if (!parent.equals(drugResource.getURI())) {
 			parents.add(parentEntity);
+			}
 			while (results.hasNext()) {
 				soln = results.nextSolution();
-				parent = soln.get("class").toString();
+				parent = soln.get("subclass").toString();
 				parentEntity = new ParentEntity();
-				id = soln.get("id").toString();
+				id = soln.get("strId").toString();
 				parentEntity.setParentURI(parent);
 				parentEntity.setParentId(Long.valueOf(id));
+				if (!parent.equals(drugResource.getURI())) {
 				parents.add(parentEntity);
+				}
 			}
 			drug.setParents(parents);
 			qexec.close();
