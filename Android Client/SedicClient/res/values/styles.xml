@@ -4,4 +4,6 @@
 
     <style name="AppTheme.NoActionBar" parent="@android:style/Theme.Holo.Light.NoActionBar" />
 
+    <style name="treeViewListStyle" parent="@android:attr/listViewStyle"/>
+
 </resources>

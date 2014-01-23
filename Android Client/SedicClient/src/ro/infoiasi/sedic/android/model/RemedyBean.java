@@ -2,106 +2,103 @@ package ro.infoiasi.sedic.android.model;
 
 import java.util.List;
 
-public class RemedyBean {
-	private String remedyName;
-	private long remedyId;
-	private String remedyURI;
-	private long remedyPlantId;
-	private List<String> adjuvantUsage;
-	private List<String> frequentUsage;
-	private List<String> reportedUsage;
-	private List<String> therapeuticalUsage;
+public class RemedyBean implements Bean {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -5700600767634342420L;
+    private String remedyName;
+    private long remedyId;
+    private String remedyURI;
+    private long remedyPlantId;
+    private List<DrugBean> adjuvantUsage;
+    private List<DiseaseBean> therapeuticalUsage;
+    private List<Bean> frequentUsage;
+    private List<Bean> reportedUsage;
 
-	public RemedyBean() {
-	}
+    public RemedyBean() {
+    }
 
-	public RemedyBean(String remedyName, long remedyId, String remedyURI,
-			long remedyPlantId, List<String> adjuvantUsage,
-			List<String> frequentUsage, List<String> reportedUsage,
-			List<String> therapeuticalUsage) {
-		super();
-		this.remedyName = remedyName;
-		this.remedyId = remedyId;
-		this.remedyURI = remedyURI;
-		this.remedyPlantId = remedyPlantId;
-		this.adjuvantUsage = adjuvantUsage;
-		this.frequentUsage = frequentUsage;
-		this.reportedUsage = reportedUsage;
-		this.therapeuticalUsage = therapeuticalUsage;
-	}
+    @Override
+    public String toString() {
+        return "RemedyBean [remedyName=" + remedyName + ", remedyId=" + remedyId + ", remedyURI=" + remedyURI
+                + ", remedyPlantId=" + remedyPlantId + ", adjuvantUsage=" + adjuvantUsage + ", frequentUsage="
+                + frequentUsage + ", reportedUsage=" + reportedUsage + ", therapeuticalUsage=" + therapeuticalUsage
+                + "]";
+    }
 
-	@Override
-	public String toString() {
-		return "RemedyBean [remedyName=" + remedyName + ", remedyId="
-				+ remedyId + ", remedyURI=" + remedyURI + ", remedyPlantId="
-				+ remedyPlantId + ", adjuvantUsage=" + adjuvantUsage
-				+ ", frequentUsage=" + frequentUsage + ", reportedUsage="
-				+ reportedUsage + ", therapeuticalUsage=" + therapeuticalUsage
-				+ "]";
-	}
+    public String getRemedyName() {
+        return remedyName;
+    }
 
-	public List<String> getAdjuvantUsage() {
-		return adjuvantUsage;
-	}
+    public void setRemedyName(String remedyName) {
+        this.remedyName = remedyName;
+    }
 
-	public void setAdjuvantUsage(List<String> adjuvantUsage) {
-		this.adjuvantUsage = adjuvantUsage;
-	}
+    public long getRemedyId() {
+        return remedyId;
+    }
 
-	public List<String> getFrequentUsage() {
-		return frequentUsage;
-	}
+    public void setRemedyId(long remedyId) {
+        this.remedyId = remedyId;
+    }
 
-	public void setFrequentUsage(List<String> frequentUsage) {
-		this.frequentUsage = frequentUsage;
-	}
+    public String getRemedyURI() {
+        return remedyURI;
+    }
 
-	public List<String> getReportedUsage() {
-		return reportedUsage;
-	}
+    public void setRemedyURI(String remedyURI) {
+        this.remedyURI = remedyURI;
+    }
 
-	public void setReportedUsage(List<String> reportedUsage) {
-		this.reportedUsage = reportedUsage;
-	}
+    public long getRemedyPlantId() {
+        return remedyPlantId;
+    }
 
-	public List<String> getTherapeuticalUsage() {
-		return therapeuticalUsage;
-	}
+    public void setRemedyPlantId(long remedyPlantId) {
+        this.remedyPlantId = remedyPlantId;
+    }
 
-	public void setTherapeuticalUsage(List<String> therapeuticalUsage) {
-		this.therapeuticalUsage = therapeuticalUsage;
-	}
+    public List<DrugBean> getAdjuvantUsages() {
+        return adjuvantUsage;
+    }
 
-	public String getRemedyName() {
-		return remedyName;
-	}
+    public void setAdjuvantUsages(List<DrugBean> adjuvantUsage) {
+        this.adjuvantUsage = adjuvantUsage;
+    }
 
-	public void setRemedyName(String remedyName) {
-		this.remedyName = remedyName;
-	}
+    public List<DiseaseBean> getTherapeuticalUsages() {
+        return therapeuticalUsage;
+    }
 
-	public long getRemedyId() {
-		return remedyId;
-	}
+    public void setTherapeuticalUsages(List<DiseaseBean> therapeuticalUsage) {
+        this.therapeuticalUsage = therapeuticalUsage;
+    }
 
-	public void setRemedyId(long remedyId) {
-		this.remedyId = remedyId;
-	}
+    public List<Bean> getFrequentUsages() {
+        return frequentUsage;
+    }
 
-	public String getRemedyURI() {
-		return remedyURI;
-	}
+    public void setFrequentUsages(List<Bean> frequentUsage) {
+        this.frequentUsage = frequentUsage;
+    }
 
-	public void setRemedyURI(String remedyURI) {
-		this.remedyURI = remedyURI;
-	}
+    public List<Bean> getReportedUsages() {
+        return reportedUsage;
+    }
 
-	public long getRemedyPlantId() {
-		return remedyPlantId;
-	}
+    public void setReportedUsages(List<Bean> reportedUsage) {
+        this.reportedUsage = reportedUsage;
+    }
 
-	public void setRemedyPlantId(long remedyPlantId) {
-		this.remedyPlantId = remedyPlantId;
-	}
+    @Override
+    public long getBeanID() {
+        return remedyId;
+    }
+
+    @Override
+    public String getBeanName() {
+        return remedyName;
+    }
 
 }

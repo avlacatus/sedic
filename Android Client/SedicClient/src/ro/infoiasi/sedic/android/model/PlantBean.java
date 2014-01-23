@@ -4,63 +4,73 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class PlantBean {
-	private String plantName;
-	private long plantId;
-	private String plantURI;
+    private String plantName;
+    private long plantId;
+    private String plantURI;
+    private String plantDescription;
 
-	public PlantBean() {
-	}
+    public PlantBean() {
+    }
 
-	public PlantBean(String plantName, long plantId, String plantURI) {
-		super();
-		this.plantName = plantName;
-		this.plantId = plantId;
-		this.plantURI = plantURI;
-	}
+    public PlantBean(String plantName, long plantId, String plantURI, String plantDescription) {
+        super();
+        this.plantName = plantName;
+        this.plantId = plantId;
+        this.plantURI = plantURI;
+        this.setPlantDescription(plantDescription);
+    }
 
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("PlantEntity [plantName=");
-		builder.append(plantName);
-		builder.append(", plantId=");
-		builder.append(plantId);
-		builder.append(", plantResource=");
-		builder.append(plantURI);
-		builder.append("]");
-		return builder.toString();
-	}
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("PlantEntity [plantName=");
+        builder.append(plantName);
+        builder.append(", plantId=");
+        builder.append(plantId);
+        builder.append(", plantResource=");
+        builder.append(plantURI);
+        builder.append("]");
+        return builder.toString();
+    }
 
-	public JSONObject toJSONString() throws JSONException {
-		JSONObject outputObject = new JSONObject();
-		outputObject.put("plant_name", plantName);
-		outputObject.put("plant_id", plantId);
-		outputObject.put("plant_uri", plantURI);
-		return outputObject;
-	}
+    public JSONObject toJSONString() throws JSONException {
+        JSONObject outputObject = new JSONObject();
+        outputObject.put("plant_name", plantName);
+        outputObject.put("plant_id", plantId);
+        outputObject.put("plant_uri", plantURI);
+        return outputObject;
+    }
 
-	public String getPlantName() {
-		return plantName;
-	}
+    public String getPlantName() {
+        return plantName;
+    }
 
-	public void setPlantName(String plantName) {
-		this.plantName = plantName;
-	}
+    public void setPlantName(String plantName) {
+        this.plantName = plantName;
+    }
 
-	public long getPlantId() {
-		return plantId;
-	}
+    public long getPlantId() {
+        return plantId;
+    }
 
-	public void setPlantId(long plantId) {
-		this.plantId = plantId;
-	}
+    public void setPlantId(long plantId) {
+        this.plantId = plantId;
+    }
 
-	public String getPlantURI() {
-		return plantURI;
-	}
+    public String getPlantURI() {
+        return plantURI;
+    }
 
-	public void setPlantURI(String plantURI) {
-		this.plantURI = plantURI;
-	}
+    public void setPlantURI(String plantURI) {
+        this.plantURI = plantURI;
+    }
+
+    public String getPlantDescription() {
+        return plantDescription;
+    }
+
+    public void setPlantDescription(String plantDescription) {
+        this.plantDescription = plantDescription;
+    }
 
 }

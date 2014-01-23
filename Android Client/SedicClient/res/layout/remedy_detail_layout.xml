@@ -1,26 +1,31 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center" >
+    android:layout_height="match_parent" >
 
-    <TextView
-        android:id="@+id/rd_description"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/black" />
+        android:gravity="center" >
 
-    <TextView
-        android:id="@+id/rd_frequent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/rd_description"
-        android:textColor="@android:color/black" />
+        <TextView
+            android:id="@+id/rd_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black" />
 
-    <TextView
-        android:id="@+id/rd_reported"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/rd_frequent"
-        android:textColor="@android:color/black" />
+        <TextView
+            android:id="@+id/rd_frequent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rd_description"
+            android:textColor="@android:color/black" />
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/rd_reported"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rd_frequent"
+            android:textColor="@android:color/black" />
+    </RelativeLayout>
+
+</ScrollView>

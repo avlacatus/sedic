@@ -41,6 +41,10 @@ public abstract class ServiceTask<E> extends AsyncTask<Void, Void, Response<E>> 
 
 	public abstract ResponseEvent getEvent(Response<E> response);
 
+	protected boolean logEnabled() {
+		return false;
+	}
+
 	protected Response<E> doInBackground(Void... params) {
 		HttpRequestBase request = buildHttpRequest();
 		prepareRequest(request);
@@ -70,7 +74,9 @@ public abstract class ServiceTask<E> extends AsyncTask<Void, Void, Response<E>> 
 		try {
 			instream = entity.getContent();
 			strOutput = new Scanner(instream, "UTF-8").useDelimiter("\\A").next();
-			Log.d(tag, request.getURI() + " " + strOutput);
+			if (logEnabled()) {
+				Log.d(tag, request.getURI() + " " + strOutput);
+			}
 
 			instream.close();
 		} catch (IllegalStateException e) {

@@ -4,6 +4,7 @@ import org.apache.http.client.methods.HttpRequestBase;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import ro.infoiasi.sedic.android.SedicApplication;
 import ro.infoiasi.sedic.android.communication.event.GetRemedyDetailsEvent;
 import ro.infoiasi.sedic.android.communication.event.ResponseEvent;
 import ro.infoiasi.sedic.android.model.RemedyBean;
@@ -47,6 +48,7 @@ public class GetRemedyDetailsServiceTask extends ServiceTask<RemedyBean> {
 		}
 
 		if (output != null) {
+		    SedicApplication.getInstance().getRemedies().put(output.getRemedyId(), output);
 			return new Response<RemedyBean>(this, Response.ResponseStatus.OK,
 					output);
 		} else {

@@ -11,7 +11,7 @@ public class URLConstants {
 
 	public static final String URL_RESOURCE_PLANT = BASE_URL + "/resource/plant";
 	public static final String URL_RESOURCE_REMEDY = BASE_URL + "/resource/remedy";
-	public static final String INDICATORS_CONTROLLER = BASE_URL + "/resource" + "/indicators";
-	public static final String MAPPING_CONTROLLER = BASE_URL + "/resource" + "/mapping";
+	public static final String URL_RESOURCE_DRUG = BASE_URL + "/resource/drug";
+	public static final String URL_RESOURCE_DISEASE = BASE_URL + "/resource/disease";
 
 }

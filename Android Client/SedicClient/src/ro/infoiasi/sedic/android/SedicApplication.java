@@ -1,6 +1,6 @@
 package ro.infoiasi.sedic.android;
 
-import java.util.List;
+import java.util.Map;
 
 import ro.infoiasi.sedic.android.model.DiseaseBean;
 import ro.infoiasi.sedic.android.model.DrugBean;
@@ -10,52 +10,51 @@ import android.app.Application;
 
 public class SedicApplication extends Application {
 
-	private static SedicApplication sInstance = null;
-	private List<PlantBean> plants;
-	private List<RemedyBean> remedies;
-	private List<DrugBean> drugs;
-	private List<DiseaseBean> diseases;
+    private static SedicApplication sInstance = null;
+    private Map<Long, PlantBean> plants;
+    private Map<Long, RemedyBean> remedies;
+    private Map<Long, DrugBean> drugs;
+    private Map<Long, DiseaseBean> diseases;
 
-	@Override
-	public void onCreate() {
-		super.onCreate();
-		sInstance = this;
-	}
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        sInstance = this;
+    }
 
-	public static SedicApplication getInstance() {
-		return sInstance;
-	}
+    public static SedicApplication getInstance() {
+        return sInstance;
+    }
 
-	public List<RemedyBean> getRemedies() {
-		return remedies;
-	}
+    public Map<Long, DrugBean> getDrugs() {
+        return drugs;
+    }
 
-	public void setRemedies(List<RemedyBean> remedies) {
-		this.remedies = remedies;
-	}
+    public void setDrugs(Map<Long, DrugBean> drugs) {
+        this.drugs = drugs;
+    }
 
-	public List<DrugBean> getDrugs() {
-		return drugs;
-	}
+    public Map<Long, PlantBean> getPlantList() {
+        return plants;
+    }
 
-	public void setDrugs(List<DrugBean> drugs) {
-		this.drugs = drugs;
-	}
+    public void setPlants(Map<Long, PlantBean> plants) {
+        this.plants = plants;
+    }
 
-	public List<DiseaseBean> getDiseases() {
-		return diseases;
-	}
+    public Map<Long, DiseaseBean> getDiseases() {
+        return diseases;
+    }
 
-	public void setDiseases(List<DiseaseBean> diseases) {
-		this.diseases = diseases;
-	}
+    public void setDiseases(Map<Long, DiseaseBean> diseases) {
+        this.diseases = diseases;
+    }
 
-	public List<PlantBean> getPlants() {
-		return plants;
-	}
+    public Map<Long, RemedyBean> getRemedies() {
+        return remedies;
+    }
 
-	public void setPlants(List<PlantBean> plants) {
-		this.plants = plants;
-	}
-
+    public void setRemedies(Map<Long, RemedyBean> remedies) {
+        this.remedies = remedies;
+    }
 }

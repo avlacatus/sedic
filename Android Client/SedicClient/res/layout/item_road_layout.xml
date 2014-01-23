@@ -34,7 +34,6 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentLeft="true"
                 android:gravity="center_vertical"
-                android:text="@string/region"
                 android:textColor="@android:color/darker_gray"
                 android:textStyle="bold" />
 
@@ -57,7 +56,6 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentLeft="true"
                 android:gravity="bottom"
-                android:text="@string/road_type"
                 android:textColor="@android:color/darker_gray"
                 android:textStyle="bold" />
 
@@ -94,7 +92,6 @@
             android:layout_height="match_parent"
             android:layout_alignBaseline="@id/ir_length"
             android:layout_alignParentRight="true"
-            android:text="@string/km"
             android:textColor="@android:color/darker_gray" />
     </RelativeLayout>
 

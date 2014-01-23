@@ -1,6 +1,6 @@
 package ro.infoiasi.sedic.android.activity;
 
-import java.util.List;
+import java.util.Map;
 
 import ro.infoiasi.sedic.android.R;
 import ro.infoiasi.sedic.android.SedicApplication;
@@ -39,11 +39,9 @@ public class RemedyDetailActivity extends Activity {
 
 	private void setupData() {
 		if (mRemedyId != -1) {
-			List<RemedyBean> remedies = SedicApplication.getInstance().getRemedies();
-			for (RemedyBean bean : remedies) {
-				if (bean.getRemedyId() == mRemedyId) {
-					mRemedyBean = bean;
-				}
+			Map<Long, RemedyBean> remedies = SedicApplication.getInstance().getRemedies();
+			if (remedies != null) {
+			    mRemedyBean = remedies.get(Long.valueOf(mRemedyId));
 			}
 		} else {
 			Toast.makeText(this, "remedy could not be found", Toast.LENGTH_LONG).show();
@@ -58,16 +56,16 @@ public class RemedyDetailActivity extends Activity {
 		TextView mRemedyReported = (TextView) findViewById(R.id.rd_reported);
 		if (mRemedyBean != null) {
 			mRemedyDescription.setText(mRemedyBean.getRemedyName() + mRemedyBean.getRemedyURI());
-			if (mRemedyBean.getFrequentUsage() != null) {
-				mRemedyFrequent.setText(mRemedyBean.getFrequentUsage().toString());
+			if (mRemedyBean.getAdjuvantUsages() != null) {
+				mRemedyFrequent.setText(mRemedyBean.getAdjuvantUsages().toString());
 			} else {
-				mRemedyFrequent.setText("empty frequent");
+				mRemedyFrequent.setText("empty adjuvants");
 
 			}
-			if (mRemedyBean.getReportedUsage() != null) {
-				mRemedyReported.setText(mRemedyBean.getReportedUsage().toString());
+			if (mRemedyBean.getTherapeuticalUsages() != null) {
+				mRemedyReported.setText(mRemedyBean.getTherapeuticalUsages().toString());
 			} else {
-				mRemedyReported.setText("empty reported");
+				mRemedyReported.setText("empty therapeutical");
 
 			}
 		}

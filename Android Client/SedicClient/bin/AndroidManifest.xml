@@ -31,7 +31,7 @@
         </activity>
         <activity
             android:name="ro.infoiasi.sedic.android.activity.RemedyListActivity"
-            android:label="Remedy list" >
+            android:label="Remedies" >
         </activity>
         <activity android:name="ro.infoiasi.sedic.android.activity.RemedyDetailActivity" >
         </activity>
@@ -42,6 +42,11 @@
         <activity
             android:name="ro.infoiasi.sedic.android.activity.DrugsListActivity"
             android:label="Adjuvants" >
+        </activity>
+        
+        <activity
+            android:label="Tree List View Demo"
+            android:name="ro.infoiasi.sedic.android.activity.TreeViewActivity" >
         </activity>
     </application>
 
