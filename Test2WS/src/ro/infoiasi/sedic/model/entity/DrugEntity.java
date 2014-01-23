@@ -43,11 +43,10 @@ public class DrugEntity {
 		outputObject.put("drug_id", drugId);
 		outputObject.put("drug_uri", drugURI);
 		JsonArray parentsArray = new JsonArray();
-		String parentsString = "";
 		for (ParentEntity p : parents) {
 			parentsArray.add(p.toJSONString());
 		}
-		outputObject.put("drug_parents", parentsArray);
+		outputObject.put("drug_children", parentsArray);
 		return outputObject;
 	}
 

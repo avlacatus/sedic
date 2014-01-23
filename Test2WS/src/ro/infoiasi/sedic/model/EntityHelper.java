@@ -28,7 +28,7 @@ public class EntityHelper {
 		}
 
 		model.read(in, null);
-		OntModel om = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_TRANS_INF, model);
+		OntModel om = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM, model);
 		return om;
 	}
 
