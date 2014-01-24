@@ -58,10 +58,12 @@ public class RemedyWS {
 		JsonObject jsonPayload = JSON.parse(payload);
 		ArrayList<String> adjuvantEffects = new ArrayList<String>();
 		ArrayList<String> therapeuticalEffects = new ArrayList<String>();
+		boolean emptyAdjuvants = true;
 		if (jsonPayload.hasKey("adjuvant_effect")) {
 			JsonValue adjuvant = jsonPayload.get("adjuvant_effect");
 			JsonArray array = adjuvant.getAsArray();
-			// System.out.println(array);
+			if (array.size() > 0)
+				emptyAdjuvants = false;
 			for (int i = 0; i < array.size(); i++) {
 				JsonObject obj = (JsonObject) array.get(i);
 				long id = Long.parseLong(obj.get("id").toString());
@@ -74,14 +76,21 @@ public class RemedyWS {
 		if (jsonPayload.hasKey("therapeutical_effect")) {
 			JsonValue therapeutical = jsonPayload.get("therapeutical_effect");
 			JsonArray array = therapeutical.getAsArray();
+			if (array.size() > 0)
+				emptyAdjuvants = false;
 			for (int i = 0; i < array.size(); i++) {
-				// System.out.println(array.get(i).toString());
 				JsonObject obj = (JsonObject) array.get(i);
 				long id = Long.parseLong(obj.get("id").toString());
 				String uri = obj.get("uri").toString();
 				String thUri = "<" + uri.replace('"', '>').substring(1);
 				therapeuticalEffects.add(thUri);
 			}
+		}
+		if (emptyAdjuvants)
+		{
+			JsonObject output = new JsonObject();
+			output.put("Error", "Adjuvants & Therapeutical effects  empty");
+			return output.toString();
 		}
 		JsonArray response = getQueryResult(adjuvantEffects, therapeuticalEffects);
 		JsonObject output = new JsonObject();

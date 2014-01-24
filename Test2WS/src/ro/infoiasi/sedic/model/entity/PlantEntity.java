@@ -1,21 +1,24 @@
 package ro.infoiasi.sedic.model.entity;
 
 
+import org.apache.jena.atlas.json.JSON;
 import org.apache.jena.atlas.json.JsonObject;
 
 public class PlantEntity {
     private String plantName;
     private long plantId;
-    private String plantURI;
+    private String plantURI; 
+    private String plantDescription;
 
     public PlantEntity() {
     }
 
-    public PlantEntity(String plantName, long plantId, String plantURI) {
+    public PlantEntity(String plantName, long plantId, String plantURI , String plantDescription) {
         super();
         this.plantName = plantName;
         this.plantId = plantId;
         this.plantURI = plantURI;
+        this.plantDescription = plantDescription;
     }
 
     @Override
@@ -27,6 +30,8 @@ public class PlantEntity {
         builder.append(plantId);
         builder.append(", plantResource=");
         builder.append(plantURI);
+        builder.append(", plantDescription=");
+        builder.append(plantDescription);
         builder.append("]");
         return builder.toString();
     }
@@ -36,6 +41,8 @@ public class PlantEntity {
         outputObject.put("plant_name", plantName);
         outputObject.put("plant_id", plantId);
         outputObject.put("plant_uri", plantURI);
+        outputObject.put("plant_description", plantDescription);
+        
         return outputObject;
     }
 
@@ -61,6 +68,13 @@ public class PlantEntity {
 
     public void setPlantURI(String plantURI) {
         this.plantURI = plantURI;
+    }
+    public String getPlantDescription() {
+        return plantDescription;
+    }
+
+    public void setPlantDescription(String plantDescription) {
+        this.plantDescription = plantDescription;
     }
 
 }
