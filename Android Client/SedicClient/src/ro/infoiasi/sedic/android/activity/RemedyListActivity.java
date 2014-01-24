@@ -2,6 +2,7 @@ package ro.infoiasi.sedic.android.activity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import ro.infoiasi.sedic.android.R;
 import ro.infoiasi.sedic.android.SedicApplication;
@@ -10,9 +11,9 @@ import ro.infoiasi.sedic.android.communication.event.GetRemedyDetailsEvent;
 import ro.infoiasi.sedic.android.communication.task.GetRemedyDetailsServiceTask;
 import ro.infoiasi.sedic.android.communication.task.Response.ResponseStatus;
 import ro.infoiasi.sedic.android.model.RemedyBean;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -20,75 +21,101 @@ import android.widget.ListView;
 import android.widget.Toast;
 import de.greenrobot.event.EventBus;
 
-public class RemedyListActivity extends Activity implements AdapterView.OnItemClickListener {
-    @SuppressWarnings("unused")
-    private static final String tag = RemedyListActivity.class.getSimpleName();
-    private ListView mListView;
-    private List<RemedyBean> mRemedyList;
-    private RemedyListAdapter mRemedyListAdapter;
+public class RemedyListActivity extends ActionBarActivity implements AdapterView.OnItemClickListener {
+	@SuppressWarnings("unused")
+	private static final String tag = RemedyListActivity.class.getSimpleName();
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-        setContentView(R.layout.list_activity_layout);
-        setupData();
-        findViews();
-        EventBus.getDefault().register(this, GetRemedyDetailsEvent.class);
-    }
+	public static final String INTENT_EXTRA_REMEDY_IDS = "intent_extra_remedy_ids";
+	public static final String INTENT_EXTRA_ACTIVITY_TITLE = "intent_extra_activity_title";
 
-    private void setupData() {
-        mRemedyList = new ArrayList<RemedyBean>(SedicApplication.getInstance().getRemedies().values());
-    }
+	private ListView mListView;
+	private List<RemedyBean> mRemedyList;
+	private RemedyListAdapter mRemedyListAdapter;
 
-    private void findViews() {
-        mListView = (ListView) findViewById(android.R.id.list);
-        mListView.setEmptyView(findViewById(android.R.id.empty));
-        if (mRemedyList != null) {
-            mRemedyListAdapter = new RemedyListAdapter(this, 0, mRemedyList);
-            mListView.setAdapter(mRemedyListAdapter);
-        }
-        mListView.setOnItemClickListener(this);
-    }
+	private long[] remedyIdArray;
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        EventBus.getDefault().unregister(this, GetRemedyDetailsEvent.class);
-    }
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		setContentView(R.layout.list_activity_layout);
+		if (getIntent().hasExtra(INTENT_EXTRA_REMEDY_IDS)) {
+			remedyIdArray = getIntent().getLongArrayExtra(INTENT_EXTRA_REMEDY_IDS);
+		} else {
+			remedyIdArray = null;
+		}
 
-    public void onEventMainThread(GetRemedyDetailsEvent e) {
-        if (e.getResponse().getStatus() == ResponseStatus.OK) {
-            RemedyBean bean = (RemedyBean) e.getResponse().getData();
-            Intent intent = new Intent(this, RemedyDetailActivity.class);
-            intent.putExtra(RemedyDetailActivity.INTENT_EXTRA_REMEDY_ID, bean.getRemedyId());
-            startActivity(intent);
-        } else {
-            Toast.makeText(this, "could not retrieve remedy info", Toast.LENGTH_LONG).show();
+		if (getIntent().hasExtra(INTENT_EXTRA_ACTIVITY_TITLE)) {
+			getSupportActionBar().setTitle(getIntent().getStringExtra(INTENT_EXTRA_ACTIVITY_TITLE));
+		}
+		setupData();
+		findViews();
+		EventBus.getDefault().register(this, GetRemedyDetailsEvent.class);
+	}
 
-        }
-    }
+	private void setupData() {
+		Map<Long, RemedyBean> remedyMap = SedicApplication.getInstance().getRemedies();
+		if (remedyIdArray == null) {
+			mRemedyList = new ArrayList<RemedyBean>(remedyMap.values());
+		} else {
+			mRemedyList = new ArrayList<RemedyBean>();
+			for (long id : remedyIdArray) {
+				RemedyBean remedy = remedyMap.get(id);
+				if (remedy != null) {
+					mRemedyList.add(remedy);
+				}
+			}
+		}
+	}
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        RemedyBean selectedBean = mRemedyListAdapter.getItem(position);
-        if (selectedBean != null) {
-            new GetRemedyDetailsServiceTask(selectedBean.getRemedyId()).execute();
-        } else {
-            Toast.makeText(this, "could not open remedy", Toast.LENGTH_SHORT).show();
-        }
-    }
+	private void findViews() {
+		mListView = (ListView) findViewById(android.R.id.list);
+		mListView.setEmptyView(findViewById(android.R.id.empty));
+		if (mRemedyList != null) {
+			mRemedyListAdapter = new RemedyListAdapter(this, 0, mRemedyList);
+			mListView.setAdapter(mRemedyListAdapter);
+		}
+		mListView.setOnItemClickListener(this);
+	}
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-        case android.R.id.home:
-            finish();
-            break;
-        default:
-            break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		EventBus.getDefault().unregister(this, GetRemedyDetailsEvent.class);
+	}
+
+	public void onEventMainThread(GetRemedyDetailsEvent e) {
+		if (e.getResponse().getStatus() == ResponseStatus.OK) {
+			RemedyBean bean = (RemedyBean) e.getResponse().getData();
+			Intent intent = new Intent(this, RemedyDetailActivity.class);
+			intent.putExtra(RemedyDetailActivity.INTENT_EXTRA_REMEDY_ID, bean.getRemedyId());
+			startActivity(intent);
+		} else {
+			Toast.makeText(this, "could not retrieve remedy info", Toast.LENGTH_LONG).show();
+
+		}
+	}
+
+	@Override
+	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+		RemedyBean selectedBean = mRemedyListAdapter.getItem(position);
+		if (selectedBean != null) {
+			new GetRemedyDetailsServiceTask(selectedBean.getRemedyId()).execute();
+		} else {
+			Toast.makeText(this, "could not open remedy", Toast.LENGTH_SHORT).show();
+		}
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			finish();
+			break;
+		default:
+			break;
+		}
+		return super.onOptionsItemSelected(item);
+	}
 
 }

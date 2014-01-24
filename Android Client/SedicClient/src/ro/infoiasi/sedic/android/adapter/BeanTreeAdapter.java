@@ -20,20 +20,20 @@ import android.widget.TextView;
  * This is a very simple adapter that provides very basic tree view with a checkboxes and simple item description.
  * 
  */
-public class BeanTreeAdapter extends AbstractTreeViewAdapter<Bean> {
+public class BeanTreeAdapter<E extends Bean> extends AbstractTreeViewAdapter<E> {
 
-    private final Set<Bean> selected;
+    private final Set<E> selected;
 
     private final OnCheckedChangeListener onCheckedChange = new OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(final CompoundButton buttonView, final boolean isChecked) {
-            final Bean id = (Bean) buttonView.getTag();
+            final E id = (E) buttonView.getTag();
             changeSelected(isChecked, id);
         }
 
     };
 
-    private void changeSelected(final boolean isChecked, final Bean id) {
+    private void changeSelected(final boolean isChecked, final E id) {
         if (isChecked) {
             selected.add(id);
         } else {
@@ -41,21 +41,21 @@ public class BeanTreeAdapter extends AbstractTreeViewAdapter<Bean> {
         }
     }
 
-    public BeanTreeAdapter(Activity treeViewListDemo, final Set<Bean> selected,
-            final TreeStateManager<Bean> treeStateManager, final int numberOfLevels) {
+    public BeanTreeAdapter(Activity treeViewListDemo, final Set<E> selected,
+            final TreeStateManager<E> treeStateManager, final int numberOfLevels) {
         super(treeViewListDemo, treeStateManager, numberOfLevels);
         this.selected = selected;
     }
 
     @Override
-    public View getNewChildView(final TreeNodeInfo<Bean> treeNodeInfo) {
+    public View getNewChildView(final TreeNodeInfo<E> treeNodeInfo) {
         final LinearLayout viewLayout = (LinearLayout) getActivity().getLayoutInflater().inflate(
                 R.layout.demo_list_item, null);
         return updateView(viewLayout, treeNodeInfo);
     }
 
     @Override
-    public LinearLayout updateView(final View view, final TreeNodeInfo<Bean> treeNodeInfo) {
+    public LinearLayout updateView(final View view, final TreeNodeInfo<E> treeNodeInfo) {
         final LinearLayout viewLayout = (LinearLayout) view;
         final TextView descriptionView = (TextView) viewLayout.findViewById(R.id.demo_list_item_description);
         descriptionView.setText(treeNodeInfo.getId().getBeanName());
@@ -68,8 +68,8 @@ public class BeanTreeAdapter extends AbstractTreeViewAdapter<Bean> {
 
     @Override
     public void handleItemClick(final View view, final Object id) {
-        final Bean longId = (Bean) id;
-        final TreeNodeInfo<Bean> info = getManager().getNodeInfo(longId);
+        final E longId = (E) id;
+        final TreeNodeInfo<E> info = getManager().getNodeInfo(longId);
         if (info.isWithChildren()) {
             super.handleItemClick(view, id);
         } else {

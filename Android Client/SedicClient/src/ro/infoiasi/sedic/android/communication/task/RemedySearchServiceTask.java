@@ -18,7 +18,6 @@ import ro.infoiasi.sedic.android.model.DrugBean;
 import ro.infoiasi.sedic.android.model.RemedyBean;
 import ro.infoiasi.sedic.android.util.JSONHelper;
 import ro.infoiasi.sedic.android.util.URLConstants;
-import android.util.Log;
 
 public class RemedySearchServiceTask extends ServiceTask<RemedyBean> {
 
@@ -60,7 +59,6 @@ public class RemedySearchServiceTask extends ServiceTask<RemedyBean> {
         try {
             JSONObject jsonResponse = new JSONObject(response);
             outputList = JSONHelper.parseCompactRemedyArray(jsonResponse.getJSONArray("remedies").toString());
-            Log.e("debug", outputList.values().toString());
         } catch (JSONException e) {
 
         }
@@ -99,6 +97,7 @@ public class RemedySearchServiceTask extends ServiceTask<RemedyBean> {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+                adjuvantsArray.put(drugJSON);
             }
         }
 
@@ -116,6 +115,7 @@ public class RemedySearchServiceTask extends ServiceTask<RemedyBean> {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+                therapeuticsArray.put(diseaseJSON);
             }
         }
 

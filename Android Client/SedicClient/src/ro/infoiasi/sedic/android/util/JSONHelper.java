@@ -210,7 +210,7 @@ public class JSONHelper {
             }
 
         } catch (JSONException e) {
-            e.printStackTrace();
+        	Log.e("debug", "error in parsing disease array", e);
         }
 
         return output;

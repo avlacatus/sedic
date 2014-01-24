@@ -1,34 +1,46 @@
 package ro.infoiasi.sedic.android.adapter;
 
-import java.util.List;
-
+import pl.polidea.treeview.AbstractTreeViewAdapter;
+import pl.polidea.treeview.TreeNodeInfo;
+import pl.polidea.treeview.TreeStateManager;
 import ro.infoiasi.sedic.android.R;
 import ro.infoiasi.sedic.android.model.DiseaseBean;
-import android.content.Context;
+import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-public class DiseaseListAdapter extends ArrayAdapter<DiseaseBean> {
+public class DiseaseListAdapter extends AbstractTreeViewAdapter<DiseaseBean> {
+
 	private LayoutInflater mInflater;
 
-	public DiseaseListAdapter(Context context, int textViewResourceId, List<DiseaseBean> objects) {
-		super(context, textViewResourceId, objects);
-		mInflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-	}
+    public DiseaseListAdapter(Activity activity, TreeStateManager<DiseaseBean> treeStateManager, int numberOfLevels) {
+        super(activity, treeStateManager, numberOfLevels);
+        mInflater = activity.getLayoutInflater();
+    }
 
-	@Override
-	public View getView(int position, View convertView, ViewGroup parent) {
-		if (convertView == null) {
-			convertView = mInflater.inflate(R.layout.item_remedy_layout, null);
-		}
-		DiseaseBean bean = getItem(position);
-		if (bean != null) {
-			TextView label = (TextView) convertView.findViewById(R.id.ir_name);
-			label.setText(bean.getDiseaseName());
-		}
-		return convertView;
-	}
+    @Override
+    public long getItemId(int position) {
+        return getTreeId(position).getBeanID();
+    }
+
+    @Override
+    public View getNewChildView(TreeNodeInfo<DiseaseBean> treeNodeInfo) {
+        View output = mInflater.inflate(R.layout.item_drug_disease_layout, null);
+        DrugItemHolder tag = new DrugItemHolder();
+        tag.name = (TextView) output.findViewById(R.id.idd_name);
+        output.setTag(tag);
+        return updateView(output, treeNodeInfo);
+    }
+
+    @Override
+    public View updateView(View view, TreeNodeInfo<DiseaseBean> treeNodeInfo) {
+        DrugItemHolder tag = (DrugItemHolder) view.getTag();
+        tag.name.setText(treeNodeInfo.getId().getBeanName());
+        return view;
+    }
+
+    private class DrugItemHolder {
+        TextView name;
+    }
 }
