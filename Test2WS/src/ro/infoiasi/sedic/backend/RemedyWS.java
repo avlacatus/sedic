@@ -49,6 +49,12 @@ public class RemedyWS {
 	@Produces(MediaType.APPLICATION_JSON)
 	public String performRemedySearch(String payload) {
 		OntologyUtils.initSedicPath(context);
+		if (payload == null || payload.isEmpty())
+		{
+			JsonObject output = new JsonObject();
+			output.put("Error", "Payload empty");
+			return output.toString();
+		}
 		JsonObject jsonPayload = JSON.parse(payload);
 		ArrayList<String> adjuvantEffects = new ArrayList<String>();
 		JsonValue adjuvant = jsonPayload.get("adjuvant_effect");
