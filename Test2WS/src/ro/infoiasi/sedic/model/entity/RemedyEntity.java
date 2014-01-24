@@ -69,25 +69,25 @@ public class RemedyEntity {
 		}
 		JsonArray adjuvantArray = new JsonArray();
 		for (RemedyPropertyEntity s : adjuvantUsage) {
-			adjuvantArray.add(s.toJSONString("A"));
+			adjuvantArray.add(s.toJSONString());
 		}
 		JsonArray therapeuticalArray = new JsonArray();
 		for (RemedyPropertyEntity s : therapeuticalUsage) {
-			therapeuticalArray.add(s.toJSONString("T"));
+			therapeuticalArray.add(s.toJSONString());
 		}
 		JsonArray frequentArray = new JsonArray();
 		for (RemedyPropertyEntity s : frequentUsage) {
-			frequentArray.add(s.toJSONString("F"));
+			frequentArray.add(s.toJSONString());
 		}
 		JsonArray reportedArray = new JsonArray();
 		for (RemedyPropertyEntity s : reportedUsage) {
-			reportedArray.add(s.toJSONString("R"));
+			reportedArray.add(s.toJSONString());
 		}
 		outputObject.put("part_plant_usage", partPlantArray);
-		outputObject.put("adjuvant_usage", adjuvantArray);
-		outputObject.put("therapeutical_usage", therapeuticalArray);
-		outputObject.put("frequent_usage", frequentArray);
-		outputObject.put("reported_usage", reportedArray);
+		outputObject.put("adjuvant_usages", adjuvantArray);
+		outputObject.put("therapeutical_usages", therapeuticalArray);
+		outputObject.put("frequent_usages", frequentArray);
+		outputObject.put("reported_usages", reportedArray);
 		outputObject.put("remedy_uri", remedyURI);
 		outputObject.put("remedy_plant_id", plantId);
 		return outputObject;
