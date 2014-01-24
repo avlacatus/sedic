@@ -2,34 +2,31 @@ package ro.infoiasi.sedic.android.model;
 
 import java.util.List;
 
-public class DiseaseBean {
-	private String diseaseName;
+public class DiseaseBean implements Bean {
+	/**
+     * 
+     */
+    private static final long serialVersionUID = 4026230489996669103L;
+    private String diseaseName;
 	private long diseaseId;
 	private String diseaseURI;
-	private List<String> diseaseParents;
+	private List<DiseaseBean> diseaseChildren;
 
 	public DiseaseBean() {
 	}
 
-	public DiseaseBean(String diseaseName, long diseaseId, String diseaseURI, List<String> diseaseParents) {
+	public DiseaseBean(String diseaseName, long diseaseId, String diseaseURI, List<DiseaseBean> diseaseChildren) {
 		super();
 		this.diseaseName = diseaseName;
 		this.diseaseId = diseaseId;
 		this.diseaseURI = diseaseURI;
-		this.setDiseaseParents(diseaseParents);
+		this.setDiseaseChildren(diseaseChildren);
 	}
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("diseaseEntity [diseaseName=");
-		builder.append(diseaseName);
-		builder.append(", diseaseId=");
-		builder.append(diseaseId);
-		builder.append(", diseaseResource=");
-		builder.append(diseaseURI);
-		builder.append("]");
-		return builder.toString();
+		return "DiseaseBean [diseaseName=" + diseaseName + ", diseaseId=" + diseaseId + ", diseaseChildren="
+				+ getDiseaseChildren() + "]";
 	}
 
 	public String getDiseaseName() {
@@ -56,12 +53,22 @@ public class DiseaseBean {
 		this.diseaseURI = diseaseURI;
 	}
 
-	public List<String> getDiseaseParents() {
-		return diseaseParents;
+	public List<DiseaseBean> getDiseaseChildren() {
+		return diseaseChildren;
 	}
 
-	public void setDiseaseParents(List<String> diseaseParents) {
-		this.diseaseParents = diseaseParents;
+	public void setDiseaseChildren(List<DiseaseBean> diseaseChildren) {
+		this.diseaseChildren = diseaseChildren;
 	}
+
+    @Override
+    public long getBeanID() {
+        return diseaseId;
+    }
+
+    @Override
+    public String getBeanName() {
+        return diseaseName;
+    }
 
 }

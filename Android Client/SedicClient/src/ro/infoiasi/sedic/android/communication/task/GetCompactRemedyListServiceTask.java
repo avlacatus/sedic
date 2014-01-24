@@ -1,6 +1,6 @@
 package ro.infoiasi.sedic.android.communication.task;
 
-import java.util.List;
+import java.util.Map;
 
 import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.params.BasicHttpParams;
@@ -42,7 +42,7 @@ public class GetCompactRemedyListServiceTask extends ServiceTask<RemedyBean> {
 
 	@Override
 	public Response<RemedyBean> parseResponse(String response) {
-		List<RemedyBean> outputList = null;
+		Map<Long, RemedyBean> outputList = null;
 		try {
 			JSONObject jsonResponse = new JSONObject(response);
 			outputList = JSONHelper.parseCompactRemedyArray(jsonResponse.getJSONArray("remedies").toString());

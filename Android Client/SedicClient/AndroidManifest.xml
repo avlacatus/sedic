@@ -4,8 +4,9 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="15"
-        android:targetSdkVersion="15" />
+        android:maxSdkVersion="19"
+        android:minSdkVersion="10"
+        android:targetSdkVersion="17" />
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -31,7 +32,7 @@
         </activity>
         <activity
             android:name="ro.infoiasi.sedic.android.activity.RemedyListActivity"
-            android:label="Remedy list" >
+            android:label="Remedies" >
         </activity>
         <activity android:name="ro.infoiasi.sedic.android.activity.RemedyDetailActivity" >
         </activity>

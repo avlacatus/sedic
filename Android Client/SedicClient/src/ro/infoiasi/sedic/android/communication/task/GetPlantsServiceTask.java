@@ -1,6 +1,6 @@
 package ro.infoiasi.sedic.android.communication.task;
 
-import java.util.List;
+import java.util.Map;
 
 import org.apache.http.client.methods.HttpRequestBase;
 import org.json.JSONException;
@@ -44,7 +44,7 @@ public class GetPlantsServiceTask extends ServiceTask<PlantBean> {
 
 	@Override
 	public Response<PlantBean> parseResponse(String response) {
-		List<PlantBean> output = null;
+		Map<Long, PlantBean> output = null;
 		try {
 			JSONObject jsonResponse = new JSONObject(response);
 			output = JSONHelper.parsePlantsArray(jsonResponse.getJSONArray("plants").toString());

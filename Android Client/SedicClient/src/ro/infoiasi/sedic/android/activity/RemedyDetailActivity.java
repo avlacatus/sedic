@@ -1,17 +1,17 @@
 package ro.infoiasi.sedic.android.activity;
 
-import java.util.List;
+import java.util.Map;
 
 import ro.infoiasi.sedic.android.R;
 import ro.infoiasi.sedic.android.SedicApplication;
 import ro.infoiasi.sedic.android.model.RemedyBean;
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class RemedyDetailActivity extends Activity {
+public class RemedyDetailActivity extends ActionBarActivity {
 
 	public static final String INTENT_EXTRA_REMEDY_ID = "intent_extra_remedy_id";
 
@@ -23,7 +23,7 @@ public class RemedyDetailActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		getActionBar().setDisplayHomeAsUpEnabled(true);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		setContentView(R.layout.remedy_detail_layout);
 		if (getIntent().hasExtra(INTENT_EXTRA_REMEDY_ID)) {
 			mRemedyId = getIntent().getLongExtra(INTENT_EXTRA_REMEDY_ID, -1);
@@ -39,11 +39,9 @@ public class RemedyDetailActivity extends Activity {
 
 	private void setupData() {
 		if (mRemedyId != -1) {
-			List<RemedyBean> remedies = SedicApplication.getInstance().getRemedies();
-			for (RemedyBean bean : remedies) {
-				if (bean.getRemedyId() == mRemedyId) {
-					mRemedyBean = bean;
-				}
+			Map<Long, RemedyBean> remedies = SedicApplication.getInstance().getRemedies();
+			if (remedies != null) {
+				mRemedyBean = remedies.get(Long.valueOf(mRemedyId));
 			}
 		} else {
 			Toast.makeText(this, "remedy could not be found", Toast.LENGTH_LONG).show();
@@ -58,16 +56,16 @@ public class RemedyDetailActivity extends Activity {
 		TextView mRemedyReported = (TextView) findViewById(R.id.rd_reported);
 		if (mRemedyBean != null) {
 			mRemedyDescription.setText(mRemedyBean.getRemedyName() + mRemedyBean.getRemedyURI());
-			if (mRemedyBean.getFrequentUsage() != null) {
-				mRemedyFrequent.setText(mRemedyBean.getFrequentUsage().toString());
+			if (mRemedyBean.getAdjuvantUsages() != null) {
+				mRemedyFrequent.setText(mRemedyBean.getAdjuvantUsages().toString());
 			} else {
-				mRemedyFrequent.setText("empty frequent");
+				mRemedyFrequent.setText("empty adjuvants");
 
 			}
-			if (mRemedyBean.getReportedUsage() != null) {
-				mRemedyReported.setText(mRemedyBean.getReportedUsage().toString());
+			if (mRemedyBean.getTherapeuticalUsages() != null) {
+				mRemedyReported.setText(mRemedyBean.getTherapeuticalUsages().toString());
 			} else {
-				mRemedyReported.setText("empty reported");
+				mRemedyReported.setText("empty therapeutical");
 
 			}
 		}

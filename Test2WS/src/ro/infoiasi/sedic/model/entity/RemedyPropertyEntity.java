@@ -27,26 +27,10 @@ public class RemedyPropertyEntity {
 		return builder.toString();
 	}
 
-	public JsonObject toJSONString(String usageMode) {
+	public JsonObject toJSONString() {
 		JsonObject outputObject = new JsonObject();
-		switch (usageMode) {
-		case "F":
-			outputObject.put("frequentUsage_id", Id);
-			outputObject.put("frequentUsage_Name", Name);
-			break;
-		case "R":
-			outputObject.put("reportedUsage_id", Id);
-			outputObject.put("reportedUsage_Name", Name);
-			break;
-		case "A":
-			outputObject.put("adjuvantUsage_id", Id);
-			outputObject.put("adjuvantUsage_Name", Name);
-			break;
-		case "T":
-			outputObject.put("therapeuticalUsage_id", Id);
-			outputObject.put("therapeuticalUsage_Name", Name);
-			break;
-		}
+		outputObject.put("remedy_usage_id", Id);
+		outputObject.put("remedy_usage_name", Name);
 		return outputObject;
 	}
 

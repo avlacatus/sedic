@@ -1,6 +1,8 @@
 package ro.infoiasi.sedic.android.activity;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import ro.infoiasi.sedic.android.R;
 import ro.infoiasi.sedic.android.SedicApplication;
@@ -9,9 +11,9 @@ import ro.infoiasi.sedic.android.communication.event.GetRemedyDetailsEvent;
 import ro.infoiasi.sedic.android.communication.task.GetRemedyDetailsServiceTask;
 import ro.infoiasi.sedic.android.communication.task.Response.ResponseStatus;
 import ro.infoiasi.sedic.android.model.RemedyBean;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -19,32 +21,60 @@ import android.widget.ListView;
 import android.widget.Toast;
 import de.greenrobot.event.EventBus;
 
-public class RemedyListActivity extends Activity implements AdapterView.OnItemClickListener {
+public class RemedyListActivity extends ActionBarActivity implements AdapterView.OnItemClickListener {
 	@SuppressWarnings("unused")
 	private static final String tag = RemedyListActivity.class.getSimpleName();
+
+	public static final String INTENT_EXTRA_REMEDY_IDS = "intent_extra_remedy_ids";
+	public static final String INTENT_EXTRA_ACTIVITY_TITLE = "intent_extra_activity_title";
+
 	private ListView mListView;
 	private List<RemedyBean> mRemedyList;
 	private RemedyListAdapter mRemedyListAdapter;
 
+	private long[] remedyIdArray;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		getActionBar().setDisplayHomeAsUpEnabled(true);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		setContentView(R.layout.list_activity_layout);
+		if (getIntent().hasExtra(INTENT_EXTRA_REMEDY_IDS)) {
+			remedyIdArray = getIntent().getLongArrayExtra(INTENT_EXTRA_REMEDY_IDS);
+		} else {
+			remedyIdArray = null;
+		}
+
+		if (getIntent().hasExtra(INTENT_EXTRA_ACTIVITY_TITLE)) {
+			getSupportActionBar().setTitle(getIntent().getStringExtra(INTENT_EXTRA_ACTIVITY_TITLE));
+		}
 		setupData();
 		findViews();
 		EventBus.getDefault().register(this, GetRemedyDetailsEvent.class);
 	}
 
 	private void setupData() {
-		mRemedyList = SedicApplication.getInstance().getRemedies();
+		Map<Long, RemedyBean> remedyMap = SedicApplication.getInstance().getRemedies();
+		if (remedyIdArray == null) {
+			mRemedyList = new ArrayList<RemedyBean>(remedyMap.values());
+		} else {
+			mRemedyList = new ArrayList<RemedyBean>();
+			for (long id : remedyIdArray) {
+				RemedyBean remedy = remedyMap.get(id);
+				if (remedy != null) {
+					mRemedyList.add(remedy);
+				}
+			}
+		}
 	}
 
 	private void findViews() {
 		mListView = (ListView) findViewById(android.R.id.list);
 		mListView.setEmptyView(findViewById(android.R.id.empty));
-		mRemedyListAdapter = new RemedyListAdapter(this, 0, mRemedyList);
-		mListView.setAdapter(mRemedyListAdapter);
+		if (mRemedyList != null) {
+			mRemedyListAdapter = new RemedyListAdapter(this, 0, mRemedyList);
+			mListView.setAdapter(mRemedyListAdapter);
+		}
 		mListView.setOnItemClickListener(this);
 	}
 
