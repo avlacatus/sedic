@@ -9,18 +9,18 @@ public class DiseaseEntity {
 	private String diseaseName;
 	private long diseaseId;
 	private String diseaseURI;
-	private ArrayList<ParentEntity> parents;
+	private ArrayList<ChildEntity> children;
 
 	public DiseaseEntity() {
 	}
 
 	public DiseaseEntity(String diseaseName, long diseaseId, String diseaseURI,
-			ArrayList<ParentEntity> parents) {
+			ArrayList<ChildEntity> children) {
 		super();
 		this.diseaseName = diseaseName;
 		this.diseaseId = diseaseId;
 		this.diseaseURI = diseaseURI;
-		this.parents = parents;
+		this.children = children;
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class DiseaseEntity {
 		outputObject.put("disease_id", diseaseId);
 		outputObject.put("disease_uri", diseaseURI);
 		JsonArray parentsArray = new JsonArray();
-		for (ParentEntity p : parents) {
+		for (ChildEntity p : children) {
 			parentsArray.add(p.toJSONString());
 		}
 		outputObject.put("disease_children", parentsArray);
@@ -73,11 +73,11 @@ public class DiseaseEntity {
 		this.diseaseURI = diseaseURI;
 	}
 
-	public ArrayList<ParentEntity> getParents() {
-		return parents;
+	public ArrayList<ChildEntity> getChildren() {
+		return children;
 	}
 
-	public void setParents(ArrayList<ParentEntity> parents) {
-		this.parents = parents;
+	public void setChildren(ArrayList<ChildEntity> children) {
+		this.children = children;
 	}
 }

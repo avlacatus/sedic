@@ -9,14 +9,14 @@ public class DrugEntity {
 	private String drugName;
 	private long drugId;
 	private String drugURI;
-	private ArrayList<ParentEntity> parents;
+	private ArrayList<ChildEntity> parents;
 
 	public DrugEntity() {
 
 	}
 
 	public DrugEntity(String drugName, long drugId, String drugURI,
-			ArrayList<ParentEntity> parents) {
+			ArrayList<ChildEntity> parents) {
 		super();
 		this.drugName = drugName;
 		this.drugId = drugId;
@@ -43,7 +43,7 @@ public class DrugEntity {
 		outputObject.put("drug_id", drugId);
 		outputObject.put("drug_uri", drugURI);
 		JsonArray parentsArray = new JsonArray();
-		for (ParentEntity p : parents) {
+		for (ChildEntity p : parents) {
 			parentsArray.add(p.toJSONString());
 		}
 		outputObject.put("drug_children", parentsArray);
@@ -74,11 +74,11 @@ public class DrugEntity {
 		this.drugURI = drugURI;
 	}
 
-	public ArrayList<ParentEntity> getParents() {
+	public ArrayList<ChildEntity> getParents() {
 		return parents;
 	}
 
-	public void setParents(ArrayList<ParentEntity> parents) {
+	public void setParents(ArrayList<ChildEntity> parents) {
 		this.parents = parents;
 	}
 }

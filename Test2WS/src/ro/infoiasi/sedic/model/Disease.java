@@ -1,14 +1,15 @@
 package ro.infoiasi.sedic.model;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.jena.atlas.json.JsonArray;
 import org.apache.jena.atlas.json.JsonObject;
 
 import ro.infoiasi.sedic.OntologyUtils;
 import ro.infoiasi.sedic.model.entity.DiseaseEntity;
-import ro.infoiasi.sedic.model.entity.ParentEntity;
+import ro.infoiasi.sedic.model.entity.ChildEntity;
 
 import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.query.QueryExecution;
@@ -33,82 +34,72 @@ public class Disease extends EntityHelper {
 	}
 
 	public JsonArray getAllDiseases() {
-		StringBuffer selectSubClassesQuery = new StringBuffer(
-				OntologyUtils.SPARQL_PREFIXES);
-		selectSubClassesQuery
-				.append("SELECT distinct ?class ?subclass (str(?id) as ?strId) where {  ");
-		selectSubClassesQuery
-				.append("{ ?class rdfs:subClassOf* sedic:Diseases .   ");
+		StringBuffer selectSubClassesQuery = new StringBuffer(OntologyUtils.SPARQL_PREFIXES);
+		selectSubClassesQuery.append("SELECT distinct ?class ?subclass (str(?id) as ?strId) where {  ");
+		selectSubClassesQuery.append("{ ?class rdfs:subClassOf* sedic:Diseases .   ");
 		selectSubClassesQuery.append("?subclass rdfs:subClassOf ?class . ");
 		selectSubClassesQuery.append("?subclass sedic:has_disease_id ?id  }");
 		selectSubClassesQuery.append("UNION ");
-		selectSubClassesQuery
-				.append("{?class rdfs:subClassOf* sedic:Diseases .  ");
+		selectSubClassesQuery.append("{?class rdfs:subClassOf* sedic:Diseases .  ");
 		selectSubClassesQuery.append("?subclass a ?class .  ");
 		selectSubClassesQuery.append("?subclass sedic:has_disease_id ?id  } }");
 		selectSubClassesQuery.append("order by asc(?class)  ");
-		QueryExecution query = OntologyUtils.getSPARQLQuery(this,
-				selectSubClassesQuery.toString());
+		QueryExecution query = OntologyUtils.getSPARQLQuery(this, selectSubClassesQuery.toString());
 		ResultSet results = query.execSelect();
-		String response = "";
-		List<DiseaseEntity> diseases = new ArrayList<DiseaseEntity>();
-		List<String> diseaseNames = new ArrayList<String>();
+		Property hasDiseaseId = getOntModel().getProperty(OntologyUtils.NS + "has_disease_id");
+		Map<Long, DiseaseEntity> diseases = new HashMap<Long, DiseaseEntity>();
 		while (results.hasNext()) {
 			QuerySolution soln = results.nextSolution();
-
-			response = soln.get("class").toString();
-			Individual diseaseResource = getOntModel().getResource(response)
-					.as(Individual.class);
-			Property hasDiseaseId = getOntModel().getProperty(
-					OntologyUtils.NS + "has_disease_id");
-			RDFNode propertyValue = diseaseResource
-					.getPropertyValue(hasDiseaseId);
+			String response = soln.get("class").toString();
+			Individual diseaseResource = getOntModel().getResource(response).as(Individual.class);
 			DiseaseEntity disease = new DiseaseEntity();
-			String diseaseName = diseaseResource.getURI()
-					.substring(OntologyUtils.NS.length()).replaceAll("_", " ");
+			long diseaseId = Long.valueOf(diseaseResource.getPropertyValue(hasDiseaseId).toString());
+			String diseaseName = diseaseResource.getURI().substring(OntologyUtils.NS.length()).replaceAll("_", " ");
 			disease.setDiseaseURI(diseaseResource.getURI());
 			disease.setDiseaseName(diseaseName);
-			disease.setDiseaseId(Long.valueOf(propertyValue.toString()));
-			if (diseaseNames.contains(diseaseName)) {
+			disease.setDiseaseId(diseaseId);
 
-				String parent = soln.get("subclass").toString();
-				DiseaseEntity diseaseEntity = new DiseaseEntity();
-				for (DiseaseEntity d : diseases) {
+			if (diseases.containsKey(diseaseId)) {
+				DiseaseEntity diseaseEntity = diseases.get(diseaseId);
 
-					if (d.getDiseaseName().equals(diseaseName)) {
-						diseaseEntity = d;
-						break;
-					}
+				String childUri = soln.get("subclass").toString();
+				Long childId = Long.valueOf(soln.get("strId").toString());
+				ChildEntity childEntity = new ChildEntity();
+				childEntity.setParentURI(childUri);
+				childEntity.setParentId(childId);
+
+				ArrayList<ChildEntity> children = diseaseEntity.getChildren();
+				if (!childUri.equals(diseaseResource.getURI())) {
+					children.add(childEntity);
 				}
-				// System.out.println("name=" +diseaseEntity.getDiseaseName());
-				ArrayList<ParentEntity> parents = diseaseEntity.getParents();
-				ParentEntity parentEntity = new ParentEntity();
-				String id = soln.get("strId").toString();
-				parentEntity.setParentURI(parent);
-				parentEntity.setParentId(Long.valueOf(id));
-				if (!parent.equals(diseaseResource.getURI()))
-				parents.add(parentEntity);
-				disease.setParents(parents);
+				disease.setChildren(children);
+
+				if (!diseases.containsKey(childId)) {
+					DiseaseEntity childDisease = new DiseaseEntity();
+					childDisease.setDiseaseId(childId);
+					childDisease.setDiseaseURI(childUri);
+					childDisease.setDiseaseName(getEntityName(childUri));
+					childDisease.setChildren(new ArrayList<ChildEntity>());
+					diseases.put(childId, childDisease);
+				}
 			} else {
-				diseaseNames.add(diseaseName);
 				String parent = soln.get("subclass").toString();
-				ArrayList<ParentEntity> parents = new ArrayList<ParentEntity>();
-				ParentEntity parentEntity = new ParentEntity();
-				String id = soln.get("strId").toString();
+				ArrayList<ChildEntity> parents = new ArrayList<ChildEntity>();
+				ChildEntity parentEntity = new ChildEntity();
+				Long id = Long.valueOf(soln.get("strId").toString());
 				parentEntity.setParentURI(parent);
-				parentEntity.setParentId(Long.valueOf(id));
+				parentEntity.setParentId(id);
 				if (!parent.equals(diseaseResource.getURI()))
-				parents.add(parentEntity);
-				disease.setParents(parents);
-				diseases.add(disease);
+					parents.add(parentEntity);
+				disease.setChildren(parents);
+				diseases.put(diseaseId, disease);
 			}
 		}
 		query.close();
 		JsonArray diseaseArray = new JsonArray();
-		for (DiseaseEntity d : diseases) {
+		for (DiseaseEntity d : diseases.values()) {
 			diseaseArray.add(d.toJSONString());
 		}
-		// JsonObject drugJson = drug.toJSONString();
 		return diseaseArray;
 
 	}
@@ -128,8 +119,7 @@ public class Disease extends EntityHelper {
 		selectSubClassesQuery.append("?subclass sedic:has_disease_id ?id .");
 		selectSubClassesQuery.append("?class  sedic:has_disease_id ?idclass .");
 		selectSubClassesQuery.append("FILTER (STR(?idclass)= '" + Id + "')" + "} }");
-		QueryExecution qexec = OntologyUtils.getSPARQLQuery(this,
-				selectSubClassesQuery.toString());
+		QueryExecution qexec = OntologyUtils.getSPARQLQuery(this, selectSubClassesQuery.toString());
 		com.hp.hpl.jena.query.ResultSet results = qexec.execSelect();
 		// System.out.println(sparqlQueryString);
 		System.out.println("results:" + results.getRowNumber());
@@ -139,38 +129,34 @@ public class Disease extends EntityHelper {
 
 			String response = soln.get("class").toString();
 			System.out.println(response.toString());
-			Individual diseaseResource = getOntModel().getResource(response)
-					.as(Individual.class);
-			Property hasDiseaseId = getOntModel().getProperty(
-					OntologyUtils.NS + "has_disease_id");
-			RDFNode propertyValue = diseaseResource
-					.getPropertyValue(hasDiseaseId);
+			Individual diseaseResource = getOntModel().getResource(response).as(Individual.class);
+			Property hasDiseaseId = getOntModel().getProperty(OntologyUtils.NS + "has_disease_id");
+			RDFNode propertyValue = diseaseResource.getPropertyValue(hasDiseaseId);
 
 			DiseaseEntity disease = new DiseaseEntity();
-			String diseaseName = diseaseResource.getURI()
-					.substring(OntologyUtils.NS.length()).replaceAll("_", " ");
+			String diseaseName = diseaseResource.getURI().substring(OntologyUtils.NS.length()).replaceAll("_", " ");
 			disease.setDiseaseURI(diseaseResource.getURI());
 			disease.setDiseaseName(diseaseName);
 			disease.setDiseaseId(Long.valueOf(propertyValue.toString()));
 			String parent = soln.get("subclass").toString();
-			ArrayList<ParentEntity> parents = new ArrayList<ParentEntity>();
-			ParentEntity parentEntity = new ParentEntity();
+			ArrayList<ChildEntity> parents = new ArrayList<ChildEntity>();
+			ChildEntity parentEntity = new ChildEntity();
 			String id = soln.get("strId").toString();
 			parentEntity.setParentURI(parent);
 			parentEntity.setParentId(Long.valueOf(id));
 			if (!parent.equals(diseaseResource.getURI()))
-			parents.add(parentEntity);
+				parents.add(parentEntity);
 			while (results.hasNext()) {
 				soln = results.nextSolution();
 				parent = soln.get("subclass").toString();
-				parentEntity = new ParentEntity();
+				parentEntity = new ChildEntity();
 				id = soln.get("strId").toString();
 				parentEntity.setParentURI(parent);
 				parentEntity.setParentId(Long.valueOf(id));
 				if (!parent.equals(diseaseResource.getURI()))
-				parents.add(parentEntity);
+					parents.add(parentEntity);
 			}
-			disease.setParents(parents);
+			disease.setChildren(parents);
 			qexec.close();
 			return disease.toJSONString();
 		} else {

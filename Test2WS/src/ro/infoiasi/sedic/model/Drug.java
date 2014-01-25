@@ -8,7 +8,7 @@ import org.apache.jena.atlas.json.JsonObject;
 
 import ro.infoiasi.sedic.OntologyUtils;
 import ro.infoiasi.sedic.model.entity.DrugEntity;
-import ro.infoiasi.sedic.model.entity.ParentEntity;
+import ro.infoiasi.sedic.model.entity.ChildEntity;
 
 import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.query.QueryExecution;
@@ -67,12 +67,12 @@ public class Drug extends EntityHelper {
 			QueryExecution selectChildrenExec = OntologyUtils.getSPARQLQuery(this, selectSubClassesQuery.toString());
 			ResultSet childrenSet = selectChildrenExec.execSelect();
 			
-			ArrayList<ParentEntity> parents = new ArrayList<ParentEntity>();
+			ArrayList<ChildEntity> parents = new ArrayList<ChildEntity>();
 			while (childrenSet.hasNext()) {
 				QuerySolution childrenRow = childrenSet.nextSolution();
 				String childrenURI = childrenRow.get("subject").toString();
 				Long childrenID = Long.valueOf(childrenRow.get("strId").toString()); 
-				ParentEntity childrenEntity = new ParentEntity(childrenID, childrenURI);
+				ChildEntity childrenEntity = new ChildEntity(childrenID, childrenURI);
 				if (!childrenURI.equals(drugIndividualURI)) {
 					parents.add(childrenEntity);
 				}
@@ -121,8 +121,8 @@ public class Drug extends EntityHelper {
 			drug.setDrugName(drugName);
 			drug.setDrugId(Long.valueOf(propertyValue.toString()));
 			String parent = soln.get("subclass").toString();
-			ArrayList<ParentEntity> parents = new ArrayList<ParentEntity>();
-			ParentEntity parentEntity = new ParentEntity();
+			ArrayList<ChildEntity> parents = new ArrayList<ChildEntity>();
+			ChildEntity parentEntity = new ChildEntity();
 			String id = soln.get("strId").toString();
 			parentEntity.setParentURI(parent);
 			parentEntity.setParentId(Long.valueOf(id));
@@ -132,7 +132,7 @@ public class Drug extends EntityHelper {
 			while (results.hasNext()) {
 				soln = results.nextSolution();
 				parent = soln.get("subclass").toString();
-				parentEntity = new ParentEntity();
+				parentEntity = new ChildEntity();
 				id = soln.get("strId").toString();
 				parentEntity.setParentURI(parent);
 				parentEntity.setParentId(Long.valueOf(id));

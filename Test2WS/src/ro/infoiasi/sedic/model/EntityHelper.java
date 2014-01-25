@@ -35,4 +35,8 @@ public class EntityHelper {
 	public OntModel getOntModel() {
 		return om;
 	}
+	
+	protected String getEntityName(String uri) {
+		return uri.substring(OntologyUtils.NS.length()).replaceAll("_", " ");
+	}
 }

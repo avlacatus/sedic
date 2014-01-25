@@ -2,14 +2,14 @@ package ro.infoiasi.sedic.model.entity;
 
 import org.apache.jena.atlas.json.JsonObject;
 
-public class ParentEntity {
+public class ChildEntity {
 	private long parentId;
 	private String parentURI;
 
-	public ParentEntity() {
+	public ChildEntity() {
 	}
 
-	public ParentEntity(long plantId, String plantURI) {
+	public ChildEntity(long plantId, String plantURI) {
 		super();
 		this.parentId = plantId;
 		this.parentURI = plantURI;
