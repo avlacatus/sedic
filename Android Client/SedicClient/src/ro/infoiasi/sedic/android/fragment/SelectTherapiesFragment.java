@@ -18,6 +18,7 @@ import ro.infoiasi.sedic.android.communication.event.GetDiseasesEvent;
 import ro.infoiasi.sedic.android.model.DiseaseBean;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,6 +71,7 @@ public class SelectTherapiesFragment extends Fragment {
 	}
 
 	public void onEventMainThread(GetDiseasesEvent e) {
+		Log.e("debug", "Therapeutics -> getDiseasesEvent");
 		if (!initialized) {
 			initTreeManager();
 			simpleAdapter = new BeanTreeAdapter<DiseaseBean>(getActivity(), selected, manager, LEVEL_NUMBER);

@@ -55,14 +55,16 @@ public class RemedyListActivity extends ActionBarActivity implements AdapterView
 
 	private void setupData() {
 		Map<Long, RemedyBean> remedyMap = SedicApplication.getInstance().getRemedies();
-		if (remedyIdArray == null) {
-			mRemedyList = new ArrayList<RemedyBean>(remedyMap.values());
-		} else {
-			mRemedyList = new ArrayList<RemedyBean>();
-			for (long id : remedyIdArray) {
-				RemedyBean remedy = remedyMap.get(id);
-				if (remedy != null) {
-					mRemedyList.add(remedy);
+		if (remedyMap != null ) {
+			if (remedyIdArray == null) {
+				mRemedyList = new ArrayList<RemedyBean>(remedyMap.values());
+			} else {
+				mRemedyList = new ArrayList<RemedyBean>();
+				for (long id : remedyIdArray) {
+					RemedyBean remedy = remedyMap.get(id);
+					if (remedy != null) {
+						mRemedyList.add(remedy);
+					}
 				}
 			}
 		}

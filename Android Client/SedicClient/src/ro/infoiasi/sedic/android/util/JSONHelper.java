@@ -18,367 +18,382 @@ import android.util.Log;
 
 public class JSONHelper {
 
-    public static Map<Long, PlantBean> parsePlantsArray(String strOutput) {
-        Map<Long, PlantBean> output = null;
-        try {
-            JSONArray jsonPlantsArray = new JSONArray(strOutput);
-            output = new HashMap<Long, PlantBean>();
+	public static Map<Long, PlantBean> parsePlantsArray(String strOutput) {
+		Map<Long, PlantBean> output = null;
+		try {
+			JSONArray jsonPlantsArray = new JSONArray(strOutput);
+			output = new HashMap<Long, PlantBean>();
 
-            for (int i = 0; i < jsonPlantsArray.length(); i++) {
-                JSONObject jsonPlant = jsonPlantsArray.getJSONObject(i);
-                PlantBean newPlant = JSONHelper.parseJSONPlant(jsonPlant);
-                output.put(newPlant.getPlantId(), newPlant);
-            }
+			for (int i = 0; i < jsonPlantsArray.length(); i++) {
+				JSONObject jsonPlant = jsonPlantsArray.getJSONObject(i);
+				PlantBean newPlant = JSONHelper.parseJSONPlant(jsonPlant);
+				output.put(newPlant.getPlantId(), newPlant);
+			}
 
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
 
-        return output;
-    }
+		return output;
+	}
 
-    public static PlantBean parseJSONPlant(JSONObject jsonPlant) throws NumberFormatException, JSONException {
-        PlantBean output = new PlantBean();
-        if (jsonPlant.has("plant_id")) {
-            output.setPlantId(Long.parseLong(jsonPlant.getString("plant_id")));
-        }
+	public static PlantBean parseJSONPlant(JSONObject jsonPlant) throws NumberFormatException, JSONException {
+		PlantBean output = new PlantBean();
+		if (jsonPlant.has("plant_id")) {
+			output.setPlantId(Long.parseLong(jsonPlant.getString("plant_id")));
+		}
 
-        if (jsonPlant.has("plant_name")) {
-            output.setPlantName(jsonPlant.getString("plant_name"));
-        }
+		if (jsonPlant.has("plant_name")) {
+			output.setPlantName(jsonPlant.getString("plant_name"));
+		}
 
-        if (jsonPlant.has("plant_uri")) {
-            output.setPlantURI(jsonPlant.getString("plant_uri"));
-        }
+		if (jsonPlant.has("plant_uri")) {
+			output.setPlantURI(jsonPlant.getString("plant_uri"));
+		}
 
-        return output;
-    }
+		if (jsonPlant.has("plant_description")) {
+			output.setPlantDescription(jsonPlant.getString("plant_description"));
+		}
 
-    public static Map<Long, RemedyBean> parseCompactRemedyArray(String strOutput) {
-        Map<Long, RemedyBean> output = null;
-        try {
-            JSONArray jsonRemedyArray = new JSONArray(strOutput);
-            output = new HashMap<Long, RemedyBean>();
+		return output;
+	}
 
-            for (int i = 0; i < jsonRemedyArray.length(); i++) {
-                JSONObject jsonRemedy = jsonRemedyArray.getJSONObject(i);
-                RemedyBean newRemedy = JSONHelper.parseJSONCompactRemedy(jsonRemedy);
-                output.put(newRemedy.getRemedyId(), newRemedy);
-            }
+	public static Map<Long, RemedyBean> parseCompactRemedyArray(String strOutput) {
+		Map<Long, RemedyBean> output = null;
+		try {
+			JSONArray jsonRemedyArray = new JSONArray(strOutput);
+			output = new HashMap<Long, RemedyBean>();
 
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+			for (int i = 0; i < jsonRemedyArray.length(); i++) {
+				JSONObject jsonRemedy = jsonRemedyArray.getJSONObject(i);
+				RemedyBean newRemedy = JSONHelper.parseJSONCompactRemedy(jsonRemedy);
+				output.put(newRemedy.getRemedyId(), newRemedy);
+			}
 
-        return output;
-    }
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
 
-    public static Map<Long, DrugBean> parseDrugArray(String strOutput) {
-        Map<Long, DrugBean> output = null;
-        try {
-            JSONArray jsonDrugArray = new JSONArray(strOutput);
-            output = new HashMap<Long, DrugBean>();
+		return output;
+	}
 
-            // parse initial drug beans
-            for (int i = 0; i < jsonDrugArray.length(); i++) {
-                JSONObject jsonDrug = jsonDrugArray.getJSONObject(i);
-                DrugBean newDrug = JSONHelper.parseJSONDrug(jsonDrug);
-                output.put(newDrug.getDrugId(), newDrug);
-            }
+	public static Map<Long, DrugBean> parseDrugArray(String strOutput) {
+		Map<Long, DrugBean> output = null;
+		try {
+			JSONArray jsonDrugArray = new JSONArray(strOutput);
+			output = new HashMap<Long, DrugBean>();
 
-            // add the links to the children
-            for (int i = 0; i < jsonDrugArray.length(); i++) {
-                JSONObject jsonDrug = jsonDrugArray.getJSONObject(i);
-                long drugId = -1;
-                if (jsonDrug.has("drug_id")) {
-                    drugId = Long.parseLong(jsonDrug.getString("drug_id"));
-                }
+			// parse initial drug beans
+			for (int i = 0; i < jsonDrugArray.length(); i++) {
+				JSONObject jsonDrug = jsonDrugArray.getJSONObject(i);
+				DrugBean newDrug = JSONHelper.parseJSONDrug(jsonDrug);
+				output.put(newDrug.getDrugId(), newDrug);
+			}
 
-                if (drugId != -1) {
-                    DrugBean selectedDrug = output.get(drugId);
-                    if (selectedDrug != null) {
-                        JSONArray drugChildrenArray = null;
-                        if (jsonDrug.has("drug_children")) {
-                            drugChildrenArray = jsonDrug.getJSONArray("drug_children");
-                            if (drugChildrenArray != null) {
+			// add the links to the children
+			for (int i = 0; i < jsonDrugArray.length(); i++) {
+				JSONObject jsonDrug = jsonDrugArray.getJSONObject(i);
+				long drugId = -1;
+				if (jsonDrug.has("drug_id")) {
+					drugId = Long.parseLong(jsonDrug.getString("drug_id"));
+				}
 
-                                List<DrugBean> children = new ArrayList<DrugBean>();
+				if (drugId != -1) {
+					DrugBean selectedDrug = output.get(drugId);
+					if (selectedDrug != null) {
+						JSONArray drugChildrenArray = null;
+						if (jsonDrug.has("drug_children")) {
+							drugChildrenArray = jsonDrug.getJSONArray("drug_children");
+							if (drugChildrenArray != null) {
 
-                                for (int j = 0; j < drugChildrenArray.length(); j++) {
-                                    long childId = -1;
-                                    String childURI = "";
+								List<DrugBean> children = new ArrayList<DrugBean>();
 
-                                    JSONObject childJson = drugChildrenArray.getJSONObject(j);
-                                    if (childJson.has("child_id")) {
-                                        childId = childJson.getLong("child_id");
-                                    }
-                                    if (childJson.has("child_uri")) {
-                                        childURI = childJson.getString("child_uri");
-                                    }
+								for (int j = 0; j < drugChildrenArray.length(); j++) {
+									long childId = -1;
+									String childURI = "";
 
-                                    DrugBean childBean = output.get(childId);
-                                    if (childBean != null && !childURI.equals(selectedDrug.getDrugURI())) {
-                                        children.add(childBean);
-                                    }
-                                }
+									JSONObject childJson = drugChildrenArray.getJSONObject(j);
+									if (childJson.has("child_id")) {
+										childId = childJson.getLong("child_id");
+									}
+									if (childJson.has("child_uri")) {
+										childURI = childJson.getString("child_uri");
+									}
 
-                                selectedDrug.setDrugChildren(children);
-                                output.put(selectedDrug.getDrugId(), selectedDrug);
+									DrugBean childBean = output.get(childId);
+									if (childBean != null && !childURI.equals(selectedDrug.getDrugURI())) {
+										children.add(childBean);
+									}
+								}
 
-                            } else {
-                                Log.e("debug", "drug_children null for " + selectedDrug);
-                            }
+								selectedDrug.setDrugChildren(children);
+								output.put(selectedDrug.getDrugId(), selectedDrug);
 
-                        } else {
-                            Log.e("debug", "no drug_children for " + selectedDrug);
-                        }
-                    } else {
-                        Log.e("debug", "no drugBean for " + jsonDrug.toString());
-                    }
-                }
-            }
+							} else {
+								Log.e("debug", "drug_children null for " + selectedDrug);
+							}
 
-        } catch (JSONException e) {
-            Log.e("debug", "error in parsing drug array", e);
-        }
+						} else {
+							Log.e("debug", "no drug_children for " + selectedDrug);
+						}
+					} else {
+						Log.e("debug", "no drugBean for " + jsonDrug.toString());
+					}
+				}
+			}
 
-        return output;
-    }
+		} catch (JSONException e) {
+			Log.e("debug", "error in parsing drug array", e);
+		}
 
-    public static Map<Long, DiseaseBean> parseDiseaseArray(String strOutput) {
-        Map<Long, DiseaseBean> output = null;
-        try {
-            JSONArray jsonDiseaseArray = new JSONArray(strOutput);
-            output = new HashMap<Long, DiseaseBean>();
+		return output;
+	}
 
-            for (int i = 0; i < jsonDiseaseArray.length(); i++) {
-                JSONObject jsonDisease = jsonDiseaseArray.getJSONObject(i);
-                DiseaseBean newDisease = JSONHelper.parseJSONDisease(jsonDisease);
-                output.put(newDisease.getDiseaseId(), newDisease);
-            }
+	public static Map<Long, DiseaseBean> parseDiseaseArray(String strOutput) {
+		Map<Long, DiseaseBean> output = null;
+		try {
+			JSONArray jsonDiseaseArray = new JSONArray(strOutput);
+			output = new HashMap<Long, DiseaseBean>();
 
-            // add the links to the parents
-            for (int i = 0; i < jsonDiseaseArray.length(); i++) {
-                JSONObject jsonDisease = jsonDiseaseArray.getJSONObject(i);
-                long diseaseId = -1;
-                if (jsonDisease.has("disease_id")) {
-                    diseaseId = Long.parseLong(jsonDisease.getString("disease_id"));
-                }
+			for (int i = 0; i < jsonDiseaseArray.length(); i++) {
+				JSONObject jsonDisease = jsonDiseaseArray.getJSONObject(i);
+				DiseaseBean newDisease = JSONHelper.parseJSONDisease(jsonDisease);
+				output.put(newDisease.getDiseaseId(), newDisease);
+			}
 
-                if (diseaseId != -1) {
-                    DiseaseBean selectedDisease = output.get(diseaseId);
-                    if (selectedDisease != null) {
-                        JSONArray diseaseChildrenArray = null;
-                        if (jsonDisease.has("disease_children")) {
-                            diseaseChildrenArray = jsonDisease.getJSONArray("disease_children");
-                            if (diseaseChildrenArray != null) {
+			// add the links to the parents
+			for (int i = 0; i < jsonDiseaseArray.length(); i++) {
+				JSONObject jsonDisease = jsonDiseaseArray.getJSONObject(i);
+				long diseaseId = -1;
+				if (jsonDisease.has("disease_id")) {
+					diseaseId = Long.parseLong(jsonDisease.getString("disease_id"));
+				}
 
-                                List<DiseaseBean> children = new ArrayList<DiseaseBean>();
+				if (diseaseId != -1) {
+					DiseaseBean selectedDisease = output.get(diseaseId);
+					if (selectedDisease != null) {
+						if (selectedDisease.getDiseaseName().equalsIgnoreCase("Pain")) {
+							Log.e("debug", selectedDisease.getBeanName());
+						}
+						JSONArray diseaseChildrenArray = null;
+						if (jsonDisease.has("disease_children")) {
+							diseaseChildrenArray = jsonDisease.getJSONArray("disease_children");
+							if (diseaseChildrenArray != null) {
 
-                                for (int j = 0; j < diseaseChildrenArray.length(); j++) {
-                                    long childId = -1;
-                                    String childURI = "";
+								List<DiseaseBean> children = new ArrayList<DiseaseBean>();
 
-                                    JSONObject childJson = diseaseChildrenArray.getJSONObject(j);
-                                    if (childJson.has("child_id")) {
-                                        childId = childJson.getLong("child_id");
-                                    }
-                                    if (childJson.has("child_uri")) {
-                                        childURI = childJson.getString("child_uri");
-                                    }
+								for (int j = 0; j < diseaseChildrenArray.length(); j++) {
+									long childId = -1;
+									String childURI = "";
 
-                                    DiseaseBean childBean = output.get(childId);
-                                    if (childBean != null && !childURI.equals(selectedDisease.getDiseaseURI())) {
-                                        children.add(childBean);
-                                    }
-                                }
+									JSONObject childJson = diseaseChildrenArray.getJSONObject(j);
+									if (childJson.has("child_id")) {
+										childId = childJson.getLong("child_id");
+									}
+									if (childJson.has("child_uri")) {
+										childURI = childJson.getString("child_uri");
+									}
 
-                                selectedDisease.setDiseaseChildren(children);
-                                output.put(selectedDisease.getDiseaseId(), selectedDisease);
+									DiseaseBean childBean = output.get(childId);
+									if (childBean != null && !childURI.equals(selectedDisease.getDiseaseURI())) {
+										children.add(childBean);
+									}
+								}
 
-                            } else {
-                                Log.e("debug", "disease_children null for " + selectedDisease);
-                            }
+								selectedDisease.setDiseaseChildren(children);
+								output.put(selectedDisease.getDiseaseId(), selectedDisease);
 
-                        } else {
-                            Log.e("debug", "no disease_children for " + selectedDisease);
-                        }
-                    } else {
-                        Log.e("debug", "no diseaseBean for " + jsonDisease.toString());
-                    }
-                }
-            }
+							} else {
+								Log.e("debug", "disease_children null for " + selectedDisease);
+							}
 
-        } catch (JSONException e) {
-        	Log.e("debug", "error in parsing disease array", e);
-        }
+						} else {
+							Log.e("debug", "no disease_children for " + selectedDisease);
+						}
+					} else {
+						Log.e("debug", "no diseaseBean for " + jsonDisease.toString());
+					}
+				}
+			}
 
-        return output;
-    }
+		} catch (JSONException e) {
+			Log.e("debug", "error in parsing disease array", e);
+		}
 
-    public static RemedyBean parseJSONCompactRemedy(JSONObject jsonCompactRemedy) throws NumberFormatException,
-            JSONException {
-        RemedyBean output = new RemedyBean();
-        if (jsonCompactRemedy.has("remedy_id")) {
-            output.setRemedyId(Long.parseLong(jsonCompactRemedy.getString("remedy_id")));
-        }
+		return output;
+	}
 
-        if (jsonCompactRemedy.has("remedy_plant_id")) {
-            output.setRemedyPlantId(Long.parseLong(jsonCompactRemedy.getString("remedy_plant_id")));
-        }
+	public static RemedyBean parseJSONCompactRemedy(JSONObject jsonCompactRemedy) throws NumberFormatException,
+			JSONException {
+		RemedyBean output = new RemedyBean();
+		if (jsonCompactRemedy.has("remedy_id")) {
+			output.setRemedyId(Long.parseLong(jsonCompactRemedy.getString("remedy_id")));
+		}
 
-        if (jsonCompactRemedy.has("remedy_name")) {
-            output.setRemedyName(jsonCompactRemedy.getString("remedy_name"));
-        }
+		if (jsonCompactRemedy.has("remedy_plant_id")) {
+			output.setRemedyPlantId(Long.parseLong(jsonCompactRemedy.getString("remedy_plant_id")));
+		}
 
-        if (jsonCompactRemedy.has("remedy_uri")) {
-            output.setRemedyURI(jsonCompactRemedy.getString("remedy_uri"));
-        }
+		if (jsonCompactRemedy.has("remedy_name")) {
+			output.setRemedyName(jsonCompactRemedy.getString("remedy_name"));
+		}
 
-        return output;
-    }
+		if (jsonCompactRemedy.has("remedy_uri")) {
+			output.setRemedyURI(jsonCompactRemedy.getString("remedy_uri"));
+		}
 
-    public static DrugBean parseJSONDrug(JSONObject jsonDrug) throws NumberFormatException, JSONException {
-        DrugBean output = new DrugBean();
-        if (jsonDrug.has("drug_id")) {
-            output.setDrugId(Long.parseLong(jsonDrug.getString("drug_id")));
-        }
+		return output;
+	}
 
-        if (jsonDrug.has("drug_name")) {
-            output.setDrugName(jsonDrug.getString("drug_name"));
-        }
+	public static DrugBean parseJSONDrug(JSONObject jsonDrug) throws NumberFormatException, JSONException {
+		DrugBean output = new DrugBean();
+		if (jsonDrug.has("drug_id")) {
+			output.setDrugId(Long.parseLong(jsonDrug.getString("drug_id")));
+		}
 
-        if (jsonDrug.has("drug_uri")) {
-            output.setDrugURI(jsonDrug.getString("drug_uri"));
-        }
+		if (jsonDrug.has("drug_name")) {
+			output.setDrugName(jsonDrug.getString("drug_name"));
+		}
 
-        return output;
-    }
+		if (jsonDrug.has("drug_uri")) {
+			output.setDrugURI(jsonDrug.getString("drug_uri"));
+		}
 
-    public static DiseaseBean parseJSONDisease(JSONObject jsonDrug) throws NumberFormatException, JSONException {
-        DiseaseBean output = new DiseaseBean();
-        if (jsonDrug.has("disease_id")) {
-            output.setDiseaseId(Long.parseLong(jsonDrug.getString("disease_id")));
-        }
+		return output;
+	}
 
-        if (jsonDrug.has("disease_name")) {
-            output.setDiseaseName(jsonDrug.getString("disease_name"));
-        }
+	public static DiseaseBean parseJSONDisease(JSONObject jsonDrug) throws NumberFormatException, JSONException {
+		DiseaseBean output = new DiseaseBean();
+		if (jsonDrug.has("disease_id")) {
+			output.setDiseaseId(Long.parseLong(jsonDrug.getString("disease_id")));
+		}
 
-        if (jsonDrug.has("disease_uri")) {
-            output.setDiseaseURI(jsonDrug.getString("disease_uri"));
-        }
+		if (jsonDrug.has("disease_name")) {
+			output.setDiseaseName(jsonDrug.getString("disease_name"));
+		}
 
-        return output;
-    }
+		if (jsonDrug.has("disease_uri")) {
+			output.setDiseaseURI(jsonDrug.getString("disease_uri"));
+		}
 
-    public static RemedyBean paseJSONRemedy(JSONObject jsonRemedy) throws NumberFormatException, JSONException {
-        RemedyBean output = parseJSONCompactRemedy(jsonRemedy);
-        if (jsonRemedy.has("adjuvant_usages")) {
-            Object obj = jsonRemedy.get("adjuvant_usages");
-            if (obj != null && obj instanceof JSONArray) {
-                output.setAdjuvantUsages(parseAdjuvantUsagesJSONArray((JSONArray) obj));
-            }
-        }
+		return output;
+	}
 
-        if (jsonRemedy.has("therapeutical_usages")) {
-            Object obj = jsonRemedy.get("therapeutical_usages");
-            if (obj != null && obj instanceof JSONArray) {
-                output.setTherapeuticalUsages(parseTherapeuticalUsagesJSONArray((JSONArray) obj));
-            }
-        }
+	public static RemedyBean paseJSONRemedy(JSONObject jsonRemedy) throws NumberFormatException, JSONException {
+		RemedyBean output = parseJSONCompactRemedy(jsonRemedy);
 
-        // if (jsonRemedy.has("frequent_usages")) {
-        // Object obj = jsonRemedy.get("frequent_usages");
-        // if (obj != null && obj instanceof JSONArray) {
-        // output.setFrequentUsages(parseStringJSONArray((JSONArray) obj));
-        // }
-        // }
-        //
-        // if (jsonRemedy.has("reported_usages")) {
-        // Object obj = jsonRemedy.get("reported_usages");
-        // if (obj != null && obj instanceof JSONArray) {
-        // output.setReportedUsages(parseStringJSONArray((JSONArray) obj));
-        // }
-        // }
+		if (jsonRemedy.has("part_plant_usage")) {
+			Object obj = jsonRemedy.get("part_plant_usage");
+			if (obj != null && obj instanceof JSONArray) {
+				JSONArray partPlantUsagesArray = (JSONArray) obj;
+				output.setPartPlantUsages(parseStringJSONArray(partPlantUsagesArray));
+			}
+		}
+		if (jsonRemedy.has("adjuvant_usages")) {
+			Object obj = jsonRemedy.get("adjuvant_usages");
+			if (obj != null && obj instanceof JSONArray) {
+				output.setAdjuvantUsages(parseAdjuvantUsagesJSONArray((JSONArray) obj));
+			}
+		}
 
-        return output;
-    }
+		if (jsonRemedy.has("therapeutical_usages")) {
+			Object obj = jsonRemedy.get("therapeutical_usages");
+			if (obj != null && obj instanceof JSONArray) {
+				output.setTherapeuticalUsages(parseTherapeuticalUsagesJSONArray((JSONArray) obj));
+			}
+		}
 
-    private static List<DrugBean> parseAdjuvantUsagesJSONArray(JSONArray usagesArray) {
-        Map<Long, DrugBean> drugBeanMap = SedicApplication.getInstance().getDrugs();
-        List<DrugBean> output = new ArrayList<DrugBean>();
-        for (int i = 0; i < usagesArray.length(); i++) {
-            JSONObject child = null;
-            try {
-                child = usagesArray.getJSONObject(i);
-                long usageId = -1;
-                if (child.has("remedy_usage_id")) {
-                    try {
-                        usageId = child.getLong("remedy_usage_id");
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
+		// if (jsonRemedy.has("frequent_usages")) {
+		// Object obj = jsonRemedy.get("frequent_usages");
+		// if (obj != null && obj instanceof JSONArray) {
+		// output.setFrequentUsages(parseStringJSONArray((JSONArray) obj));
+		// }
+		// }
+		//
+		// if (jsonRemedy.has("reported_usages")) {
+		// Object obj = jsonRemedy.get("reported_usages");
+		// if (obj != null && obj instanceof JSONArray) {
+		// output.setReportedUsages(parseStringJSONArray((JSONArray) obj));
+		// }
+		// }
 
-                if (usageId != -1) {
-                    DrugBean usageBean = drugBeanMap.get(usageId);
-                    if (usageBean != null) {
-                        output.add(usageBean);
-                    }
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-        return output;
-    }
+		return output;
+	}
 
-    private static List<DiseaseBean> parseTherapeuticalUsagesJSONArray(JSONArray usagesArray) {
-        Map<Long, DiseaseBean> diseaseBeanMap = SedicApplication.getInstance().getDiseases();
-        List<DiseaseBean> output = new ArrayList<DiseaseBean>();
-        for (int i = 0; i < usagesArray.length(); i++) {
-            JSONObject child = null;
-            try {
-                child = usagesArray.getJSONObject(i);
-                long usageId = -1;
-                if (child.has("remedy_usage_id")) {
-                    try {
-                        usageId = child.getLong("remedy_usage_id");
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
+	private static List<DrugBean> parseAdjuvantUsagesJSONArray(JSONArray usagesArray) {
+		Map<Long, DrugBean> drugBeanMap = SedicApplication.getInstance().getDrugs();
+		List<DrugBean> output = new ArrayList<DrugBean>();
+		for (int i = 0; i < usagesArray.length(); i++) {
+			JSONObject child = null;
+			try {
+				child = usagesArray.getJSONObject(i);
+				long usageId = -1;
+				if (child.has("remedy_usage_id")) {
+					try {
+						usageId = child.getLong("remedy_usage_id");
+					} catch (JSONException e) {
+						e.printStackTrace();
+					}
+				}
 
-                if (usageId != -1) {
-                    DiseaseBean usageBean = diseaseBeanMap.get(usageId);
-                    if (usageBean != null) {
-                        output.add(usageBean);
-                    }
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-        return output;
-    }
+				if (usageId != -1) {
+					DrugBean usageBean = drugBeanMap.get(usageId);
+					if (usageBean != null) {
+						output.add(usageBean);
+					}
+				}
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+		}
+		return output;
+	}
 
-    private static List<String> parseStringJSONArray(JSONArray usagesArray) {
-        List<String> output = new ArrayList<String>();
-        for (int i = 0; i < usagesArray.length(); i++) {
-            Object child = null;
-            try {
-                child = usagesArray.get(i);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            if (child != null) {
-                if (child instanceof String) {
-                    output.add((String) child);
-                }
-            }
-        }
-        return output;
-    }
+	private static List<DiseaseBean> parseTherapeuticalUsagesJSONArray(JSONArray usagesArray) {
+		Map<Long, DiseaseBean> diseaseBeanMap = SedicApplication.getInstance().getDiseases();
+		List<DiseaseBean> output = new ArrayList<DiseaseBean>();
+		for (int i = 0; i < usagesArray.length(); i++) {
+			JSONObject child = null;
+			try {
+				child = usagesArray.getJSONObject(i);
+				long usageId = -1;
+				if (child.has("remedy_usage_id")) {
+					try {
+						usageId = child.getLong("remedy_usage_id");
+					} catch (JSONException e) {
+						e.printStackTrace();
+					}
+				}
+
+				if (usageId != -1) {
+					DiseaseBean usageBean = diseaseBeanMap.get(usageId);
+					if (usageBean != null) {
+						output.add(usageBean);
+					}
+				}
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+		}
+		return output;
+	}
+
+	private static List<String> parseStringJSONArray(JSONArray usagesArray) {
+		List<String> output = new ArrayList<String>();
+		for (int i = 0; i < usagesArray.length(); i++) {
+			Object child = null;
+			try {
+				child = usagesArray.get(i);
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+			if (child != null) {
+				if (child instanceof String) {
+					output.add((String) child);
+				}
+			}
+		}
+		return output;
+	}
 
 }

@@ -20,7 +20,6 @@ public class GetPlantsServiceTask extends ServiceTask<PlantBean> {
 	private static final String tag = GetPlantsServiceTask.class.getSimpleName();
 
 	public GetPlantsServiceTask() {
-
 	}
 
 	@Override

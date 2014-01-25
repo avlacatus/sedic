@@ -134,7 +134,7 @@ public class DiseasesListActivity extends ActionBarActivity {
 				ids[i] = id;
 				i++;
 			}
-			
+
 			Intent intent = new Intent(this, RemedyListActivity.class);
 			intent.putExtra(RemedyListActivity.INTENT_EXTRA_REMEDY_IDS, ids);
 			if (selectedBean != null) {
@@ -157,7 +157,8 @@ public class DiseasesListActivity extends ActionBarActivity {
 	public void onCreateContextMenu(final ContextMenu menu, final View v, final ContextMenuInfo menuInfo) {
 		final AdapterContextMenuInfo adapterInfo = (AdapterContextMenuInfo) menuInfo;
 		final long id = adapterInfo.id;
-		final TreeNodeInfo<DiseaseBean> info = manager.getNodeInfo(SedicApplication.getInstance().getDiseases().get(id));
+		final TreeNodeInfo<DiseaseBean> info = manager
+				.getNodeInfo(SedicApplication.getInstance().getDiseases().get(id));
 		final MenuInflater menuInflater = getMenuInflater();
 		menuInflater.inflate(R.menu.context_menu, menu);
 		if (info.isWithChildren()) {
@@ -203,7 +204,7 @@ public class DiseasesListActivity extends ActionBarActivity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		case android.support.v7.appcompat.R.id.home:
+		case android.R.id.home:
 			finish();
 			break;
 		default:

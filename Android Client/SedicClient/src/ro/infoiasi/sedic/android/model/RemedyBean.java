@@ -11,6 +11,7 @@ public class RemedyBean implements Bean {
     private long remedyId;
     private String remedyURI;
     private long remedyPlantId;
+    private List<String> partPlantUsages;
     private List<DrugBean> adjuvantUsage;
     private List<DiseaseBean> therapeuticalUsage;
     private List<Bean> frequentUsage;
@@ -99,6 +100,14 @@ public class RemedyBean implements Bean {
     @Override
     public String getBeanName() {
         return remedyName;
+    }
+
+    public List<String> getPartPlantUsages() {
+        return partPlantUsages;
+    }
+
+    public void setPartPlantUsages(List<String> partPlantUsages) {
+        this.partPlantUsages = partPlantUsages;
     }
 
 }

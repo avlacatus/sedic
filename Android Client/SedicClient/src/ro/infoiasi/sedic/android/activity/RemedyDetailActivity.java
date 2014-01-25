@@ -4,6 +4,7 @@ import java.util.Map;
 
 import ro.infoiasi.sedic.android.R;
 import ro.infoiasi.sedic.android.SedicApplication;
+import ro.infoiasi.sedic.android.model.PlantBean;
 import ro.infoiasi.sedic.android.model.RemedyBean;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -18,6 +19,7 @@ public class RemedyDetailActivity extends ActionBarActivity {
 	@SuppressWarnings("unused")
 	private static final String tag = RemedyDetailActivity.class.getSimpleName();
 	private RemedyBean mRemedyBean;
+	private PlantBean mRemedyPlant;
 	private long mRemedyId;
 
 	@Override
@@ -42,6 +44,9 @@ public class RemedyDetailActivity extends ActionBarActivity {
 			Map<Long, RemedyBean> remedies = SedicApplication.getInstance().getRemedies();
 			if (remedies != null) {
 				mRemedyBean = remedies.get(Long.valueOf(mRemedyId));
+				
+				long plantId = mRemedyBean.getRemedyPlantId();
+				mRemedyPlant = SedicApplication.getInstance().getPlantList().get(plantId);
 			}
 		} else {
 			Toast.makeText(this, "remedy could not be found", Toast.LENGTH_LONG).show();
@@ -55,7 +60,13 @@ public class RemedyDetailActivity extends ActionBarActivity {
 		TextView mRemedyFrequent = (TextView) findViewById(R.id.rd_frequent);
 		TextView mRemedyReported = (TextView) findViewById(R.id.rd_reported);
 		if (mRemedyBean != null) {
-			mRemedyDescription.setText(mRemedyBean.getRemedyName() + mRemedyBean.getRemedyURI());
+		    StringBuffer content = new StringBuffer("Name: " + mRemedyBean.getRemedyName()+"\n");
+		    content.append("URI: " + mRemedyBean.getRemedyURI() + "\n");
+		    content.append("Usages: " + mRemedyBean.getPartPlantUsages());
+		    if (mRemedyPlant != null) {
+		        content.append(mRemedyPlant.getPlantDescription() + "\n");
+		    }
+			mRemedyDescription.setText(content.toString());
 			if (mRemedyBean.getAdjuvantUsages() != null) {
 				mRemedyFrequent.setText(mRemedyBean.getAdjuvantUsages().toString());
 			} else {
