@@ -88,7 +88,8 @@ public class Remedy extends EntityHelper {
 					.listPropertyValues(hasAdjuvantUsage);
 			while (it.hasNext()) {
 				RDFNode property = it.next();
-				//RDFNode hasAdjuvantValue = remedyResource.getPropertyValue(hasAdjuvantUsage);
+				// RDFNode hasAdjuvantValue =
+				// remedyResource.getPropertyValue(hasAdjuvantUsage);
 				Individual adjuvantResource = getOntModel().getResource(
 						property.toString()).as(Individual.class);
 				RDFNode hasAdjuvantIdValue = adjuvantResource
@@ -118,7 +119,8 @@ public class Remedy extends EntityHelper {
 				therapeutic.setName(property.toString()
 						.substring(OntologyUtils.NS.length())
 						.replaceAll("_", " "));
-				therapeutic.setId(Long.valueOf(hasTherapeuticalIdValue.toString()));
+				therapeutic.setId(Long.valueOf(hasTherapeuticalIdValue
+						.toString()));
 				remedy.addTherapeuticalUsage(therapeutic);
 			}
 			it = remedyResource.listPropertyValues(hasFrequentUsage);
@@ -128,17 +130,18 @@ public class Remedy extends EntityHelper {
 						property.toString()).as(Individual.class);
 				RDFNode hasFrequentIdValue;
 				if (frequentUsageResource.hasProperty(hasAdjuvantId))
-					 hasFrequentIdValue = frequentUsageResource
-					.getPropertyValue(hasAdjuvantId);
+					hasFrequentIdValue = frequentUsageResource
+							.getPropertyValue(hasAdjuvantId);
 				else
-					 hasFrequentIdValue = frequentUsageResource
-						.getPropertyValue(hasTherapeuticalId);
+					hasFrequentIdValue = frequentUsageResource
+							.getPropertyValue(hasTherapeuticalId);
 				RemedyPropertyEntity frequentUsage = new RemedyPropertyEntity();
 				frequentUsage.setName(property.toString()
 						.substring(OntologyUtils.NS.length())
 						.replaceAll("_", " "));
 				if (hasFrequentIdValue != null)
-				frequentUsage.setId(Long.valueOf(hasFrequentIdValue.toString()));
+					frequentUsage.setId(Long.valueOf(hasFrequentIdValue
+							.toString()));
 				remedy.addFrequentUsage(frequentUsage);
 			}
 			it = remedyResource.listPropertyValues(hasReportedUsage);
@@ -148,17 +151,18 @@ public class Remedy extends EntityHelper {
 						property.toString()).as(Individual.class);
 				RDFNode hasFrequentIdValue;
 				if (frequentUsageResource.hasProperty(hasAdjuvantId))
-					 hasFrequentIdValue = frequentUsageResource
-					.getPropertyValue(hasAdjuvantId);
+					hasFrequentIdValue = frequentUsageResource
+							.getPropertyValue(hasAdjuvantId);
 				else
-					 hasFrequentIdValue = frequentUsageResource
-						.getPropertyValue(hasTherapeuticalId);
+					hasFrequentIdValue = frequentUsageResource
+							.getPropertyValue(hasTherapeuticalId);
 				RemedyPropertyEntity frequentUsage = new RemedyPropertyEntity();
 				frequentUsage.setName(property.toString()
 						.substring(OntologyUtils.NS.length())
 						.replaceAll("_", " "));
 				if (hasFrequentIdValue != null)
-				frequentUsage.setId(Long.valueOf(hasFrequentIdValue.toString()));
+					frequentUsage.setId(Long.valueOf(hasFrequentIdValue
+							.toString()));
 				remedy.addReportedUsage(frequentUsage);
 			}
 			qexec.close();
@@ -215,16 +219,32 @@ public class Remedy extends EntityHelper {
 			ArrayList<String> therapeuticalEffects) {
 		String sparqlQueryString = OntologyUtils.SPARQL_PREFIXES
 				+ "SELECT ?subject "
-				+ "	WHERE { ?subject rdf:type sedic:Remedy . ";
+				+ "	WHERE {{ ?subject rdf:type sedic:Remedy . ";
+		String unionString = "UNION {"
+				+ "?subject rdf:type sedic:Remedy .";
+		int i = 0;
 		for (String adjuvant : adjuvantEffects) {
-			sparqlQueryString += " ?subject sedic:hasAdjuvantUsage" + adjuvant
-					+ ".";
+			String individual = "?ind" + i;
+			String clas = "?class" + i;
+			sparqlQueryString += " ?subject sedic:hasAdjuvantUsage "
+					+ individual + ".";
+			sparqlQueryString += individual + " a  " + clas + "."
+					+ clas +" rdfs:subClassOf* " + adjuvant + ".";
+			unionString += "?subject sedic:hasAdjuvantUsage " + adjuvant  + ".";
+			i++;
 		}
 		for (String th : therapeuticalEffects) {
-			sparqlQueryString += " ?subject sedic:hasTherapeuticalUsage " + th
-					+ ".";
+			String individual = "?ind" + i;
+			String clas = "?class" + i;
+			sparqlQueryString += " ?subject sedic:hasTherapeuticalUsage " + individual + ".";
+			sparqlQueryString += individual + " a  " + clas + "."
+					+ clas +" rdfs:subClassOf* " + th + ".";
+			unionString +=  " ?subject sedic:hasTherapeuticalUsage " + th + ".";
+			i++;
 		}
 		sparqlQueryString += " }";
+		unionString += "}";
+		sparqlQueryString += unionString + "}";
 		String response = "";
 		QueryExecution qexec = OntologyUtils.getSPARQLQuery(this,
 				sparqlQueryString);
