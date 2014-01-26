@@ -4,6 +4,7 @@ import java.util.Map;
 
 import ro.infoiasi.sedic.android.model.DiseaseBean;
 import ro.infoiasi.sedic.android.model.DrugBean;
+import ro.infoiasi.sedic.android.model.MedicalFactorBean;
 import ro.infoiasi.sedic.android.model.PlantBean;
 import ro.infoiasi.sedic.android.model.RemedyBean;
 import android.app.Application;
@@ -15,6 +16,8 @@ public class SedicApplication extends Application {
     private Map<Long, RemedyBean> remedies;
     private Map<Long, DrugBean> drugs;
     private Map<Long, DiseaseBean> diseases;
+    private Map<Long, DiseaseBean> mcContraindicatedDiseases;
+    private Map<Long, MedicalFactorBean> medicalFactors;
 
     @Override
     public void onCreate() {
@@ -57,4 +60,20 @@ public class SedicApplication extends Application {
     public void setRemedies(Map<Long, RemedyBean> remedies) {
         this.remedies = remedies;
     }
+
+	public Map<Long, DiseaseBean> getContraindicatedDiseases() {
+		return mcContraindicatedDiseases;
+	}
+
+	public void setContraindicatedDiseases(Map<Long, DiseaseBean> mcContraindicatedDiseases) {
+		this.mcContraindicatedDiseases = mcContraindicatedDiseases;
+	}
+
+	public Map<Long, MedicalFactorBean> getMedicalFactors() {
+		return medicalFactors;
+	}
+
+	public void setMedicalFactors(Map<Long, MedicalFactorBean> medicalFactors) {
+		this.medicalFactors = medicalFactors;
+	}
 }

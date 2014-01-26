@@ -12,6 +12,7 @@ import org.json.JSONObject;
 import ro.infoiasi.sedic.android.SedicApplication;
 import ro.infoiasi.sedic.android.model.DiseaseBean;
 import ro.infoiasi.sedic.android.model.DrugBean;
+import ro.infoiasi.sedic.android.model.MedicalFactorBean;
 import ro.infoiasi.sedic.android.model.PlantBean;
 import ro.infoiasi.sedic.android.model.RemedyBean;
 import android.util.Log;
@@ -134,14 +135,14 @@ public class JSONHelper {
 								output.put(selectedDrug.getDrugId(), selectedDrug);
 
 							} else {
-								Log.e("debug", "drug_children null for " + selectedDrug);
+								Log.d("debug", "drug_children null for " + selectedDrug);
 							}
 
 						} else {
-							Log.e("debug", "no drug_children for " + selectedDrug);
+							Log.d("debug", "no drug_children for " + selectedDrug);
 						}
 					} else {
-						Log.e("debug", "no drugBean for " + jsonDrug.toString());
+						Log.d("debug", "no drugBean for " + jsonDrug.toString());
 					}
 				}
 			}
@@ -201,7 +202,7 @@ public class JSONHelper {
 											children.add(childBean);
 										}
 									} else {
-										Log.e("debug", childURI + " cannot be found!");
+										Log.d("debug", childURI + " cannot be found!");
 									}
 								}
 
@@ -209,14 +210,14 @@ public class JSONHelper {
 								output.put(selectedDisease.getDiseaseId(), selectedDisease);
 
 							} else {
-								Log.e("debug", "disease_children null for " + selectedDisease);
+								Log.d("debug", "disease_children null for " + selectedDisease);
 							}
 
 						} else {
-							Log.e("debug", "no disease_children for " + selectedDisease);
+							Log.d("debug", "no disease_children for " + selectedDisease);
 						}
 					} else {
-						Log.e("debug", "no diseaseBean for " + jsonDisease.toString());
+						Log.d("debug", "no diseaseBean for " + jsonDisease.toString());
 					}
 				}
 			}
@@ -225,6 +226,41 @@ public class JSONHelper {
 			Log.e("debug", "error in parsing disease array", e);
 		}
 
+		return output;
+	}
+
+	public static Map<Long, MedicalFactorBean> parseMedicalFactorArray(JSONArray jsonArray) {
+		Map<Long, MedicalFactorBean> output = new HashMap<Long, MedicalFactorBean>();
+
+		for (int i = 0; i < jsonArray.length(); i++) {
+			try {
+				JSONObject jsonRemedy = jsonArray.getJSONObject(i);
+				MedicalFactorBean newRemedy = JSONHelper.parseMedicalFactorEntry(jsonRemedy);
+				output.put(newRemedy.getMedicalFactorId(), newRemedy);
+			} catch (JSONException e) {
+				Log.e("debug", "eror in parsing medical factors", e);
+			}
+		}
+
+		return output;
+	}
+
+	public static MedicalFactorBean parseMedicalFactorEntry(JSONObject object) throws JSONException {
+		MedicalFactorBean output = new MedicalFactorBean();
+		if (object.has("medical_factor_id")) {
+			long id = Long.valueOf(object.getLong("medical_factor_id"));
+			output.setMedicalFactorId(id);
+		}
+
+		if (object.has("medical_factor_name")) {
+			String name = object.getString("medical_factor_name");
+			output.setMedicalFactorName(name);
+		}
+
+		if (object.has("medical_factor_uri")) {
+			String uri = object.getString("medical_factor_uri");
+			output.setMedicalFactorURI(uri);
+		}
 		return output;
 	}
 
@@ -307,20 +343,6 @@ public class JSONHelper {
 				output.setTherapeuticalUsages(parseTherapeuticalUsagesJSONArray((JSONArray) obj));
 			}
 		}
-
-		// if (jsonRemedy.has("frequent_usages")) {
-		// Object obj = jsonRemedy.get("frequent_usages");
-		// if (obj != null && obj instanceof JSONArray) {
-		// output.setFrequentUsages(parseStringJSONArray((JSONArray) obj));
-		// }
-		// }
-		//
-		// if (jsonRemedy.has("reported_usages")) {
-		// Object obj = jsonRemedy.get("reported_usages");
-		// if (obj != null && obj instanceof JSONArray) {
-		// output.setReportedUsages(parseStringJSONArray((JSONArray) obj));
-		// }
-		// }
 
 		return output;
 	}

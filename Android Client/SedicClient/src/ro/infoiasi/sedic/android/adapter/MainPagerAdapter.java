@@ -1,6 +1,7 @@
 package ro.infoiasi.sedic.android.adapter;
 
 import ro.infoiasi.sedic.android.fragment.SelectAdjuvantsFragment;
+import ro.infoiasi.sedic.android.fragment.SelectMedicalFactorFragment;
 import ro.infoiasi.sedic.android.fragment.SelectTherapiesFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -20,7 +21,7 @@ public class MainPagerAdapter extends FragmentPagerAdapter {
         case 1:
             return new SelectTherapiesFragment();
         case 2:
-            return new SelectAdjuvantsFragment();
+            return new SelectMedicalFactorFragment();
         default:
             return new SelectAdjuvantsFragment();
         }

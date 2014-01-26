@@ -22,65 +22,84 @@ import android.widget.TextView;
  */
 public class BeanTreeAdapter<E extends Bean> extends AbstractTreeViewAdapter<E> {
 
-    private final Set<E> selected;
+	private final Set<E> selected;
+	private boolean allowsCheckOnParents = false;
+	private TreeCellCheckedChangeListener mCheckedChangedListener;
 
-    private final OnCheckedChangeListener onCheckedChange = new OnCheckedChangeListener() {
-        @Override
-        public void onCheckedChanged(final CompoundButton buttonView, final boolean isChecked) {
-            final E id = (E) buttonView.getTag();
-            changeSelected(isChecked, id);
-        }
+	public static interface TreeCellCheckedChangeListener {
+		public void onCheckedChanged(Object id, boolean isChecked);
+	}
 
-    };
+	private final OnCheckedChangeListener onCheckedChange = new OnCheckedChangeListener() {
+		@Override
+		public void onCheckedChanged(final CompoundButton buttonView, final boolean isChecked) {
+			final E id = (E) buttonView.getTag();
+			changeSelected(isChecked, id);
+			if (mCheckedChangedListener != null) {
+				mCheckedChangedListener.onCheckedChanged(id, isChecked);
+			}
+		}
 
-    private void changeSelected(final boolean isChecked, final E id) {
-        if (isChecked) {
-            selected.add(id);
-        } else {
-            selected.remove(id);
-        }
-    }
+	};
 
-    public BeanTreeAdapter(Activity treeViewListDemo, final Set<E> selected,
-            final TreeStateManager<E> treeStateManager, final int numberOfLevels) {
-        super(treeViewListDemo, treeStateManager, numberOfLevels);
-        this.selected = selected;
-    }
+	private void changeSelected(final boolean isChecked, final E id) {
+		if (isChecked) {
+			selected.add(id);
+		} else {
+			selected.remove(id);
+		}
+	}
 
-    @Override
-    public View getNewChildView(final TreeNodeInfo<E> treeNodeInfo) {
-        final LinearLayout viewLayout = (LinearLayout) getActivity().getLayoutInflater().inflate(
-                R.layout.demo_list_item, null);
-        return updateView(viewLayout, treeNodeInfo);
-    }
+	public BeanTreeAdapter(Activity treeViewListDemo, final Set<E> selected,
+			final TreeStateManager<E> treeStateManager, final int numberOfLevels, boolean allowsCheckOnParents) {
+		super(treeViewListDemo, treeStateManager, numberOfLevels);
+		this.selected = selected;
+		this.allowsCheckOnParents = allowsCheckOnParents;
+	}
 
-    @Override
-    public LinearLayout updateView(final View view, final TreeNodeInfo<E> treeNodeInfo) {
-        final LinearLayout viewLayout = (LinearLayout) view;
-        final TextView descriptionView = (TextView) viewLayout.findViewById(R.id.demo_list_item_description);
-        descriptionView.setText(treeNodeInfo.getId().getBeanName());
-        final CheckBox box = (CheckBox) viewLayout.findViewById(R.id.demo_list_checkbox);
-        box.setTag(treeNodeInfo.getId());
-        box.setChecked(selected.contains(treeNodeInfo.getId()));
-        box.setOnCheckedChangeListener(onCheckedChange);
-        return viewLayout;
-    }
+	@Override
+	public View getNewChildView(final TreeNodeInfo<E> treeNodeInfo) {
+		final LinearLayout viewLayout = (LinearLayout) getActivity().getLayoutInflater().inflate(
+				R.layout.demo_list_item, null);
+		return updateView(viewLayout, treeNodeInfo);
+	}
 
-    @Override
-    public void handleItemClick(final View view, final Object id) {
-        final E longId = (E) id;
-        final TreeNodeInfo<E> info = getManager().getNodeInfo(longId);
-        if (info.isWithChildren()) {
-            super.handleItemClick(view, id);
-        } else {
-            final ViewGroup vg = (ViewGroup) view;
-            final CheckBox cb = (CheckBox) vg.findViewById(R.id.demo_list_checkbox);
-            cb.performClick();
-        }
-    }
+	@Override
+	public LinearLayout updateView(final View view, final TreeNodeInfo<E> treeNodeInfo) {
+		final LinearLayout viewLayout = (LinearLayout) view;
+		final TextView descriptionView = (TextView) viewLayout.findViewById(R.id.demo_list_item_description);
+		descriptionView.setText(treeNodeInfo.getId().getBeanName());
+		final CheckBox box = (CheckBox) viewLayout.findViewById(R.id.demo_list_checkbox);
+		box.setTag(treeNodeInfo.getId());
+		box.setOnCheckedChangeListener(onCheckedChange);
+		if (treeNodeInfo.isWithChildren() && !allowsCheckOnParents) {
+			box.setVisibility(View.GONE);
+		} else {
+			box.setVisibility(View.VISIBLE);
+			box.setChecked(selected.contains(treeNodeInfo.getId()));
+		}
+		return viewLayout;
+	}
 
-    @Override
-    public long getItemId(final int position) {
-        return getTreeId(position).getBeanID();
-    }
+	@Override
+	public void handleItemClick(final View view, final Object id) {
+		final E longId = (E) id;
+		final TreeNodeInfo<E> info = getManager().getNodeInfo(longId);
+		if (info.isWithChildren()) {
+			super.handleItemClick(view, id);
+		} else {
+			final ViewGroup vg = (ViewGroup) view;
+			final CheckBox cb = (CheckBox) vg.findViewById(R.id.demo_list_checkbox);
+			cb.performClick();
+		}
+	}
+
+	@Override
+	public long getItemId(final int position) {
+		return getTreeId(position).getBeanID();
+	}
+
+	public void setCheckedChangedListener(TreeCellCheckedChangeListener mCheckedChangedListener) {
+		this.mCheckedChangedListener = mCheckedChangedListener;
+	}
 }

@@ -13,9 +13,11 @@ import pl.polidea.treeview.TreeStateManager;
 import pl.polidea.treeview.TreeViewList;
 import ro.infoiasi.sedic.android.R;
 import ro.infoiasi.sedic.android.SedicApplication;
+import ro.infoiasi.sedic.android.activity.MainActivity;
 import ro.infoiasi.sedic.android.adapter.BeanTreeAdapter;
 import ro.infoiasi.sedic.android.communication.event.GetDrugsEvent;
 import ro.infoiasi.sedic.android.model.DrugBean;
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -26,32 +28,40 @@ import de.greenrobot.event.EventBus;
 
 public class SelectAdjuvantsFragment extends Fragment {
 
-    private final Set<DrugBean> selected = new HashSet<DrugBean>();
+	private final Set<DrugBean> selected = new HashSet<DrugBean>();
 
-    @SuppressWarnings("unused")
-    private static final String TAG = SelectAdjuvantsFragment.class.getSimpleName();
-    private TreeViewList treeView;
+	@SuppressWarnings("unused")
+	private static final String TAG = SelectAdjuvantsFragment.class.getSimpleName();
+	private TreeViewList treeView;
 
-    private static final int LEVEL_NUMBER = 6;
-    private TreeStateManager<DrugBean> manager = null;
-    private BeanTreeAdapter<DrugBean> simpleAdapter;
-    private boolean initialized = false;
+	private static final int LEVEL_NUMBER = 6;
+	private TreeStateManager<DrugBean> manager = null;
+	private BeanTreeAdapter<DrugBean> simpleAdapter;
+	private boolean initialized = false;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        manager = new InMemoryTreeStateManager<DrugBean>();
-        initialized = initTreeManager();
-        EventBus.getDefault().register(this, GetDrugsEvent.class);
-    }
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		manager = new InMemoryTreeStateManager<DrugBean>();
+		initialized = initTreeManager();
+		EventBus.getDefault().register(this, GetDrugsEvent.class);
+	}
+	
+	@Override
+	public void onAttach(Activity activity) {
+		super.onAttach(activity);
+		if (activity instanceof MainActivity) {
+			((MainActivity) activity).registerAdjuvantsFragment(this);
+		}
+	}
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        EventBus.getDefault().unregister(this, GetDrugsEvent.class);
-    }
-    
-    private boolean initTreeManager() {
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		EventBus.getDefault().unregister(this, GetDrugsEvent.class);
+	}
+
+	private boolean initTreeManager() {
 		if (SedicApplication.getInstance().getDrugs() != null) {
 			Collection<DrugBean> drugs = SedicApplication.getInstance().getDrugs().values();
 			final TreeBuilder<DrugBean> treeBuilder = new TreeBuilder<DrugBean>(manager);
@@ -112,35 +122,39 @@ public class SelectAdjuvantsFragment extends Fragment {
 		return output;
 	}
 
- 
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		return inflater.inflate(R.layout.expandable_list_layout, null);
+	}
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.expandable_list_layout, null);
-    }
+	@Override
+	public void onViewCreated(View view, Bundle savedInstanceState) {
+		super.onViewCreated(view, savedInstanceState);
+		treeView = (TreeViewList) view.findViewById(R.id.tree_view);
 
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        treeView = (TreeViewList) view.findViewById(R.id.tree_view);
+		if (initialized) {
+			simpleAdapter = new BeanTreeAdapter<DrugBean>(getActivity(), selected, manager, LEVEL_NUMBER, true);
+			simpleAdapter.setCheckedChangedListener((MainActivity) getActivity());
+			treeView.setAdapter(simpleAdapter);
+			treeView.setCollapsible(true);
+			manager.collapseChildren(null);
+		}
+	}
 
-        if (initialized) {
-        	simpleAdapter = new BeanTreeAdapter<DrugBean>(getActivity(), selected, manager, LEVEL_NUMBER);
-        	treeView.setAdapter(simpleAdapter);
-        	treeView.setCollapsible(true);
-        	manager.collapseChildren(null);
-        }
-    }
+	public void onEventMainThread(GetDrugsEvent e) {
+		Log.e("debug", "GetDrugsEvent");
+		if (!initialized) {
+			initTreeManager();
+			simpleAdapter = new BeanTreeAdapter<DrugBean>(getActivity(), selected, manager, LEVEL_NUMBER, true);
+			treeView.setAdapter(simpleAdapter);
+			treeView.setCollapsible(true);
+			simpleAdapter.setCheckedChangedListener((MainActivity) getActivity());
+			manager.collapseChildren(null);
+		}
+	}
 
-    public void onEventMainThread(GetDrugsEvent e) {
-    	Log.e("debug", "GetDrugsEvent");
-        if (!initialized) {
-            initTreeManager();
-        	simpleAdapter = new BeanTreeAdapter<DrugBean>(getActivity(), selected, manager, LEVEL_NUMBER);
-        	treeView.setAdapter(simpleAdapter);
-        	treeView.setCollapsible(true);
-        	manager.collapseChildren(null);
-        }
-    }
+	public Set<DrugBean> getSelection() {
+		return selected;
+	}
 
 }
