@@ -19,8 +19,10 @@ import ro.infoiasi.sedic.android.communication.task.ServiceTask;
 import ro.infoiasi.sedic.android.fragment.SelectAdjuvantsFragment;
 import ro.infoiasi.sedic.android.fragment.SelectMedicalFactorFragment;
 import ro.infoiasi.sedic.android.fragment.SelectTherapiesFragment;
+import ro.infoiasi.sedic.android.model.Bean;
 import ro.infoiasi.sedic.android.model.DiseaseBean;
 import ro.infoiasi.sedic.android.model.DrugBean;
+import ro.infoiasi.sedic.android.model.MedicalFactorBean;
 import ro.infoiasi.sedic.android.model.RemedyBean;
 import ro.infoiasi.sedic.android.util.DialogUtils;
 import android.content.Context;
@@ -248,8 +250,21 @@ public class MainActivity extends ActionBarActivity implements BeanTreeAdapter.T
 	private void performQuery() {
 		Set<DrugBean> adjuvantSelection = mAdjuvantsFragment.getSelection();
 		Set<DiseaseBean> therapiesSelection = mTherapiesFragment.getSelection();
+		Set<Bean> medicalfactorsSelection = mMedicalFactorsFragment.getSelection();
+		Integer minAge = mMedicalFactorsFragment.getMinimumAge();
+
+		List<MedicalFactorBean> mfs = new ArrayList<MedicalFactorBean>();
+		List<DiseaseBean> contraindicated = new ArrayList<DiseaseBean>();
+		for (Bean bean : medicalfactorsSelection) {
+			if (bean instanceof MedicalFactorBean) {
+				mfs.add((MedicalFactorBean) bean);
+			} else if (bean instanceof DiseaseBean) {
+				contraindicated.add((DiseaseBean) bean);
+			}
+		}
+
 		ServiceTask<RemedyBean> queryTask = new RemedySearchServiceTask(new ArrayList<DrugBean>(adjuvantSelection),
-				new ArrayList<DiseaseBean>(therapiesSelection));
+				new ArrayList<DiseaseBean>(therapiesSelection), mfs, contraindicated, minAge != null ? minAge : -1);
 		queryTask.execute();
 		DialogUtils.showProgressDialog(this, "Please wait..");
 	}

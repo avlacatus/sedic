@@ -19,10 +19,10 @@ import ro.infoiasi.sedic.android.model.MedicalFactorBean;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import de.greenrobot.event.EventBus;
 
 public class SelectMedicalFactorFragment extends Fragment {
@@ -37,6 +37,7 @@ public class SelectMedicalFactorFragment extends Fragment {
 	private TreeStateManager<Bean> manager = null;
 	private BeanTreeAdapter<Bean> simpleAdapter;
 	private boolean initialized = false;
+	private EditText mAgeInput;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,7 @@ public class SelectMedicalFactorFragment extends Fragment {
 		initialized = initTreeManager();
 		EventBus.getDefault().register(this, GetMedicalConditionEvent.class);
 	}
-	
+
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
@@ -119,13 +120,14 @@ public class SelectMedicalFactorFragment extends Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		return inflater.inflate(R.layout.expandable_list_layout, null);
+		return inflater.inflate(R.layout.select_medical_factors_layout, null);
 	}
 
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
 		treeView = (TreeViewList) view.findViewById(R.id.tree_view);
+		mAgeInput = (EditText) view.findViewById(R.id.smc_age_input);
 
 		if (initialized) {
 			simpleAdapter = new BeanTreeAdapter<Bean>(getActivity(), selected, manager, LEVEL_NUMBER, false);
@@ -136,7 +138,6 @@ public class SelectMedicalFactorFragment extends Fragment {
 	}
 
 	public void onEventMainThread(GetMedicalConditionEvent e) {
-		Log.e("debug", "GetMedicalConditionEvent");
 		if (!initialized) {
 			initTreeManager();
 			simpleAdapter = new BeanTreeAdapter<Bean>(getActivity(), selected, manager, LEVEL_NUMBER, false);
@@ -148,6 +149,19 @@ public class SelectMedicalFactorFragment extends Fragment {
 
 	public Set<Bean> getSelection() {
 		return selected;
+	}
+
+	public Integer getMinimumAge() {
+		if (mAgeInput != null) {
+			String strInput = mAgeInput.getText().toString();
+			try {
+				return Integer.valueOf(strInput);
+			} catch (Exception e) {
+				return null;
+			}
+		} else {
+			return null;
+		}
 	}
 
 }

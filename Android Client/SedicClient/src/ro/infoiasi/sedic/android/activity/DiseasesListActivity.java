@@ -185,7 +185,7 @@ public class DiseasesListActivity extends ActionBarActivity {
 			List<DiseaseBean> payload = new ArrayList<DiseaseBean>();
 			payload.add(selectedBean);
 			DialogUtils.showProgressDialog(this, null);
-			new RemedySearchServiceTask(null, payload).execute();
+			new RemedySearchServiceTask(null, payload, null, null, -1).execute();
 			return true;
 		} else if (item.getItemId() == R.id.context_menu_collapse) {
 			manager.collapseChildren(selectedBean);

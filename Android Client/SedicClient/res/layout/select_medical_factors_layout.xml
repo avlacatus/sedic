@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:treeView="http://schemas.android.com/apk/res/ro.infoiasi.sedic.android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/smc_upper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="5dp"
+            android:text="Minimum age" />
+
+        <EditText
+            android:id="@+id/smc_age_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Enter min age"
+            android:inputType="numberDecimal" />
+    </LinearLayout>
+
+    <pl.polidea.treeview.TreeViewList
+        android:id="@+id/tree_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/smc_upper"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="0.5dp"
+        android:scrollbars="vertical"
+        android:smoothScrollbar="true"
+        treeView:indicator_gravity="right|center_vertical" />
+
+</RelativeLayout>

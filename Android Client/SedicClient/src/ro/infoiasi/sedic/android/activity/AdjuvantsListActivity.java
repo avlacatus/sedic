@@ -190,7 +190,7 @@ public class AdjuvantsListActivity extends ActionBarActivity {
 			List<DrugBean> payload = new ArrayList<DrugBean>();
 			payload.add(selectedBean);
 			DialogUtils.showProgressDialog(this, null);
-			new RemedySearchServiceTask(payload, null).execute();
+			new RemedySearchServiceTask(payload, null, null, null, -1).execute();
 			return true;
 		} else if (item.getItemId() == R.id.context_menu_collapse) {
 			manager.collapseChildren(selectedBean);
