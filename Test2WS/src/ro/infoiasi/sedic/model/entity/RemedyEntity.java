@@ -16,14 +16,17 @@ public class RemedyEntity {
 	private List<RemedyPropertyEntity> reportedUsage = new ArrayList<RemedyPropertyEntity>();
 	private List<RemedyPropertyEntity> therapeuticalUsage = new ArrayList<RemedyPropertyEntity>();
 	private List<String> partPlantUsage = new ArrayList<String>();
+	private MedicalConditionEntity medicalCondition = new MedicalConditionEntity() ;
 
 	public RemedyEntity() {
 	}
 
 	public RemedyEntity(String remedyName, long remedyId, String remedyURI,
-			List<RemedyPropertyEntity> adjuvantUsage, List<RemedyPropertyEntity> frequentUsage,
+			List<RemedyPropertyEntity> adjuvantUsage,
+			List<RemedyPropertyEntity> frequentUsage,
 			List<RemedyPropertyEntity> reportedUsage,
-			List<RemedyPropertyEntity> therapeuticalUsage, long remedyPlantId, List<String> partPlantUsage) {
+			List<RemedyPropertyEntity> therapeuticalUsage, long remedyPlantId,
+			List<String> partPlantUsage, MedicalConditionEntity medicalCondition) {
 		super();
 		this.remedyName = remedyName;
 		this.remedyId = remedyId;
@@ -34,6 +37,7 @@ public class RemedyEntity {
 		this.therapeuticalUsage = therapeuticalUsage;
 		this.remedyPlantId = remedyPlantId;
 		this.partPlantUsage = partPlantUsage;
+		this.medicalCondition = medicalCondition;
 	}
 
 	public long getRemedyPlantId() {
@@ -64,6 +68,7 @@ public class RemedyEntity {
 		JsonObject outputObject = new JsonObject();
 		outputObject.put("remedy_name", remedyName);
 		outputObject.put("remedy_id", remedyId);
+		outputObject.put("medical_condition", medicalCondition.toJSONString());
 		JsonArray partPlantArray = new JsonArray();
 		for (String s : partPlantUsage) {
 			partPlantArray.add(s);
@@ -125,9 +130,11 @@ public class RemedyEntity {
 	public void setPartPlantUsage(List<String> partPlantUsage) {
 		this.partPlantUsage = partPlantUsage;
 	}
+
 	public void addPlantPartUsage(String plantPart) {
 		this.partPlantUsage.add(plantPart);
 	}
+
 	public List<RemedyPropertyEntity> getAdjuvantUsage() {
 		return adjuvantUsage;
 	}
@@ -176,4 +183,11 @@ public class RemedyEntity {
 		this.reportedUsage.add(reported);
 	}
 
+	public MedicalConditionEntity getMedicalCondition() {
+		return medicalCondition;
+	}
+	public void setMedicalCondition(MedicalConditionEntity medicalCondition)
+	{
+		this.medicalCondition = medicalCondition;
+	}
 }

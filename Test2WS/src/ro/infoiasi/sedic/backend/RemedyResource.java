@@ -1,6 +1,7 @@
 package ro.infoiasi.sedic.backend;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.ws.rs.GET;
@@ -19,6 +20,9 @@ import org.apache.jena.atlas.json.JsonValue;
 import ro.infoiasi.sedic.OntologyUtils;
 import ro.infoiasi.sedic.URLConstants;
 import ro.infoiasi.sedic.model.RemedyHelper;
+import ro.infoiasi.sedic.model.entity.DiseaseEntity;
+import ro.infoiasi.sedic.model.entity.MedicalConditionEntity;
+import ro.infoiasi.sedic.model.entity.MedicalFactorEntity;
 
 @Path("/remedy")
 public class RemedyResource {
@@ -89,17 +93,64 @@ public class RemedyResource {
 			JsonObject output = new JsonObject();
 			output.put("Error", "Adjuvants & Therapeutical effects cannot be empty.");
 			return output.toString();
-		} else {
-			JsonArray response = getQueryResult(adjuvantEffects, therapeuticalEffects);
+		} 
+		MedicalConditionEntity medicalCondition = new MedicalConditionEntity();
+		if (jsonPayload.hasKey("medical_condition"))
+		{
+			JsonValue medical = jsonPayload.get("medical_condition");
+			JsonObject medicalConditionObject = medical.getAsObject();
+			if (medicalConditionObject.hasKey("age"))
+			{
+				JsonValue minAge = medicalConditionObject.get("age");
+				medicalCondition.setMedicalConditionMinAge(Integer.valueOf(minAge.toString()));
+				
+			}
+			if (medicalConditionObject.hasKey("medical_factors"))
+			{
+				JsonValue factors = medicalConditionObject.get("medical_factors");
+				JsonArray factorsArray = factors.getAsArray();
+				List<MedicalFactorEntity> medicalFactors = new ArrayList<MedicalFactorEntity>();
+				for (int i = 0; i < factorsArray.size(); i++) {
+					JsonObject obj = (JsonObject) factorsArray.get(i);
+					String uri = obj.get("uri").toString();
+					String mUri = "<" + uri.replace('"', '>').substring(1);
+					String id = obj.get("id").toString();
+					MedicalFactorEntity factor = new MedicalFactorEntity();
+					factor.setMedicalFactorId(Long.valueOf(id));
+					factor.setMedicalFactorURI(mUri);
+					medicalFactors.add(factor);
+				}
+				medicalCondition.setMedicalFactors(medicalFactors);
+			}
+			if (medicalConditionObject.hasKey("diseases"))
+			{
+				JsonValue diseases = medicalConditionObject.get("diseases");
+				JsonArray diseasesArray = diseases.getAsArray();
+				List<DiseaseEntity> medicalConditionDiseases = new ArrayList<DiseaseEntity>();
+				for (int i = 0; i < diseasesArray.size(); i++) {
+					JsonObject obj = (JsonObject) diseasesArray.get(i);
+					String uri = obj.get("uri").toString();
+					String mUri = "<" + uri.replace('"', '>').substring(1);
+					String id = obj.get("id").toString();
+					DiseaseEntity disease = new DiseaseEntity();
+					disease.setDiseaseId(Long.valueOf(id));
+					disease.setDiseaseURI(mUri);
+					medicalConditionDiseases.add(disease);
+				}
+				medicalCondition.setDiseases(medicalConditionDiseases);
+			}
+			
+		}
+			JsonArray response = getQueryResult(adjuvantEffects, therapeuticalEffects, medicalCondition);
 			JsonObject output = new JsonObject();
 			output.put("remedies", response);
 			return output.toString();
-		}
+		
 	}
 
-	private JsonArray getQueryResult(ArrayList<String> adjuvantEffects, ArrayList<String> therapeuticalEffects) {
+	private JsonArray getQueryResult(ArrayList<String> adjuvantEffects, ArrayList<String> therapeuticalEffects, MedicalConditionEntity medicalCondition) {
 		RemedyHelper remedy = RemedyHelper.getInstance();
-		return remedy.getQueryResults(adjuvantEffects, therapeuticalEffects);
+		return remedy.getQueryResults(adjuvantEffects, therapeuticalEffects, medicalCondition);
 
 	}
 }

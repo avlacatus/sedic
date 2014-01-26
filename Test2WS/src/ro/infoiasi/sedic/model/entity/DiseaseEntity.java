@@ -48,7 +48,13 @@ public class DiseaseEntity {
 		outputObject.put("disease_children", childArray);
 		return outputObject;
 	}
-
+	public JsonObject toCompactJSONString() {
+		JsonObject outputObject = new JsonObject();
+		outputObject.put("disease_name", diseaseName);
+		outputObject.put("disease_id", diseaseId);
+		outputObject.put("disease_uri", diseaseURI);
+		return outputObject;
+	}
 	public String getDiseaseName() {
 		return diseaseName;
 	}
