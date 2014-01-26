@@ -11,6 +11,7 @@ import ro.infoiasi.sedic.android.communication.event.GetRemedyDetailsEvent;
 import ro.infoiasi.sedic.android.communication.task.GetRemedyDetailsServiceTask;
 import ro.infoiasi.sedic.android.communication.task.Response.ResponseStatus;
 import ro.infoiasi.sedic.android.model.RemedyBean;
+import ro.infoiasi.sedic.android.util.DialogUtils;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -90,6 +91,7 @@ public class RemedyListActivity extends ActionBarActivity implements AdapterView
 	}
 
 	public void onEventMainThread(GetRemedyDetailsEvent e) {
+		DialogUtils.hideProgressDialog(this);
 		if (e.getResponse().getStatus() == ResponseStatus.OK) {
 			RemedyBean bean = (RemedyBean) e.getResponse().getData();
 			Intent intent = new Intent(this, RemedyDetailActivity.class);
@@ -105,6 +107,7 @@ public class RemedyListActivity extends ActionBarActivity implements AdapterView
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 		RemedyBean selectedBean = mRemedyListAdapter.getItem(position);
 		if (selectedBean != null) {
+			DialogUtils.showProgressDialog(this, "Please wait..");
 			new GetRemedyDetailsServiceTask(selectedBean.getRemedyId()).execute();
 		} else {
 			Toast.makeText(this, "could not open remedy", Toast.LENGTH_SHORT).show();

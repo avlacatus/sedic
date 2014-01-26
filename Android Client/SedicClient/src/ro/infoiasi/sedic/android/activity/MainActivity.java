@@ -66,13 +66,18 @@ public class MainActivity extends ActionBarActivity implements BeanTreeAdapter.T
 
 		findViews();
 		setupListeners();
+	}
+
+	@Override
+	protected void onStart() {
+		super.onStart();
 		EventBus.getDefault().register(this, GetPlantsEvent.class, GetCompactRemediesEvent.class,
 				GetRemedyDetailsEvent.class, GetDrugsEvent.class, RemedySearchEvent.class);
 	}
 
 	@Override
-	protected void onDestroy() {
-		super.onDestroy();
+	protected void onStop() {
+		super.onStop();
 		EventBus.getDefault().unregister(this, GetPlantsEvent.class, GetCompactRemediesEvent.class,
 				GetRemedyDetailsEvent.class, GetDrugsEvent.class, RemedySearchEvent.class);
 	}

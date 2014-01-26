@@ -1,13 +1,19 @@
 package ro.infoiasi.sedic.android.activity;
 
+import java.util.List;
 import java.util.Map;
 
 import ro.infoiasi.sedic.android.R;
 import ro.infoiasi.sedic.android.SedicApplication;
+import ro.infoiasi.sedic.android.model.DiseaseBean;
+import ro.infoiasi.sedic.android.model.DrugBean;
+import ro.infoiasi.sedic.android.model.MedicalConditionBean;
+import ro.infoiasi.sedic.android.model.MedicalFactorBean;
 import ro.infoiasi.sedic.android.model.PlantBean;
 import ro.infoiasi.sedic.android.model.RemedyBean;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.text.Html;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,7 +50,7 @@ public class RemedyDetailActivity extends ActionBarActivity {
 			Map<Long, RemedyBean> remedies = SedicApplication.getInstance().getRemedies();
 			if (remedies != null) {
 				mRemedyBean = remedies.get(Long.valueOf(mRemedyId));
-				
+
 				long plantId = mRemedyBean.getRemedyPlantId();
 				mRemedyPlant = SedicApplication.getInstance().getPlantList().get(plantId);
 			}
@@ -56,27 +62,70 @@ public class RemedyDetailActivity extends ActionBarActivity {
 	}
 
 	private void setupUI() {
-		TextView mRemedyDescription = (TextView) findViewById(R.id.rd_description);
-		TextView mRemedyFrequent = (TextView) findViewById(R.id.rd_frequent);
-		TextView mRemedyReported = (TextView) findViewById(R.id.rd_reported);
+		TextView aboutLabel = (TextView) findViewById(R.id.rd_about_label);
+		TextView remedyDescription = (TextView) findViewById(R.id.rd_description);
+		TextView partPlant = (TextView) findViewById(R.id.rd_plant_part);
+		TextView medicalConditionLabel = (TextView) findViewById(R.id.rd_mc_label);
+		TextView medicalConditionView = (TextView) findViewById(R.id.rd_medical_condition);
+		TextView therapeuticalUsageView = (TextView) findViewById(R.id.rd_therapeutical);
+		TextView adjuvantUsageView = (TextView) findViewById(R.id.rd_adjuvant);
+		if (mRemedyPlant != null) {
+			aboutLabel.setText("About " + mRemedyPlant.getPlantName());
+			remedyDescription.setText(Html.fromHtml(mRemedyPlant.getPlantDescription()));
+			medicalConditionLabel.setText("Medical Conditions and Interactions for " + mRemedyPlant.getPlantName());
+		}
+
 		if (mRemedyBean != null) {
-		    StringBuffer content = new StringBuffer("Name: " + mRemedyBean.getRemedyName()+"\n");
-		    content.append("URI: " + mRemedyBean.getRemedyURI() + "\n");
-		    content.append("Usages: " + mRemedyBean.getPartPlantUsages());
-		    if (mRemedyPlant != null) {
-		        content.append(mRemedyPlant.getPlantDescription() + "\n");
-		    }
-			mRemedyDescription.setText(content.toString());
-			if (mRemedyBean.getAdjuvantUsages() != null) {
-				mRemedyFrequent.setText(mRemedyBean.getAdjuvantUsages().toString());
+			List<String> plantParts = mRemedyBean.getPartPlantUsages();
+			if (plantParts.size() > 0) {
+				StringBuffer plantPartBuffer = new StringBuffer();
+				for (int i = 0; i < plantParts.size() - 1; i++) {
+					plantPartBuffer.append(plantParts.get(i) + ", ");
+				}
+				plantPartBuffer.append(plantParts.get(plantParts.size() - 1));
+				partPlant.setText(plantPartBuffer.toString());
+			}
+			MedicalConditionBean medicalCondition = mRemedyBean.getMedicalCondition();
+			if (medicalCondition != null) {
+				StringBuffer buf = new StringBuffer();
+				buf.append("Do not use for individuals less than " + medicalCondition.getMedicalConditionMinAge()
+						+ " years old unless recommended by a physician.\n");
+				if (medicalCondition.getMedicalFactors() != null && !medicalCondition.getMedicalFactors().isEmpty()) {
+					buf.append("\nMedical factors to be avoided: \n");
+					for (MedicalFactorBean mf : medicalCondition.getMedicalFactors()) {
+						buf.append(mf.getMedicalFactorName() + "\n");
+					}
+					buf.append("\n");
+				}
+
+				if (medicalCondition.getContraindicatedDiseases() != null
+						&& !medicalCondition.getContraindicatedDiseases().isEmpty()) {
+					buf.append("Contraindicated diseases: \n");
+					for (DiseaseBean disease : medicalCondition.getContraindicatedDiseases()) {
+						buf.append(disease.getDiseaseName() + "\n");
+					}
+				}
+				medicalConditionView.setText(buf.toString());
+			}
+
+			if (mRemedyBean.getAdjuvantUsages() != null && !mRemedyBean.getAdjuvantUsages().isEmpty()) {
+				StringBuffer buf = new StringBuffer();
+				for (DrugBean bean : mRemedyBean.getAdjuvantUsages()) {
+					buf.append(bean.getDrugName() + "\n");
+				}
+				adjuvantUsageView.setText(buf.toString());
 			} else {
-				mRemedyFrequent.setText("empty adjuvants");
+				adjuvantUsageView.setText("No adjuvant usages for this remedy.");
 
 			}
-			if (mRemedyBean.getTherapeuticalUsages() != null) {
-				mRemedyReported.setText(mRemedyBean.getTherapeuticalUsages().toString());
+			if (mRemedyBean.getTherapeuticalUsages() != null && !mRemedyBean.getTherapeuticalUsages().isEmpty()) {
+				StringBuffer buf = new StringBuffer();
+				for (DiseaseBean bean : mRemedyBean.getTherapeuticalUsages()) {
+					buf.append(bean.getDiseaseName() + "\n");
+				}
+				therapeuticalUsageView.setText(buf.toString());
 			} else {
-				mRemedyReported.setText("empty therapeutical");
+				therapeuticalUsageView.setText("No therapeutical usages for this remedy.");
 
 			}
 		}
