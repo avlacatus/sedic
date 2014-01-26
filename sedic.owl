@@ -26456,7 +26456,6 @@ In terms of human well-being, licorice has been used traditionally for many heal
         <sedic:has_medical_factor rdf:resource="&sedic;Dental_work_planning"/>
         <sedic:is_affected_by rdf:resource="&sedic;Hemorrhagic_Disorders"/>
         <sedic:is_affected_by rdf:resource="&sedic;Infection"/>
-        <sedic:has_medical_factor rdf:resource="&sedic;Infection"/>
         <sedic:has_medical_factor rdf:resource="&sedic;Organ_transplant"/>
         <sedic:has_medical_factor rdf:resource="&sedic;Pregnancy"/>
         <sedic:has_medical_factor rdf:resource="&sedic;Surgery_planning"/>
@@ -26934,7 +26933,6 @@ In terms of human well-being, licorice has been used traditionally for many heal
         <sedic:has_medical_condition_id>60052</sedic:has_medical_condition_id>
         <sedic:has_min_age>10</sedic:has_min_age>
         <sedic:is_affected_by rdf:resource="&sedic;Goiter"/>
-        <sedic:has_medical_factor rdf:resource="&sedic;Goiter"/>
     </owl:NamedIndividual>
     
 
@@ -27206,9 +27204,9 @@ In terms of human well-being, licorice has been used traditionally for many heal
     
 
 
-    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Medical_Condition_Stinging_Nettle -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Medical_Condition_Stining_Nettle -->
 
-    <owl:NamedIndividual rdf:about="&sedic;Medical_Condition_Stinging_Nettle">
+    <owl:NamedIndividual rdf:about="&sedic;Medical_Condition_Stining_Nettle">
         <rdf:type rdf:resource="&sedic;MedicalCondition"/>
         <sedic:has_min_age>10</sedic:has_min_age>
         <sedic:has_medical_condition_id>60074</sedic:has_medical_condition_id>
@@ -27229,9 +27227,9 @@ In terms of human well-being, licorice has been used traditionally for many heal
     
 
 
-    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Medical_Condition_Turmeric -->
+    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Medical_Condition_Tumeric -->
 
-    <owl:NamedIndividual rdf:about="&sedic;Medical_Condition_Turmeric">
+    <owl:NamedIndividual rdf:about="&sedic;Medical_Condition_Tumeric">
         <rdf:type rdf:resource="&sedic;MedicalCondition"/>
         <sedic:has_min_age>10</sedic:has_min_age>
         <sedic:has_medical_condition_id>60076</sedic:has_medical_condition_id>
@@ -35754,14 +35752,6 @@ Recently, a proprietary extract of red clover, standardized to the phytoestrogen
     
 
 
-    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Remedy_Stinging_Nettle -->
-
-    <owl:NamedIndividual rdf:about="&sedic;Remedy_Stinging_Nettle">
-        <sedic:has_medical_condition rdf:resource="&sedic;Medical_Condition_Stinging_Nettle"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Remedy_Stining_Nettle -->
 
     <owl:NamedIndividual rdf:about="&sedic;Remedy_Stining_Nettle">
@@ -35792,6 +35782,7 @@ Recently, a proprietary extract of red clover, standardized to the phytoestrogen
         <sedic:hasAdjuvantUsage rdf:resource="&sedic;Hemostatics"/>
         <sedic:hasReportedUsage rdf:resource="&sedic;Hemostatics"/>
         <sedic:hasPlantPartUsage rdf:resource="&sedic;Leaf"/>
+        <sedic:has_medical_condition rdf:resource="&sedic;Medical_Condition_Stining_Nettle"/>
         <sedic:hasFrequentUsage rdf:resource="&sedic;Prostatic_Hyperplasia"/>
         <sedic:hasTherapeuticalUsage rdf:resource="&sedic;Prostatic_Hyperplasia"/>
         <sedic:hasTherapeuticalUsage rdf:resource="&sedic;Rhinitis,_Allergic,_Seasonal"/>
@@ -35861,19 +35852,12 @@ Recently, a proprietary extract of red clover, standardized to the phytoestrogen
         <sedic:hasFrequentUsage rdf:resource="&sedic;Hypercholesterolemia"/>
         <sedic:hasReportedUsage rdf:resource="&sedic;Inflammatory_Bowel_Diseases"/>
         <sedic:hasTherapeuticalUsage rdf:resource="&sedic;Inflammatory_Bowel_Diseases"/>
+        <sedic:has_medical_condition rdf:resource="&sedic;Medical_Condition_Tumeric"/>
         <sedic:hasAdjuvantUsage rdf:resource="&sedic;Radiation-Protective_Agents"/>
         <sedic:hasReportedUsage rdf:resource="&sedic;Radiation-Protective_Agents"/>
         <sedic:hasPlantPartUsage rdf:resource="&sedic;Rhizome"/>
         <sedic:hasPlantPartUsage rdf:resource="&sedic;Root"/>
         <sedic:usesPlant rdf:resource="&sedic;Tumeric"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.infoiasi.ro/wad/ontologies/sedic#Remedy_Turmeric -->
-
-    <owl:NamedIndividual rdf:about="&sedic;Remedy_Turmeric">
-        <sedic:has_medical_condition rdf:resource="&sedic;Medical_Condition_Turmeric"/>
     </owl:NamedIndividual>
     
 
