@@ -41,7 +41,7 @@
             android:label="Therapeutics" >
         </activity>
         <activity
-            android:name="ro.infoiasi.sedic.android.activity.DrugsListActivity"
+            android:name="ro.infoiasi.sedic.android.activity.AdjuvantsListActivity"
             android:label="Adjuvants" >
         </activity>
     </application>

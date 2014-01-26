@@ -59,7 +59,7 @@ public class SelectAdjuvantsFragment extends Fragment {
 
 				DrugBean root = null;
 				for (DrugBean bean : drugs) {
-					if (bean.getBeanName().equalsIgnoreCase("chemicals and drugs")) {
+					if (bean.getBeanName().equalsIgnoreCase("chemical actions and uses")) {
 						root = bean;
 						break;
 					}
@@ -67,15 +67,30 @@ public class SelectAdjuvantsFragment extends Fragment {
 
 				List<DrugBean> parents = new ArrayList<DrugBean>();
 				for (DrugBean bean : root.getDrugChildren()) {
-					treeBuilder.sequentiallyAddNextNode(bean, 0);
 					parents.add(bean);
+				}
+
+				for (DrugBean bean : drugs) {
+					if (bean.getBeanName().equalsIgnoreCase("lipids")) {
+						parents.add(bean);
+						break;
+					}
+				}
+
+				for (DrugBean bean : drugs) {
+					if (bean.getBeanName().equalsIgnoreCase("hormones, hormone substitutes, and hormone antagonists")) {
+						parents.add(bean);
+						break;
+					}
+				}
+				for (DrugBean bean : parents) {
+					treeBuilder.sequentiallyAddNextNode(bean, 0);
 				}
 
 				for (int i = 0; i < LEVEL_NUMBER; i++) {
 					List<DrugBean> children = addNewLayer(parents, treeBuilder);
 					parents = children;
 				}
-
 				return true;
 			}
 		}

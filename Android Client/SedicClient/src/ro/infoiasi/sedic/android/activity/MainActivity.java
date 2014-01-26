@@ -104,7 +104,7 @@ public class MainActivity extends ActionBarActivity {
 				}
 					break;
 				case 1: {
-					Intent intent = new Intent(MainActivity.this, DrugsListActivity.class);
+					Intent intent = new Intent(MainActivity.this, AdjuvantsListActivity.class);
 					startActivity(intent);
 					mDrawerLayout.closeDrawer(GravityCompat.START);
 				}

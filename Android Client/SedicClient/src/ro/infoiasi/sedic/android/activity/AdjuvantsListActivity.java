@@ -1,6 +1,7 @@
 package ro.infoiasi.sedic.android.activity;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -22,6 +23,7 @@ import ro.infoiasi.sedic.android.util.DialogUtils;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.MenuInflater;
@@ -30,10 +32,9 @@ import android.view.View;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import de.greenrobot.event.EventBus;
 
-public class DrugsListActivity extends ActionBarActivity {
+public class AdjuvantsListActivity extends ActionBarActivity {
 	@SuppressWarnings("unused")
-	private static final String tag = DrugsListActivity.class.getSimpleName();
-	private List<DrugBean> mDrugList;
+	private static final String tag = AdjuvantsListActivity.class.getSimpleName();
 	private TreeViewList treeView;
 	private static final int LEVEL_NUMBER = 6;
 	private TreeStateManager<DrugBean> manager = null;
@@ -47,18 +48,10 @@ public class DrugsListActivity extends ActionBarActivity {
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		setContentView(R.layout.expandable_list_layout);
 		EventBus.getDefault().register(this, GetDrugsEvent.class, RemedySearchEvent.class);
-		setupData();
 		manager = new InMemoryTreeStateManager<DrugBean>();
 		initialized = initTreeManager();
 		setupUI();
 		registerForContextMenu(treeView);
-	}
-
-	private void setupData() {
-		Map<Long, DrugBean> drugMap = SedicApplication.getInstance().getDrugs();
-		if (drugMap != null) {
-			mDrugList = new ArrayList<DrugBean>(drugMap.values());
-		}
 	}
 
 	private void setupUI() {
@@ -71,12 +64,13 @@ public class DrugsListActivity extends ActionBarActivity {
 
 	private boolean initTreeManager() {
 		if (SedicApplication.getInstance().getDrugs() != null) {
+			Collection<DrugBean> drugList = new ArrayList<DrugBean>(SedicApplication.getInstance().getDrugs().values());
 			final TreeBuilder<DrugBean> treeBuilder = new TreeBuilder<DrugBean>(manager);
-			if (mDrugList != null) {
+			if (drugList != null) {
 
 				DrugBean root = null;
-				for (DrugBean bean : mDrugList) {
-					if (bean.getBeanName().equalsIgnoreCase("chemicals and drugs")) {
+				for (DrugBean bean : drugList) {
+					if (bean.getBeanName().equalsIgnoreCase("chemical actions and uses")) {
 						root = bean;
 						break;
 					}
@@ -84,8 +78,24 @@ public class DrugsListActivity extends ActionBarActivity {
 
 				List<DrugBean> parents = new ArrayList<DrugBean>();
 				for (DrugBean bean : root.getDrugChildren()) {
-					treeBuilder.sequentiallyAddNextNode(bean, 0);
 					parents.add(bean);
+				}
+
+				for (DrugBean bean : drugList) {
+					if (bean.getBeanName().equalsIgnoreCase("lipids")) {
+						parents.add(bean);
+						break;
+					}
+				}
+
+				for (DrugBean bean : drugList) {
+					if (bean.getBeanName().equalsIgnoreCase("hormones, hormone substitutes, and hormone antagonists")) {
+						parents.add(bean);
+						break;
+					}
+				}
+				for (DrugBean bean : parents) {
+					treeBuilder.sequentiallyAddNextNode(bean, 0);
 				}
 
 				for (int i = 0; i < LEVEL_NUMBER; i++) {
@@ -142,8 +152,10 @@ public class DrugsListActivity extends ActionBarActivity {
 	}
 
 	public void onEventMainThread(GetDrugsEvent e) {
+		Log.e("debug", "adjuvants list get drug event");
 		if (!initialized) {
 			initTreeManager();
+			drugAdapter.notifyDataSetChanged();
 		}
 	}
 

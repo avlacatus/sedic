@@ -34,7 +34,7 @@ public class RemedyDetailActivity extends ActionBarActivity {
 		}
 		setupData();
 		if (mRemedyBean != null) {
-			setTitle(mRemedyBean.getRemedyName());
+			getSupportActionBar().setTitle(mRemedyBean.getRemedyName());
 		}
 		setupUI();
 	}

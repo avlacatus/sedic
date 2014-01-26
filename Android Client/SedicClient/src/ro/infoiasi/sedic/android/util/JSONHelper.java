@@ -121,8 +121,12 @@ public class JSONHelper {
 									}
 
 									DrugBean childBean = output.get(childId);
-									if (childBean != null && !childURI.equals(selectedDrug.getDrugURI())) {
-										children.add(childBean);
+									if (childBean != null) {
+										if (!childURI.equals(selectedDrug.getDrugURI())) {
+											children.add(childBean);
+										}
+									} else {
+										Log.e("debug", childURI + "cannot be found!");
 									}
 								}
 
@@ -161,7 +165,7 @@ public class JSONHelper {
 				output.put(newDisease.getDiseaseId(), newDisease);
 			}
 
-			// add the links to the parents
+			// add the links to the children
 			for (int i = 0; i < jsonDiseaseArray.length(); i++) {
 				JSONObject jsonDisease = jsonDiseaseArray.getJSONObject(i);
 				long diseaseId = -1;
@@ -172,9 +176,6 @@ public class JSONHelper {
 				if (diseaseId != -1) {
 					DiseaseBean selectedDisease = output.get(diseaseId);
 					if (selectedDisease != null) {
-						if (selectedDisease.getDiseaseName().equalsIgnoreCase("Pain")) {
-							Log.e("debug", selectedDisease.getBeanName());
-						}
 						JSONArray diseaseChildrenArray = null;
 						if (jsonDisease.has("disease_children")) {
 							diseaseChildrenArray = jsonDisease.getJSONArray("disease_children");
@@ -195,8 +196,12 @@ public class JSONHelper {
 									}
 
 									DiseaseBean childBean = output.get(childId);
-									if (childBean != null && !childURI.equals(selectedDisease.getDiseaseURI())) {
-										children.add(childBean);
+									if (childBean != null) {
+										if (!childURI.equals(selectedDisease.getDiseaseURI())) {
+											children.add(childBean);
+										}
+									} else {
+										Log.e("debug", childURI + " cannot be found!");
 									}
 								}
 

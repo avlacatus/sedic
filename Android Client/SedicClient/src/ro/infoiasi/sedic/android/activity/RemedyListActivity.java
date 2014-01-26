@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import de.greenrobot.event.EventBus;
 
@@ -72,7 +73,9 @@ public class RemedyListActivity extends ActionBarActivity implements AdapterView
 
 	private void findViews() {
 		mListView = (ListView) findViewById(android.R.id.list);
-		mListView.setEmptyView(findViewById(android.R.id.empty));
+		TextView emptyView = (TextView) findViewById(android.R.id.empty);
+		emptyView.setText("No results found");
+		mListView.setEmptyView(emptyView);
 		if (mRemedyList != null) {
 			mRemedyListAdapter = new RemedyListAdapter(this, 0, mRemedyList);
 			mListView.setAdapter(mRemedyListAdapter);
