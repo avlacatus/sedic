@@ -3,50 +3,50 @@ package ro.infoiasi.sedic.model.entity;
 import org.apache.jena.atlas.json.JsonObject;
 
 public class ChildEntity {
-	private long parentId;
-	private String parentURI;
+	private long childId;
+	private String childURI;
 
 	public ChildEntity() {
 	}
 
 	public ChildEntity(long plantId, String plantURI) {
 		super();
-		this.parentId = plantId;
-		this.parentURI = plantURI;
+		this.childId = plantId;
+		this.childURI = plantURI;
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append(", parentId=");
-		builder.append(parentId);
+		builder.append(childId);
 		builder.append(", parentURI=");
-		builder.append(parentURI);
+		builder.append(childURI);
 		builder.append("]");
 		return builder.toString();
 	}
 
 	public JsonObject toJSONString() {
 		JsonObject outputObject = new JsonObject();
-		outputObject.put("child_id", parentId);
-		outputObject.put("child_uri", parentURI);
+		outputObject.put("child_id", childId);
+		outputObject.put("child_uri", childURI);
 		return outputObject;
 	}
 
 	public long getParentId() {
-		return parentId;
+		return childId;
 	}
 
 	public void setParentId(long parentId) {
-		this.parentId = parentId;
+		this.childId = parentId;
 	}
 
 	public String getParentURI() {
-		return parentURI;
+		return childURI;
 	}
 
 	public void setParentURI(String parentURI) {
-		this.parentURI = parentURI;
+		this.childURI = parentURI;
 	}
 
 }

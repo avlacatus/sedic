@@ -12,49 +12,39 @@ import ro.infoiasi.sedic.model.entity.PlantEntity;
 import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntResource;
-import com.hp.hpl.jena.query.ARQ;
-import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryExecution;
-import com.hp.hpl.jena.query.QueryExecutionFactory;
-import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 
-public class Plant extends EntityHelper {
+public class PlantHelper extends EntityHelper {
 
-	private static Plant sInstance;
+	private static PlantHelper sInstance;
 
-	private Plant() {
+	private PlantHelper() {
 		super();
 	}
 
-	public static Plant getInstance() {
+	public static PlantHelper getInstance() {
 		if (sInstance == null) {
-			sInstance = new Plant();
+			sInstance = new PlantHelper();
 		}
 		return sInstance;
 	}
 
 	public JsonArray getPlantArray() {
-		OntClass plantClass = getOntModel().getResource(
-				OntologyUtils.NS + "Plant").as(OntClass.class);
-		Property hasPlantId = getOntModel().getProperty(
-				OntologyUtils.NS + "has_plant_id");
-		Property hasPlantDescription = getOntModel().getProperty(
-				OntologyUtils.NS + "plantDescription");
-		ExtendedIterator<? extends OntResource> listInstances = plantClass
-				.listInstances();
+		OntClass plantClass = getOntModel().getResource(OntologyUtils.NS + "Plant").as(OntClass.class);
+		Property hasPlantId = getOntModel().getProperty(OntologyUtils.NS + "has_plant_id");
+		Property hasPlantDescription = getOntModel().getProperty(OntologyUtils.NS + "plantDescription");
+		ExtendedIterator<? extends OntResource> listInstances = plantClass.listInstances();
 		List<PlantEntity> plants = new ArrayList<PlantEntity>();
 		while (listInstances.hasNext()) {
 			Individual plantResource = (Individual) listInstances.next();
 			RDFNode propertyValue = plantResource.getPropertyValue(hasPlantId);
-			RDFNode plantDescription = plantResource
-					.getPropertyValue(hasPlantDescription);
+			RDFNode plantDescription = plantResource.getPropertyValue(hasPlantDescription);
 			PlantEntity plant = new PlantEntity();
-			String plantName = plantResource.getURI()
-					.substring(OntologyUtils.NS.length()).replaceAll("_", " ");
+			String plantName = plantResource.getURI().substring(OntologyUtils.NS.length()).replaceAll("_", " ");
 			plant.setPlantURI(plantResource.getURI());
 			plant.setPlantName(plantName);
 			plant.setPlantId(Long.valueOf(propertyValue.toString()));
@@ -70,30 +60,22 @@ public class Plant extends EntityHelper {
 	}
 
 	public String getSpecificPlant(String id) {
-		String sparqlQueryString = OntologyUtils.SPARQL_PREFIXES
-				+ "SELECT ?subject "
-				+ "WHERE { ?subject rdf:type sedic:Plant . "
-				+ "?subject sedic:has_plant_id ?value ."
+		String sparqlQueryString = OntologyUtils.SPARQL_PREFIXES + "SELECT ?subject "
+				+ "WHERE { ?subject rdf:type sedic:Plant . " + "?subject sedic:has_plant_id ?value ."
 				+ "FILTER (STR(?value)= '" + id + "')" + "}";
 		String response = "";
-		QueryExecution qexec = OntologyUtils.getSPARQLQuery(this,
-				sparqlQueryString);
+		QueryExecution qexec = OntologyUtils.getSPARQLQuery(this, sparqlQueryString);
 		com.hp.hpl.jena.query.ResultSet results = qexec.execSelect();
 		if (results.hasNext()) {
 			QuerySolution soln = results.nextSolution();
 			response = soln.get("subject").toString();
-			Individual plantResource = getOntModel().getResource(response).as(
-					Individual.class);
-			Property hasPlantId = getOntModel().getProperty(
-					OntologyUtils.NS + "has_plant_id");
-			Property hasPlantDescription = getOntModel().getProperty(
-					OntologyUtils.NS + "plantDescription");
+			Individual plantResource = getOntModel().getResource(response).as(Individual.class);
+			Property hasPlantId = getOntModel().getProperty(OntologyUtils.NS + "has_plant_id");
+			Property hasPlantDescription = getOntModel().getProperty(OntologyUtils.NS + "plantDescription");
 			RDFNode propertyValue = plantResource.getPropertyValue(hasPlantId);
-			RDFNode plantDescription = plantResource
-					.getPropertyValue(hasPlantDescription);
+			RDFNode plantDescription = plantResource.getPropertyValue(hasPlantDescription);
 			PlantEntity plant = new PlantEntity();
-			String plantName = plantResource.getURI()
-					.substring(OntologyUtils.NS.length()).replaceAll("_", " ");
+			String plantName = plantResource.getURI().substring(OntologyUtils.NS.length()).replaceAll("_", " ");
 			plant.setPlantURI(plantResource.getURI());
 			plant.setPlantName(plantName);
 			plant.setPlantId(Long.valueOf(propertyValue.toString()));
@@ -101,8 +83,11 @@ public class Plant extends EntityHelper {
 			qexec.close();
 			JsonObject plantJson = plant.toJSONString();
 			return plantJson.toString();
-		} else
-			return "Plant not found!";
+		} else {
+			JsonObject output = new JsonObject();
+			output.put("error", "Plant not found!");
+			return output.toString();
+		}
 
 	}
 

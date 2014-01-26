@@ -1,7 +1,6 @@
 package ro.infoiasi.sedic.model.entity;
 
 
-import org.apache.jena.atlas.json.JSON;
 import org.apache.jena.atlas.json.JsonObject;
 
 public class PlantEntity {

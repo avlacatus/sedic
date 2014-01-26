@@ -1,6 +1,7 @@
 package ro.infoiasi.sedic.model.entity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.jena.atlas.json.JsonArray;
 import org.apache.jena.atlas.json.JsonObject;
@@ -9,20 +10,20 @@ public class RemedyEntity {
 	private String remedyName;
 	private long remedyId;
 	private String remedyURI;
-	private ArrayList<RemedyPropertyEntity> adjuvantUsage = new ArrayList<RemedyPropertyEntity>();
-	private ArrayList<RemedyPropertyEntity> frequentUsage = new ArrayList<RemedyPropertyEntity>();
-	private ArrayList<RemedyPropertyEntity> reportedUsage = new ArrayList<RemedyPropertyEntity>();
-	private ArrayList<RemedyPropertyEntity> therapeuticalUsage = new ArrayList<RemedyPropertyEntity>();
-	private ArrayList<String> partPlantUsage = new ArrayList<String>();
-	private long plantId;
+	private long remedyPlantId;
+	private List<RemedyPropertyEntity> adjuvantUsage = new ArrayList<RemedyPropertyEntity>();
+	private List<RemedyPropertyEntity> frequentUsage = new ArrayList<RemedyPropertyEntity>();
+	private List<RemedyPropertyEntity> reportedUsage = new ArrayList<RemedyPropertyEntity>();
+	private List<RemedyPropertyEntity> therapeuticalUsage = new ArrayList<RemedyPropertyEntity>();
+	private List<String> partPlantUsage = new ArrayList<String>();
 
 	public RemedyEntity() {
 	}
 
 	public RemedyEntity(String remedyName, long remedyId, String remedyURI,
-			ArrayList<RemedyPropertyEntity> adjuvantUsage, ArrayList<RemedyPropertyEntity> frequentUsage,
-			ArrayList<RemedyPropertyEntity> reportedUsage,
-			ArrayList<RemedyPropertyEntity> therapeuticalUsage, long plantId, ArrayList<String> partPlantUsage) {
+			List<RemedyPropertyEntity> adjuvantUsage, List<RemedyPropertyEntity> frequentUsage,
+			List<RemedyPropertyEntity> reportedUsage,
+			List<RemedyPropertyEntity> therapeuticalUsage, long remedyPlantId, List<String> partPlantUsage) {
 		super();
 		this.remedyName = remedyName;
 		this.remedyId = remedyId;
@@ -31,23 +32,23 @@ public class RemedyEntity {
 		this.frequentUsage = frequentUsage;
 		this.reportedUsage = reportedUsage;
 		this.therapeuticalUsage = therapeuticalUsage;
-		this.plantId = plantId;
+		this.remedyPlantId = remedyPlantId;
 		this.partPlantUsage = partPlantUsage;
 	}
 
-	public long getPlantId() {
-		return plantId;
+	public long getRemedyPlantId() {
+		return remedyPlantId;
 	}
 
-	public void setPlantId(long plantId) {
-		this.plantId = plantId;
+	public void setRemedyPlantId(long plantId) {
+		this.remedyPlantId = plantId;
 	}
 
 	@Override
 	public String toString() {
 		return "RemedyEntity [remedyName=" + remedyName + ", remedyId="
 				+ remedyId + ", remedyURI=" + remedyURI + ", plantId="
-				+ plantId + "]";
+				+ remedyPlantId + "]";
 	}
 
 	public JsonObject toCompactJSONString() {
@@ -55,7 +56,7 @@ public class RemedyEntity {
 		outputObject.put("remedy_name", remedyName);
 		outputObject.put("remedy_id", remedyId);
 		outputObject.put("remedy_uri", remedyURI);
-		outputObject.put("remedy_plant_id", plantId);
+		outputObject.put("remedy_plant_id", remedyPlantId);
 		return outputObject;
 	}
 
@@ -89,7 +90,7 @@ public class RemedyEntity {
 		outputObject.put("frequent_usages", frequentArray);
 		outputObject.put("reported_usages", reportedArray);
 		outputObject.put("remedy_uri", remedyURI);
-		outputObject.put("remedy_plant_id", plantId);
+		outputObject.put("remedy_plant_id", remedyPlantId);
 		return outputObject;
 	}
 
@@ -117,21 +118,21 @@ public class RemedyEntity {
 		this.remedyURI = remedyURI;
 	}
 
-	public ArrayList<String> getPartPlantUsage() {
+	public List<String> getPartPlantUsage() {
 		return partPlantUsage;
 	}
 
-	public void setPartPlantUsage(ArrayList<String> partPlantUsage) {
+	public void setPartPlantUsage(List<String> partPlantUsage) {
 		this.partPlantUsage = partPlantUsage;
 	}
 	public void addPlantPartUsage(String plantPart) {
 		this.partPlantUsage.add(plantPart);
 	}
-	public ArrayList<RemedyPropertyEntity> getAdjuvantUsage() {
+	public List<RemedyPropertyEntity> getAdjuvantUsage() {
 		return adjuvantUsage;
 	}
 
-	public void setAdjuvantUsage(ArrayList<RemedyPropertyEntity> adjuvantUsage) {
+	public void setAdjuvantUsage(List<RemedyPropertyEntity> adjuvantUsage) {
 		this.adjuvantUsage = adjuvantUsage;
 	}
 
@@ -139,7 +140,7 @@ public class RemedyEntity {
 		this.adjuvantUsage.add(adjuvant);
 	}
 
-	public ArrayList<RemedyPropertyEntity> getTherapeuticalUsage() {
+	public List<RemedyPropertyEntity> getTherapeuticalUsage() {
 		return therapeuticalUsage;
 	}
 
@@ -151,11 +152,11 @@ public class RemedyEntity {
 		this.therapeuticalUsage.add(therapeutical);
 	}
 
-	public ArrayList<RemedyPropertyEntity> getFrequentUsage() {
+	public List<RemedyPropertyEntity> getFrequentUsage() {
 		return frequentUsage;
 	}
 
-	public void setFrequentUsage(ArrayList<RemedyPropertyEntity> fUsage) {
+	public void setFrequentUsage(List<RemedyPropertyEntity> fUsage) {
 		this.frequentUsage = fUsage;
 	}
 
@@ -163,11 +164,11 @@ public class RemedyEntity {
 		this.frequentUsage.add(frequent);
 	}
 
-	public ArrayList<RemedyPropertyEntity> getReportedUsage() {
+	public List<RemedyPropertyEntity> getReportedUsage() {
 		return reportedUsage;
 	}
 
-	public void setReportedUsage(ArrayList<RemedyPropertyEntity> reportedUsage) {
+	public void setReportedUsage(List<RemedyPropertyEntity> reportedUsage) {
 		this.reportedUsage = reportedUsage;
 	}
 

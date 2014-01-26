@@ -13,34 +13,34 @@ import org.apache.jena.atlas.json.JsonObject;
 
 import ro.infoiasi.sedic.OntologyUtils;
 import ro.infoiasi.sedic.URLConstants;
-import ro.infoiasi.sedic.model.Plant;
+import ro.infoiasi.sedic.model.DrugHelper;
 
-@Path("/plant")
-public class PlantWS {
+@Path("/drug")
+public class DrugResource {
 	@Context
 	private ServletContext context;
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public String getSpecificPlant(@QueryParam(URLConstants.PARAM_PLANT_ID) String id) {
+	public String getDrugs(@QueryParam(URLConstants.PARAM_DRUG_ID) String id) {
 		OntologyUtils.initSedicPath(context);
-		Plant plant = Plant.getInstance();
+		DrugHelper d = DrugHelper.getInstance();
 		if (id != null) {
-			return getPlantByID(plant, id);
+			return getDrugByID(d, id);
 		} else {
-			return getAllPlants(plant);
+			return getAllDrugs(d);
 		}
 	}
 
-	private String getAllPlants(Plant p) {
-		JsonArray response = p.getPlantArray();
+	private String getAllDrugs(DrugHelper d) {
+		JsonArray response = d.getAllDrugs();
 		JsonObject output = new JsonObject();
-		output.put("plants", response);
+		output.put("drugs", response);
 		return output.toString();
 	}
 
-	private String getPlantByID(Plant p, String id) {
-		return p.getSpecificPlant(id);
+	private String getDrugByID(DrugHelper d, String id) {
+		return d.getDrug(id).toString();
 	}
 
 }

@@ -1,6 +1,6 @@
 package ro.infoiasi.sedic.model.entity;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.jena.atlas.json.JsonArray;
 import org.apache.jena.atlas.json.JsonObject;
@@ -9,19 +9,19 @@ public class DrugEntity {
 	private String drugName;
 	private long drugId;
 	private String drugURI;
-	private ArrayList<ChildEntity> parents;
+	private List<ChildEntity> children;
 
 	public DrugEntity() {
 
 	}
 
 	public DrugEntity(String drugName, long drugId, String drugURI,
-			ArrayList<ChildEntity> parents) {
+			List<ChildEntity> children) {
 		super();
 		this.drugName = drugName;
 		this.drugId = drugId;
 		this.drugURI = drugURI;
-		this.parents = parents;
+		this.children = children;
 	}
 
 	@Override
@@ -42,11 +42,11 @@ public class DrugEntity {
 		outputObject.put("drug_name", drugName);
 		outputObject.put("drug_id", drugId);
 		outputObject.put("drug_uri", drugURI);
-		JsonArray parentsArray = new JsonArray();
-		for (ChildEntity p : parents) {
-			parentsArray.add(p.toJSONString());
+		JsonArray childrenArray = new JsonArray();
+		for (ChildEntity p : children) {
+			childrenArray.add(p.toJSONString());
 		}
-		outputObject.put("drug_children", parentsArray);
+		outputObject.put("drug_children", childrenArray);
 		return outputObject;
 	}
 
@@ -74,11 +74,11 @@ public class DrugEntity {
 		this.drugURI = drugURI;
 	}
 
-	public ArrayList<ChildEntity> getParents() {
-		return parents;
+	public List<ChildEntity> getChildren() {
+		return children;
 	}
 
-	public void setParents(ArrayList<ChildEntity> parents) {
-		this.parents = parents;
+	public void setChildren(List<ChildEntity> children) {
+		this.children = children;
 	}
 }

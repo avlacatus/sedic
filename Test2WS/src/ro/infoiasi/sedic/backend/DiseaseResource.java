@@ -13,34 +13,34 @@ import org.apache.jena.atlas.json.JsonObject;
 
 import ro.infoiasi.sedic.OntologyUtils;
 import ro.infoiasi.sedic.URLConstants;
-import ro.infoiasi.sedic.model.Drug;
+import ro.infoiasi.sedic.model.DiseaseHelper;
 
-@Path("/drug")
-public class DrugWS {
+@Path("/disease")
+public class DiseaseResource {
 	@Context
 	private ServletContext context;
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public String getDrugs(@QueryParam(URLConstants.PARAM_DRUG_ID) String id) {
+	public String getDiseases(@QueryParam(URLConstants.PARAM_DISEASE_ID) String id) {
 		OntologyUtils.initSedicPath(context);
-		Drug d = Drug.getInstance();
+		DiseaseHelper d = DiseaseHelper.getInstance();
 		if (id != null) {
-			return getDrugByID(d, id);
+			return getDiseaseByID(d, id);
 		} else {
-			return getAllDrugs(d);
+			return getAllDiseases(d);
 		}
 	}
 
-	private String getAllDrugs(Drug d) {
-		JsonArray response = d.getAllDrugs();
+	private String getAllDiseases(DiseaseHelper d) {
+		JsonArray response = d.getAllDiseases();
 		JsonObject output = new JsonObject();
-		output.put("drugs", response);
+		output.put("diseases", response);
 		return output.toString();
 	}
 
-	private String getDrugByID(Drug d, String id) {
-		return d.getDrug(id).toString();
+	private String getDiseaseByID(DiseaseHelper d, String id) {
+		return d.getSpecificDisease(id).toString();
 	}
 
 }

@@ -18,17 +18,17 @@ import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 
-public class Disease extends EntityHelper {
+public class DiseaseHelper extends EntityHelper {
 
-	private static Disease sInstance;
+	private static DiseaseHelper sInstance;
 
-	private Disease() {
+	private DiseaseHelper() {
 		super();
 	}
 
-	public static Disease getInstance() {
+	public static DiseaseHelper getInstance() {
 		if (sInstance == null) {
-			sInstance = new Disease();
+			sInstance = new DiseaseHelper();
 		}
 		return sInstance;
 	}

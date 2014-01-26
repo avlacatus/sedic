@@ -41,11 +41,11 @@ public class DiseaseEntity {
 		outputObject.put("disease_name", diseaseName);
 		outputObject.put("disease_id", diseaseId);
 		outputObject.put("disease_uri", diseaseURI);
-		JsonArray parentsArray = new JsonArray();
+		JsonArray childArray = new JsonArray();
 		for (ChildEntity p : children) {
-			parentsArray.add(p.toJSONString());
+			childArray.add(p.toJSONString());
 		}
-		outputObject.put("disease_children", parentsArray);
+		outputObject.put("disease_children", childArray);
 		return outputObject;
 	}
 

@@ -17,17 +17,17 @@ import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 
-public class Drug extends EntityHelper {
+public class DrugHelper extends EntityHelper {
 
-	private static Drug sInstance;
+	private static DrugHelper sInstance;
 
-	private Drug() {
+	private DrugHelper() {
 		super();
 	}
 
-	public static Drug getInstance() {
+	public static DrugHelper getInstance() {
 		if (sInstance == null) {
-			sInstance = new Drug();
+			sInstance = new DrugHelper();
 		}
 		return sInstance;
 	}
@@ -77,7 +77,7 @@ public class Drug extends EntityHelper {
 					parents.add(childrenEntity);
 				}
 			}
-			drug.setParents(parents);
+			drug.setChildren(parents);
 			selectChildrenExec.close();
 			
 			drugs.add(drug);
@@ -140,7 +140,7 @@ public class Drug extends EntityHelper {
 				parents.add(parentEntity);
 				}
 			}
-			drug.setParents(parents);
+			drug.setChildren(parents);
 			qexec.close();
 			JsonObject drugJson = drug.toJSONString();
 			return drugJson;
