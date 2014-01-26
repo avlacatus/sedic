@@ -52,48 +52,43 @@ public class DiseaseHelper extends EntityHelper {
 			QuerySolution soln = results.nextSolution();
 			String response = soln.get("class").toString();
 			Individual diseaseResource = getOntModel().getResource(response).as(Individual.class);
-			DiseaseEntity disease = new DiseaseEntity();
 			long diseaseId = Long.valueOf(diseaseResource.getPropertyValue(hasDiseaseId).toString());
-			String diseaseName = diseaseResource.getURI().substring(OntologyUtils.NS.length()).replaceAll("_", " ");
-			disease.setDiseaseURI(diseaseResource.getURI());
-			disease.setDiseaseName(diseaseName);
-			disease.setDiseaseId(diseaseId);
 
+			DiseaseEntity disease = null;
 			if (diseases.containsKey(diseaseId)) {
-				DiseaseEntity diseaseEntity = diseases.get(diseaseId);
-
-				String childUri = soln.get("subclass").toString();
-				Long childId = Long.valueOf(soln.get("strId").toString());
-				ChildEntity childEntity = new ChildEntity();
-				childEntity.setParentURI(childUri);
-				childEntity.setParentId(childId);
-
-				ArrayList<ChildEntity> children = diseaseEntity.getChildren();
-				if (!childUri.equals(diseaseResource.getURI())) {
-					children.add(childEntity);
-				}
-				disease.setChildren(children);
-
-				if (!diseases.containsKey(childId)) {
-					DiseaseEntity childDisease = new DiseaseEntity();
-					childDisease.setDiseaseId(childId);
-					childDisease.setDiseaseURI(childUri);
-					childDisease.setDiseaseName(getEntityName(childUri));
-					childDisease.setChildren(new ArrayList<ChildEntity>());
-					diseases.put(childId, childDisease);
-				}
+				disease = diseases.get(diseaseId);
 			} else {
-				String parent = soln.get("subclass").toString();
-				ArrayList<ChildEntity> parents = new ArrayList<ChildEntity>();
-				ChildEntity parentEntity = new ChildEntity();
-				Long id = Long.valueOf(soln.get("strId").toString());
-				parentEntity.setParentURI(parent);
-				parentEntity.setParentId(id);
-				if (!parent.equals(diseaseResource.getURI()))
-					parents.add(parentEntity);
-				disease.setChildren(parents);
+				disease = new DiseaseEntity();
+				String diseaseName = diseaseResource.getURI().substring(OntologyUtils.NS.length()).replaceAll("_", " ");
+				disease.setDiseaseURI(diseaseResource.getURI());
+				disease.setDiseaseName(diseaseName);
+				disease.setDiseaseId(diseaseId);
+				disease.setChildren(new ArrayList<ChildEntity>());
 				diseases.put(diseaseId, disease);
 			}
+
+			String childUri = soln.get("subclass").toString();
+			Long childId = Long.valueOf(soln.get("strId").toString());
+			ChildEntity childEntity = new ChildEntity();
+			childEntity.setParentURI(childUri);
+			childEntity.setParentId(childId);
+
+			ArrayList<ChildEntity> children = disease.getChildren();
+			if (!childUri.equals(diseaseResource.getURI())) {
+				children.add(childEntity);
+			}
+			disease.setChildren(children);
+
+			if (!diseases.containsKey(childId)) {
+				DiseaseEntity childDisease = new DiseaseEntity();
+				childDisease.setDiseaseId(childId);
+				childDisease.setDiseaseURI(childUri);
+				childDisease.setDiseaseName(getEntityName(childUri));
+				childDisease.setChildren(new ArrayList<ChildEntity>());
+				diseases.put(childId, childDisease);
+			}
+			diseases.put(diseaseId, disease);
+
 		}
 		query.close();
 		JsonArray diseaseArray = new JsonArray();
