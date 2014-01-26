@@ -253,10 +253,10 @@ public class RemedyHelper extends EntityHelper {
 			filterConditions.add("{?mc sedic:has_min_age ?value . filter(xsd:decimal(?value) > "
 					+ medicalCondition.getMedicalConditionMinAge() + ")  }");
 		for (MedicalFactorEntity factor : medicalCondition.getMedicalFactors()) {
-			filterConditions.add("?mc sedic:has_medical_factor " + factor.getMedicalFactorURI() + ". }");
+			filterConditions.add(" { ?mc sedic:has_medical_factor " + factor.getMedicalFactorURI() + ". }");
 		}
 		for (DiseaseEntity d : medicalCondition.getDiseases()) {
-			filterConditions.add("?mc sedic:is_affected_by " + d.getDiseaseURI() + ". }");
+			filterConditions.add(" {?mc sedic:is_affected_by " + d.getDiseaseURI() + ". }");
 		}
 		if (filterConditions.size() > 0) {
 			for (int j = 0; j < filterConditions.size(); j++) {

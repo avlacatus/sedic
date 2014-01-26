@@ -58,7 +58,19 @@ public class RemedyResource {
 			output.put("Error", "Payload empty");
 			return output.toString();
 		}
-		JsonObject jsonPayload = JSON.parse(payload);
+
+		JsonObject jsonPayload = null;
+		try {
+			jsonPayload = JSON.parse(payload);
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		}
+		if (jsonPayload == null)
+		{
+			JsonObject output = new JsonObject();
+			output.put("Error", "Payload mallformed");
+			return output.toString();
+		}
 		ArrayList<String> adjuvantEffects = new ArrayList<String>();
 		ArrayList<String> therapeuticalEffects = new ArrayList<String>();
 		boolean emptyAdjuvants = true;
@@ -88,25 +100,22 @@ public class RemedyResource {
 				therapeuticalEffects.add(thUri);
 			}
 		}
-		
+
 		if (emptyAdjuvants) {
 			JsonObject output = new JsonObject();
 			output.put("Error", "Adjuvants & Therapeutical effects cannot be empty.");
 			return output.toString();
-		} 
+		}
 		MedicalConditionEntity medicalCondition = new MedicalConditionEntity();
-		if (jsonPayload.hasKey("medical_condition"))
-		{
+		if (jsonPayload.hasKey("medical_condition")) {
 			JsonValue medical = jsonPayload.get("medical_condition");
 			JsonObject medicalConditionObject = medical.getAsObject();
-			if (medicalConditionObject.hasKey("age"))
-			{
+			if (medicalConditionObject.hasKey("age")) {
 				JsonValue minAge = medicalConditionObject.get("age");
 				medicalCondition.setMedicalConditionMinAge(Integer.valueOf(minAge.toString()));
-				
+
 			}
-			if (medicalConditionObject.hasKey("medical_factors"))
-			{
+			if (medicalConditionObject.hasKey("medical_factors")) {
 				JsonValue factors = medicalConditionObject.get("medical_factors");
 				JsonArray factorsArray = factors.getAsArray();
 				List<MedicalFactorEntity> medicalFactors = new ArrayList<MedicalFactorEntity>();
@@ -122,8 +131,7 @@ public class RemedyResource {
 				}
 				medicalCondition.setMedicalFactors(medicalFactors);
 			}
-			if (medicalConditionObject.hasKey("diseases"))
-			{
+			if (medicalConditionObject.hasKey("diseases")) {
 				JsonValue diseases = medicalConditionObject.get("diseases");
 				JsonArray diseasesArray = diseases.getAsArray();
 				List<DiseaseEntity> medicalConditionDiseases = new ArrayList<DiseaseEntity>();
@@ -139,16 +147,17 @@ public class RemedyResource {
 				}
 				medicalCondition.setDiseases(medicalConditionDiseases);
 			}
-			
+
 		}
-			JsonArray response = getQueryResult(adjuvantEffects, therapeuticalEffects, medicalCondition);
-			JsonObject output = new JsonObject();
-			output.put("remedies", response);
-			return output.toString();
-		
+		JsonArray response = getQueryResult(adjuvantEffects, therapeuticalEffects, medicalCondition);
+		JsonObject output = new JsonObject();
+		output.put("remedies", response);
+		return output.toString();
+
 	}
 
-	private JsonArray getQueryResult(ArrayList<String> adjuvantEffects, ArrayList<String> therapeuticalEffects, MedicalConditionEntity medicalCondition) {
+	private JsonArray getQueryResult(ArrayList<String> adjuvantEffects, ArrayList<String> therapeuticalEffects,
+			MedicalConditionEntity medicalCondition) {
 		RemedyHelper remedy = RemedyHelper.getInstance();
 		return remedy.getQueryResults(adjuvantEffects, therapeuticalEffects, medicalCondition);
 

@@ -102,18 +102,19 @@ public class DiseaseHelper extends EntityHelper {
 	public JsonObject getSpecificDisease(String Id) {
 
 		StringBuffer selectSubClassesQuery = new StringBuffer(OntologyUtils.SPARQL_PREFIXES);
-		selectSubClassesQuery.append("SELECT DISTINCT ?class ?subclass (str(?id) as ?strId) where { ");
-		selectSubClassesQuery.append("{ ?class rdfs:subClassOf* sedic:Diseases .  ");
-		selectSubClassesQuery.append("?subclass rdfs:subClassOf ?class . ");
-		selectSubClassesQuery.append("?subclass sedic:has_disease_id ?id .");
-		selectSubClassesQuery.append("?class  sedic:has_disease_id ?idclass .");
+		selectSubClassesQuery.append("SELECT DISTINCT ?subject ?subclass (str(?id) as ?strId) where { ");
+		selectSubClassesQuery.append("{ ?class rdfs:subClassOf* sedic:Diseases . ?subject a ?class . ");
+		selectSubClassesQuery.append("optional {?subclass rdfs:subClassOf ?subject . ");
+		selectSubClassesQuery.append("?subclass sedic:has_disease_id ?id . }");
+		selectSubClassesQuery.append("?subject  sedic:has_disease_id ?idclass .");
 		selectSubClassesQuery.append("FILTER (STR(?idclass)= '" + Id + "') }");
 		selectSubClassesQuery.append("UNION ");
-		selectSubClassesQuery.append("{?class rdfs:subClassOf* sedic:Diseases .  ");
-		selectSubClassesQuery.append("?subclass a ?class . ");
-		selectSubClassesQuery.append("?subclass sedic:has_disease_id ?id .");
-		selectSubClassesQuery.append("?class  sedic:has_disease_id ?idclass .");
+		selectSubClassesQuery.append("{?class rdfs:subClassOf* sedic:Diseases . ?subject a ?class .");
+		selectSubClassesQuery.append("optional {?subclass a ?subject . ");
+		selectSubClassesQuery.append("?subclass sedic:has_disease_id ?id . }");
+		selectSubClassesQuery.append("?subject  sedic:has_disease_id ?idclass . ");
 		selectSubClassesQuery.append("FILTER (STR(?idclass)= '" + Id + "')" + "} }");
+		System.out.println(selectSubClassesQuery);
 		QueryExecution qexec = OntologyUtils.getSPARQLQuery(this, selectSubClassesQuery.toString());
 		com.hp.hpl.jena.query.ResultSet results = qexec.execSelect();
 		// System.out.println(sparqlQueryString);
@@ -122,7 +123,7 @@ public class DiseaseHelper extends EntityHelper {
 		if (results.hasNext()) {
 			QuerySolution soln = results.nextSolution();
 
-			String response = soln.get("class").toString();
+			String response = soln.get("subject").toString();
 			System.out.println(response.toString());
 			Individual diseaseResource = getOntModel().getResource(response).as(Individual.class);
 			Property hasDiseaseId = getOntModel().getProperty(OntologyUtils.NS + "has_disease_id");
@@ -133,6 +134,8 @@ public class DiseaseHelper extends EntityHelper {
 			disease.setDiseaseURI(diseaseResource.getURI());
 			disease.setDiseaseName(diseaseName);
 			disease.setDiseaseId(Long.valueOf(propertyValue.toString()));
+			if (soln.get("subclass") != null)
+			{
 			String parent = soln.get("subclass").toString();
 			ArrayList<ChildEntity> parents = new ArrayList<ChildEntity>();
 			ChildEntity parentEntity = new ChildEntity();
@@ -152,6 +155,7 @@ public class DiseaseHelper extends EntityHelper {
 					parents.add(parentEntity);
 			}
 			disease.setChildren(parents);
+			}
 			qexec.close();
 			return disease.toJSONString();
 		} else {

@@ -86,7 +86,7 @@ public class MedicalConditionHelper extends EntityHelper {
 
 		JsonArray diseasesArray = new JsonArray();
 		for (DiseaseEntity d : diseases) {
-			diseasesArray.add(d.toJSONString());
+			diseasesArray.add(d.toCompactJSONString());
 		}
 		return diseasesArray;
 	}

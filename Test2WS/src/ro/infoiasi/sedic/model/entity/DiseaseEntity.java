@@ -9,7 +9,7 @@ public class DiseaseEntity {
 	private String diseaseName;
 	private long diseaseId;
 	private String diseaseURI;
-	private ArrayList<ChildEntity> children;
+	private ArrayList<ChildEntity> children = new ArrayList<ChildEntity>();
 
 	public DiseaseEntity() {
 	}
