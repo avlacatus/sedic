@@ -4,10 +4,12 @@ import ro.infoiasi.sedic.android.R;
 import ro.infoiasi.sedic.android.communication.event.GetCompactRemediesEvent;
 import ro.infoiasi.sedic.android.communication.event.GetDiseasesEvent;
 import ro.infoiasi.sedic.android.communication.event.GetDrugsEvent;
+import ro.infoiasi.sedic.android.communication.event.GetMedicalConditionEvent;
 import ro.infoiasi.sedic.android.communication.event.GetPlantsEvent;
 import ro.infoiasi.sedic.android.communication.task.GetCompactRemedyListServiceTask;
 import ro.infoiasi.sedic.android.communication.task.GetDiseaseServiceTask;
 import ro.infoiasi.sedic.android.communication.task.GetDrugServiceTask;
+import ro.infoiasi.sedic.android.communication.task.GetMedicalConditionServiceTask;
 import ro.infoiasi.sedic.android.communication.task.GetPlantsServiceTask;
 import android.app.Activity;
 import android.content.Intent;
@@ -25,11 +27,12 @@ public class SplashActivity extends Activity {
 		setContentView(R.layout.splash_layout);
 
 		EventBus.getDefault().register(this, GetPlantsEvent.class, GetCompactRemediesEvent.class, GetDrugsEvent.class,
-				GetDiseasesEvent.class);
+				GetDiseasesEvent.class, GetMedicalConditionEvent.class);
 		new GetPlantsServiceTask().execute();
 		new GetCompactRemedyListServiceTask().execute();
 		new GetDrugServiceTask().execute();
 		new GetDiseaseServiceTask().execute();
+		new GetMedicalConditionServiceTask().execute();
 	}
 
 	@Override
@@ -50,7 +53,7 @@ public class SplashActivity extends Activity {
 	protected void onDestroy() {
 		super.onDestroy();
 		EventBus.getDefault().unregister(this, GetPlantsEvent.class, GetCompactRemediesEvent.class,
-				GetDrugsEvent.class, GetDiseasesEvent.class);
+				GetDrugsEvent.class, GetDiseasesEvent.class, GetMedicalConditionEvent.class);
 	}
 
 	public void onEventMainThread(GetPlantsEvent e) {
@@ -67,5 +70,9 @@ public class SplashActivity extends Activity {
 
 	public void onEventMainThread(GetDiseasesEvent e) {
 		Log.e(tag, "GetDiseasesEvent received");
+	}
+	
+	public void onEventMainThread(GetMedicalConditionEvent e) {
+		Log.e(tag, "GetMedicalConditionEvent received");
 	}
 }

@@ -13,9 +13,11 @@ import pl.polidea.treeview.TreeStateManager;
 import pl.polidea.treeview.TreeViewList;
 import ro.infoiasi.sedic.android.R;
 import ro.infoiasi.sedic.android.SedicApplication;
+import ro.infoiasi.sedic.android.activity.MainActivity;
 import ro.infoiasi.sedic.android.adapter.BeanTreeAdapter;
 import ro.infoiasi.sedic.android.communication.event.GetDiseasesEvent;
 import ro.infoiasi.sedic.android.model.DiseaseBean;
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -43,7 +45,14 @@ public class SelectTherapiesFragment extends Fragment {
 		manager = new InMemoryTreeStateManager<DiseaseBean>();
 		initialized = initTreeManager();
 		EventBus.getDefault().register(this, GetDiseasesEvent.class);
+	}
 
+	@Override
+	public void onAttach(Activity activity) {
+		super.onAttach(activity);
+		if (activity instanceof MainActivity) {
+			((MainActivity) activity).registerTherapiesFragment(this);
+		}
 	}
 
 	@Override
@@ -63,10 +72,11 @@ public class SelectTherapiesFragment extends Fragment {
 		treeView = (TreeViewList) view.findViewById(R.id.tree_view);
 
 		if (initialized) {
-			simpleAdapter = new BeanTreeAdapter<DiseaseBean>(getActivity(), selected, manager, LEVEL_NUMBER);
+			simpleAdapter = new BeanTreeAdapter<DiseaseBean>(getActivity(), selected, manager, LEVEL_NUMBER, true);
 			treeView.setAdapter(simpleAdapter);
+			simpleAdapter.setCheckedChangedListener((MainActivity) getActivity());
 			treeView.setCollapsible(true);
-        	manager.collapseChildren(null);
+			manager.collapseChildren(null);
 		}
 	}
 
@@ -74,10 +84,11 @@ public class SelectTherapiesFragment extends Fragment {
 		Log.e("debug", "Therapeutics -> getDiseasesEvent");
 		if (!initialized) {
 			initTreeManager();
-			simpleAdapter = new BeanTreeAdapter<DiseaseBean>(getActivity(), selected, manager, LEVEL_NUMBER);
+			simpleAdapter = new BeanTreeAdapter<DiseaseBean>(getActivity(), selected, manager, LEVEL_NUMBER, true);
 			treeView.setAdapter(simpleAdapter);
+			simpleAdapter.setCheckedChangedListener((MainActivity) getActivity());
 			treeView.setCollapsible(true);
-        	manager.collapseChildren(null);
+			manager.collapseChildren(null);
 		}
 	}
 
@@ -125,6 +136,10 @@ public class SelectTherapiesFragment extends Fragment {
 			}
 		}
 		return output;
+	}
+
+	public Set<DiseaseBean> getSelection() {
+		return selected;
 	}
 
 }

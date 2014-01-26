@@ -3,7 +3,6 @@
     <string name="app_name">Sematic Medicine</string>
     <string name="title_main_activity">Sematic Medicine</string>
     <string name="list_empty_message">There is no available data.</string>
-	
     <string name="simple_menu_name">Simple Adapter</string>
     <string name="simple_menu_condensed">Simple</string>
     <string name="fancy_menu_name">Fancy Menu</string>
@@ -16,5 +15,8 @@
     <string name="expand_menu">Expand</string>
     <string name="delete_menu">Delete</string>
     <string name="browse">BROWSE</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+    <string name="perform_query">Perform query</string>
 
 </resources>
