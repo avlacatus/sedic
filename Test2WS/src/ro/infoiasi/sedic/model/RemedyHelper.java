@@ -7,7 +7,9 @@ import org.apache.jena.atlas.json.JsonArray;
 import org.apache.jena.atlas.json.JsonObject;
 
 import ro.infoiasi.sedic.OntologyUtils;
+import ro.infoiasi.sedic.model.entity.DiseaseEntity;
 import ro.infoiasi.sedic.model.entity.MedicalConditionEntity;
+import ro.infoiasi.sedic.model.entity.MedicalFactorEntity;
 import ro.infoiasi.sedic.model.entity.RemedyEntity;
 import ro.infoiasi.sedic.model.entity.RemedyPropertyEntity;
 
@@ -95,13 +97,16 @@ public class RemedyHelper extends EntityHelper {
 			RDFNode hasMinAgeValue = medicalConditionResource
 					.getPropertyValue(hasMedicalConditionMinAge);
 			MedicalConditionEntity medicalCondition = new MedicalConditionEntity();
-			medicalCondition.setMedicalConditionId(Long.valueOf(hasMedicalConditionIdValue.toString()));
-			medicalCondition.setMedicalConditionMinAge(Integer.valueOf(hasMinAgeValue.toString()));
+			medicalCondition.setMedicalConditionId(Long
+					.valueOf(hasMedicalConditionIdValue.toString()));
+			medicalCondition.setMedicalConditionMinAge(Integer
+					.valueOf(hasMinAgeValue.toString()));
 			String medicalConditionName = medicalConditionResource.getURI()
 					.substring(OntologyUtils.NS.length()).replaceAll("_", " ");
 			medicalCondition.setMedicalConditionName(medicalConditionName);
-			medicalCondition.setMedicalconditionURI(medicalConditionResource.getURI());
-			
+			medicalCondition.setMedicalconditionURI(medicalConditionResource
+					.getURI());
+
 			RemedyEntity remedy = new RemedyEntity();
 			String remedyName = remedyResource.getURI()
 					.substring(OntologyUtils.NS.length()).replaceAll("_", " ");
@@ -243,35 +248,57 @@ public class RemedyHelper extends EntityHelper {
 	}
 
 	public JsonArray getQueryResults(ArrayList<String> adjuvantEffects,
-			ArrayList<String> therapeuticalEffects, MedicalConditionEntity medicalCondition) {
+			ArrayList<String> therapeuticalEffects,
+			MedicalConditionEntity medicalCondition) {
 		String sparqlQueryString = OntologyUtils.SPARQL_PREFIXES
-				+ "SELECT ?subject "
-				+ "	WHERE {{ ?subject rdf:type sedic:Remedy . ";
-		String unionString = "UNION {" + "?subject rdf:type sedic:Remedy .";
+				+ "SELECT distinct ?subject "
+				+ "	WHERE { ?subject rdf:type sedic:Remedy . ?subject sedic:has_medical_condition ?mc . ";
 		int i = 0;
 		for (String adjuvant : adjuvantEffects) {
 			String individual = "?ind" + i;
 			String clas = "?class" + i;
-			sparqlQueryString += " ?subject sedic:hasAdjuvantUsage "
-					+ individual + ".";
-			sparqlQueryString += individual + " a  " + clas + "." + clas
-					+ " rdfs:subClassOf* " + adjuvant + ".";
-			unionString += "?subject sedic:hasAdjuvantUsage " + adjuvant + ".";
+			sparqlQueryString += "{ ?subject sedic:hasAdjuvantUsage "
+					+ individual + " . " + individual + " a  " + clas + " . "
+					+ clas + " rdfs:subClassOf* " + adjuvant + " . } UNION { "
+					+ "?subject sedic:hasAdjuvantUsage " + adjuvant + " . } .";
 			i++;
 		}
 		for (String th : therapeuticalEffects) {
 			String individual = "?ind" + i;
 			String clas = "?class" + i;
-			sparqlQueryString += " ?subject sedic:hasTherapeuticalUsage "
-					+ individual + ".";
-			sparqlQueryString += individual + " a  " + clas + "." + clas
-					+ " rdfs:subClassOf* " + th + ".";
-			unionString += " ?subject sedic:hasTherapeuticalUsage " + th + ".";
+			sparqlQueryString += "{ ?subject sedic:hasTherapeuticalUsage "
+					+ individual + " . " + individual + " a  " + clas + " . "
+					+ clas + " rdfs:subClassOf* " + th + " . } UNION { "
+					+ "?subject sedic:hasTherapeuticalUsage " + th + " . } .";
 			i++;
 		}
-		sparqlQueryString += " }";
-		unionString += "}";
-		sparqlQueryString += unionString + "}";
+
+		String filterString = "FILTER NOT EXISTS { ";
+		ArrayList<String> filterConditions = new ArrayList<String>();
+		if (medicalCondition.getMedicalConditionMinAge() > 0)
+			filterConditions.add ("{?mc sedic:has_min_age ?value . filter(xsd:decimal(?value) > "
+					+ medicalCondition.getMedicalConditionMinAge() + ")  }");
+		for (MedicalFactorEntity factor : medicalCondition.getMedicalFactors())
+		{
+			filterConditions.add ("?mc sedic:has_medical_factor " + factor.getMedicalFactorURI() + ". }");
+		}
+		for (DiseaseEntity d :medicalCondition.getDiseases())
+		{
+			filterConditions.add ("?mc sedic:is_affected_by " + d.getDiseaseURI() + ". }");
+		}
+		if (filterConditions.size() >0)
+		{
+		for (int j=0; j< filterConditions.size(); j++)
+		{
+			String cond = filterConditions.get(j);
+			filterString += cond ;
+			if (j< filterConditions.size() -1)
+				filterString += "UNION";
+		}
+		filterString  += "}";
+		sparqlQueryString += filterString ;
+		}
+		sparqlQueryString += "}";
 		String response = "";
 		QueryExecution qexec = OntologyUtils.getSPARQLQuery(this,
 				sparqlQueryString);
