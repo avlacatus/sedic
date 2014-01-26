@@ -14,21 +14,24 @@ import ro.infoiasi.sedic.android.R;
 import ro.infoiasi.sedic.android.SedicApplication;
 import ro.infoiasi.sedic.android.adapter.DiseaseListAdapter;
 import ro.infoiasi.sedic.android.communication.event.GetDiseasesEvent;
-import ro.infoiasi.sedic.android.communication.event.GetDrugsEvent;
 import ro.infoiasi.sedic.android.communication.event.RemedySearchEvent;
 import ro.infoiasi.sedic.android.communication.task.RemedySearchServiceTask;
 import ro.infoiasi.sedic.android.model.DiseaseBean;
 import ro.infoiasi.sedic.android.model.RemedyBean;
 import ro.infoiasi.sedic.android.util.DialogUtils;
 import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.AsyncTask.Status;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView.AdapterContextMenuInfo;
+import android.widget.ProgressBar;
 import de.greenrobot.event.EventBus;
 
 public class DiseasesListActivity extends ActionBarActivity {
@@ -43,6 +46,42 @@ public class DiseasesListActivity extends ActionBarActivity {
 	private DiseaseListAdapter diseaseAdapter;
 	private boolean initialized = false;
 	private DiseaseBean selectedBean = null;
+	private ProgressBar progress;
+	private InitTreeAsyncTask initTask = null;
+
+	private class InitTreeAsyncTask extends AsyncTask<Void, Void, Void> {
+
+		@Override
+		protected void onPreExecute() {
+			super.onPreExecute();
+			if (!initialized) {
+				progress.setVisibility(View.VISIBLE);
+			}
+		}
+
+		@Override
+		protected Void doInBackground(Void... arg0) {
+			if (!initialized) {
+				initialized = initTreeManager();
+			}
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(Void result) {
+			super.onPostExecute(result);
+			if (initialized) {
+				diseaseAdapter = new DiseaseListAdapter(DiseasesListActivity.this, manager, LEVEL_NUMBER);
+				treeView.setAdapter(diseaseAdapter);
+				treeView.setCollapsible(true);
+				manager.collapseChildren(null);
+				progress.setVisibility(View.GONE);
+			} else {
+				progress.setVisibility(View.VISIBLE);
+			}
+		}
+
+	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -52,9 +91,10 @@ public class DiseasesListActivity extends ActionBarActivity {
 		EventBus.getDefault().register(this, GetDiseasesEvent.class, RemedySearchEvent.class);
 		setupData();
 		manager = new InMemoryTreeStateManager<DiseaseBean>();
-		initialized = initTreeManager();
-		setupUI();
+		findViews();
 		registerForContextMenu(treeView);
+		initTask = new InitTreeAsyncTask();
+		initTask.execute();
 	}
 
 	private void setupData() {
@@ -65,12 +105,9 @@ public class DiseasesListActivity extends ActionBarActivity {
 
 	}
 
-	private void setupUI() {
+	private void findViews() {
 		treeView = (TreeViewList) findViewById(R.id.tree_view);
-		diseaseAdapter = new DiseaseListAdapter(this, manager, LEVEL_NUMBER);
-		treeView.setAdapter(diseaseAdapter);
-		treeView.setCollapsible(true);
-		manager.collapseChildren(null);
+		progress = (ProgressBar) findViewById(R.id.progress);
 	}
 
 	private boolean initTreeManager() {
@@ -147,9 +184,11 @@ public class DiseasesListActivity extends ActionBarActivity {
 		}
 	}
 
-	public void onEventMainThread(GetDrugsEvent e) {
-		if (!initialized) {
-			initTreeManager();
+	public void onEventMainThread(GetDiseasesEvent e) {
+		Log.e("debug", "disease list GetDiseasesEvent");
+		if (!initialized && (initTask == null || initTask.getStatus() == Status.FINISHED)) {
+			initTask = new InitTreeAsyncTask();
+			initTask.execute();
 		}
 	}
 

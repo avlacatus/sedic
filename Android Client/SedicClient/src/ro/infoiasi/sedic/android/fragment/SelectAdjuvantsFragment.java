@@ -19,11 +19,13 @@ import ro.infoiasi.sedic.android.communication.event.GetDrugsEvent;
 import ro.infoiasi.sedic.android.model.DrugBean;
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import de.greenrobot.event.EventBus;
 
 public class SelectAdjuvantsFragment extends Fragment {
@@ -33,11 +35,13 @@ public class SelectAdjuvantsFragment extends Fragment {
 	@SuppressWarnings("unused")
 	private static final String TAG = SelectAdjuvantsFragment.class.getSimpleName();
 	private TreeViewList treeView;
+	private ProgressBar progress;
 
 	private static final int LEVEL_NUMBER = 6;
 	private TreeStateManager<DrugBean> manager = null;
 	private BeanTreeAdapter<DrugBean> simpleAdapter;
 	private boolean initialized = false;
+	private Handler handler = new Handler();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -46,7 +50,7 @@ public class SelectAdjuvantsFragment extends Fragment {
 		initialized = initTreeManager();
 		EventBus.getDefault().register(this, GetDrugsEvent.class);
 	}
-	
+
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
@@ -131,6 +135,7 @@ public class SelectAdjuvantsFragment extends Fragment {
 	public void onViewCreated(View view, Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
 		treeView = (TreeViewList) view.findViewById(R.id.tree_view);
+		progress = (ProgressBar) view.findViewById(R.id.progress);
 
 		if (initialized) {
 			simpleAdapter = new BeanTreeAdapter<DrugBean>(getActivity(), selected, manager, LEVEL_NUMBER, true);
@@ -138,18 +143,45 @@ public class SelectAdjuvantsFragment extends Fragment {
 			treeView.setAdapter(simpleAdapter);
 			treeView.setCollapsible(true);
 			manager.collapseChildren(null);
+			progress.setVisibility(View.GONE);
+		} else {
+			progress.setVisibility(View.VISIBLE);
 		}
 	}
 
-	public void onEventMainThread(GetDrugsEvent e) {
+	public void onEventAsync(GetDrugsEvent e) {
 		Log.e("debug", "GetDrugsEvent");
 		if (!initialized) {
+			handler.post(new Runnable() {
+
+				@Override
+				public void run() {
+					progress.setVisibility(View.VISIBLE);
+				}
+			});
+
 			initTreeManager();
 			simpleAdapter = new BeanTreeAdapter<DrugBean>(getActivity(), selected, manager, LEVEL_NUMBER, true);
-			treeView.setAdapter(simpleAdapter);
-			treeView.setCollapsible(true);
-			simpleAdapter.setCheckedChangedListener((MainActivity) getActivity());
-			manager.collapseChildren(null);
+
+			handler.post(new Runnable() {
+
+				@Override
+				public void run() {
+					treeView.setAdapter(simpleAdapter);
+					treeView.setCollapsible(true);
+					simpleAdapter.setCheckedChangedListener((MainActivity) getActivity());
+					manager.collapseChildren(null);
+					progress.setVisibility(View.GONE);
+				}
+			});
+		} else {
+			handler.post(new Runnable() {
+
+				@Override
+				public void run() {
+					progress.setVisibility(View.GONE);
+				}
+			});
 		}
 	}
 

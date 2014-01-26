@@ -15,6 +15,7 @@ import ro.infoiasi.sedic.android.communication.event.GetRemedyDetailsEvent;
 import ro.infoiasi.sedic.android.communication.event.RemedySearchEvent;
 import ro.infoiasi.sedic.android.communication.event.ResponseEvent;
 import ro.infoiasi.sedic.android.communication.task.RemedySearchServiceTask;
+import ro.infoiasi.sedic.android.communication.task.Response.ResponseStatus;
 import ro.infoiasi.sedic.android.communication.task.ServiceTask;
 import ro.infoiasi.sedic.android.fragment.SelectAdjuvantsFragment;
 import ro.infoiasi.sedic.android.fragment.SelectMedicalFactorFragment;
@@ -41,6 +42,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 import de.greenrobot.event.EventBus;
 
 public class MainActivity extends ActionBarActivity implements BeanTreeAdapter.TreeCellCheckedChangeListener {
@@ -246,9 +248,6 @@ public class MainActivity extends ActionBarActivity implements BeanTreeAdapter.T
 			return true;
 		}
 
-		if (mMedicalFactorsFragment != null && !mMedicalFactorsFragment.getSelection().isEmpty()) {
-			return true;
-		}
 		return output;
 	}
 
@@ -292,18 +291,22 @@ public class MainActivity extends ActionBarActivity implements BeanTreeAdapter.T
 
 	public void onEventMainThread(RemedySearchEvent e) {
 		DialogUtils.hideProgressDialog(this);
-		if (e.getResponse().getData() instanceof Map) {
-			Map<Long, RemedyBean> responseData = (Map<Long, RemedyBean>) e.getResponse().getData();
-			long[] ids = new long[responseData.size()];
-			int i = 0;
-			for (Long id : responseData.keySet()) {
-				ids[i] = id;
-				i++;
+		if (e.getResponse().getStatus().equals(ResponseStatus.OK)) {
+			if (e.getResponse().getData() instanceof Map) {
+				Map<Long, RemedyBean> responseData = (Map<Long, RemedyBean>) e.getResponse().getData();
+				long[] ids = new long[responseData.size()];
+				int i = 0;
+				for (Long id : responseData.keySet()) {
+					ids[i] = id;
+					i++;
+				}
+				Intent intent = new Intent(this, RemedyListActivity.class);
+				intent.putExtra(RemedyListActivity.INTENT_EXTRA_REMEDY_IDS, ids);
+				intent.putExtra(RemedyListActivity.INTENT_EXTRA_ACTIVITY_TITLE, "Search Results");
+				startActivity(intent);
 			}
-			Intent intent = new Intent(this, RemedyListActivity.class);
-			intent.putExtra(RemedyListActivity.INTENT_EXTRA_REMEDY_IDS, ids);
-			intent.putExtra(RemedyListActivity.INTENT_EXTRA_ACTIVITY_TITLE, "Search Results");
-			startActivity(intent);
+		} else {
+			Toast.makeText(this, e.getResponse().getErrorMessage(), Toast.LENGTH_LONG).show();
 		}
 	}
 

@@ -66,7 +66,13 @@ public class RemedySearchServiceTask extends ServiceTask<RemedyBean> {
 		Map<Long, RemedyBean> outputList = null;
 		try {
 			JSONObject jsonResponse = new JSONObject(response);
-			outputList = JSONHelper.parseCompactRemedyArray(jsonResponse.getJSONArray("remedies").toString());
+			if (jsonResponse.has("Error")) {
+				Response<RemedyBean> output = new Response<RemedyBean>(this, Response.ResponseStatus.FAILED);
+				output.setErrorMessage(jsonResponse.getString("Error"));
+				return output;
+			} else {
+				outputList = JSONHelper.parseCompactRemedyArray(jsonResponse.getJSONArray("remedies").toString());
+			}
 		} catch (JSONException e) {
 
 		}
