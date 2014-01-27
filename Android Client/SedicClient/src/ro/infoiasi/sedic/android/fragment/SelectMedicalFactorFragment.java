@@ -20,6 +20,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -150,14 +151,8 @@ public class SelectMedicalFactorFragment extends Fragment {
 	}
 
 	public void onEventAsync(GetMedicalConditionEvent e) {
+		Log.e("debug", "select mf -> GetMedicalConditionEvent");
 		if (!initialized) {
-			handler.post(new Runnable() {
-
-				@Override
-				public void run() {
-					progress.setVisibility(View.VISIBLE);
-				}
-			});
 			initTreeManager();
 			simpleAdapter = new BeanTreeAdapter<Bean>(getActivity(), selected, manager, LEVEL_NUMBER, false);
 			handler.post(new Runnable() {
