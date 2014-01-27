@@ -134,16 +134,20 @@ public class DiseaseHelper extends EntityHelper {
 			disease.setDiseaseURI(diseaseResource.getURI());
 			disease.setDiseaseName(diseaseName);
 			disease.setDiseaseId(Long.valueOf(propertyValue.toString()));
-			if (soln.get("subclass") != null)
-			{
-			String parent = soln.get("subclass").toString();
 			ArrayList<ChildEntity> parents = new ArrayList<ChildEntity>();
 			ChildEntity parentEntity = new ChildEntity();
-			String id = soln.get("strId").toString();
+			String parent = "";
+			String id = "";
+			if (soln.get("subclass") != null)
+			{
+			 parent = soln.get("subclass").toString();
+			
+			 id = soln.get("strId").toString();
 			parentEntity.setParentURI(parent);
 			parentEntity.setParentId(Long.valueOf(id));
 			if (!parent.equals(diseaseResource.getURI()))
 				parents.add(parentEntity);
+			}
 			while (results.hasNext()) {
 				soln = results.nextSolution();
 				parent = soln.get("subclass").toString();
@@ -155,7 +159,7 @@ public class DiseaseHelper extends EntityHelper {
 					parents.add(parentEntity);
 			}
 			disease.setChildren(parents);
-			}
+			
 			qexec.close();
 			return disease.toJSONString();
 		} else {
