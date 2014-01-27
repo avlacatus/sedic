@@ -18,5 +18,8 @@
     <string name="previous">Previous</string>
     <string name="next">Next</string>
     <string name="perform_query">Perform query</string>
+    <string name="plant_part_used">Plant part used</string>
+    <string name="therapeutical_usages">Therapeutical Usages</string>
+    <string name="adjuvant_usages">Adjuvant Usages</string>
 
 </resources>

@@ -18,11 +18,13 @@ import ro.infoiasi.sedic.android.model.DiseaseBean;
 import ro.infoiasi.sedic.android.model.MedicalFactorBean;
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import de.greenrobot.event.EventBus;
 
 public class SelectMedicalFactorFragment extends Fragment {
@@ -32,12 +34,15 @@ public class SelectMedicalFactorFragment extends Fragment {
 	@SuppressWarnings("unused")
 	private static final String TAG = SelectMedicalFactorFragment.class.getSimpleName();
 	private TreeViewList treeView;
+	private ProgressBar progress;
+	private View ageInputGroup;
+	private EditText mAgeInput;
+	private Handler handler = new Handler();
 
 	private static final int LEVEL_NUMBER = 2;
 	private TreeStateManager<Bean> manager = null;
 	private BeanTreeAdapter<Bean> simpleAdapter;
 	private boolean initialized = false;
-	private EditText mAgeInput;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -128,22 +133,53 @@ public class SelectMedicalFactorFragment extends Fragment {
 		super.onViewCreated(view, savedInstanceState);
 		treeView = (TreeViewList) view.findViewById(R.id.tree_view);
 		mAgeInput = (EditText) view.findViewById(R.id.smc_age_input);
+		progress = (ProgressBar) view.findViewById(R.id.progress);
+		ageInputGroup = view.findViewById(R.id.smc_upper);
 
 		if (initialized) {
+			ageInputGroup.setVisibility(View.VISIBLE);
+			progress.setVisibility(View.GONE);
 			simpleAdapter = new BeanTreeAdapter<Bean>(getActivity(), selected, manager, LEVEL_NUMBER, false);
 			treeView.setAdapter(simpleAdapter);
 			simpleAdapter.setCheckedChangedListener((MainActivity) getActivity());
 			treeView.setCollapsible(true);
+		} else {
+			ageInputGroup.setVisibility(View.GONE);
+			progress.setVisibility(View.VISIBLE);
 		}
 	}
 
-	public void onEventMainThread(GetMedicalConditionEvent e) {
+	public void onEventAsync(GetMedicalConditionEvent e) {
 		if (!initialized) {
+			handler.post(new Runnable() {
+
+				@Override
+				public void run() {
+					progress.setVisibility(View.VISIBLE);
+				}
+			});
 			initTreeManager();
 			simpleAdapter = new BeanTreeAdapter<Bean>(getActivity(), selected, manager, LEVEL_NUMBER, false);
-			treeView.setAdapter(simpleAdapter);
-			simpleAdapter.setCheckedChangedListener((MainActivity) getActivity());
-			treeView.setCollapsible(true);
+			handler.post(new Runnable() {
+
+				@Override
+				public void run() {
+					treeView.setAdapter(simpleAdapter);
+					simpleAdapter.setCheckedChangedListener((MainActivity) getActivity());
+					treeView.setCollapsible(true);
+					progress.setVisibility(View.GONE);
+					ageInputGroup.setVisibility(View.VISIBLE);
+				}
+			});
+
+		} else {
+			handler.post(new Runnable() {
+
+				@Override
+				public void run() {
+					progress.setVisibility(View.GONE);
+				}
+			});
 		}
 	}
 

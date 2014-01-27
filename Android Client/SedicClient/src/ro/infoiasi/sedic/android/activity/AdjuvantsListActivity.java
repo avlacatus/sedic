@@ -21,6 +21,8 @@ import ro.infoiasi.sedic.android.model.DrugBean;
 import ro.infoiasi.sedic.android.model.RemedyBean;
 import ro.infoiasi.sedic.android.util.DialogUtils;
 import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.AsyncTask.Status;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -29,6 +31,7 @@ import android.view.ContextMenu.ContextMenuInfo;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import de.greenrobot.event.EventBus;
 
@@ -36,11 +39,47 @@ public class AdjuvantsListActivity extends ActionBarActivity {
 	@SuppressWarnings("unused")
 	private static final String tag = AdjuvantsListActivity.class.getSimpleName();
 	private TreeViewList treeView;
+	private ProgressBar progress;
 	private static final int LEVEL_NUMBER = 6;
 	private TreeStateManager<DrugBean> manager = null;
 	private DrugListAdapter drugAdapter;
 	private boolean initialized = false;
 	private DrugBean selectedBean = null;
+	private InitTreeAsyncTask initTask = null;
+
+	private class InitTreeAsyncTask extends AsyncTask<Void, Void, Void> {
+		
+		@Override
+		protected void onPreExecute() {
+			super.onPreExecute();
+			if (!initialized) {
+				progress.setVisibility(View.VISIBLE);
+			}
+		}
+
+		@Override
+		protected Void doInBackground(Void... arg0) {
+			if (!initialized) {
+				initialized = initTreeManager();
+			}
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(Void result) {
+			super.onPostExecute(result);
+			if (initialized) {
+				drugAdapter = new DrugListAdapter(AdjuvantsListActivity.this, manager, LEVEL_NUMBER);
+				treeView.setAdapter(drugAdapter);
+				treeView.setCollapsible(true);
+				manager.collapseChildren(null);
+				progress.setVisibility(View.GONE);
+			} else {
+				progress.setVisibility(View.VISIBLE);
+			}
+		}
+
+	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -49,17 +88,15 @@ public class AdjuvantsListActivity extends ActionBarActivity {
 		setContentView(R.layout.expandable_list_layout);
 		EventBus.getDefault().register(this, GetDrugsEvent.class, RemedySearchEvent.class);
 		manager = new InMemoryTreeStateManager<DrugBean>();
-		initialized = initTreeManager();
-		setupUI();
+		findViews();
 		registerForContextMenu(treeView);
+		initTask = new InitTreeAsyncTask();
+		initTask.execute();
 	}
 
-	private void setupUI() {
+	private void findViews() {
 		treeView = (TreeViewList) findViewById(R.id.tree_view);
-		drugAdapter = new DrugListAdapter(this, manager, LEVEL_NUMBER);
-		treeView.setAdapter(drugAdapter);
-		treeView.setCollapsible(true);
-		manager.collapseChildren(null);
+		progress = (ProgressBar) findViewById(R.id.progress);
 	}
 
 	private boolean initTreeManager() {
@@ -153,9 +190,9 @@ public class AdjuvantsListActivity extends ActionBarActivity {
 
 	public void onEventMainThread(GetDrugsEvent e) {
 		Log.e("debug", "adjuvants list get drug event");
-		if (!initialized) {
-			initTreeManager();
-			drugAdapter.notifyDataSetChanged();
+		if (!initialized && (initTask == null || initTask.getStatus() == Status.FINISHED)) {
+			initTask = new InitTreeAsyncTask();
+			initTask.execute();
 		}
 	}
 

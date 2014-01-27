@@ -15,36 +15,41 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 public class RemedyListAdapter extends ArrayAdapter<RemedyBean> {
-    private LayoutInflater mInflater;
-    private Map<Long, PlantBean> mPlants;
+	private LayoutInflater mInflater;
+	private Map<Long, PlantBean> mPlants;
 
-    public RemedyListAdapter(Context context, int textViewResourceId, List<RemedyBean> objects) {
-        super(context, textViewResourceId, objects);
-        mInflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        mPlants = SedicApplication.getInstance().getPlantList();
-    }
+	public RemedyListAdapter(Context context, int textViewResourceId, List<RemedyBean> objects) {
+		super(context, textViewResourceId, objects);
+		mInflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		mPlants = SedicApplication.getInstance().getPlantList();
+	}
 
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        RemedyItemHolder tag = null;
-        if (convertView == null) {
-            convertView = mInflater.inflate(R.layout.item_remedy_layout, null);
-            tag = new RemedyItemHolder();
-            tag.remedyName = (TextView) convertView.findViewById(R.id.ir_name);
-            convertView.setTag(tag);
-        } else {
-            tag = (RemedyItemHolder) convertView.getTag();
-        }
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+		RemedyItemHolder tag = null;
+		if (convertView == null) {
+			convertView = mInflater.inflate(R.layout.item_remedy_layout, null);
+			tag = new RemedyItemHolder();
+			tag.remedyName = (TextView) convertView.findViewById(R.id.ir_name);
+			convertView.setTag(tag);
+		} else {
+			tag = (RemedyItemHolder) convertView.getTag();
+		}
 
-        RemedyBean bean = getItem(position);
-        PlantBean plantBean = mPlants.get(bean.getRemedyPlantId());
-        if (plantBean != null) {
-            tag.remedyName.setText(plantBean.getPlantName());
-        }
-        return convertView;
-    }
+		RemedyBean bean = getItem(position);
+		if (mPlants != null) {
+			PlantBean plantBean = mPlants.get(bean.getRemedyPlantId());
+			if (plantBean != null) {
+				tag.remedyName.setText(plantBean.getPlantName());
+			}
+		} else {
+			tag.remedyName.setText(bean.getRemedyName());
 
-    private class RemedyItemHolder {
-        TextView remedyName;
-    }
+		}
+		return convertView;
+	}
+
+	private class RemedyItemHolder {
+		TextView remedyName;
+	}
 }

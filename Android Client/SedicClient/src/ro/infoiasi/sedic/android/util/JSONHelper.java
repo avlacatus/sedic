@@ -12,6 +12,7 @@ import org.json.JSONObject;
 import ro.infoiasi.sedic.android.SedicApplication;
 import ro.infoiasi.sedic.android.model.DiseaseBean;
 import ro.infoiasi.sedic.android.model.DrugBean;
+import ro.infoiasi.sedic.android.model.MedicalConditionBean;
 import ro.infoiasi.sedic.android.model.MedicalFactorBean;
 import ro.infoiasi.sedic.android.model.PlantBean;
 import ro.infoiasi.sedic.android.model.RemedyBean;
@@ -342,6 +343,44 @@ public class JSONHelper {
 			if (obj != null && obj instanceof JSONArray) {
 				output.setTherapeuticalUsages(parseTherapeuticalUsagesJSONArray((JSONArray) obj));
 			}
+		}
+
+		if (jsonRemedy.has("medical_condition")) {
+			Object obj = jsonRemedy.get("medical_condition");
+			if (obj != null && obj instanceof JSONObject) {
+				output.setMedicalCondition(parseMedicalConditionObject((JSONObject) obj));
+			}
+		}
+
+		return output;
+	}
+
+	private static MedicalConditionBean parseMedicalConditionObject(JSONObject object) throws JSONException {
+		MedicalConditionBean output = new MedicalConditionBean();
+		if (object.has("medical_condition_id")) {
+			output.setMedicalConditionId(Long.parseLong(object.getString("medical_condition_id")));
+		}
+
+		if (object.has("medical_condition_mininum_age")) {
+			output.setMedicalConditionMinAge(Integer.parseInt(object.getString("medical_condition_mininum_age")));
+		}
+
+		if (object.has("medical_condition_name")) {
+			output.setMedicalConditionName(object.getString("medical_condition_name"));
+		}
+
+		if (object.has("medical_condition_uri")) {
+			output.setMedicalConditionURI(object.getString("medical_condition_uri"));
+		}
+
+		if (object.has("medical_factors")) {
+			output.setMedicalFactors(new ArrayList<MedicalFactorBean>(parseMedicalFactorArray(
+					object.getJSONArray("medical_factors")).values()));
+		}
+
+		if (object.has("diseases")) {
+			output.setContraindicatedDiseases(new ArrayList<DiseaseBean>(parseDiseaseArray(
+					object.getJSONArray("diseases").toString()).values()));
 		}
 
 		return output;
